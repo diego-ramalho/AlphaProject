@@ -18,14 +18,14 @@ export const routes_settings: Array<Route> = [
     {
         key: 'profile-route',
         title: 'Profile',
-        path: '/profile',
+        path: '/AlphaProject/profile',
         enabled: true,
         component: Profile
     },
     {
         key: 'logout-route',
         title: 'Logout',
-        path: '/logout',
+        path: '/AlphaProject/logout',
         enabled: true,
         component: Logout
     }

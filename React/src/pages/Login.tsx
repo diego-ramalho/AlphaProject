@@ -99,7 +99,6 @@ export default function Login() {
         <Box
             sx={{
                 flexGrow: 1,
-                backgroundColor: "whitesmoke",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -125,6 +124,7 @@ export default function Login() {
                         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                             <TextField
                                 margin="normal"
+                                className="login-input"
                                 required
                                 fullWidth
                                 id="email"
@@ -134,7 +134,8 @@ export default function Login() {
                                 autoFocus
                             />
                             <TextField
-                                margin="normal"
+                                margin="normal" 
+                                className="login-input"
                                 required
                                 fullWidth
                                 name="password"
@@ -169,7 +170,7 @@ export default function Login() {
                             </Grid>
                         </Box>
                     </Box>
-                    <Counter />
+                    {/* <Counter /> */}
                     {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
                 </Container>
             </ThemeProvider>

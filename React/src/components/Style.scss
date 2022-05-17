@@ -1,3 +1,9 @@
+$bg-color: #1D2342;
+$bg-content: #DDD;
+$font-color: #bec9ff;
+$other-color: rgba($bg-color, 0.88);
+
+
 /* Google Font Link */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
@@ -8,6 +14,14 @@
     font-family: "Poppins", sans-serif;
 }
 
+body {
+    background-color: $bg-color;
+}
+
+input.login-input {
+    background: $bg-content;
+}
+
 .sidebar {
     position: fixed;
     left: 0;
@@ -15,6 +29,7 @@
     height: 100%;
     width: 78px;
     background: #11101D;
+    background: $bg-color;
     padding: 6px 14px;
     z-index: 99;
     transition: all 0.5s ease;
@@ -38,6 +53,7 @@
 
 .sidebar .logo-details .logo_name {
     color: #fff;
+    color: $font-color;
     font-size: 20px;
     font-weight: 600;
     opacity: 0;
@@ -69,6 +85,7 @@
 
 .sidebar i {
     color: #fff;
+    color: $font-color;
     height: 60px;
     min-width: 50px;
     font-size: 28px;
@@ -164,18 +181,22 @@
     text-decoration: none;
     transition: all 0.4s ease;
     background: #11101D;
+    background: $bg-color;
 }
 
 .sidebar li a:hover {
     background: #FFF;
+    background: $bg-color;
 
     span {
         color: #11101D;
+        color: $font-color;
     }
 }
 
 .sidebar li a .links_name {
     color: #fff;
+    color: $font-color;
     font-size: 15px;
     font-weight: 400;
     white-space: nowrap;
@@ -187,6 +208,16 @@
 .sidebar.open li a .links_name {
     opacity: 1;
     pointer-events: auto;
+}
+
+.sidebar li a .links_name_short {
+    opacity: 1;
+    color: $font-color;
+    margin-right: -10px;
+}
+
+.sidebar.open li a .links_name_short {
+    opacity: 0;
 }
 
 .sidebar li a:hover .links_name,
@@ -237,6 +268,7 @@
     font-size: 15px;
     font-weight: 400;
     color: #fff;
+    color: $font-color;
     white-space: nowrap;
 }
 
@@ -264,7 +296,7 @@
 
 .content-box {
     position: relative;
-    background: #E4E9F7;
+    background: $bg-content;
     min-height: 100vh;
     top: 0;
     left: 78px;
@@ -293,6 +325,26 @@
     font-size: 25px;
     font-weight: 500;
     margin: 18px
+}
+
+.content-box header a {
+    text-decoration: none;
+    color: $bg-color;
+    padding: 0px 15px;
+    border-right: 1px solid $font-color;
+
+    &:last-child {
+        border-right: none
+    }
+}
+
+a.nav-link-mobile  {
+    text-decoration: none;
+    color: $bg-color;
+    
+    p {
+        padding: 5px 10px;
+    }
 }
 
 @media (max-width: 420px) {
@@ -329,6 +381,10 @@
         pointer-events: auto;
     }
 
+    .sidebar li a .links_name_short {
+        opacity: 0;
+    }
+
     .sidebar li.profile {
         width: 250px;
     }
@@ -338,24 +394,24 @@
     }
 }
 
-.sidebar li i {
+.sidebar li .links_name_short {
     &.orange-zone {
         color: #FF6600;
-        border-left: 1px solid #FF6600;
+        //border-left: 1px solid #FF6600;
     }
 
     &.yellow-zone {
         color: #fff701;
-        border-left: 1px solid #fff701;
+        //border-left: 1px solid #fff701;
     }
 
     &.green-zone {
         color: #0bd500;
-        border-left: 1px solid #0bd500;
+        //border-left: 1px solid #0bd500;
     }
 
     &.blue-zone {
         color: #001eff;
-        border-left: 1px solid #001eff;
+        //border-left: 1px solid #001eff;
     }
 }

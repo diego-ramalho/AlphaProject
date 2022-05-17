@@ -20,28 +20,28 @@ export const routes: Array<Route> = [
     {
         key: 'home-route',
         title: 'Home',
-        path: '/home',
+        path: '/AlphaProject/home',
         enabled: true,
         component: Home
     },
     {
         key: 'about-route',
         title: 'About',
-        path: '/about',
+        path: '/AlphaProject/about',
         enabled: true,
         component: About
     },
     {
         key: 'products-route',
         title: 'Products',
-        path: '/products',
+        path: '/AlphaProject/products',
         enabled: true,
         component: Products
     },
     {
         key: 'users-route',
         title: 'Users',
-        path: '/users',
+        path: '/AlphaProject/users',
         enabled: true,
         component: Users
     }

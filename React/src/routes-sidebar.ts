@@ -21,33 +21,37 @@ export const routes_sidebar: Array<Route> = [
     {
         key: 'zona01-route',
         title: 'Zona 01',
-        path: '/zona01',
+        path: '/AlphaProject/zona01',
         enabled: true,
         component: Zona01,
+        //color: 'default'
         color: 'yellow-zone'
     },
     {
         key: 'zona02-route',
         title: 'Zona 02',
-        path: '/zona02',
+        path: '/AlphaProject/zona02',
         enabled: true,
         component: Zona02,
+        //color: 'default'
         color: 'orange-zone'
     },
     {
         key: 'zona03-route',
         title: 'Zona 03',
-        path: '/zona03',
+        path: '/AlphaProject/zona03',
         enabled: true,
         component: Zona03,
+        //color: 'default'
         color: 'blue-zone'
     },
     {
         key: 'zona04-route',
         title: 'Zona 04',
-        path: '/zona04',
+        path: '/AlphaProject/zona04',
         enabled: true,
         component: Zona04,
+        //color: 'default'
         color: 'green-zone'
     }
 ]

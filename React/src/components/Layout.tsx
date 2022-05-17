@@ -42,8 +42,10 @@ const Layout: FC<LayoutProps> = ({ children }) => {
             <i className='bx bx-menu' id="btn" ></i>
           </div> */}
           <div className="logo-details">
-            <i className='bx bx-map'></i>
-            <div className="logo_name">Zonas</div>
+            {/* <i className='bx bx-map'></i>
+            <i className='bx bx-arch'></i> */}
+            <i className='bx bx-building-house'></i>
+            <div className="logo_name">Alpha</div>
           </div>
           <ul className="nav-list">
             {/* <li>
@@ -62,6 +64,8 @@ const Layout: FC<LayoutProps> = ({ children }) => {
                   underline="none"
                   variant="button"
                 >
+                  {/* <span className="links_name_short">{page.title.substring(0,1)}</span> */}
+                  <span className={`links_name_short ${page.color}`}>●</span>                  
                   <i className={`bx bx-layer ${page.color}`}></i>
                   <span className="links_name">{page.title}</span>
                 </Link>
