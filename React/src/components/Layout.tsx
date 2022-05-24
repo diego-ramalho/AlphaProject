@@ -17,6 +17,15 @@ import Footer from "./Footer";
 import { routes_sidebar } from "../routes-sidebar";
 import { NavLink } from "react-router-dom";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import st
+
+import * as Icon from 'react-bootstrap-icons';
+import { BarChartLineFill } from "react-bootstrap-icons";
+
+// lang config
+import appLang from '../lang/resources.json';
+
 interface LayoutProps {
   children: ReactNode;
 }
@@ -44,8 +53,8 @@ const Layout: FC<LayoutProps> = ({ children }) => {
           <div className="logo-details">
             {/* <i className='bx bx-map'></i>
             <i className='bx bx-arch'></i> */}
-            <i className='bx bx-building-house'></i>
-            <div className="logo_name">Alpha</div>
+            <i><Icon.Building className='FontAwesomeIcon' /></i>
+            <div className="logo_name">{appLang.pt.page['page-logo-text']}</div>
           </div>
           <ul className="nav-list">
             {/* <li>
@@ -65,8 +74,10 @@ const Layout: FC<LayoutProps> = ({ children }) => {
                   variant="button"
                 >
                   {/* <span className="links_name_short">{page.title.substring(0,1)}</span> */}
-                  <span className={`links_name_short ${page.color}`}>●</span>                  
-                  <i className={`bx bx-layer ${page.color}`}></i>
+                  {/* <span className={`links_name_short ${page.color}`}>●</span>*/}
+                  {/* <i className={`bx bx-layer ${page.color}`}></i> */}
+                  {/* <FontAwesomeIcon className='FontAwesomeIcon' icon={solid('building-user')} /> <BarChartLineFill /> */}
+                  <i><Icon.LayersHalf className='FontAwesomeIcon' /><span className="links_name_short">{page.title.substring(page.title.length - 2, page.title.length)}</span></i>
                   <span className="links_name">{page.title}</span>
                 </Link>
                 <span className="tooltip">{page.title}</span>
@@ -143,8 +154,8 @@ const Layout: FC<LayoutProps> = ({ children }) => {
         </div>
         <div className="content-box">
           <ResponsiveAppBar />
-          {children}
-          <Footer />
+          <div className="content-box-children">{children}</div>
+          {/* <Footer /> */}
         </div>
       </Box>
     </>

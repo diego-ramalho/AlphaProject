@@ -1,3 +1,6 @@
+// lang config
+import appLang from './lang/resources.json';
+
 // pages
 import Zona01 from "./pages/zonas/Zona01";
 import Zona02 from "./pages/zonas/Zona02";
@@ -20,7 +23,7 @@ interface Route {
 export const routes_sidebar: Array<Route> = [
     {
         key: 'zona01-route',
-        title: 'Zona 01',
+        title: appLang.pt.menu.sidebar['item-01'],
         path: '/AlphaProject/zona01',
         enabled: true,
         component: Zona01,
@@ -29,7 +32,7 @@ export const routes_sidebar: Array<Route> = [
     },
     {
         key: 'zona02-route',
-        title: 'Zona 02',
+        title: appLang.pt.menu.sidebar['item-02'],
         path: '/AlphaProject/zona02',
         enabled: true,
         component: Zona02,
@@ -38,7 +41,7 @@ export const routes_sidebar: Array<Route> = [
     },
     {
         key: 'zona03-route',
-        title: 'Zona 03',
+        title: appLang.pt.menu.sidebar['item-03'],
         path: '/AlphaProject/zona03',
         enabled: true,
         component: Zona03,
@@ -47,7 +50,7 @@ export const routes_sidebar: Array<Route> = [
     },
     {
         key: 'zona04-route',
-        title: 'Zona 04',
+        title: appLang.pt.menu.sidebar['item-04'],
         path: '/AlphaProject/zona04',
         enabled: true,
         component: Zona04,

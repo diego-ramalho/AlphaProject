@@ -1,0 +1,61 @@
+{
+    "pt": {
+        "page": {
+            "page-title": "Alpha Title",
+            "page-footer": "Compra | Venda | Aluguel",
+            "page-logo-text": "Alpha"
+        },
+        "menu": {
+            "main": {
+                "item-01": [
+                    "Taratura",
+                    "default"
+                ],
+                "item-02": [
+                    "Pisos Vacios",
+                    "amarelo"
+                ],
+                "item-03": [
+                    "Pisos Investigados",
+                    "laranja"
+                ],
+                "item-04": [
+                    "Noticias",
+                    "roxo"
+                ],
+                "item-05": [
+                    "Encargos",
+                    "default"
+                ],
+                "item-06": [
+                    "Pisos Vendidos",
+                    "verde"
+                ],
+                "item-07": [
+                    "Pisos Alquilados",
+                    "verde"
+                ]
+            },
+            "sidebar": {
+                "item-01": "Zona 01",
+                "item-02": "Zona 02",
+                "item-03": "Zona 03",
+                "item-04": "Zona 04"
+            },
+            "settings": {
+                "item-01": "Perfil",
+                "item-02": "Logout"
+            }
+        },
+        "form": {
+            "login": {
+                "title": "Efetue o Login",
+                "email": "seu email",
+                "pass": "sua password",
+                "button": "entrar",
+                "remember": "lembrar-me",
+                "forgot": "esqueceu sua password"
+            }
+        }
+    }
+}

@@ -1,3 +1,6 @@
+// lang config
+import appLang from './lang/resources.json';
+
 // pages
 import Profile from "./pages/settings/Profile";
 import Logout from "./pages//settings/Logout";
@@ -17,14 +20,14 @@ interface Route {
 export const routes_settings: Array<Route> = [
     {
         key: 'profile-route',
-        title: 'Profile',
+        title: appLang.pt.menu.settings['item-01'],
         path: '/AlphaProject/profile',
         enabled: true,
         component: Profile
     },
     {
         key: 'logout-route',
-        title: 'Logout',
+        title: appLang.pt.menu.settings['item-02'],
         path: '/AlphaProject/logout',
         enabled: true,
         component: Logout

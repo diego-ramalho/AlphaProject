@@ -17,6 +17,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import { decrement, increment } from '../features/counter/counterSlice'
 
 import { useCookies } from 'react-cookie'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import st
+
+import * as Icon from 'react-bootstrap-icons';
+
+// lang config
+import appLang from '../lang/resources.json';
 
 // const Login: FC<any> = (): ReactElement => {
 //   return (
@@ -115,11 +122,11 @@ export default function Login() {
                             alignItems: 'center',
                         }}
                     >
-                        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                            <LockOutlinedIcon />
+                        <Avatar sx={{ m: 1, color: '#666' }}>
+                            <Icon.ShieldLock className='FontAwesomeIcon' />
                         </Avatar>
                         <Typography component="h1" variant="h5">
-                            Sign in
+                        {appLang.pt.form.login.title}
                         </Typography>
                         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                             <TextField
@@ -128,25 +135,25 @@ export default function Login() {
                                 required
                                 fullWidth
                                 id="email"
-                                label="Email Address"
+                                label={appLang.pt.form.login.email}
                                 name="email"
                                 autoComplete="email"
                                 autoFocus
                             />
                             <TextField
-                                margin="normal" 
+                                margin="normal"
                                 className="login-input"
                                 required
                                 fullWidth
                                 name="password"
-                                label="Password"
+                                label={appLang.pt.form.login.pass}
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
                             />
                             <FormControlLabel
                                 control={<Checkbox value="remember" color="primary" />}
-                                label="Remember me"
+                                label={appLang.pt.form.login.remember}
                             />
                             <Button
                                 type="submit"
@@ -154,12 +161,12 @@ export default function Login() {
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
                             >
-                                Sign In
+                                {appLang.pt.form.login.button}
                             </Button>
                             <Grid container>
                                 <Grid item xs>
                                     <Link href="#" variant="body2">
-                                        Forgot password?
+                                    {appLang.pt.form.login.forgot}
                                     </Link>
                                 </Grid>
                                 {/* <Grid item>

@@ -1,3 +1,6 @@
+// lang config
+import appLang from './lang/resources.json';
+
 // pages
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -13,36 +16,65 @@ interface Route {
     title: string,
     path: string,
     enabled: boolean,
-    component: FC<{}>
+    component: FC<{}>,
+    color: string
 }
 
 export const routes: Array<Route> = [
     {
         key: 'home-route',
-        title: 'Home',
+        title: appLang.pt.menu.main['item-01'][0],
         path: '/AlphaProject/home',
         enabled: true,
-        component: Home
+        component: Home,
+        color: appLang.pt.menu.main['item-01'][1]
     },
     {
         key: 'about-route',
-        title: 'About',
+        title: appLang.pt.menu.main['item-02'][0],
         path: '/AlphaProject/about',
         enabled: true,
-        component: About
+        component: About,
+        color: appLang.pt.menu.main['item-02'][1]
     },
     {
         key: 'products-route',
-        title: 'Products',
+        title: appLang.pt.menu.main['item-03'][0],
         path: '/AlphaProject/products',
         enabled: true,
-        component: Products
+        component: Products,
+        color: appLang.pt.menu.main['item-03'][1]
     },
     {
         key: 'users-route',
-        title: 'Users',
+        title: appLang.pt.menu.main['item-04'][0],
         path: '/AlphaProject/users',
         enabled: true,
-        component: Users
+        component: Users,
+        color: appLang.pt.menu.main['item-04'][1]
+    },
+    {
+        key: 'users-route',
+        title: appLang.pt.menu.main['item-05'][0],
+        path: '/AlphaProject/users',
+        enabled: true,
+        component: Users,
+        color: appLang.pt.menu.main['item-05'][1]
+    },
+    {
+        key: 'users-route',
+        title: appLang.pt.menu.main['item-06'][0],
+        path: '/AlphaProject/users',
+        enabled: true,
+        component: Users,
+        color: appLang.pt.menu.main['item-06'][1]
+    },
+    {
+        key: 'users-route',
+        title: appLang.pt.menu.main['item-07'][0],
+        path: '/AlphaProject/users',
+        enabled: true,
+        component: Users,
+        color: appLang.pt.menu.main['item-07'][1]
     }
 ]

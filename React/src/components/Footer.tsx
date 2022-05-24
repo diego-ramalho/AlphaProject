@@ -1,5 +1,7 @@
 import React, { FC, ReactElement } from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
+// lang config
+import appLang from '../lang/resources.json';
 
 export const Footer: FC = (): ReactElement => {
   return (
@@ -14,14 +16,14 @@ export const Footer: FC = (): ReactElement => {
     >
       <Container maxWidth="lg">
         <Grid container direction="column" alignItems="center">
-          <Grid item xs={12}>
+          {/* <Grid item xs={12}>
             <Typography color="black" variant="h5">
               Alpha Project
             </Typography>
-          </Grid>
+          </Grid> */}
           <Grid item xs={12}>
             <Typography color="textSecondary" variant="subtitle1">
-              {`${new Date().getFullYear()} | Compra | Venda | Aluguel`}
+              {`${new Date().getFullYear()} | ${appLang.pt.page["page-footer"]}`}
             </Typography>
           </Grid>
         </Grid>

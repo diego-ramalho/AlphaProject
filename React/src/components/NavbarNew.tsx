@@ -14,7 +14,8 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import { routes as appRoutes } from "../routes";
 import { routes_settings as appSettingsRoutes } from "../routes-settings";
-
+// lang config
+import appLang from '../lang/resources.json';
 
 const ResponsiveAppBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -89,17 +90,10 @@ const ResponsiveAppBar = () => {
                             ))}
                         </Menu>
                     </Box>
-                    {/* <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-                    >
-                        <i className='bx bxl-c-plus-plus icon'></i>
-                    </Typography> */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {appRoutes.map((route) => (
                             <Link
+                                className={`main menu ${route.color}`}
                                 key={route.key}
                                 to={route.path}>{route.title}</Link>
                         ))}
