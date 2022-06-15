@@ -1,9 +1,9 @@
 {
     "pt": {
         "page": {
-            "page-title": "Alpha Title",
+            "page-title": "Alfa Title",
             "page-footer": "Compra | Venda | Aluguel",
-            "page-logo-text": "Alpha"
+            "page-logo-text": "Alfa"
         },
         "menu": {
             "main": {
@@ -43,8 +43,14 @@
                 "item-04": "Zona 04"
             },
             "settings": {
-                "item-01": "Perfil",
+                "item-01": "Your Profile",
                 "item-02": "Logout"
+            },
+            "admin": {
+                "item-01": "Users Admin",
+                "item-02": "Records Admin",
+                "item-03": "Regions Admin",
+                "item-04": "Filters Admin"
             }
         },
         "form": {

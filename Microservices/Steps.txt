@@ -1,0 +1,7 @@
+﻿Install » Microsoft.EntityFrameworkCore
+Install » AutoMapper.Extensions.Microsoft.SqlServer
+Install » Microsoft.EntityFrameworkCore.InMemory
+Install » Microsoft.EntityFrameworkCore.Tools
+Install » AutoMapper.Extensions.Microsoft.DependencyInjection
+
+https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=vs

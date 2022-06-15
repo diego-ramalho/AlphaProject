@@ -46,7 +46,7 @@ export const routes: Array<Route> = [
         color: appLang.pt.menu.main['item-03'][1]
     },
     {
-        key: 'users-route',
+        key: 'users-route2',
         title: appLang.pt.menu.main['item-04'][0],
         path: '/AlphaProject/users',
         enabled: true,
@@ -54,7 +54,7 @@ export const routes: Array<Route> = [
         color: appLang.pt.menu.main['item-04'][1]
     },
     {
-        key: 'users-route',
+        key: 'users-route3',
         title: appLang.pt.menu.main['item-05'][0],
         path: '/AlphaProject/users',
         enabled: true,
@@ -62,7 +62,7 @@ export const routes: Array<Route> = [
         color: appLang.pt.menu.main['item-05'][1]
     },
     {
-        key: 'users-route',
+        key: 'users-route4',
         title: appLang.pt.menu.main['item-06'][0],
         path: '/AlphaProject/users',
         enabled: true,
@@ -70,7 +70,7 @@ export const routes: Array<Route> = [
         color: appLang.pt.menu.main['item-06'][1]
     },
     {
-        key: 'users-route',
+        key: 'users-route5',
         title: appLang.pt.menu.main['item-07'][0],
         path: '/AlphaProject/users',
         enabled: true,

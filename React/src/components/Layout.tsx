@@ -23,6 +23,10 @@ import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import
 import * as Icon from 'react-bootstrap-icons';
 import { BarChartLineFill } from "react-bootstrap-icons";
 
+import LogoImage from "../assets/images/logo.png";
+import LogoIcon from "../assets/images/logo_icon.png";
+
+
 // lang config
 import appLang from '../lang/resources.json';
 
@@ -53,8 +57,10 @@ const Layout: FC<LayoutProps> = ({ children }) => {
           <div className="logo-details">
             {/* <i className='bx bx-map'></i>
             <i className='bx bx-arch'></i> */}
-            <i><Icon.Building className='FontAwesomeIcon' /></i>
-            <div className="logo_name">{appLang.pt.page['page-logo-text']}</div>
+            {/* <i><Icon.Building className='FontAwesomeIcon' /></i> */}
+            <img className="LogoImage" src={LogoImage} alt="logo" />
+            <img className="LogoIcon" src={LogoIcon} alt="logo" />
+            {/* <div className="logo_name">{appLang.pt.page['page-logo-text']}</div> */}
           </div>
           <ul className="nav-list">
             {/* <li>

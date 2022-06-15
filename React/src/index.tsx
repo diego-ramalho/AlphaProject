@@ -4,6 +4,7 @@ import App from './App';
 import store from './app/store'
 import { Provider } from 'react-redux'
 import { CookiesProvider } from "react-cookie";
+import { RecoilRoot } from 'recoil';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -11,7 +12,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <CookiesProvider>
-        <App />
+        <RecoilRoot>
+          <App />
+        </RecoilRoot>
       </CookiesProvider>
     </Provider>
   </React.StrictMode >,
