@@ -25,6 +25,7 @@ function useFetchWrapper() {
             };
             if (body) {
                 requestOptions.headers['Content-Type'] = 'application/json';
+                requestOptions.headers['Authorization'] = 'application/json';
                 requestOptions.body = JSON.stringify(body);
             }
             return fetch(url, requestOptions).then(handleResponse);

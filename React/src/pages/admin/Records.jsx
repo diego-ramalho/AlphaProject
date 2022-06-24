@@ -1,20 +1,48 @@
-import React from "react";
-import { Box } from "@mui/material";
+// Render Prop
+import React from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-const Records = () =>
-{
-    return (
-        <Box
-            sx={{
-                flexGrow: 1,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
+const Records = () => (
+    <div>
+        <h1>Any place in your app!</h1>
+        <Formik
+            initialValues={{ email: '', password: '' }}
+            validate={values =>
+            {
+                const errors = {};
+                if (!values.email)
+                {
+                    errors.email = 'Required';
+                } else if (
+                    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+                )
+                {
+                    errors.email = 'Invalid email address';
+                }
+                return errors;
+            }}
+            onSubmit={(values, { setSubmitting }) =>
+            {
+                setTimeout(() =>
+                {
+                    alert(JSON.stringify(values, null, 2));
+                    setSubmitting(false);
+                }, 400);
             }}
         >
-            Admin Records
-        </Box>
-    );
-};
+            {({ isSubmitting }) => (
+                <Form>
+                    Email <Field type="email" name="email" />
+                    <ErrorMessage name="email" component="div" />
+                    Pass <Field type="password" name="password" />
+                    <ErrorMessage name="password" component="div" />
+                    <button type="submit" disabled={isSubmitting}>
+                        Submit
+                    </button>
+                </Form>
+            )}
+        </Formik>
+    </div>
+);
 
 export default Records;

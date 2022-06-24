@@ -5,7 +5,8 @@ import { authAtom, usersAtom, userAtom } from '../_state';
 
 export { useUserActions };
 
-function useUserActions () {
+function useUserActions()
+{
     const baseUrl = `${process.env.REACT_APP_API_URL}/user`;
     const fetchWrapper = useFetchWrapper();
     const [auth, setAuth] = useRecoilState(authAtom);
@@ -15,7 +16,7 @@ function useUserActions () {
     return {
         login,
         logout,
-        register,
+        create,
         getAll,
         getById,
         update,
@@ -24,9 +25,11 @@ function useUserActions () {
         resetUser: useResetRecoilState(userAtom)
     }
 
-    function login({ email, password }) {
+    function login({ email, password })
+    {
         return fetchWrapper.post(`${baseUrl}/login`, { email, password })
-            .then(user => {
+            .then(user =>
+            {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('user', JSON.stringify(user));
                 setAuth(user);
@@ -38,7 +41,8 @@ function useUserActions () {
             });
     }
 
-    function logout() {
+    function logout()
+    {
         // remove user from local storage, set auth state to null and redirect to login page
         localStorage.removeItem('user');
         setAuth(null);
@@ -46,53 +50,62 @@ function useUserActions () {
         window.location.href = '/AlphaProject/';
     }
 
-    function register(user) {
-        return fetchWrapper.post(`${baseUrl}/register`, user);
+    function create(user)
+    {
+        return fetchWrapper.post(`${baseUrl}/create`, user);
     }
 
-    function getAll() {
-        return fetchWrapper.get(baseUrl).then(setUsers);
+    function getAll()
+    {
+        //return fetchWrapper.get(`${baseUrl}/GetUsers`).then(setUsers);
+        return fetchWrapper.get(`${baseUrl}/GetUsers`);
     }
 
-    function getById(id) {
-        return fetchWrapper.get(`${baseUrl}/${id}`).then(setUser);
+    function getById(id)
+    {
+        //return fetchWrapper.get(`${baseUrl}/${id}`).then(setUser);
+        return fetchWrapper.get(`${baseUrl}/${id}`);
     }
 
-    function update(id, params) {
-        return fetchWrapper.put(`${baseUrl}/${id}`, params)
-            .then(x => {
-                // update stored user if the logged in user updated their own record
-                if (id === auth?.id) {
-                    // update local storage
-                    const user = { ...auth, ...params };
-                    localStorage.setItem('user', JSON.stringify(user));
+    function update(id, params)
+    {
+        return fetchWrapper.put(`${baseUrl}?id=${id}`, params);
+        // return fetchWrapper.put(`${baseUrl}/${id}`, params)
+        //     .then(x => {
+        //         // update stored user if the logged in user updated their own record
+        //         if (id === auth?.id) {
+        //             // update local storage
+        //             const user = { ...auth, ...params };
+        //             localStorage.setItem('user', JSON.stringify(user));
 
-                    // update auth user in recoil state
-                    setAuth(user);
-                }
-                return x;
-            });
+        //             // update auth user in recoil state
+        //             setAuth(user);
+        //         }
+        //         return x;
+        //     });
     }
 
     // prefixed with underscored because delete is a reserved word in javascript
-    function _delete(id) {
-        setUsers(users => users.map(x => {
-            // add isDeleting prop to user being deleted
-            if (x.id === id) 
-                return { ...x, isDeleting: true };
+    function _delete(id)
+    {
+        return fetchWrapper.delete(`${baseUrl}?id=${id}`);
+        // setUsers(users => users.map(x => {
+        //     // add isDeleting prop to user being deleted
+        //     if (x.id === id) 
+        //         return { ...x, isDeleting: true };
 
-            return x;
-        }));
+        //     return x;
+        // }));
 
-        return fetchWrapper.delete(`${baseUrl}/${id}`)
-            .then(() => {
-                // remove user from list after deleting
-                setUsers(users => users.filter(x => x.id !== id));
+        // return fetchWrapper.delete(`${baseUrl}/${id}`)
+        //     .then(() => {
+        //         // remove user from list after deleting
+        //         setUsers(users => users.filter(x => x.id !== id));
 
-                // auto logout if the logged in user deleted their own record
-                if (id === auth?.id) {
-                    logout();
-                }
-            });
+        //         // auto logout if the logged in user deleted their own record
+        //         if (id === auth?.id) {
+        //             logout();
+        //         }
+        //     });
     }
 }

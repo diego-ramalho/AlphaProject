@@ -21,6 +21,9 @@ import AdminRecords from "./pages/admin/Records";
 import AdminRegions from "./pages/admin/Regions";
 import AdminFilters from "./pages/admin/Filters";
 
+import { UsersList } from './pages/admin/UsersList';
+import { UsersAddEdit } from './pages/admin/UsersAddEdit';
+
 
 const login_page = [
   {
@@ -57,6 +60,16 @@ function App()
     return (
       <Routes>
         {/* {auth && <Redirect to={{ pathname: '/AlphaProject/' }} />} */}
+
+        {/* <Route path='/AlphaProject/Admin/UsersList' element={<UsersList />} /> */}
+
+        <Route exact path='/AlphaProject/Admin/Users' element={<UsersList />} />
+        <Route path='/AlphaProject/Admin/Users/add' element={<UsersAddEdit />} />
+        <Route path='/AlphaProject/Admin/Users/edit/:id' element={<UsersAddEdit />} />
+
+        {/* <Route exact path='/AlphaProject/Admin/Users' component={UsersList} />
+        <Route path='/AlphaProject/Admin/Users/add' component={UsersAddEdit} />
+        <Route path='/AlphaProject/Admin/Users/edit/:id' component={UsersAddEdit} /> */}
 
         {login_page.map((route) => (
           <Route
@@ -100,9 +113,9 @@ function App()
             ))} */}
 
 
-        auth ? <Route exact path='/AlphaProject/Admin/Users' element={<AdminUsers />} /> : null;
-        auth ? <Route exact path='/AlphaProject/Admin/Records' element={<AdminRecords />} /> : null;
-        <Route exact path='/AlphaProject/Admin/Regions' element={<AdminRegions />} /> : null;
+        auth ? <Route exact path='/AlphaProject/Admin/Users' element={<AdminUsers />} /> : '';
+        auth ? <Route exact path='/AlphaProject/Admin/Records' element={<AdminRecords />} /> : '';
+        <Route exact path='/AlphaProject/Admin/Regions' element={<AdminRegions />} />
         <Route exact path='/AlphaProject/Admin/Filters' element={<AdminFilters />} />
 
       </Routes>
