@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using WebApiTemplate.Dtos;
@@ -14,15 +15,18 @@ namespace WebApiTemplate.Controllers
     {
         private readonly IUserTransactionalService _userTransactionalService;
         private readonly IMapper _mapper;
+        private readonly Helpers.JwtAuthenticationManager _jwtAuthenticationManager;
         //private readonly ICommandDataClient _commandDataClient;
         //private readonly IMessageBusClient _messageBusClient;
 
-        public UserController(IMapper mapper, IUserTransactionalService userTransactionalService)
+        public UserController(IMapper mapper, IUserTransactionalService userTransactionalService, Helpers.JwtAuthenticationManager jwtAuthenticationManager)
         {
             _userTransactionalService = userTransactionalService;
             _mapper = mapper;
+            _jwtAuthenticationManager = jwtAuthenticationManager;
         }
 
+        [Authorize(Roles = "User")]
         [HttpGet("GetUsers")]
         public ActionResult<IEnumerable<UserReadDto>> GetUsers()
         {
@@ -31,8 +35,17 @@ namespace WebApiTemplate.Controllers
             return Ok(_mapper.Map<IEnumerable<UserReadDto>>(getUsers));
         }
 
-        [HttpPost]
-        public async Task<ActionResult<UserReadDto>> CreateUser(User user)
+        
+        [HttpGet("GetUserRoles")]
+        public ActionResult<IEnumerable<UserRolesReadDto>> GetUserRoles()
+        {
+            var getUserRoles = _userTransactionalService.GetUserRoles();
+
+            return Ok(_mapper.Map<IEnumerable<UserRolesReadDto>>(getUserRoles));
+        }
+
+        [HttpPost("Create")]
+        public async Task<ActionResult<UserCreateDto>> CreateUser(UserCreateIn user)
         {
             //var user = _mapper.Map<User>(UserCreateDto);
 
@@ -66,6 +79,24 @@ namespace WebApiTemplate.Controllers
             return CreatedAtRoute(nameof(GetUserById), new { Id = UserReadDto.Id }, UserReadDto);
         }
 
+        [HttpDelete]
+        public async Task<ActionResult> DeleteUser(int id)
+        {
+            _userTransactionalService.DeleteUser(id);
+            _userTransactionalService.SaveChanges();
+
+            return Ok();
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> UpdateUser(int id, [FromBody] UserCreateIn user)
+        {
+            _userTransactionalService.UpdateUser(id, user);
+            _userTransactionalService.SaveChanges();
+
+            return Ok();
+        }
+
         [HttpGet("{id}", Name = "GetUserById")]
         public ActionResult<UserReadDto> GetUserById(int id)
         {
@@ -78,8 +109,9 @@ namespace WebApiTemplate.Controllers
             return NotFound();
         }
 
+        [AllowAnonymous]
         [HttpPost("login", Name = "ValidateLogin")]
-        public ActionResult<UserLoginDto> ValidateLogin(UserLoginIn _user)
+        public ActionResult<UserRolesDto> ValidateLogin(UserLoginIn _user)
         {
             var userItem = _userTransactionalService.ValidateLogin(_user);
             if (userItem != null)
@@ -88,6 +120,31 @@ namespace WebApiTemplate.Controllers
             }
 
             return NotFound();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult Authorize([FromBody] User usr)
+        {
+            var token = _jwtAuthenticationManager.Authenticate(usr);
+            if (string.IsNullOrEmpty(token))
+                return Unauthorized();
+            return Ok(token);
+        }
+
+        [HttpGet("TesteAuth")]
+        public IActionResult TestRoute()
+        {
+            return Ok("Authorized");
+        }
+
+
+        [HttpGet("NewPassword")]
+        public ActionResult<string> NewPassword(string email)
+        {
+            var getNewPassword = _userTransactionalService.NewPassword(email);
+
+            return Ok(getNewPassword);
         }
 
         //[HttpGet("GetPass")]

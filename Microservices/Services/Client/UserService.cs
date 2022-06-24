@@ -4,36 +4,61 @@ using WebApiTemplate.Data;
 using WebApiTemplate.Helpers;
 using WebApiTemplate.Models;
 using System.Security.Cryptography;
+using WebApiTemplate.Dtos;
+using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApiTemplate.Services.Client
 {
     public class UserService : IUserService
     {
+        private readonly IMapper _mapper;
         private readonly AppDbContext _context;
         private readonly AppSettings _appSettings;
         private readonly IUserTransactionalService _userTransactionalService;
 
-        public UserService(AppDbContext context, IOptions<AppSettings> appSettings,
+        public UserService(AppDbContext context, IMapper mapper, IOptions<AppSettings> appSettings,
             IUserTransactionalService userTransactionalService)
         {
+            _mapper = mapper;
             _context = context;
             _appSettings = appSettings.Value;
             _userTransactionalService = userTransactionalService;
         }
 
-        public void CreateUser(User user)
+        public void CreateUser(UserCreateIn user)
         {
             if (user == null)
             {
                 throw new ArgumentNullException(nameof(user));
             }
 
-            _context.Users.Add(user);
+            var _user = _mapper.Map<User>(user);
+
+            _context.Users.Add(_user);
+        }
+
+        public void DeleteUser(int id)
+        {
+            if (id == null || id <= 0)
+            {
+                throw new ArgumentNullException(nameof(id));
+            }
+
+            var _user = _context.Users.FirstOrDefault(p => p.Id == id);
+
+            _context.Entry(_user).State = EntityState.Deleted;
+            _context.SaveChanges();
         }
 
         public IEnumerable<User> GetUsers()
         {
             return _context.Users.ToList();
+        }
+
+        public IEnumerable<UserRoles> GetUserRoles()
+        {
+            return _context.UserRoles.ToList();
         }
 
         public User GetUserById(int id)

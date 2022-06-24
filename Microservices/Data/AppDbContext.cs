@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 using WebApiTemplate.Models;
 
 namespace WebApiTemplate.Data
@@ -17,6 +18,9 @@ namespace WebApiTemplate.Data
         public DbSet<Zone> Zones { get; set; }
 
         public DbSet<Filter> Filters { get; set; }
+
+        [NotMapped]
+        public DbSet<UserRoles> UserRoles { get; set; }
 
         //public DbSet<RegisterFilters> RegistersFilters { get; set; }
 

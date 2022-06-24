@@ -11,8 +11,20 @@ namespace WebApiTemplate.Profiles
             // Source -> Target
             CreateMap<User, UserReadDto>();
             CreateMap<UserCreateDto, User>();
+
+            CreateMap<User, UserCreateIn>();
+            CreateMap<UserCreateIn, User>();
+
+            CreateMap<UserCreateDto, UserCreateIn>();
+            CreateMap<UserCreateIn, UserCreateDto>();
+
+            CreateMap<UserReadDto, UserCreateIn>().ReverseMap();
+
             CreateMap<User, UserLoginDto>();
             CreateMap<UserLoginIn, User>();
+
+            CreateMap<UserRoles, UserRolesReadDto>();
+            CreateMap<UserRolesReadDto, UserRoles>();
 
             //CreateMap<PlatformReadDto, PlatformPublishedDto>();
             //CreateMap<Platform, GrpcPlatformModel>()
