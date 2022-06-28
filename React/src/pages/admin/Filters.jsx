@@ -1,20 +1,18 @@
-import React from "react";
-import { Box } from "@mui/material";
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-const Filters = () =>
+import { FiltersList } from './FiltersList';
+import { FiltersAddEdit } from './FiltersAddEdit';
+
+function AdminFilters()
 {
     return (
-        <Box
-            sx={{
-                flexGrow: 1,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-            }}
-        >
-            Admin Filters
-        </Box>
+        <Routes>
+            <Route exact path='/AlphaProject/Admin/Filters' element={<FiltersList />} />
+            <Route path='/AlphaProject/Admin/Filters/add' element={<FiltersAddEdit />} />
+            <Route path='/AlphaProject/Admin/Filters/edit/:id' element={<FiltersAddEdit />} />
+        </Routes>
     );
-};
+}
 
-export default Filters;
+export default { AdminFilters };

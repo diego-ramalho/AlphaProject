@@ -24,6 +24,9 @@ import AdminFilters from "./pages/admin/Filters";
 import { UsersList } from './pages/admin/UsersList';
 import { UsersAddEdit } from './pages/admin/UsersAddEdit';
 
+import { FiltersList } from './pages/admin/FiltersList';
+import { FiltersAddEdit } from './pages/admin/FiltersAddEdit';
+
 
 const login_page = [
   {
@@ -66,6 +69,10 @@ function App()
         <Route exact path='/AlphaProject/Admin/Users' element={<UsersList />} />
         <Route path='/AlphaProject/Admin/Users/add' element={<UsersAddEdit />} />
         <Route path='/AlphaProject/Admin/Users/edit/:id' element={<UsersAddEdit />} />
+
+        <Route exact path='/AlphaProject/Admin/Filters' element={<FiltersList />} />
+        <Route path='/AlphaProject/Admin/Filters/add' element={<FiltersAddEdit />} />
+        <Route path='/AlphaProject/Admin/Filters/edit/:id' element={<FiltersAddEdit />} />
 
         {/* <Route exact path='/AlphaProject/Admin/Users' component={UsersList} />
         <Route path='/AlphaProject/Admin/Users/add' component={UsersAddEdit} />
@@ -115,8 +122,8 @@ function App()
 
         auth ? <Route exact path='/AlphaProject/Admin/Users' element={<AdminUsers />} /> : '';
         auth ? <Route exact path='/AlphaProject/Admin/Records' element={<AdminRecords />} /> : '';
-        <Route exact path='/AlphaProject/Admin/Regions' element={<AdminRegions />} />
-        <Route exact path='/AlphaProject/Admin/Filters' element={<AdminFilters />} />
+        auth ? <Route exact path='/AlphaProject/Admin/Regions' element={<AdminRegions />} /> : '';
+        auth ? <Route exact path='/AlphaProject/Admin/Filters' element={<AdminFilters />} /> : '';
 
       </Routes>
     )

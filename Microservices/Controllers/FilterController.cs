@@ -52,5 +52,21 @@ namespace WebApiTemplate.Controllers
 
             return Ok(entityDto);
         }
+
+        [HttpDelete]
+        public async Task<ActionResult> Delete(int id)
+        {
+            _filterService.Delete(id);
+
+            return Ok();
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> Update(int id, [FromBody] FilterIn filter)
+        {
+            _filterService.Update(id, filter);
+
+            return Ok();
+        }
     }
 }

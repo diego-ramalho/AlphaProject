@@ -11,23 +11,22 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-
 //builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("InMem"));
 builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnStr")));
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
-                      policy =>
+                      builder =>
                       {
-                          policy.WithOrigins("http://localhost:3000",
-                                              "http://localhost:3001");
+                          builder.WithOrigins("http://localhost:3000",
+                                              "http://localhost:3001")
+                            .AllowAnyMethod();
                       });
 });
-
-//var key = "f648ac9c-ec78-45d4-8599-20f6a063dc42";
 
 builder.Services.AddAuthentication(options =>
 {

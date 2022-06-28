@@ -10,7 +10,7 @@ namespace WebApiTemplate.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors("_myAllowSpecificOrigins")]
+    [EnableCors("_myAllowSpecificOrigins")]    
     public class UserController : ControllerBase
     {
         private readonly IUserTransactionalService _userTransactionalService;
@@ -26,7 +26,7 @@ namespace WebApiTemplate.Controllers
             _jwtAuthenticationManager = jwtAuthenticationManager;
         }
 
-        [Authorize(Roles = "User")]
+        
         [HttpGet("GetUsers")]
         public ActionResult<IEnumerable<UserReadDto>> GetUsers()
         {
@@ -35,7 +35,7 @@ namespace WebApiTemplate.Controllers
             return Ok(_mapper.Map<IEnumerable<UserReadDto>>(getUsers));
         }
 
-        
+        [AllowAnonymous]
         [HttpGet("GetUserRoles")]
         public ActionResult<IEnumerable<UserRolesReadDto>> GetUserRoles()
         {
@@ -44,6 +44,7 @@ namespace WebApiTemplate.Controllers
             return Ok(_mapper.Map<IEnumerable<UserRolesReadDto>>(getUserRoles));
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("Create")]
         public async Task<ActionResult<UserCreateDto>> CreateUser(UserCreateIn user)
         {
@@ -122,8 +123,8 @@ namespace WebApiTemplate.Controllers
             return NotFound();
         }
 
-        [HttpPost]
         [AllowAnonymous]
+        [HttpPost]
         public IActionResult Authorize([FromBody] User usr)
         {
             var token = _jwtAuthenticationManager.Authenticate(usr);
@@ -131,14 +132,8 @@ namespace WebApiTemplate.Controllers
                 return Unauthorized();
             return Ok(token);
         }
-
-        [HttpGet("TesteAuth")]
-        public IActionResult TestRoute()
-        {
-            return Ok("Authorized");
-        }
-
-
+        
+        [AllowAnonymous]
         [HttpGet("NewPassword")]
         public ActionResult<string> NewPassword(string email)
         {
