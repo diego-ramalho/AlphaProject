@@ -8,7 +8,7 @@ export { useFetchWrapper };
 
 function useFetchWrapper() {
     const [auth, setAuth] = useRecoilState(authAtom);
-    const alertActions = useAlertActions();
+    //const alertActions = useAlertActions();
 
     return {
         get: request('GET'),
@@ -59,7 +59,7 @@ function useFetchWrapper() {
                 }
     
                 const error = (data && data.message) || response.statusText;
-                alertActions.error(error);
+                useAlertActions.error(error);
                 return Promise.reject(error);
             }
     

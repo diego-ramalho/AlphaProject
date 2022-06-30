@@ -48,8 +48,8 @@
             },
             "admin": {
                 "item-01": "Users Admin",
-                "item-02": "Records Admin",
-                "item-03": "Regions Admin",
+                "item-02": "Registers Admin",
+                "item-03": "Zones Admin",
                 "item-04": "Filters Admin"
             }
         },

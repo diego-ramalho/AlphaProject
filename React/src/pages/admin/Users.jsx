@@ -3,13 +3,15 @@ import { Route, Routes } from 'react-router-dom';
 
 import UsersDropdown from '../../components/atoms/UsersDropdown'
 
+import { history } from '../../_helpers';
+
 import { UsersList } from './UsersList';
 import { UsersAddEdit } from './UsersAddEdit';
 
 function AdminUsers()
 {
     return (
-        <Routes>
+        <Routes history={history}>
             {/* <Route exact path={path} element={<UsersList />} />
             <Route path={`${path}/add`} element={<UsersAddEdit />} />
             <Route path={`${path}/edit/:id`} element={<UsersAddEdit />} /> */}

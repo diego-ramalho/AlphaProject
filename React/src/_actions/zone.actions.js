@@ -27,7 +27,7 @@ function useZoneActions()
 
     function getById(id)
     {
-        return fetchWrapper.get(`${baseUrl}/${id}`);
+        return fetchWrapper.get(`${baseUrl}/GetById/${id}`);
     }
 
     function update(id, params)

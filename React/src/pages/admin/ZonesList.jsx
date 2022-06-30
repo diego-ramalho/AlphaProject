@@ -1,79 +1,55 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { useUserActions } from '../../_actions';
+import { useZoneActions } from '../../_actions';
 
-import UsersDropdown from '../../components/atoms/UsersDropdown'
-
-// const UsersList = () =>
-// {
-//     return (
-//       <>
-//       Admin Users DropDown
-//       <UsersDropdown />
-//     </>
-//     );
-// };
-
-// export {UsersList};
-
-function UsersList()
+function ZonesList()
 {
     //const { path } = match;
-    const path = '/AlphaProject/Admin/Users';
-    const baseUrl = `${process.env.REACT_APP_API_URL}/user`;
-    const [users, setUsers] = useState(null);
-    const [userroles, setUserRoles] = useState(null);
+    const path = '/AlphaProject/Admin/Zones';
+    const baseUrl = `${process.env.REACT_APP_API_URL}/zone`;
+    const [zones, setZones] = useState(null);
 
-    const userActions = useUserActions();
+    const zoneActions = useZoneActions();
 
     useEffect(() =>
     {
-        userActions.getAll().then(x => setUsers(x));
-        // const teste = fetch(`${baseUrl}/GetUserRoles`)
-        //     .then(x => setUserRoles(x))
+        zoneActions.getAll().then(x => setZones(x));
     }, []);
 
-    function deleteUser(id)
+    function deleteZone(id)
     {
-        setUsers(users.map(x =>
+        setZones(zones.map(x =>
         {
             if (x.id === id) { x.isDeleting = true; }
             return x;
         }));
-        userActions.delete(id).then(() =>
+        zoneActions.delete(id).then(() =>
         {
-            setUsers(users => users.filter(x => x.id !== id));
+            setZones(zones => zones.zone(x => x.id !== id));
         });
     }
 
 
-
-
-
     return (
         <div>
-            <h1>Users</h1>
-            <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add User</Link>
+            <h1>Zones</h1>
+            <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add Zone</Link>
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th style={{ width: '30%' }}>Name</th>
-                        <th style={{ width: '30%' }}>Email</th>
-                        <th style={{ width: '30%' }}>Role</th>
+                        <th style={{ width: '30%' }}>Zone Name</th>
                         <th style={{ width: '10%' }}></th>
                     </tr>
                 </thead>
                 <tbody>
-                    {users && users.map(user =>
-                        <tr key={user.id}>
-                            <td>{user.name}</td>
-                            <td>{user.email}</td>
-                            <td>{user.roleId === 1 ? 'Admin' : 'User'}</td>
+                    {zones && zones.map(zone =>
+                        <tr key={zone.id}>
+                            <td>{zone.zoneName}</td>
                             <td style={{ whiteSpace: 'nowrap' }}>
-                                <Link to={`${path}/edit/${user.id}`} className="btn btn-sm btn-primary mr-1">Edit</Link>
-                                <button onClick={() => deleteUser(user.id)} className="btn btn-sm btn-danger btn-delete-user" disabled={user.isDeleting}>
-                                    {user.isDeleting
+                                <Link to={`${path}/edit/${zone.id}`} className="btn btn-sm btn-primary mr-1">Edit</Link>
+                                <button onClick={() => deleteZone(zone.id)} className="btn btn-sm btn-danger btn-delete-zone" disabled={zone.isDeleting}>
+                                    {zone.isDeleting
                                         ? <span className="spinner-border spinner-border-sm"></span>
                                         : <span>Delete</span>
                                     }
@@ -81,17 +57,17 @@ function UsersList()
                             </td>
                         </tr>
                     )}
-                    {!users &&
+                    {!zones &&
                         <tr>
                             <td colSpan="4" className="text-center">
                                 <div className="spinner-border spinner-border-lg align-center"></div>
                             </td>
                         </tr>
                     }
-                    {users && !users.length &&
+                    {zones && !zones.length &&
                         <tr>
                             <td colSpan="4" className="text-center">
-                                <div className="p-2">No Users To Display</div>
+                                <div className="p-2">No Zones To Display</div>
                             </td>
                         </tr>
                     }
@@ -101,4 +77,4 @@ function UsersList()
     );
 }
 
-export { UsersList };
+export { ZonesList };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
@@ -10,6 +10,10 @@ import Layout from "./components/Layout";
 import Login from "./pages/Login";
 
 import { Nav, Alert, PrivateRoute } from './_components';
+
+import { history } from './_helpers';
+
+import Loading from './components/atoms/Loading';
 
 import { useRecoilValue } from 'recoil';
 
@@ -26,6 +30,12 @@ import { UsersAddEdit } from './pages/admin/UsersAddEdit';
 
 import { FiltersList } from './pages/admin/FiltersList';
 import { FiltersAddEdit } from './pages/admin/FiltersAddEdit';
+
+import { ZonesList } from './pages/admin/ZonesList';
+import { ZonesAddEdit } from './pages/admin/ZonesAddEdit';
+
+import { RegistersList } from './pages/admin/RegistersList';
+import { RegistersAddEdit } from './pages/admin/RegistersAddEdit';
 
 
 const login_page = [
@@ -73,6 +83,14 @@ function App()
         <Route exact path='/AlphaProject/Admin/Filters' element={<FiltersList />} />
         <Route path='/AlphaProject/Admin/Filters/add' element={<FiltersAddEdit />} />
         <Route path='/AlphaProject/Admin/Filters/edit/:id' element={<FiltersAddEdit />} />
+
+        <Route exact path='/AlphaProject/Admin/Zones' element={<ZonesList />} />
+        <Route path='/AlphaProject/Admin/Zones/add' element={<ZonesAddEdit />} />
+        <Route path='/AlphaProject/Admin/Zones/edit/:id' element={<ZonesAddEdit />} />
+
+        <Route exact path='/AlphaProject/Admin/Registers' element={<RegistersList />} />
+        <Route path='/AlphaProject/Admin/Registers/add' element={<RegistersAddEdit />} />
+        <Route path='/AlphaProject/Admin/Registers/edit/:id' element={<RegistersAddEdit />} />
 
         {/* <Route exact path='/AlphaProject/Admin/Users' component={UsersList} />
         <Route path='/AlphaProject/Admin/Users/add' component={UsersAddEdit} />
@@ -181,10 +199,18 @@ function App()
 
   const auth = useRecoilValue(authAtom);
 
+  // const [loading, setLoading] = useState(true);
+
+  // useEffect(() =>
+  // {
+  //   setTimeout(() => setLoading(false), 6000)
+  // }, [])
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router>
+      <Router location={history.location} navigator={history}>
+        <Alert />
         <Layout>
           {!auth ? <AnonymousRouter /> : (auth?.roleId === 1 ? <AdminRouter /> : <UserRouter />)}
         </Layout>

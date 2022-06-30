@@ -1,79 +1,55 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { useUserActions } from '../../_actions';
+import { useRegisterActions } from '../../_actions';
 
-import UsersDropdown from '../../components/atoms/UsersDropdown'
-
-// const UsersList = () =>
-// {
-//     return (
-//       <>
-//       Admin Users DropDown
-//       <UsersDropdown />
-//     </>
-//     );
-// };
-
-// export {UsersList};
-
-function UsersList()
+function RegistersList()
 {
     //const { path } = match;
-    const path = '/AlphaProject/Admin/Users';
-    const baseUrl = `${process.env.REACT_APP_API_URL}/user`;
-    const [users, setUsers] = useState(null);
-    const [userroles, setUserRoles] = useState(null);
+    const path = '/AlphaProject/Admin/Registers';
+    const baseUrl = `${process.env.REACT_APP_API_URL}/register`;
+    const [registers, setRegisters] = useState(null);
 
-    const userActions = useUserActions();
+    const registerActions = useRegisterActions();
 
     useEffect(() =>
     {
-        userActions.getAll().then(x => setUsers(x));
-        // const teste = fetch(`${baseUrl}/GetUserRoles`)
-        //     .then(x => setUserRoles(x))
+        registerActions.getAll().then(x => setRegisters(x));
     }, []);
 
-    function deleteUser(id)
+    function deleteRegister(id)
     {
-        setUsers(users.map(x =>
+        setRegisters(registers.map(x =>
         {
             if (x.id === id) { x.isDeleting = true; }
             return x;
         }));
-        userActions.delete(id).then(() =>
+        registerActions.delete(id).then(() =>
         {
-            setUsers(users => users.filter(x => x.id !== id));
+            setRegisters(registers => registers.register(x => x.id !== id));
         });
     }
 
 
-
-
-
     return (
         <div>
-            <h1>Users</h1>
-            <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add User</Link>
+            <h1>Registers</h1>
+            <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add Register</Link>
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th style={{ width: '30%' }}>Name</th>
-                        <th style={{ width: '30%' }}>Email</th>
-                        <th style={{ width: '30%' }}>Role</th>
+                        <th style={{ width: '30%' }}>Address</th>
                         <th style={{ width: '10%' }}></th>
                     </tr>
                 </thead>
                 <tbody>
-                    {users && users.map(user =>
-                        <tr key={user.id}>
-                            <td>{user.name}</td>
-                            <td>{user.email}</td>
-                            <td>{user.roleId === 1 ? 'Admin' : 'User'}</td>
+                    {registers && registers.map(register =>
+                        <tr key={register.id}>
+                            <td>{register.address}</td>
                             <td style={{ whiteSpace: 'nowrap' }}>
-                                <Link to={`${path}/edit/${user.id}`} className="btn btn-sm btn-primary mr-1">Edit</Link>
-                                <button onClick={() => deleteUser(user.id)} className="btn btn-sm btn-danger btn-delete-user" disabled={user.isDeleting}>
-                                    {user.isDeleting
+                                <Link to={`${path}/edit/${register.id}`} className="btn btn-sm btn-primary mr-1">Edit</Link>
+                                <button onClick={() => deleteRegister(register.id)} className="btn btn-sm btn-danger btn-delete-register" disabled={register.isDeleting}>
+                                    {register.isDeleting
                                         ? <span className="spinner-border spinner-border-sm"></span>
                                         : <span>Delete</span>
                                     }
@@ -81,17 +57,17 @@ function UsersList()
                             </td>
                         </tr>
                     )}
-                    {!users &&
+                    {!registers &&
                         <tr>
                             <td colSpan="4" className="text-center">
                                 <div className="spinner-border spinner-border-lg align-center"></div>
                             </td>
                         </tr>
                     }
-                    {users && !users.length &&
+                    {registers && !registers.length &&
                         <tr>
                             <td colSpan="4" className="text-center">
-                                <div className="p-2">No Users To Display</div>
+                                <div className="p-2">No Registers To Display</div>
                             </td>
                         </tr>
                     }
@@ -101,4 +77,4 @@ function UsersList()
     );
 }
 
-export { UsersList };
+export { RegistersList };

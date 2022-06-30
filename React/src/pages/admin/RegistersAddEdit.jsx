@@ -3,32 +3,31 @@ import { Link, useParams } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
-import { useUserActions, useAlertActions } from '../../_actions';
+import { useRegisterActions, useAlertActions } from '../../_actions';
 
-import UserRolesDropdown from '../../components/atoms/UserRolesDropdown';
+import { ZonesListDropDown } from '../../components/atoms/ZonesDropdown';
 
-function UsersAddEdit({ history, match = '/AlphaProject/Admin/Users' })
+function RegistersAddEdit({ history, match = '/AlphaProject/Admin/Registers' })
 {
     //const { id } = match.params;
     const { id } = useParams();
     const isAddMode = !id;
 
-    const userActions = useUserActions();
-    const userAlerts = useAlertActions();
+    const registerActions = useRegisterActions();
+    const registerAlerts = useAlertActions();
 
     const initialValues = {
-        name: '',
-        email: '',
-        roleid: ''
+        address: '',
+        number: '',
+        zoneid: ''
     };
 
     const validationSchema = Yup.object().shape({
-        name: Yup.string()
+        address: Yup.string()
             .required('First Name is required'),
-        email: Yup.string()
-            .email('Email is invalid')
+        number: Yup.string()
             .required('Email is required'),
-        roleid: Yup.string()
+        zoneid: Yup.string()
             .required('Role is required')
     });
 
@@ -37,42 +36,42 @@ function UsersAddEdit({ history, match = '/AlphaProject/Admin/Users' })
         setStatus();
         if (isAddMode)
         {
-            createUser(fields, setSubmitting);
+            createRegister(fields, setSubmitting);
         } else
         {
-            updateUser(id, fields, setSubmitting);
+            updateRegister(id, fields, setSubmitting);
         }
     }
 
-    function createUser(fields, setSubmitting)
+    function createRegister(fields, setSubmitting)
     {
-        userActions.create(fields)
+        registerActions.create(fields)
             .then(() =>
             {
-                userAlerts.success('User added', { keepAfterRouteChange: true });
-                window.location.href = '/AlphaProject/Admin/Users/';
+                registerAlerts.success('Register added', { keepAfterRouteChange: true });
+                window.location.href = '/AlphaProject/Admin/Registers/';
                 //history.push('.');
             })
             .catch((error) =>
             {
                 setSubmitting(false);
-                userAlerts.error(error);
+                registerAlerts.error(error);
             });
     }
 
-    function updateUser(id, fields, setSubmitting)
+    function updateRegister(id, fields, setSubmitting)
     {
-        userActions.update(id, fields)
+        registerActions.update(id, fields)
             .then(() =>
             {
-                userAlerts.success('User updated', { keepAfterRouteChange: true });
-                window.location.href = '/AlphaProject/Admin/Users/';
+                registerAlerts.success('Register updated', { keepAfterRouteChange: true });
+                window.location.href = '/AlphaProject/Admin/Registers/';
                 //history.push('..');
             })
             .catch(error =>
             {
                 setSubmitting(false);
-                userAlerts.error(error);
+                registerAlerts.error(error);
             });
     }
 
@@ -81,26 +80,26 @@ function UsersAddEdit({ history, match = '/AlphaProject/Admin/Users' })
             {function Render({ errors, touched, isSubmitting, setFieldValue })
             {
 
-                const [user, setUser] = useState({});
+                const [register, setRegister] = useState({});
                 const [showPassword, setShowPassword] = useState(false);
 
                 useEffect(() =>
                 {
                     if (!isAddMode)
                     {
-                        // get user and set form fields
-                        userActions.getById(id).then(user =>
+                        // get register and set form fields
+                        registerActions.getById(id).then(register =>
                         {
-                            const fields = ['name', 'email', 'roleid'];
-                            fields.forEach(field => setFieldValue(field, user[field], false));
-                            setUser(user);
+                            const fields = ['address', 'number', 'zoneid'];
+                            fields.forEach(field => setFieldValue(field, register[field], false));
+                            setRegister(register);
                         });
                     }
                 }, []);
 
                 return (
                     <Form>
-                        <h1>{isAddMode ? 'Add User' : 'Edit User'}</h1>
+                        <h1>{isAddMode ? 'Add Register' : 'Edit Register'}</h1>
                         <div className="form-row">
                             {/* <div className="form-group col">
                                 <label>Title</label>
@@ -114,9 +113,9 @@ function UsersAddEdit({ history, match = '/AlphaProject/Admin/Users' })
                                 <ErrorMessage name="title" component="div" className="invalid-feedback" />
                             </div> */}
                             <div className="form-group col-5">
-                                <label>First Name</label>
-                                <Field name="name" type="text" className={'form-control' + (errors.name && touched.name ? ' is-invalid' : '')} />
-                                <ErrorMessage name="name" component="div" className="invalid-feedback" />
+                                <label>Address</label>
+                                <Field name="address" type="text" className={'form-control' + (errors.address && touched.address ? ' is-invalid' : '')} />
+                                <ErrorMessage name="address" component="div" className="invalid-feedback" />
                             </div>
                             {/* <div className="form-group col-5">
                                 <label>Last Name</label>
@@ -126,21 +125,21 @@ function UsersAddEdit({ history, match = '/AlphaProject/Admin/Users' })
                         </div>
                         <div className="form-row">
                             <div className="form-group col-7">
-                                <label>Email</label>
-                                <Field name="email" type="text" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
-                                <ErrorMessage name="email" component="div" className="invalid-feedback" />
+                                <label>Number</label>
+                                <Field name="number" type="text" className={'form-control' + (errors.number && touched.number ? ' is-invalid' : '')} />
+                                <ErrorMessage name="number" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col">
                                 <label>Role</label>
                                 {/* <Field name="role" as="select" className={'form-control' + (errors.role && touched.role ? ' is-invalid' : '')}>
                                     <option value=""></option>
-                                    <option value="User">User</option>
+                                    <option value="Register">Register</option>
                                     <option value="Admin">Admin</option>
                                 </Field> */}
-                                <Field name="roleid" as="select" className={'form-control' + (errors.roleid && touched.roleid ? ' is-invalid' : '')}>
-                                    <UserRolesDropdown />
+                                <Field name="zoneid" as="select" value={register.zoneId} className={'form-control' + (errors.zoneid && touched.zoneid ? ' is-invalid' : '')}>
+                                    <ZonesListDropDown />
                                 </Field>
-                                <ErrorMessage name="roleid" component="div" className="invalid-feedback" />
+                                <ErrorMessage name="zoneid" component="div" className="invalid-feedback" />
                             </div>
                         </div>
                         {/* {!isAddMode &&
@@ -156,7 +155,7 @@ function UsersAddEdit({ history, match = '/AlphaProject/Admin/Users' })
                                     {!isAddMode &&
                                         (!showPassword
                                             ? <span> - <a onClick={() => setShowPassword(!showPassword)} className="text-primary">Show</a></span>
-                                            : <span> - {user.password}</span>
+                                            : <span> - {register.password}</span>
                                         )
                                     }
                                 </label>
@@ -174,7 +173,7 @@ function UsersAddEdit({ history, match = '/AlphaProject/Admin/Users' })
                                 {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
                                 Save
                             </button>
-                            <Link to={isAddMode ? '/AlphaProject/Admin/Users' : '/AlphaProject/Admin/Users'} className="btn btn-link">Cancel</Link>
+                            <Link to={isAddMode ? '/AlphaProject/Admin/Registers' : '/AlphaProject/Admin/Registers'} className="btn btn-link">Cancel</Link>
                         </div>
                     </Form>
                 );
@@ -183,4 +182,4 @@ function UsersAddEdit({ history, match = '/AlphaProject/Admin/Users' })
     );
 }
 
-export { UsersAddEdit };
+export { RegistersAddEdit };

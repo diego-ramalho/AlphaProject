@@ -18,6 +18,7 @@ function useUserActions()
         logout,
         create,
         getAll,
+        getUsersRoles,
         getById,
         update,
         delete: _delete,
@@ -59,6 +60,11 @@ function useUserActions()
     {
         //return fetchWrapper.get(`${baseUrl}/GetUsers`).then(setUsers);
         return fetchWrapper.get(`${baseUrl}/GetUsers`);
+    }
+
+    function getUsersRoles()
+    {
+        return fetchWrapper.get(`${baseUrl}/GetUserRoles`);
     }
 
     function getById(id)

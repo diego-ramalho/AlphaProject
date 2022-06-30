@@ -20,6 +20,10 @@ body {
     background-color: $bg-color;
 }
 
+.alert {
+    margin-left: 78px;
+}
+
 // .FontAwesomeIcon {
 // color: $font-color;
 // height: 50px;
@@ -421,6 +425,10 @@ a.nav-link-mobile {
 // }
 
 @media (min-width: 768px) {
+    .alert {
+        margin-left: 250px;
+    }
+    
     .sidebar {
         width: 250px;
     }

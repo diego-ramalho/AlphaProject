@@ -3,8 +3,8 @@ import appLang from './lang/resources.json';
 
 // pages
 import AdminUsers from "./pages/admin/Users";
-import AdminRecords from "./pages/admin/Records";
-import AdminRegions from "./pages/admin/Regions";
+import AdminRegisters from "./pages/admin/Registers";
+import AdminZones from "./pages/admin/Zones";
 import AdminFilters from "./pages/admin/Filters";
 
 import { PrivateRoute } from './_components';
@@ -32,16 +32,16 @@ export const routes_admin = [
     {
         key: 'admin-records-route-2',
         title: appLang.pt.menu.admin['item-02'],
-        path: '/AlphaProject/Admin/Records',
+        path: '/AlphaProject/Admin/Registers',
         enabled: true,
-        component: AdminRecords
+        component: AdminRegisters
     },
     {
         key: 'admin-records-route-3',
         title: appLang.pt.menu.admin['item-03'],
-        path: '/AlphaProject/Admin/Regions',
+        path: '/AlphaProject/Admin/Zones',
         enabled: true,
-        component: AdminRegions
+        component: AdminZones
     },
     {
         key: 'admin-records-route-4',
