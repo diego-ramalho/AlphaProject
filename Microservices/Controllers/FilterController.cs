@@ -62,9 +62,9 @@ namespace WebApiTemplate.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> Update(int id, [FromBody] FilterIn filter)
+        public async Task<ActionResult> Update(int id, [FromBody] FilterIn entityIn)
         {
-            _filterService.Update(id, filter);
+            _filterService.Update(id, entityIn);
 
             return Ok();
         }

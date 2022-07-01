@@ -44,6 +44,7 @@ namespace WebApiTemplate.Controllers
             return Ok(_mapper.Map<IEnumerable<UserRolesReadDto>>(getUserRoles));
         }
 
+        [AllowAnonymous]
         [Authorize(Roles = "Admin")]
         [HttpPost("Create")]
         public async Task<ActionResult<UserCreateDto>> CreateUser(UserCreateIn user)
@@ -89,6 +90,7 @@ namespace WebApiTemplate.Controllers
             return Ok();
         }
 
+        [AllowAnonymous]
         [HttpPut]
         public async Task<ActionResult> UpdateUser(int id, [FromBody] UserCreateIn user)
         {
