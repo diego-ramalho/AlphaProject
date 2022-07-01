@@ -1,111 +1,98 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
+import { history } from '../../_helpers';
 import { useZoneActions, useAlertActions } from '../../_actions';
 
-function ZonesAddEdit({ history, match = '/AlphaProject/Admin/Zones' })
+function ZonesAddEdit({ match })
 {
     const { id } = useParams();
     const isAddMode = !id;
 
+    const navigate = useNavigate();
+
     const zoneActions = useZoneActions();
-    const zoneAlerts = useAlertActions();
 
-    const initialValues = {
-        zoneName: ''
-    };
-
+    // form validation rules 
     const validationSchema = Yup.object().shape({
         zoneName: Yup.string()
             .required('Zone Name is required')
     });
 
-    function handleSubmit(fields, { setStatus, setSubmitting })
+    // functions to build form returned by useForm() hook
+    const { register, handleSubmit, reset, setValue, formState: { errors }, formState } = useForm({
+        resolver: yupResolver(validationSchema)
+    });
+
+    function onSubmit(data)
     {
-        setStatus();
-        if (isAddMode)
+        return isAddMode
+            ? createZone(data)
+            : updateZone(id, data);
+    }
+
+    function createZone(data)
+    {
+        return zoneActions.create(data)
+            .then(() =>
+            {
+                useAlertActions.success('Zone added', { keepAfterRouteChange: true });
+                navigate('/AlphaProject/Admin/Zones/');
+            })
+            .catch(useAlertActions.error);
+    }
+
+    function updateZone(id, data)
+    {
+        return zoneActions.update(id, data)
+            .then(() =>
+            {
+                useAlertActions.success('Zone updated', { keepAfterRouteChange: true });
+                navigate("/AlphaProject/Admin/Zones/");
+            })
+            .catch(useAlertActions.error);
+    }
+
+    const [zoneItem, setZone] = useState({});
+    const [options, setOptions] = useState([]);
+
+    useEffect(() =>
+    {
+        zoneActions.getAll().then(x => setOptions(x));
+
+        if (!isAddMode)
         {
-            createZone(fields, setSubmitting);
-        } else
-        {
-            updateZone(id, fields, setSubmitting);
+            // get user and set form fields
+            zoneActions.getById(id).then(zoneItem =>
+            {
+                const fields = ['zoneName'];
+                fields.forEach(field => setValue(field, zoneItem[field], false));
+                setZone(zoneItem);
+            });
         }
-    }
-
-    function createZone(fields, setSubmitting)
-    {
-        zoneActions.create(fields)
-            .then(() =>
-            {
-                zoneAlerts.success('Zone added', { keepAfterRouteChange: true });
-                window.location.href = '/AlphaProject/Admin/Zones/';
-            })
-            .catch((error) =>
-            {
-                setSubmitting(false);
-                zoneAlerts.error(error);
-            });
-    }
-
-    function updateZone(id, fields, setSubmitting)
-    {
-        zoneActions.update(id, fields)
-            .then(() =>
-            {
-                zoneAlerts.success('Zone updated', { keepAfterRouteChange: true });
-                window.location.href = '/AlphaProject/Admin/Zones/';
-            })
-            .catch(error =>
-            {
-                setSubmitting(false);
-                zoneAlerts.error(error);
-            });
-    }
+    }, []);
 
     return (
-        <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
-            {function Render({ errors, touched, isSubmitting, setFieldValue })
-            {
-
-                const [zone, setZone] = useState({});
-
-                useEffect(() =>
-                {
-                    if (!isAddMode)
-                    {
-                        // get Zone and set form fields
-                        zoneActions.getById(id).then(zone =>
-                        {
-                            const fields = ['zoneName'];
-                            fields.forEach(field => setFieldValue(field, zone[field], false));
-                            setZone(zone);
-                        });
-                    }
-                }, []);
-
-                return (
-                    <Form>
-                        <h1>{isAddMode ? 'Add Zone' : 'Edit Zone'}</h1>
-                        <div className="form-row">
-                            <div className="form-group col-5">
-                                <label>Zone Name</label>
-                                <Field name="zoneName" type="text" className={'form-control' + (errors.zonename && touched.zonename ? ' is-invalid' : '')} />
-                                <ErrorMessage name="zoneName" component="div" className="invalid-feedback" />
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <button type="Submit" disabled={isSubmitting} className="btn btn-primary">
-                                {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                                Save
-                            </button>
-                            <Link to={isAddMode ? '/AlphaProject/Admin/Zones' : '/AlphaProject/Admin/Zones'} className="btn btn-link">Cancel</Link>
-                        </div>
-                    </Form>
-                );
-            }}
-        </Formik >
+        <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
+            <h1>{isAddMode ? 'Add Zone' : 'Edit Zone'}</h1>
+            <div className="form-row">
+                <div className="form-group col-12">
+                    <label>Zone Name</label>
+                    <input name="zoneName" type="text" {...register('zoneName')} className={'form-control' + (errors.zoneName ? ' is-invalid' : '')} />
+                    <div className="invalid-feedback">{errors.zoneName?.message}</div>
+                </div>
+            </div>
+            <div className="form-group">
+                <button type="submit" disabled={formState.isSubmitting} className="btn btn-primary">
+                    {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
+                    Save
+                </button>
+                <Link to={isAddMode ? '/AlphaProject/Admin/Zones' : '/AlphaProject/Admin/Zones'} className="btn btn-link">Cancel</Link>
+            </div>
+        </form>
     );
 }
 

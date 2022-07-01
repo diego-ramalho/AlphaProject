@@ -108,26 +108,26 @@ function UsersAddEdit({ match }) {
                     </select>
                     <div className="invalid-feedback">{errors.title?.message}</div>
                 </div> */}
-                <div className="form-group col-5">
+                <div className="form-group col-12">
                     <label>Name</label>
-                    <input name="name" type="text" {...register('name')} className={'form-control' + (errors.name ? 'is-invalid' : '')} />
+                    <input name="name" type="text" {...register('name')} className={'form-control' + (errors.name ? ' is-invalid' : '')} />
                     <div className="invalid-feedback">{errors.name?.message}</div>
                 </div>
                 {/* <div className="form-group col-5">
                     <label>Last Name</label>
-                    <input name="lastName" type="text" {...register} className={'form-control' + (errors.lastName ? 'is-invalid' : '')} />
+                    <input name="lastName" type="text" {...register} className={'form-control' + (errors.lastName ? ' is-invalid' : '')} />
                     <div className="invalid-feedback">{errors.lastName?.message}</div>
                 </div> */}
             </div>
             <div className="form-row">
-                <div className="form-group col-7">
+                <div className="form-group col-md-8 col-sm-12">
                     <label>Email</label>
-                    <input name="email" type="text" {...register('email')} className={'form-control' + (errors.email ? 'is-invalid' : '')} />
+                    <input name="email" type="text" {...register('email')} className={'form-control' + (errors.email ? ' is-invalid' : '')} />
                     <div className="invalid-feedback">{errors.email?.message}</div>
                 </div>
-                <div className="form-group col">
+                <div className="form-group col-md-4 col-sm-12">
                     <label>Role</label>
-                    <select name="roleId" {...register('roleId')} className={'form-control' + (errors.roleId ? 'is-invalid' : '')}>
+                    <select name="roleId" {...register('roleId')} className={'form-control' + (errors.roleId ? ' is-invalid' : '')}>
                         {/* <option value="1">Admin</option>
                         <option value="2">User</option> */}
 
@@ -157,12 +157,12 @@ function UsersAddEdit({ match }) {
                             )
                         }
                     </label>
-                    <input name="password" type="password" {...register} className={'form-control' + (errors.password ? 'is-invalid' : '')} />
+                    <input name="password" type="password" {...register} className={'form-control' + (errors.password ? ' is-invalid' : '')} />
                     <div className="invalid-feedback">{errors.password?.message}</div>
                 </div>
                 <div className="form-group col">
                     <label>Confirm Password</label>
-                    <input name="confirmPassword" type="password" {...register} className={'form-control' + (errors.confirmPassword ? 'is-invalid' : '')} />
+                    <input name="confirmPassword" type="password" {...register} className={'form-control' + (errors.confirmPassword ? ' is-invalid' : '')} />
                     <div className="invalid-feedback">{errors.confirmPassword?.message}</div>
                 </div>
             </div> */}

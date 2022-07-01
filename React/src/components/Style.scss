@@ -20,8 +20,22 @@ body {
     background-color: $bg-color;
 }
 
+form,
+.table-striped * {
+    font-size: 95%;
+}
+
 .alert {
     margin-left: 78px;
+}
+
+.checkbox-group {
+
+    input,
+    label {
+        display: inline-block;
+        padding: 5px;
+    }
 }
 
 // .FontAwesomeIcon {
@@ -428,7 +442,7 @@ a.nav-link-mobile {
     .alert {
         margin-left: 250px;
     }
-    
+
     .sidebar {
         width: 250px;
     }

@@ -38,7 +38,7 @@ function FiltersList()
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th style={{ width: '30%' }}>Filter Name</th>
+                        <th style={{ width: '90%' }}>Filter Name</th>
                         <th style={{ width: '10%' }}></th>
                     </tr>
                 </thead>

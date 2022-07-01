@@ -1,184 +1,159 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
-import { useRegisterActions, useAlertActions } from '../../_actions';
+import { history } from '../../_helpers';
+import { useRegisterActions, useZoneActions, useFilterActions, useAlertActions } from '../../_actions';
 
-import { ZonesListDropDown } from '../../components/atoms/ZonesDropdown';
-
-function RegistersAddEdit({ history, match = '/AlphaProject/Admin/Registers' })
+function RegistersAddEdit({ match })
 {
-    //const { id } = match.params;
     const { id } = useParams();
     const isAddMode = !id;
 
+    const navigate = useNavigate();
+
     const registerActions = useRegisterActions();
-    const registerAlerts = useAlertActions();
+    const zoneActions = useZoneActions();
+    const filterActions = useFilterActions();
 
-    const initialValues = {
-        address: '',
-        number: '',
-        zoneid: ''
-    };
-
+    // form validation rules 
     const validationSchema = Yup.object().shape({
         address: Yup.string()
-            .required('First Name is required'),
+            .required('Address is required'),
         number: Yup.string()
-            .required('Email is required'),
-        zoneid: Yup.string()
-            .required('Role is required')
+            .required('Number is required'),
+        zoneId: Yup.string()
+            .required('Zone is required'),
+        filterList: Yup.array()
     });
 
-    function onSubmit(fields, { setStatus, setSubmitting })
+    // functions to build form returned by useForm() hook
+    const { register, handleSubmit, reset, setValue, formState: { errors }, formState } = useForm({
+        resolver: yupResolver(validationSchema)
+    });
+
+    function onSubmit(data)
     {
-        setStatus();
-        if (isAddMode)
+        return isAddMode
+            ? createRegister(data)
+            : updateRegister(id, data);
+    }
+
+    function createRegister(data)
+    {
+        return registerActions.create(data)
+            .then(() =>
+            {
+                useAlertActions.success('Register added', { keepAfterRouteChange: true });
+                navigate('/AlphaProject/Admin/Registers/');
+            })
+            .catch(useAlertActions.error);
+    }
+
+    function updateRegister(id, data)
+    {
+        return registerActions.update(id, data)
+            .then(() =>
+            {
+                useAlertActions.success('Register updated', { keepAfterRouteChange: true });
+                navigate("/AlphaProject/Admin/Registers/");
+            })
+            .catch(useAlertActions.error);
+    }
+
+    const [registerItem, setRegister] = useState({});
+    const [filteroptions, setFilterOptions] = useState([]);
+    const [selectedFilters, setSelectedFilters] = useState([]);
+    const [zoneoptions, setZoneOptions] = useState([]);
+
+
+    const handleChkboxChange = (event) =>
+    {
+        const target = event.target;
+        var value = target.value;
+        if (!target.checked)
         {
-            createRegister(fields, setSubmitting);
+            const name = event.target.getAttribute("filterList")
+            setSelectedFilters(selectedFilters.filter(item => item !== value));
         } else
         {
-            updateRegister(id, fields, setSubmitting);
+            const name = event.target.getAttribute("filterList")
+            setSelectedFilters(...selectedFilters, value);
         }
     }
 
-    function createRegister(fields, setSubmitting)
+    useEffect(() =>
     {
-        registerActions.create(fields)
-            .then(() =>
-            {
-                registerAlerts.success('Register added', { keepAfterRouteChange: true });
-                window.location.href = '/AlphaProject/Admin/Registers/';
-                //history.push('.');
-            })
-            .catch((error) =>
-            {
-                setSubmitting(false);
-                registerAlerts.error(error);
-            });
-    }
+        filterActions.getAll().then(x => { setFilterOptions(x); console.log(x); });
+        zoneActions.getAll().then(x => setZoneOptions(x));
 
-    function updateRegister(id, fields, setSubmitting)
-    {
-        registerActions.update(id, fields)
-            .then(() =>
+        if (!isAddMode)
+        {
+            // get user and set form fields
+            registerActions.getById(id).then(registerItem =>
             {
-                registerAlerts.success('Register updated', { keepAfterRouteChange: true });
-                window.location.href = '/AlphaProject/Admin/Registers/';
-                //history.push('..');
-            })
-            .catch(error =>
-            {
-                setSubmitting(false);
-                registerAlerts.error(error);
+                const fields = ['address', 'number', 'zoneId'];
+                fields.forEach(field => setValue(field, registerItem[field], false));
+                setRegister(registerItem);
             });
-    }
+        }
+    }, []);
 
     return (
-        <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-            {function Render({ errors, touched, isSubmitting, setFieldValue })
-            {
-
-                const [register, setRegister] = useState({});
-                const [showPassword, setShowPassword] = useState(false);
-
-                useEffect(() =>
-                {
-                    if (!isAddMode)
-                    {
-                        // get register and set form fields
-                        registerActions.getById(id).then(register =>
-                        {
-                            const fields = ['address', 'number', 'zoneid'];
-                            fields.forEach(field => setFieldValue(field, register[field], false));
-                            setRegister(register);
-                        });
-                    }
-                }, []);
-
-                return (
-                    <Form>
-                        <h1>{isAddMode ? 'Add Register' : 'Edit Register'}</h1>
-                        <div className="form-row">
-                            {/* <div className="form-group col">
-                                <label>Title</label>
-                                <Field name="title" as="select" className={'form-control' + (errors.title && touched.title ? ' is-invalid' : '')}>
-                                    <option value=""></option>
-                                    <option value="Mr">Mr</option>
-                                    <option value="Mrs">Mrs</option>
-                                    <option value="Miss">Miss</option>
-                                    <option value="Ms">Ms</option>
-                                </Field>
-                                <ErrorMessage name="title" component="div" className="invalid-feedback" />
-                            </div> */}
-                            <div className="form-group col-5">
-                                <label>Address</label>
-                                <Field name="address" type="text" className={'form-control' + (errors.address && touched.address ? ' is-invalid' : '')} />
-                                <ErrorMessage name="address" component="div" className="invalid-feedback" />
-                            </div>
-                            {/* <div className="form-group col-5">
-                                <label>Last Name</label>
-                                <Field name="lastName" type="text" className={'form-control' + (errors.lastName && touched.lastName ? ' is-invalid' : '')} />
-                                <ErrorMessage name="lastName" component="div" className="invalid-feedback" />
-                            </div> */}
-                        </div>
-                        <div className="form-row">
-                            <div className="form-group col-7">
-                                <label>Number</label>
-                                <Field name="number" type="text" className={'form-control' + (errors.number && touched.number ? ' is-invalid' : '')} />
-                                <ErrorMessage name="number" component="div" className="invalid-feedback" />
-                            </div>
-                            <div className="form-group col">
-                                <label>Role</label>
-                                {/* <Field name="role" as="select" className={'form-control' + (errors.role && touched.role ? ' is-invalid' : '')}>
-                                    <option value=""></option>
-                                    <option value="Register">Register</option>
-                                    <option value="Admin">Admin</option>
-                                </Field> */}
-                                <Field name="zoneid" as="select" value={register.zoneId} className={'form-control' + (errors.zoneid && touched.zoneid ? ' is-invalid' : '')}>
-                                    <ZonesListDropDown />
-                                </Field>
-                                <ErrorMessage name="zoneid" component="div" className="invalid-feedback" />
-                            </div>
-                        </div>
-                        {/* {!isAddMode &&
-                            <div>
-                                <h3 className="pt-3">Change Password</h3>
-                                <p>Leave blank to keep the same password</p>
-                            </div>
-                        }
-                        <div className="form-row">
-                            <div className="form-group col">
-                                <label>
-                                    Password
-                                    {!isAddMode &&
-                                        (!showPassword
-                                            ? <span> - <a onClick={() => setShowPassword(!showPassword)} className="text-primary">Show</a></span>
-                                            : <span> - {register.password}</span>
-                                        )
-                                    }
-                                </label>
-                                <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
-                                <ErrorMessage name="password" component="div" className="invalid-feedback" />
-                            </div>
-                            <div className="form-group col">
-                                <label>Confirm Password</label>
-                                <Field name="confirmPassword" type="password" className={'form-control' + (errors.confirmPassword && touched.confirmPassword ? ' is-invalid' : '')} />
-                                <ErrorMessage name="confirmPassword" component="div" className="invalid-feedback" />
-                            </div>
-                        </div> */}
-                        <div className="form-group">
-                            <button type="submit" disabled={isSubmitting} className="btn btn-primary">
-                                {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                                Save
-                            </button>
-                            <Link to={isAddMode ? '/AlphaProject/Admin/Registers' : '/AlphaProject/Admin/Registers'} className="btn btn-link">Cancel</Link>
-                        </div>
-                    </Form>
-                );
-            }}
-        </Formik >
+        <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
+            <h1>{isAddMode ? 'Add Register' : 'Edit Register'}</h1>
+            <div className="form-row">
+                <div className="form-group col-12">
+                    <label>Address</label>
+                    <input name="address" type="text" {...register('address')} className={'form-control' + (errors.address ? ' is-invalid' : '')} />
+                    <div className="invalid-feedback">{errors.address?.message}</div>
+                </div>
+            </div>
+            <div className="form-row">
+                <div className="form-group col-md-8 col-sm-12">
+                    <label>Number</label>
+                    <input name="number" type="text" {...register('number')} className={'form-control' + (errors.number ? ' is-invalid' : '')} />
+                    <div className="invalid-feedback">{errors.number?.message}</div>
+                </div>
+                <div className="form-group col-md-4 col-sm-12">
+                    <label>Zone</label>
+                    <select name="zoneId" {...register('zoneId')} className={'form-control' + (errors.zoneId ? ' is-invalid' : '')}>
+                        {zoneoptions.map(option => (
+                            <option key={option.zoneName} value={option.id}>
+                                {option.zoneName}
+                            </option>
+                        ))}
+                    </select>
+                    <div className="invalid-feedback">{errors.zoneId?.message}</div>
+                </div>
+            </div>
+            <div className="form-row">
+                <div className="form-group col-sm-12 checkbox-group">
+                    {/* <select name="filterId" {...register('filterId')} className={'form-control' + (errors.filterId ? ' is-invalid' : '')}>
+                        {Array.from(filteroptions).map(option => (
+                            <option key={option.filterName} value={option.id}>
+                                {option.filterName}
+                            </option>
+                        ))}
+                    </select> */}
+                    {filteroptions.map(option => (
+                        <>
+                            <input type="checkbox" {...register('filterList')} id={option.id} name="filterList" onChange={handleChkboxChange} key={"filter-" + option.id} value={option.id}></input>
+                            <label for={"filter-" + option.id}>{option.filterName}</label><br />
+                        </>
+                    ))}
+                </div>
+            </div>
+            <div className="form-group">
+                <button type="submit" disabled={formState.isSubmitting} className="btn btn-primary">
+                    {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
+                    Save
+                </button>
+                <Link to={isAddMode ? '/AlphaProject/Admin/Registers' : '/AlphaProject/Admin/Registers'} className="btn btn-link">Cancel</Link>
+            </div>
+        </form>
     );
 }
 

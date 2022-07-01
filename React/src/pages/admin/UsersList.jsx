@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { useUserActions } from '../../_actions';
+import { useUserActions, useRoleActions } from '../../_actions';
 
 import UsersDropdown from '../../components/atoms/UsersDropdown'
 
@@ -23,13 +23,16 @@ function UsersList()
     const path = '/AlphaProject/Admin/Users';
     const baseUrl = `${process.env.REACT_APP_API_URL}/user`;
     const [users, setUsers] = useState(null);
-    const [userroles, setUserRoles] = useState(null);
+
+    const [rolesList, setRoles] = useState([]);
 
     const userActions = useUserActions();
+    const roleActions = useRoleActions();
 
     useEffect(() =>
     {
         userActions.getAll().then(x => setUsers(x));
+        userActions.getUsersRoles().then(x => { setRoles(x); console.log(x); });
         // const teste = fetch(`${baseUrl}/GetUserRoles`)
         //     .then(x => setUserRoles(x))
     }, []);
@@ -58,9 +61,9 @@ function UsersList()
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th style={{ width: '30%' }}>Name</th>
-                        <th style={{ width: '30%' }}>Email</th>
-                        <th style={{ width: '30%' }}>Role</th>
+                        <th style={{ width: '35%' }}>Name</th>
+                        <th style={{ width: '35%' }}>Email</th>
+                        <th style={{ width: '20%' }}>Role</th>
                         <th style={{ width: '10%' }}></th>
                     </tr>
                 </thead>
@@ -69,7 +72,7 @@ function UsersList()
                         <tr key={user.id}>
                             <td>{user.name}</td>
                             <td>{user.email}</td>
-                            <td>{user.roleId === 1 ? 'Admin' : 'User'}</td>
+                            <td>{rolesList.filter(x => x.id === user.roleId).map(x => x.roleName)}</td>
                             <td style={{ whiteSpace: 'nowrap' }}>
                                 <Link to={`${path}/edit/${user.id}`} className="btn btn-sm btn-primary mr-1">Edit</Link>
                                 <button onClick={() => deleteUser(user.id)} className="btn btn-sm btn-danger btn-delete-user" disabled={user.isDeleting}>

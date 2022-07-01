@@ -1,111 +1,98 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
+import { history } from '../../_helpers';
 import { useFilterActions, useAlertActions } from '../../_actions';
 
-function FiltersAddEdit({ history, match = '/AlphaProject/Admin/Filters' })
+function FiltersAddEdit({ match })
 {
     const { id } = useParams();
     const isAddMode = !id;
 
+    const navigate = useNavigate();
+
     const filterActions = useFilterActions();
-    const filterAlerts = useAlertActions();
 
-    const initialValues = {
-        filterName: ''
-    };
-
+    // form validation rules 
     const validationSchema = Yup.object().shape({
         filterName: Yup.string()
             .required('Filter Name is required')
     });
 
-    function handleSubmit(fields, { setStatus, setSubmitting })
+    // functions to build form returned by useForm() hook
+    const { register, handleSubmit, reset, setValue, formState: { errors }, formState } = useForm({
+        resolver: yupResolver(validationSchema)
+    });
+
+    function onSubmit(data)
     {
-        setStatus();
-        if (isAddMode)
+        return isAddMode
+            ? createFilter(data)
+            : updateFilter(id, data);
+    }
+
+    function createFilter(data)
+    {
+        return filterActions.create(data)
+            .then(() =>
+            {
+                useAlertActions.success('Filter added', { keepAfterRouteChange: true });
+                navigate('/AlphaProject/Admin/Filters/');
+            })
+            .catch(useAlertActions.error);
+    }
+
+    function updateFilter(id, data)
+    {
+        return filterActions.update(id, data)
+            .then(() =>
+            {
+                useAlertActions.success('Filter updated', { keepAfterRouteChange: true });
+                navigate("/AlphaProject/Admin/Filters/");
+            })
+            .catch(useAlertActions.error);
+    }
+
+    const [filterItem, setFilter] = useState({});
+    const [options, setOptions] = useState([]);
+
+    useEffect(() =>
+    {
+        filterActions.getAll().then(x => setOptions(x));
+
+        if (!isAddMode)
         {
-            createFilter(fields, setSubmitting);
-        } else
-        {
-            updateFilter(id, fields, setSubmitting);
+            // get user and set form fields
+            filterActions.getById(id).then(filterItem =>
+            {
+                const fields = ['filterName'];
+                fields.forEach(field => setValue(field, filterItem[field], false));
+                setFilter(filterItem);
+            });
         }
-    }
-
-    function createFilter(fields, setSubmitting)
-    {
-        filterActions.create(fields)
-            .then(() =>
-            {
-                filterAlerts.success('Filter added', { keepAfterRouteChange: true });
-                window.location.href = '/AlphaProject/Admin/Filters/';
-            })
-            .catch((error) =>
-            {
-                setSubmitting(false);
-                filterAlerts.error(error);
-            });
-    }
-
-    function updateFilter(id, fields, setSubmitting)
-    {
-        filterActions.update(id, fields)
-            .then(() =>
-            {
-                filterAlerts.success('Filter updated', { keepAfterRouteChange: true });
-                window.location.href = '/AlphaProject/Admin/Filters/';
-            })
-            .catch(error =>
-            {
-                setSubmitting(false);
-                filterAlerts.error(error);
-            });
-    }
+    }, []);
 
     return (
-        <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
-            {function Render({ errors, touched, isSubmitting, setFieldValue })
-            {
-
-                const [filter, setFilter] = useState({});
-
-                useEffect(() =>
-                {
-                    if (!isAddMode)
-                    {
-                        // get Filter and set form fields
-                        filterActions.getById(id).then(filter =>
-                        {
-                            const fields = ['filterName'];
-                            fields.forEach(field => setFieldValue(field, filter[field], false));
-                            setFilter(filter);
-                        });
-                    }
-                }, []);
-
-                return (
-                    <Form>
-                        <h1>{isAddMode ? 'Add Filter' : 'Edit Filter'}</h1>
-                        <div className="form-row">
-                            <div className="form-group col-5">
-                                <label>Filter Name</label>
-                                <Field name="filterName" type="text" className={'form-control' + (errors.filtername && touched.filtername ? ' is-invalid' : '')} />
-                                <ErrorMessage name="filterName" component="div" className="invalid-feedback" />
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <button type="Submit" disabled={isSubmitting} className="btn btn-primary">
-                                {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                                Save
-                            </button>
-                            <Link to={isAddMode ? '/AlphaProject/Admin/Filters' : '/AlphaProject/Admin/Filters'} className="btn btn-link">Cancel</Link>
-                        </div>
-                    </Form>
-                );
-            }}
-        </Formik >
+        <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
+            <h1>{isAddMode ? 'Add Filter' : 'Edit Filter'}</h1>
+            <div className="form-row">
+                <div className="form-group col-12">
+                    <label>Filter Name</label>
+                    <input name="filterName" type="text" {...register('filterName')} className={'form-control' + (errors.filterName ? ' is-invalid' : '')} />
+                    <div className="invalid-feedback">{errors.filterName?.message}</div>
+                </div>
+            </div>
+            <div className="form-group">
+                <button type="submit" disabled={formState.isSubmitting} className="btn btn-primary">
+                    {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
+                    Save
+                </button>
+                <Link to={isAddMode ? '/AlphaProject/Admin/Filters' : '/AlphaProject/Admin/Filters'} className="btn btn-link">Cancel</Link>
+            </div>
+        </form>
     );
 }
 

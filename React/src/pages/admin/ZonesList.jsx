@@ -26,7 +26,7 @@ function ZonesList()
         }));
         zoneActions.delete(id).then(() =>
         {
-            setZones(zones => zones.zone(x => x.id !== id));
+            setZones(zones => zones.filter(x => x.id !== id));
         });
     }
 
@@ -38,7 +38,7 @@ function ZonesList()
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th style={{ width: '30%' }}>Zone Name</th>
+                        <th style={{ width: '90%' }}>Zone Name</th>
                         <th style={{ width: '10%' }}></th>
                     </tr>
                 </thead>
