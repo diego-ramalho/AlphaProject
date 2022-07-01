@@ -11,5 +11,7 @@ namespace WebApiTemplate.Dtos
         public string Number { get; set; }
 
         public int ZoneId { get; set; }
+
+        public string[] filterList { get; set; }
     }
 }
