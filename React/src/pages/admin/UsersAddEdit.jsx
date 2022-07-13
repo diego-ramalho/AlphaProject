@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
 import { history } from '../../_helpers';
-import { useUserActions, useAlertActions } from '../../_actions';
+import { useUserActions, useZoneActions, useAlertActions } from '../../_actions';
 
 function UsersAddEdit({ match }) {
     //const { id } = match.params;
@@ -15,6 +15,7 @@ function UsersAddEdit({ match }) {
     const navigate = useNavigate();
 
     const userActions = useUserActions();
+    const zoneActions = useZoneActions();
     //const alertActions = useAlertActions();
     
     // form validation rules 
@@ -40,6 +41,8 @@ function UsersAddEdit({ match }) {
             .required('Email is required'),
         roleId: Yup.string()
             .required('Role is required'),
+        zoneId: Yup.string()
+            .required('Zone is required'),
     });
 
     // functions to build form returned by useForm() hook
@@ -58,7 +61,8 @@ function UsersAddEdit({ match }) {
             .then(() => {
                 useAlertActions.success('User added', { keepAfterRouteChange: true });
                 //history.push('.');
-                history.push('/AlphaProject/Admin/Users/');
+                //history.push('/AlphaProject/Admin/Users/');
+                navigate("/AlphaProject/Admin/Users/");
                 //window.location.href = '/AlphaProject/Admin/Users/';
             })
             .catch(useAlertActions.error);
@@ -78,15 +82,17 @@ function UsersAddEdit({ match }) {
 
     const [user, setUser] = useState({});
     const [options, setOptions] = useState([]);
+    const [zonesOptions, setZoneOptions] = useState([]);
     const [showPassword, setShowPassword] = useState(false);
         
     useEffect(() => {
         userActions.getUsersRoles().then(x => setOptions(x));
+        zoneActions.getAll().then(x => setZoneOptions(x));
 
         if (!isAddMode) {
             // get user and set form fields
             userActions.getById(id).then(user => {
-                const fields = ['name', 'email', 'roleId'];
+                const fields = ['name', 'email', 'roleId', 'zoneId'];
                 fields.forEach(field => setValue(field, user[field], false));
                 setUser(user);
             });
@@ -120,17 +126,16 @@ function UsersAddEdit({ match }) {
                 </div> */}
             </div>
             <div className="form-row">
-                <div className="form-group col-md-8 col-sm-12">
+                <div className="form-group col-md-12 col-sm-12">
                     <label>Email</label>
                     <input name="email" type="text" {...register('email')} className={'form-control' + (errors.email ? ' is-invalid' : '')} />
                     <div className="invalid-feedback">{errors.email?.message}</div>
                 </div>
-                <div className="form-group col-md-4 col-sm-12">
+            </div>
+            <div className="form-row">
+                <div className="form-group col-md-6 col-sm-12">
                     <label>Role</label>
                     <select name="roleId" {...register('roleId')} className={'form-control' + (errors.roleId ? ' is-invalid' : '')}>
-                        {/* <option value="1">Admin</option>
-                        <option value="2">User</option> */}
-
                         {options.map(option => (
                             <option key={option.roleName} value={option.id}>
                                 {option.roleName}
@@ -138,6 +143,17 @@ function UsersAddEdit({ match }) {
                         ))}
                     </select>
                     <div className="invalid-feedback">{errors.roleId?.message}</div>
+                </div>
+                <div className="form-group col-md-6 col-sm-12">
+                    <label>Zone</label>
+                    <select name="zoneId" {...register('zoneId')} className={'form-control' + (errors.zoneId ? ' is-invalid' : '')}>
+                        {zonesOptions.map(option => (
+                            <option key={option.zoneName} value={option.id}>
+                                {option.zoneName}
+                            </option>
+                        ))}
+                    </select>
+                    <div className="invalid-feedback">{errors.zoneId?.message}</div>
                 </div>
             </div>
             {/* {!isAddMode &&

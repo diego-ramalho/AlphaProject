@@ -103,7 +103,7 @@ function RegistersAddEdit({ match })
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
-            <h1>{isAddMode ? 'Add Register' : 'Edit Register'}</h1>
+            <h1>{isAddMode ? 'Add Taratura' : 'Edit Taratura'}</h1>
             <div className="form-row">
                 <div className="form-group col-12">
                     <label>Address</label>

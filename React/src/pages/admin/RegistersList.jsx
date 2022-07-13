@@ -37,8 +37,8 @@ function RegistersList()
 
     return (
         <div>
-            <h1>Registers</h1>
-            <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add Register</Link>
+            <h1>Taratura</h1>
+            <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add</Link>
             <table className="table table-striped">
                 <thead>
                     <tr>

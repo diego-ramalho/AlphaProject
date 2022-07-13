@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useSetRecoilState, useResetRecoilState } from 'recoil';
 
 import { history, useFetchWrapper } from '../_helpers';
@@ -8,6 +9,7 @@ export { useUserActions };
 function useUserActions()
 {
     const baseUrl = `${process.env.REACT_APP_API_URL}/user`;
+    const navigate = useNavigate();
     const fetchWrapper = useFetchWrapper();
     const [auth, setAuth] = useRecoilState(authAtom);
     const setUsers = useSetRecoilState(usersAtom);
@@ -19,8 +21,11 @@ function useUserActions()
         create,
         getAll,
         getUsersRoles,
+        getUsersZones,
         getById,
+        getCurrentUser,
         update,
+        updateCurrentUser,
         delete: _delete,
         resetUsers: useResetRecoilState(usersAtom),
         resetUser: useResetRecoilState(userAtom)
@@ -33,6 +38,7 @@ function useUserActions()
             {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('user', JSON.stringify(user));
+                //localStorage.setItem('zone', '1');
                 setAuth(user);
 
                 // get return url from location state or default to home page
@@ -47,8 +53,9 @@ function useUserActions()
         // remove user from local storage, set auth state to null and redirect to login page
         localStorage.removeItem('user');
         setAuth(null);
-        history.push('/AlphaProject/');
-        window.location.href = '/AlphaProject/';
+        //history.push('/AlphaProject/');
+        //window.location.href = '/AlphaProject/';
+        navigate("/AlphaProject/");
     }
 
     function create(user)
@@ -67,10 +74,23 @@ function useUserActions()
         return fetchWrapper.get(`${baseUrl}/GetUserRoles`);
     }
 
+    function getUsersZones()
+    {
+        return fetchWrapper.get(`${baseUrl}/GetUserZones`);
+    }
+
     function getById(id)
     {
         //return fetchWrapper.get(`${baseUrl}/${id}`).then(setUser);
         return fetchWrapper.get(`${baseUrl}/${id}`);
+    }
+
+
+
+    function getCurrentUser()
+    {
+        //return fetchWrapper.get(`${baseUrl}/${id}`).then(setUser);
+        return fetchWrapper.get(`${baseUrl}/GetCurrentUser`);
     }
 
     function update(id, params)
@@ -89,6 +109,11 @@ function useUserActions()
         //         }
         //         return x;
         //     });
+    }
+
+    function updateCurrentUser(params)
+    {
+        return fetchWrapper.post(`${baseUrl}/UpdateCurrentUser`, params);
     }
 
     // prefixed with underscored because delete is a reserved word in javascript

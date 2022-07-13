@@ -70,7 +70,7 @@ export default function Login()
     // };
 
     return (
-        <div className="card m-3">
+        <div className="card m-3 login-form">
             <h4 className="card-header">Login</h4>
             <div className="card-body">
                 <form onSubmit={handleSubmit(userActions.login)}>
