@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using WebApiTemplate.Dtos;
 using WebApiTemplate.Services;
 
@@ -12,12 +14,17 @@ namespace WebApiTemplate.Controllers
     public class RegisterController : ControllerBase
     {
         private readonly IRegisterService _registerService;
+        private readonly IUserTransactionalService _userTransactionalService;
         private readonly IMapper _mapper;
         private readonly Helpers.JwtAuthenticationManager _jwtAuthenticationManager;
 
-        public RegisterController(IMapper mapper, IRegisterService registerService, Helpers.JwtAuthenticationManager jwtAuthenticationManager)
+        public RegisterController(IMapper mapper, 
+            IRegisterService registerService, 
+            IUserTransactionalService userTransactionalService,
+            Helpers.JwtAuthenticationManager jwtAuthenticationManager)
         {
             _registerService = registerService;
+            _userTransactionalService = userTransactionalService;
             _mapper = mapper;
             _jwtAuthenticationManager = jwtAuthenticationManager;
         }
@@ -25,7 +32,51 @@ namespace WebApiTemplate.Controllers
         [HttpGet("GetAll")]
         public ActionResult<IEnumerable<RegisterDto>> GetAll()
         {
+            //if (context.Request.Headers.TryGetValue("AccessToken", out StringValues headerValue))
+            //{
+            //    JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
+            //    var jwt = tokenHandler.ReadJwtToken(token);
+
+            //    string token = headerValue;
+            //    if (!string.IsNullOrEmpty(token) && token.StartsWith(BearerPrefix))
+            //    {
+            //        token = token.Substring(BearerPrefix.Length);
+            //    }
+
+            //    context.Token = token;
+
             var getAll = _registerService.GetAll();
+
+            Request.Headers.TryGetValue("Authorization", out var headerValue);
+
+            var handler = new JwtSecurityTokenHandler();
+
+            var jwtTokenId = "";
+            try
+            {
+                var jwtToken = handler.ReadJwtToken(headerValue.ToString().Split(" ")[1]);
+                jwtTokenId = jwtToken.Claims.First(claim => claim.Type == "certserialnumber").Value;
+            }
+            catch (Exception e)
+            {
+                throw new ArgumentNullException(nameof(e));
+            }
+
+            if (!String.IsNullOrEmpty(jwtTokenId))
+            {
+                var userItem = _userTransactionalService.GetUserById(int.Parse(jwtTokenId));
+                if (userItem != null && userItem.RoleId == 2)
+                {
+                    var userZone = _userTransactionalService.GetZoneByUser(int.Parse(jwtTokenId));
+
+                    //Get Zone
+                    getAll = getAll.Where(r => r.ZoneId == userZone.ZoneId); //TODO
+                }
+            }
+
+            //var jti = jwtToken.Claims.First(claim => claim.Type == "sid").Value;
+
+            //var getAll = _registerService.GetAll();
 
             return Ok(_mapper.Map<IEnumerable<RegisterDto>>(getAll));
         }

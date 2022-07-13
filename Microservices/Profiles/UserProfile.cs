@@ -26,6 +26,9 @@ namespace WebApiTemplate.Profiles
             CreateMap<UserRoles, UserRolesReadDto>();
             CreateMap<UserRolesReadDto, UserRoles>();
 
+
+            CreateMap<UserZonesReadDto, Zone>().ReverseMap();
+
             //CreateMap<PlatformReadDto, PlatformPublishedDto>();
             //CreateMap<Platform, GrpcPlatformModel>()
             //    .ForMember(dest => dest.PlatformId, opt => opt.MapFrom(src => src.Id))

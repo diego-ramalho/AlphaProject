@@ -12,5 +12,8 @@ namespace WebApiTemplate.Dtos
 
         [Required]
         public int RoleId { get; set; }
+
+        [Required]
+        public int ZoneId { get; set; }
     }
 }

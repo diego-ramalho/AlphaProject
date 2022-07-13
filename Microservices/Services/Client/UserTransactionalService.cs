@@ -47,6 +47,16 @@ namespace WebApiTemplate.Services.Client
             return _context.UserRoles.ToList();
         }
 
+        public UserZones GetZoneByUser(int userId)
+        {
+            return _context.UserZones.FirstOrDefault(p => p.UserId == userId);
+        }
+
+        public IEnumerable<Zone> GetUserZones()
+        {
+            return _context.Zones.ToList();
+        }
+
         public void CreateUser(UserCreateIn user)
         {
             if (user == null)
@@ -58,7 +68,16 @@ namespace WebApiTemplate.Services.Client
 
             _user.Password = Encrypt(NewPassword(null));
 
-            _context.Users.Add(_user);
+            var userAdded = _context.Users.Add(_user);
+            _context.SaveChanges();
+
+            var _userZone = new UserZones()
+            {
+                UserId = userAdded.Entity.Id,
+                ZoneId = user.ZoneId
+            };
+            _context.UserZones.Add(_userZone);
+            _context.SaveChanges();
         }
 
         public void DeleteUser(int id)
@@ -104,7 +123,18 @@ namespace WebApiTemplate.Services.Client
             //JwtAuthenticationManager jwtAuthenticationManager = new JwtAuthenticationManager(_appSettings.Secret);
             var token = _jwtAuthenticationManager.Authenticate(_user);
 
+            var _userZone = new UserZones();
+
+            if(_user.RoleId == 2) //Not Admin
+                _userZone = _context.UserZones.FirstOrDefault(p => p.UserId == _user.Id);
+
+            if(_userZone == null && _user.RoleId == 2)
+                throw new NullReferenceException(nameof(_userZone));
+            else if (_userZone == null && _user.RoleId == 1)
+                _userZone.ZoneId = 0;
+
             var userDto = _mapper.Map<UserLoginDto>(_user);
+            userDto.ZoneId = _userZone.ZoneId;
             userDto.Token = token;
 
             return userDto;
@@ -113,6 +143,15 @@ namespace WebApiTemplate.Services.Client
         public User GetUserById(int id)
         {
             return _context.Users.FirstOrDefault(p => p.Id == id);
+        }
+
+        public int GetZoneByUserId(int id)
+        {
+            return _context.UserZones.FirstOrDefault(p => p.UserId == id).ZoneId;
+        }
+        public int GetUserByEmail(string email)
+        {
+            return _context.Users.FirstOrDefault(p => p.Email == email).Id;
         }
 
         //public AuthenticateResponse Authenticate(AuthenticateRequest model)

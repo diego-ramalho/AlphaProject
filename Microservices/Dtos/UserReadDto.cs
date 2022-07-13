@@ -9,5 +9,7 @@
         public string Email { get; set; }
 
         public int RoleId { get; set; }
+
+        public int ZoneId { get; set; }
     }
 }

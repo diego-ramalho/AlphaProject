@@ -22,6 +22,14 @@ namespace WebApiTemplate.Services.Client
 
         public IEnumerable<Register> GetAll()
         {
+            //var _userZone = new UserZones();
+
+            //if (_user.RoleId == 2) //Not Admin
+            //    _userZone = _context.UserZones.FirstOrDefault(p => p.UserId == _user.Id);
+
+            //var teste = _context.I.Items["User"];
+
+
             return _context.Registers.ToList();
         }
 

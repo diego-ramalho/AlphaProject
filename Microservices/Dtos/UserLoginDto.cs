@@ -11,6 +11,8 @@ namespace WebApiTemplate.Dtos
 
         public int RoleId { get; set; }
 
+        public int ZoneId { get; set; }
+
         public string Token { get; set; }
     }
 }

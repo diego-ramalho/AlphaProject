@@ -2,6 +2,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using WebApiTemplate.Data;
 using WebApiTemplate.Models;
 
 namespace WebApiTemplate.Helpers
@@ -66,14 +67,19 @@ namespace WebApiTemplate.Helpers
             //    return null;
             //}
 
+            //var _userZone = new UserZones();
+
+            //if (user.RoleId == 2) //Not Admin
+            //    _userZone = _context.UserZones.FirstOrDefault(p => p.UserId == user.Id);
+
             ClaimsIdentity subjectByRoles = new ClaimsIdentity();
             if (user.RoleId == 1)
             {
-                subjectByRoles = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, user.Name), new Claim(ClaimTypes.Role, "Admin") });
+                subjectByRoles = new ClaimsIdentity(new[] { new Claim(ClaimTypes.SerialNumber, user.Id.ToString()), new Claim(ClaimTypes.Name, user.Name), new Claim(ClaimTypes.Role, "Admin") });
             }
             else
             {
-                subjectByRoles = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, user.Name), new Claim(ClaimTypes.Role, "User") });
+                subjectByRoles = new ClaimsIdentity(new[] { new Claim(ClaimTypes.SerialNumber, user.Id.ToString()), new Claim(ClaimTypes.Name, user.Name), new Claim(ClaimTypes.Role, "User") });
             }
 
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();

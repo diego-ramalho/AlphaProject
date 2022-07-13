@@ -10,5 +10,7 @@ namespace WebApiTemplate.Dtos
         public string Name { get; set; }
 
         public int RoleId { get; set; }
+
+        public int ZoneId { get; set; }
     }
 }

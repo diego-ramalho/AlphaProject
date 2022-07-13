@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using System.IdentityModel.Tokens.Jwt;
 using WebApiTemplate.Dtos;
 using WebApiTemplate.Models;
 using WebApiTemplate.Services;
@@ -10,7 +12,7 @@ namespace WebApiTemplate.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors("_myAllowSpecificOrigins")]    
+    [EnableCors("_myAllowSpecificOrigins")]
     public class UserController : ControllerBase
     {
         private readonly IUserTransactionalService _userTransactionalService;
@@ -35,6 +37,48 @@ namespace WebApiTemplate.Controllers
             return Ok(_mapper.Map<IEnumerable<UserReadDto>>(getUsers));
         }
 
+        [HttpGet("GetCurrentUser")]
+        public ActionResult<IEnumerable<UserReadDto>> GetCurrentUser()
+        {
+            Request.Headers.TryGetValue("Authorization", out var headerValue);
+            string jwtTokenId = GetTokenId(headerValue);
+
+            if (!String.IsNullOrEmpty(jwtTokenId))
+            {
+                var userItem = _userTransactionalService.GetUserById(int.Parse(jwtTokenId));
+                if (userItem != null)
+                {
+                    return Ok(_mapper.Map<UserReadDto>(userItem));
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            else
+            {
+                throw new ArgumentNullException();
+            }
+        }
+
+        private static string GetTokenId(StringValues headerValue)
+        {
+            var handler = new JwtSecurityTokenHandler();
+
+            var jwtTokenId = "";
+            try
+            {
+                var jwtToken = handler.ReadJwtToken(headerValue.ToString().Split(" ")[1]);
+                jwtTokenId = jwtToken.Claims.First(claim => claim.Type == "certserialnumber").Value;
+            }
+            catch (Exception e)
+            {
+                throw new ArgumentNullException(nameof(e));
+            }
+
+            return jwtTokenId;
+        }
+
         [AllowAnonymous]
         [HttpGet("GetUserRoles")]
         public ActionResult<IEnumerable<UserRolesReadDto>> GetUserRoles()
@@ -45,14 +89,20 @@ namespace WebApiTemplate.Controllers
         }
 
         [AllowAnonymous]
+        [HttpGet("GetUserZones")]
+        public ActionResult<IEnumerable<UserZonesReadDto>> GetUserZones()
+        {
+            var getUserZones = _userTransactionalService.GetUserZones();
+
+            return Ok(_mapper.Map<IEnumerable<UserZonesReadDto>>(getUserZones));
+        }
+
+        [AllowAnonymous]
         [Authorize(Roles = "Admin")]
         [HttpPost("Create")]
         public async Task<ActionResult<UserCreateDto>> CreateUser(UserCreateIn user)
         {
-            //var user = _mapper.Map<User>(UserCreateDto);
-
             _userTransactionalService.CreateUser(user);
-            _userTransactionalService.SaveChanges();
 
             var UserReadDto = _mapper.Map<UserReadDto>(user);
 
@@ -100,13 +150,39 @@ namespace WebApiTemplate.Controllers
             return Ok();
         }
 
+        [AllowAnonymous]
+        [HttpPost("UpdateCurrentUser")]
+        public async Task<ActionResult> UpdateCurrentUser([FromBody] UserCreateIn user)
+        {
+            Request.Headers.TryGetValue("Authorization", out var headerValue);
+            string jwtTokenId = GetTokenId(headerValue);
+
+            if (!String.IsNullOrEmpty(jwtTokenId))
+            {
+                _userTransactionalService.UpdateUser(Int32.Parse(jwtTokenId), user);
+                _userTransactionalService.SaveChanges();
+            }
+            else
+            {
+                throw new ArgumentNullException();
+            }
+
+            return Ok();
+        }
+
         [HttpGet("{id}", Name = "GetUserById")]
         public ActionResult<UserReadDto> GetUserById(int id)
         {
             var userItem = _userTransactionalService.GetUserById(id);
             if (userItem != null)
             {
-                return Ok(_mapper.Map<UserReadDto>(userItem));
+                var userReturn = _mapper.Map<UserReadDto>(userItem);
+
+                var userZoneId = _userTransactionalService.GetZoneByUserId(id);
+                if (userZoneId != null)
+                    userReturn.ZoneId = userZoneId;
+
+                return Ok(userReturn);
             }
 
             return NotFound();
@@ -117,8 +193,13 @@ namespace WebApiTemplate.Controllers
         public ActionResult<UserRolesDto> ValidateLogin(UserLoginIn _user)
         {
             var userItem = _userTransactionalService.ValidateLogin(_user);
-            if (userItem != null)
-            {
+            if (userItem != null) {
+
+                var userUserId = _userTransactionalService.GetUserByEmail(userItem.Email);
+                var userZoneId = _userTransactionalService.GetZoneByUserId(userUserId);
+                if (userZoneId != null)
+                    userItem.ZoneId = userZoneId;
+
                 return Ok(userItem);
             }
 

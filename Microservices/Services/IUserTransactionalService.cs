@@ -9,7 +9,13 @@ namespace WebApiTemplate.Services
 
         IEnumerable<UserRoles> GetUserRoles();
 
+        IEnumerable<Zone> GetUserZones();
+
+        UserZones GetZoneByUser(int userId);
+
+
         void CreateUser(UserCreateIn user);
+
         void DeleteUser(int id);
 
         void UpdateUser(int id, UserCreateIn user);
@@ -17,6 +23,10 @@ namespace WebApiTemplate.Services
         UserLoginDto ValidateLogin(UserLoginIn user);
 
         User GetUserById(int id);
+
+        int GetZoneByUserId(int id);
+
+        int GetUserByEmail(string email);
 
         //AuthenticateResponse Authenticate(AuthenticateRequest model);
 
