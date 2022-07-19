@@ -40,7 +40,7 @@ const PisosVendidos = () =>
 
     const zoneStore = useSelector(state => state.zone);
 
-    const filterId = 4;
+    const filterId = 3;
 
     useEffect(() =>
     {

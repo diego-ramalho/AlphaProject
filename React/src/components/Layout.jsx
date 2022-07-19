@@ -82,7 +82,9 @@ const Layout = ({ children }) =>
                   variant="button"
                   onClick={(e) => { option.id == zoneStore ? dispatch(updateZone(0)) : dispatch(updateZone(option.id)); }}
                 >
-                  <i><Icon.LayersHalf className='FontAwesomeIcon' /><span className="links_name_short">"A"</span></i>
+                  <i><Icon.LayersHalf className='FontAwesomeIcon' />
+                    <span className="links_name_short">{option.zoneName.split(" ")[1]}</span>
+                  </i>
                   <span className="links_name">{option.zoneName}</span>
                 </Link>
                 <span className="tooltip">{option.zoneName}</span>

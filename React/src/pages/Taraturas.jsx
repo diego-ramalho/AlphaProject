@@ -1,4 +1,5 @@
 import React, { ReactElement, FC, useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { Box, Typography } from "@mui/material";
 
 import Paper from '@mui/material/Paper';
@@ -17,7 +18,7 @@ import { useSelector } from 'react-redux';
 import { useRegisterActions, useZoneActions } from '../_actions';
 
 const columns = [
-  //{ id: 'id', label: 'Id', minWidth: 50 },
+  // { id: 'id', label: 'Id', minWidth: 50 },
   { id: 'address', label: 'Address', minWidth: 170 },
   { id: 'number', label: 'Number', minWidth: 100 },
   { id: 'zoneId', label: 'Zone', minWidth: 100 }
@@ -38,6 +39,8 @@ const Taraturas = () =>
   const zoneActions = useZoneActions();
 
   const zoneStore = useSelector(state => state.zone);
+
+  const pathView = '/AlphaProject/taraturas/view';
 
   // useEffect(() => {
   //   userActions.getAll().then(x => setUsers(x));
@@ -127,6 +130,10 @@ const Taraturas = () =>
                         if (column.id == 'zoneId')
                         {
                           value = zoneList.filter(x => x.id === person.zoneId).map(x => x.zoneName);
+                        }
+                        if(column.id == 'address'){
+                          // value = person.id + " - " + person.address;
+                          value = <Link to={`${pathView}/${person.id}`} className="link-to-view">{person.address}</Link>
                         }
                         return (
                           <TableCell key={index} align={column.align}>

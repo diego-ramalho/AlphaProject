@@ -45,6 +45,27 @@ form,
     }
 }
 
+.link-to-view {
+    color: $other-color;
+    text-decoration: none;
+
+    &:hover {
+        color: $bg-color;
+        text-decoration: none;
+        font-weight: bold;
+    }
+}
+
+.page-view-item-label {
+    padding: 0.2rem 0.4rem;
+}
+
+.page-view-item-value {
+    padding: 0.2rem 0.4rem;
+    border: solid 1px #CCC;
+    background: #EEE;
+}
+
 // .FontAwesomeIcon {
 // color: $font-color;
 // height: 50px;

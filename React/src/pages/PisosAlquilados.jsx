@@ -40,7 +40,7 @@ const PisosAlquilados = () =>
 
     const zoneStore = useSelector(state => state.zone);
 
-    const filterId = 3;
+    const filterId = 4;
 
     useEffect(() =>
     {

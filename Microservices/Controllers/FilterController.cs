@@ -38,6 +38,22 @@ namespace WebApiTemplate.Controllers
             return Ok(_mapper.Map<IEnumerable<FilterRegisterDto>>(getAll));
         }
 
+        [HttpGet("GetByRegisterId/{id}")]
+        public ActionResult<List<string>> GetByRegisterId(int id)
+        {
+            var getByRegisterId = _filterService.GetAll();
+            var getAllFilters = _filterService.GetFilterRegistersAll().Where(f => f.RegisterId == id);
+            var getAllFiltersId = getAllFilters.Select(f => f.Filter.FilterName);
+            //var getAll = getByRegisterId.Where(r => getAllFiltersId.Contains(r.Id));
+
+            if (getByRegisterId != null)
+            {
+                return Ok(getAllFiltersId.ToList());
+            }
+
+            return NotFound();
+        }
+
         [HttpGet("GetById/{id}")]
         public ActionResult<FilterDto> GetById(int id)
         {

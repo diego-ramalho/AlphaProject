@@ -21,7 +21,7 @@ import { authAtom } from './_state';
 
 // pages
 import AdminUsers from "./pages/admin/Users";
-import AdminRecords from "./pages/admin/Records";
+import AdminRegisters from "./pages/admin/Registers";
 import AdminRegions from "./pages/admin/Regions";
 import AdminFilters from "./pages/admin/Filters";
 
@@ -36,6 +36,7 @@ import { ZonesAddEdit } from './pages/admin/ZonesAddEdit';
 
 import { RegistersList } from './pages/admin/RegistersList';
 import { RegistersAddEdit } from './pages/admin/RegistersAddEdit';
+import { RegistersView } from './pages/admin/RegistersView';
 
 
 const login_page = [
@@ -91,6 +92,9 @@ function App()
         <Route exact path='/AlphaProject/Admin/Registers' element={<RegistersList />} />
         <Route path='/AlphaProject/Admin/Registers/add' element={<RegistersAddEdit />} />
         <Route path='/AlphaProject/Admin/Registers/edit/:id' element={<RegistersAddEdit />} />
+        <Route path='/AlphaProject/Admin/Registers/view/:id' element={<RegistersView />} />
+        <Route path='/AlphaProject/TaraturasView/:id' element={<RegistersView />} />
+        <Route path='/AlphaProject/Taraturas/view/:id' element={<RegistersView />} />
 
         {/* <Route exact path='/AlphaProject/Admin/Users' component={UsersList} />
         <Route path='/AlphaProject/Admin/Users/add' component={UsersAddEdit} />
@@ -138,10 +142,10 @@ function App()
             ))} */}
 
 
-        auth ? <Route exact path='/AlphaProject/Admin/Users' element={<AdminUsers />} /> : '';
-        auth ? <Route exact path='/AlphaProject/Admin/Records' element={<AdminRecords />} /> : '';
+        {/* auth ? <Route exact path='/AlphaProject/Admin/Users' element={<AdminUsers />} /> : '';
+        auth ? <Route exact path='/AlphaProject/Admin/Registers' element={<AdminRegisters />} /> : '';
         auth ? <Route exact path='/AlphaProject/Admin/Regions' element={<AdminRegions />} /> : '';
-        auth ? <Route exact path='/AlphaProject/Admin/Filters' element={<AdminFilters />} /> : '';
+        auth ? <Route exact path='/AlphaProject/Admin/Filters' element={<AdminFilters />} /> : ''; */}
 
       </Routes>
     )

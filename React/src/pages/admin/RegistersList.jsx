@@ -42,7 +42,7 @@ function RegistersList()
 
     return (
         <div>
-            <h1>Taratura {zoneStore == 0 ? '(All Zones)' : '(Zona ' + zoneStore + ')'}</h1>
+            <h1>Taratura</h1>
             <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add</Link>
             <table className="table table-striped">
                 <thead>
@@ -55,7 +55,8 @@ function RegistersList()
                 <tbody>
                     {registers && registers.filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0).map(register =>
                         <tr key={register.id}>
-                            <td>{register.address}</td>
+                            {/* <td>{register.address}</td> */}
+                            <td><Link to={`${path}/view/${register.id}`} className="link-to-view">{register.address}</Link></td>
                             <td>{zonesList.filter(x => x.id === register.zoneId).map(x => x.zoneName)}</td>
                             <td style={{ whiteSpace: 'nowrap' }}>
                                 <Link to={`${path}/edit/${register.id}`} className="btn btn-sm btn-primary mr-1">Edit</Link>
