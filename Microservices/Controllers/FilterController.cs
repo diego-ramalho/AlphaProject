@@ -30,6 +30,14 @@ namespace WebApiTemplate.Controllers
             return Ok(_mapper.Map<IEnumerable<FilterDto>>(getAll));
         }
 
+        [HttpGet("GetFilterRegistersAll")]
+        public ActionResult<IEnumerable<FilterRegisterDto>> GetFilterRegistersAll()
+        {
+            var getAll = _filterService.GetFilterRegistersAll();
+
+            return Ok(_mapper.Map<IEnumerable<FilterRegisterDto>>(getAll));
+        }
+
         [HttpGet("GetById/{id}")]
         public ActionResult<FilterDto> GetById(int id)
         {

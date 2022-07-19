@@ -63,6 +63,8 @@ builder.Services.AddTransient<IMailService, MailService>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+builder.Services.AddScoped<TokenValidationHelper>();
+
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

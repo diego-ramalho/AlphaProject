@@ -16,6 +16,8 @@ namespace WebApiTemplate.Profiles
             CreateMap<Filter, FilterDto>().ReverseMap();
 
             CreateMap<FilterIn, FilterDto>().ReverseMap();
+
+            CreateMap<RegisterFilters, FilterRegisterDto>();
         }
     }
 }

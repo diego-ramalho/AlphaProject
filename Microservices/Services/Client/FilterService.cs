@@ -25,6 +25,11 @@ namespace WebApiTemplate.Services.Client
             return _context.Filters.ToList();
         }
 
+        public IEnumerable<RegisterFilters> GetFilterRegistersAll()
+        {
+            return _context.RegisterFilters.ToList();
+        }
+
         public Filter GetById(int id)
         {
             if (id == null || id <= 0) throw new ArgumentNullException(nameof(id));

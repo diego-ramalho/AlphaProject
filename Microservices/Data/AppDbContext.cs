@@ -25,7 +25,8 @@ namespace WebApiTemplate.Data
         [NotMapped]
         public DbSet<UserZones> UserZones { get; set; }
 
-        //public DbSet<RegisterFilters> RegistersFilters { get; set; }
+        [NotMapped] 
+        public DbSet<RegisterFilters> RegisterFilters { get; set; }
 
         //public DbSet<RegisterZone> RegistersZones { get; set; }
 

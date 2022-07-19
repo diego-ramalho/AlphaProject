@@ -7,6 +7,8 @@ namespace WebApiTemplate.Services
     {
         IEnumerable<Filter> GetAll();
 
+        IEnumerable<RegisterFilters> GetFilterRegistersAll();
+
         Filter GetById(int id);
 
         void Add(FilterIn zone);
