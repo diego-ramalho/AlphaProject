@@ -2,6 +2,7 @@ $bg-color: #1D2342;
 $bg-content: #DDD;
 $font-color: #bec9ff;
 $other-color: rgba($bg-color, 0.88);
+$alternate-color: #b3a700;
 
 
 /* Google Font Link */
@@ -147,6 +148,19 @@ input.login-input {
 .sidebar .nav-list {
     margin-top: 20px;
     height: 100%;
+}
+
+.sidebar .nav-list a {
+    cursor: pointer;
+    
+    &.active {
+        background: $bg-color;
+        transition: all 0.5s ease;
+
+        span, svg {
+            color: $alternate-color;
+        }
+    }
 }
 
 .sidebar li {

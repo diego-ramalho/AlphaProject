@@ -12,67 +12,90 @@ import TableRow from '@mui/material/TableRow';
 
 import * as Icon from 'react-bootstrap-icons';
 
-import User from '../components/User';
-import { useUserActions } from '../_actions';
+import { useSelector } from 'react-redux';
+
+import { useRegisterActions, useZoneActions, useFilterActions } from '../_actions';
 
 const columns = [
   //{ id: 'id', label: 'Id', minWidth: 50 },
-  { id: 'name', label: 'Name', minWidth: 170 },
-  { id: 'email', label: 'Email', minWidth: 100 }
+  { id: 'address', label: 'Address', minWidth: 170 },
+  { id: 'number', label: 'Number', minWidth: 100 },
+  { id: 'zoneId', label: 'Zone', minWidth: 100 }
 ];
 
-const About = () => {
+const PisosInvestigados = () =>
+{
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  //const [people, setPeople] = useState([]);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(25);
 
-  const [people, setPeople] = useState([]);
+  const [registers, setRegisters] = useState([]);
+  const [zoneList, setZoneList] = useState([]);
+  const [filterList, setFilterList] = useState([]);
 
-  const userActions = useUserActions();
+  const registerActions = useRegisterActions();
+  const zoneActions = useZoneActions();
+  const filterActions = useFilterActions();
+
+  const zoneStore = useSelector(state => state.zone);
+
+  const filterId = 2;
 
   // useEffect(() => {
   //   userActions.getAll().then(x => setUsers(x));
   // }, []);
 
-  useEffect(() => { fetchPeopleHandler(); }, []);
+  // useEffect(() =>
+  // {
+  //   filterActions.getAllWithRegisters().then(x => { setFilterList(x.filter(f => f.filterId == filterId)); console.log(filterList); });
+  // }, [registers]);
+
+  useEffect(() =>
+  {
+    registerActions.getAllByFilter(filterId).then(x => setRegisters(x.filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0)));
+    zoneActions.getAll().then(x => { setZoneList(x); });
+  }, [zoneStore]);
+
+
+  // useEffect(() => { fetchPeopleHandler(); }, []);
 
   const handleChangePage = (event, newPage) => { setPage(newPage); };
 
-  const handleChangeRowsPerPage = (event) => {
+  const handleChangeRowsPerPage = (event) =>
+  {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
 
-  const fetchPeopleHandler = async () => {
-    if (isLoading) return;
-    try {
-      setError(null);
-      setIsLoading(true);
-      const response = userActions.getAll().then(x => setPeople(x));
+  // const fetchPeopleHandler = async () =>
+  // {
+  //   if (isLoading) return;
+  //   try
+  //   {
+  //     setError(null);
+  //     setIsLoading(true);
+  //     const response = registerActions.getAll().then(x => setRegisters(x));
+  //     const responseZone = zoneActions.getAll().then(x => setZoneList(x));
+  //     const responseFilter = filterActions.getAll().then(x => setFilterList(x));
 
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error);
-      setError(error.message);
-    }
-  }
-
-  const parsePeople = () => {
-    return people.map((person) => { return <User name={person.name} /> })
-  }
+  //     setIsLoading(false);
+  //   } catch (error)
+  //   {
+  //     console.log(error);
+  //     setError(error.message);
+  //   }
+  // }
 
   let content;
 
   if (error) { content = <h1>{error}</h1>; }
-  else if (people.length === 0 && !isLoading) { content = <h1>There are no movies yet!</h1>; }
+  else if (registers.length === 0 && !isLoading) { content = <h1>There are no movies yet!</h1>; }
   else if (isLoading) { content = <h1>Loading...</h1>; }
-  else { content = <User people={people} />; }
 
   return (
     <>
-      <div className="PageContentTitle">Users <Icon.ArrowDownLeftSquareFill className='FontAwesomeIcon' /></div>
+      <div className="PageContentTitle">Pisos Investigados <Icon.ArrowDownLeftSquareFill className='FontAwesomeIcon' /></div>
       <Paper sx={{ width: '100%', overflow: 'hidden' }}>
         <TableContainer sx={{ maxHeight: 440 }}>
           <Table stickyHeader aria-label="sticky table">
@@ -90,13 +113,19 @@ const About = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {people
+              {registers
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((person, index) => {
+                .map((person, index) =>
+                {
                   return (
                     <TableRow hover role="checkbox" tabIndex={-1} key={index}>
-                      {columns.map((column) => {
-                        const value = person[column.id];
+                      {columns.map((column) =>
+                      {
+                        let value = person[column.id];
+                        if (column.id == 'zoneId')
+                        {
+                          value = zoneList.filter(x => x.id === person.zoneId).map(x => x.zoneName);
+                        }
                         return (
                           <TableCell key={index} align={column.align}>
                             {column.format && typeof value === 'number'
@@ -114,7 +143,7 @@ const About = () => {
         <TablePagination
           rowsPerPageOptions={[10, 25, 100]}
           component="div"
-          count={people.length}
+          count={registers.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}
@@ -125,6 +154,6 @@ const About = () => {
       </Paper>
     </>
   );
-};
+}
 
-export default About;
+export default PisosInvestigados;

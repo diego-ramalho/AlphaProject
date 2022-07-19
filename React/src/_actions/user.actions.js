@@ -1,6 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useSetRecoilState, useResetRecoilState } from 'recoil';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { updateZone } from '../store/zoneSlice';
+
 import { history, useFetchWrapper } from '../_helpers';
 import { authAtom, usersAtom, userAtom } from '../_state';
 
@@ -14,6 +17,7 @@ function useUserActions()
     const [auth, setAuth] = useRecoilState(authAtom);
     const setUsers = useSetRecoilState(usersAtom);
     const setUser = useSetRecoilState(userAtom);
+    const dispatch = useDispatch();
 
     return {
         login,
@@ -41,9 +45,21 @@ function useUserActions()
                 //localStorage.setItem('zone', '1');
                 setAuth(user);
 
+                //dispatch(updateZone(parseInt(user.zoneId)));
+
+                if (user.roleId === '1')
+                {
+                    dispatch(updateZone(0));
+                }
+                else
+                {
+                    var teste = parseInt(user.zoneId);
+                    dispatch(updateZone(8));
+                }
+
                 // get return url from location state or default to home page
                 const { from } = history.location.state || { from: { pathname: '/' } };
-                window.location.href = '/AlphaProject/home';
+                window.location.href = '/AlphaProject/taraturas';
                 history.push(from);
             });
     }

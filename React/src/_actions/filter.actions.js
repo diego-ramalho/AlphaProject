@@ -10,6 +10,7 @@ function useFilterActions()
     return {
         create,
         getAll,
+        getAllWithRegisters,
         getById,
         update,
         delete: _delete
@@ -23,6 +24,11 @@ function useFilterActions()
     function getAll()
     {
         return fetchWrapper.get(`${baseUrl}/GetAll`);
+    }
+
+    function getAllWithRegisters()
+    {
+        return fetchWrapper.get(`${baseUrl}/GetFilterRegistersAll`);
     }
 
     function getById(id)

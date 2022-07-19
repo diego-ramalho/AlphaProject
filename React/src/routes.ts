@@ -2,10 +2,13 @@
 import appLang from './lang/resources.json';
 
 // pages
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Products from "./pages/Products";
-import Users from "./pages/Users";
+import Taraturas from "./pages/Taraturas";
+import PisosVacios from "./pages/PisosVacios";
+import PisosInvestigados from "./pages/PisosInvestigados";
+import PisosVendidos from "./pages/PisosVendidos";
+import PisosAlquilados from "./pages/PisosAlquilados";
+import Noticias from "./pages/Noticias";
+import Encargos from "./pages/Encargos";
 
 // other
 import { FC } from "react";
@@ -22,59 +25,59 @@ interface Route {
 
 export const routes: Array<Route> = [
     {
-        key: 'home-route',
+        key: 'taraturas-route',
         title: appLang.pt.menu.main['item-01'][0],
-        path: '/AlphaProject/home',
+        path: '/AlphaProject/taraturas',
         enabled: true,
-        component: Home,
+        component: Taraturas,
         color: appLang.pt.menu.main['item-01'][1]
     },
     {
-        key: 'about-route',
+        key: 'pisos-vacios-route',
         title: appLang.pt.menu.main['item-02'][0],
-        path: '/AlphaProject/about',
+        path: '/AlphaProject/pisosvacios',
         enabled: true,
-        component: About,
+        component: PisosVacios,
         color: appLang.pt.menu.main['item-02'][1]
     },
     {
-        key: 'products-route',
+        key: 'pisos-investigados-route',
         title: appLang.pt.menu.main['item-03'][0],
-        path: '/AlphaProject/products',
+        path: '/AlphaProject/pisosinvestigados',
         enabled: true,
-        component: Products,
+        component: PisosInvestigados,
         color: appLang.pt.menu.main['item-03'][1]
     },
     {
-        key: 'users-route2',
+        key: 'noticias-route2',
         title: appLang.pt.menu.main['item-04'][0],
-        path: '/AlphaProject/users',
+        path: '/AlphaProject/noticias',
         enabled: true,
-        component: Users,
+        component: Noticias,
         color: appLang.pt.menu.main['item-04'][1]
     },
     {
-        key: 'users-route3',
+        key: 'encargos-route3',
         title: appLang.pt.menu.main['item-05'][0],
-        path: '/AlphaProject/users',
+        path: '/AlphaProject/encargos',
         enabled: true,
-        component: Users,
+        component: Encargos,
         color: appLang.pt.menu.main['item-05'][1]
     },
     {
-        key: 'users-route4',
+        key: 'pisos-vendidos-route4',
         title: appLang.pt.menu.main['item-06'][0],
-        path: '/AlphaProject/users',
+        path: '/AlphaProject/pisosvendidos',
         enabled: true,
-        component: Users,
+        component: PisosVendidos,
         color: appLang.pt.menu.main['item-06'][1]
     },
     {
-        key: 'users-route5',
+        key: 'pisos-alquilados-route5',
         title: appLang.pt.menu.main['item-07'][0],
-        path: '/AlphaProject/users',
+        path: '/AlphaProject/pisosalquilados',
         enabled: true,
-        component: Users,
+        component: PisosAlquilados,
         color: appLang.pt.menu.main['item-07'][1]
     }
 ]

@@ -1,9 +1,15 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateZone } from '../store/zoneSlice';
+
 import { useUserActions } from '../_actions';
+
+import { useRecoilValue } from 'recoil';
 
 import { authAtom } from '../_state';
 
@@ -37,6 +43,22 @@ import * as Api from '../api/call';
 
 export default function Login()
 {
+    const navigate = useNavigate();
+
+    const auth = useRecoilValue(authAtom);
+
+    if(auth) window.location.href = '/AlphaProject/taraturas';
+
+    const [value, setValue] = useState('');
+    const dispatch = useDispatch();
+    const zones = useSelector((state) => state.zones);
+
+    // alert(zones);
+
+    // useEffect(() =>
+    // {
+    //     dispatch(updateZone(3));
+    // }, []);
 
     const userActions = useUserActions();
 
@@ -71,7 +93,7 @@ export default function Login()
 
     return (
         <div className="card m-3 login-form">
-            <h4 className="card-header">Login</h4>
+            <h4 className="card-header">Login {zones}</h4>
             <div className="card-body">
                 <form onSubmit={handleSubmit(userActions.login)}>
                     <div className="form-group">

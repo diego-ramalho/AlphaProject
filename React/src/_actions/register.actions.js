@@ -1,15 +1,19 @@
 import { history, useFetchWrapper } from '../_helpers';
 
+import { useDispatch, useSelector } from 'react-redux';
+
 export { useRegisterActions };
 
 function useRegisterActions()
 {
     const baseUrl = `${process.env.REACT_APP_API_URL}/register`;
     const fetchWrapper = useFetchWrapper();
+    const count = useSelector(state => state.zone);
 
     return {
         create,
         getAll,
+        getAllByFilter,
         getById,
         update,
         delete: _delete
@@ -23,6 +27,11 @@ function useRegisterActions()
     function getAll()
     {
         return fetchWrapper.get(`${baseUrl}/GetAll`);
+    }
+
+    function getAllByFilter(id)
+    {
+        return fetchWrapper.get(`${baseUrl}/GetAllByFilter?filterId=${id}`);
     }
 
     function getById(id)

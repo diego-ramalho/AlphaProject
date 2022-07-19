@@ -18,6 +18,9 @@ import Footer from "./Footer";
 import { routes_sidebar } from "../routes-sidebar";
 import { NavLink } from "react-router-dom";
 
+import { useDispatch, useSelector } from 'react-redux';
+import { updateZone } from '../store/zoneSlice';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import st
 
@@ -38,6 +41,9 @@ const Layout = ({ children }) =>
 
   const zoneActions = useZoneActions();
   const [zoneoptions, setZoneOptions] = useState([]);
+  const zoneStore = useSelector(state => state.zone);
+
+  const dispatch = useDispatch();
 
   useEffect(() =>
   {
@@ -68,12 +74,13 @@ const Layout = ({ children }) =>
               <li>
                 <Link
                   id={option.id}
+                  className={zoneStore == option.id ? "active" : ""}
                   key={"zone" + option.id + "route"}
                   to="#"
                   color="black"
                   underline="none"
                   variant="button"
-                  onClick={(e) => alert(option.id)}
+                  onClick={(e) => { option.id == zoneStore ? dispatch(updateZone(0)) : dispatch(updateZone(option.id)); }}
                 >
                   <i><Icon.LayersHalf className='FontAwesomeIcon' /><span className="links_name_short">"A"</span></i>
                   <span className="links_name">{option.zoneName}</span>

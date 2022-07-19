@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 import { useRegisterActions, useZoneActions } from '../../_actions';
 
+import { useSelector } from 'react-redux';
+
 function RegistersList()
 {
     //const { path } = match;
@@ -12,14 +14,17 @@ function RegistersList()
 
     const [zonesList, setZones] = useState([]);
 
+    const zoneStore = useSelector(state => state.zone);
+
     const registerActions = useRegisterActions();
     const zoneActions = useZoneActions();
 
     useEffect(() =>
     {
         registerActions.getAll().then(x => setRegisters(x));
+        //var teste = registers?.filter(c => c.ZoneId === zoneStore);
         zoneActions.getAll().then(x => { setZones(x); console.log(x); });
-    }, []);
+    }, [zoneStore]);
 
     function deleteRegister(id)
     {
@@ -37,7 +42,7 @@ function RegistersList()
 
     return (
         <div>
-            <h1>Taratura</h1>
+            <h1>Taratura {zoneStore == 0 ? '(All Zones)' : '(Zona ' + zoneStore + ')'}</h1>
             <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add</Link>
             <table className="table table-striped">
                 <thead>
@@ -48,7 +53,7 @@ function RegistersList()
                     </tr>
                 </thead>
                 <tbody>
-                    {registers && registers.map(register =>
+                    {registers && registers.filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0).map(register =>
                         <tr key={register.id}>
                             <td>{register.address}</td>
                             <td>{zonesList.filter(x => x.id === register.zoneId).map(x => x.zoneName)}</td>
