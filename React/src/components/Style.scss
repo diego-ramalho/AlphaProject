@@ -66,6 +66,13 @@ form,
     background: #EEE;
 }
 
+.no-data {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem;
+}
+
 // .FontAwesomeIcon {
 // color: $font-color;
 // height: 50px;
@@ -81,6 +88,11 @@ form,
     vertical-align: middle;
 }
 
+.Input-FontAwesomeIcon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
 
 input.login-input {
     background: $bg-content;
@@ -173,12 +185,13 @@ input.login-input {
 
 .sidebar .nav-list a {
     cursor: pointer;
-    
+
     &.active {
         background: $bg-color;
         transition: all 0.5s ease;
 
-        span, svg {
+        span,
+        svg {
             color: $alternate-color;
         }
     }

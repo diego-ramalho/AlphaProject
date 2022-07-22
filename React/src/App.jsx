@@ -36,7 +36,7 @@ import { ZonesAddEdit } from './pages/admin/ZonesAddEdit';
 
 import { RegistersList } from './pages/admin/RegistersList';
 import { RegistersAddEdit } from './pages/admin/RegistersAddEdit';
-import { RegistersView } from './pages/admin/RegistersView';
+import { TaraturasView } from './pages/TaraturasView';
 
 
 const login_page = [
@@ -92,9 +92,9 @@ function App()
         <Route exact path='/AlphaProject/Admin/Registers' element={<RegistersList />} />
         <Route path='/AlphaProject/Admin/Registers/add' element={<RegistersAddEdit />} />
         <Route path='/AlphaProject/Admin/Registers/edit/:id' element={<RegistersAddEdit />} />
-        <Route path='/AlphaProject/Admin/Registers/view/:id' element={<RegistersView />} />
-        <Route path='/AlphaProject/TaraturasView/:id' element={<RegistersView />} />
-        <Route path='/AlphaProject/Taraturas/view/:id' element={<RegistersView />} />
+        {/* <Route path='/AlphaProject/Admin/Registers/view/:id' element={<TaraturasView />} />
+        <Route path='/AlphaProject/TaraturasView/:id' element={<TaraturasView />} /> */}
+        <Route path='/AlphaProject/Registers/view/:id' element={<TaraturasView />} />
 
         {/* <Route exact path='/AlphaProject/Admin/Users' component={UsersList} />
         <Route path='/AlphaProject/Admin/Users/add' component={UsersAddEdit} />
@@ -180,6 +180,9 @@ function App()
           />
         ))}
         <Route path="*" element={<Navigate to="/AlphaProject/Profile" />} />
+
+        <Route path='/AlphaProject/Registers/view/:id' element={<TaraturasView />} />
+
       </Routes>
     )
   };

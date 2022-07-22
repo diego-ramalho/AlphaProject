@@ -13,7 +13,9 @@ import TableRow from '@mui/material/TableRow';
 
 import * as Icon from 'react-bootstrap-icons';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateZone } from '../store/zoneSlice';
+import { searchRegister } from '../store/searchRegisterSlice';
 
 import { useRegisterActions, useZoneActions } from '../_actions';
 
@@ -38,9 +40,12 @@ const Taraturas = () =>
   const userActions = useRegisterActions();
   const zoneActions = useZoneActions();
 
-  const zoneStore = useSelector(state => state.zone);
+  const dispatch = useDispatch();
 
-  const pathView = '/AlphaProject/taraturas/view';
+  const zoneStore = useSelector(state => state.zone);
+  const searchRegisterStore = useSelector(state => state.searchRegister);
+
+  const pathView = '/AlphaProject/Registers/view';
 
   // useEffect(() => {
   //   userActions.getAll().then(x => setUsers(x));
@@ -51,13 +56,32 @@ const Taraturas = () =>
     //userActions.getAll().then(x => setUsers(x));
     //userActions.getAll().then(x => setPeople(x)).filter(r => r.zoneId == zoneStore);
     //alert(zoneStore);
+    //setTimeout(userActions.getAll().then(x => setPeople(x)), 3000)
+    setIsLoading(true);
     userActions.getAll().then(x => setPeople(x.filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0)));
     zoneActions.getAll().then(x => { setZoneList(x); });
+    setIsLoading(false);
   }, [zoneStore]);
 
-  useEffect(() => { fetchPeopleHandler(); }, []);
+  //useEffect(() => { fetchPeopleHandler(); }, []);
 
   const handleChangePage = (event, newPage) => { setPage(newPage); };
+
+  const handleSearch = (event) =>
+  {
+    let inputValue = event.target.value;
+
+    // if (inputValue.length >= 3)
+    // {
+    //testeee = {...people.filter(x => x.address.includes(inputValue))};
+    dispatch(searchRegister(inputValue))
+    //alert(inputValue);
+    // userActions.getAll()
+    //   .then(x => setPeople(x
+    //     .filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0)
+    //     .filter(x => x.address.includes(inputValue))));
+    //}
+  };
 
   const handleChangeRowsPerPage = (event) =>
   {
@@ -65,23 +89,24 @@ const Taraturas = () =>
     setPage(0);
   };
 
-  const fetchPeopleHandler = async () =>
-  {
-    if (isLoading) return;
-    try
-    {
-      setError(null);
-      setIsLoading(true);
-      const response = userActions.getAll().then(x => setPeople(x));
-      const responseZone = zoneActions.getAll().then(x => setZoneList(x));
+  // const fetchPeopleHandler = async () =>
+  // {
+  //   if (isLoading) return;
+  //   try
+  //   {
+  //     setError(null);
+  //     setIsLoading(true);
+  //     //const response = userActions.getAll().then(x => setPeople(x));
+  //     const response = setTimeout(userActions.getAll().then(x => setPeople(x)), 3000);
+  //     const responseZone = zoneActions.getAll().then(x => setZoneList(x));
 
-      setIsLoading(false);
-    } catch (error)
-    {
-      console.log(error);
-      setError(error.message);
-    }
-  }
+  //     setIsLoading(false);
+  //   } catch (error)
+  //   {
+  //     console.log(error);
+  //     setError(error.message);
+  //   }
+  // }
 
   // const parsePeople = () =>
   // {
@@ -90,9 +115,9 @@ const Taraturas = () =>
 
   let content;
 
-  if (error) { content = <h1>{error}</h1>; }
-  else if (people.length === 0 && !isLoading) { content = <h1>There are no movies yet!</h1>; }
-  else if (isLoading) { content = <h1>Loading...</h1>; }
+  if (error) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>{error}</div></TableCell></TableRow>; }
+  else if (people.filter(x => x.address.includes(searchRegisterStore)).length === 0 && !isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>There are no registers!</div></TableCell></TableRow>; }
+  else if (isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>Loading...</div></TableCell></TableRow>; }
   // else { content = <User people={people} />; }
 
   //const zone = useSelector(state => state.zone);
@@ -100,6 +125,14 @@ const Taraturas = () =>
   return (
     <>
       <div className="PageContentTitle">Taratura <Icon.ArrowDownLeftSquareFill className='FontAwesomeIcon' /></div>
+
+
+      <div class="input-group">
+        {/* <Icon.Search className='Input-FontAwesomeIcon' /> */}
+        <input id="search" type="text" class="form-control" name="search" placeholder="search by address" onChange={handleSearch} />
+      </div><br />
+
+
       <Paper sx={{ width: '100%', overflow: 'hidden' }}>
         <TableContainer sx={{ maxHeight: 440 }}>
           <Table stickyHeader aria-label="sticky table">
@@ -117,8 +150,12 @@ const Taraturas = () =>
               </TableRow>
             </TableHead>
             <TableBody>
+
+              {content}
+
               {people
                 //.filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0)
+                .filter(x => x.address.includes(searchRegisterStore))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((person, index) =>
                 {
@@ -131,7 +168,8 @@ const Taraturas = () =>
                         {
                           value = zoneList.filter(x => x.id === person.zoneId).map(x => x.zoneName);
                         }
-                        if(column.id == 'address'){
+                        if (column.id == 'address')
+                        {
                           // value = person.id + " - " + person.address;
                           value = <Link to={`${pathView}/${person.id}`} className="link-to-view">{person.address}</Link>
                         }
@@ -152,7 +190,7 @@ const Taraturas = () =>
         <TablePagination
           rowsPerPageOptions={[10, 25, 100]}
           component="div"
-          count={people.length}
+          count={people.filter(x => x.address.includes(searchRegisterStore)).length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}

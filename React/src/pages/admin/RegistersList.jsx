@@ -9,6 +9,7 @@ function RegistersList()
 {
     //const { path } = match;
     const path = '/AlphaProject/Admin/Registers';
+    const pathView = '/AlphaProject/Registers';
     const baseUrl = `${process.env.REACT_APP_API_URL}/register`;
     const [registers, setRegisters] = useState(null);
 
@@ -56,7 +57,7 @@ function RegistersList()
                     {registers && registers.filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0).map(register =>
                         <tr key={register.id}>
                             {/* <td>{register.address}</td> */}
-                            <td><Link to={`${path}/view/${register.id}`} className="link-to-view">{register.address}</Link></td>
+                            <td><Link to={`${pathView}/view/${register.id}`} className="link-to-view">{register.address}</Link></td>
                             <td>{zonesList.filter(x => x.id === register.zoneId).map(x => x.zoneName)}</td>
                             <td style={{ whiteSpace: 'nowrap' }}>
                                 <Link to={`${path}/edit/${register.id}`} className="btn btn-sm btn-primary mr-1">Edit</Link>
