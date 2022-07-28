@@ -15,7 +15,9 @@ builder.Services.AddCors(options =>
                       builder =>
                       {
                           builder.WithOrigins("http://localhost:3000",
-                                              "http://localhost:3001")
+                                              "http://localhost:3001",
+                                              "https://coloniajardininmo.com",
+                                              "https://*.coloniajardininmo.com")
                             .AllowAnyMethod()
                             .AllowAnyHeader();
                       });
@@ -80,11 +82,11 @@ var app = builder.Build();
 app.UseCors(option => option.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseHttpsRedirection();
 
