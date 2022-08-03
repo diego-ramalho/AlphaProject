@@ -60,6 +60,12 @@ builder.Services.AddScoped<IFilterTransactionalService, FilterTransactionalServi
 builder.Services.AddScoped<IZoneService, ZoneService>();
 builder.Services.AddScoped<IZoneTransactionalService, ZoneTransactionalService>();
 
+builder.Services.AddScoped<INewsService, NewsService>();
+builder.Services.AddScoped<INewsTransactionalService, NewsTransactionalService>();
+
+builder.Services.AddScoped<IChargesService, ChargesService>();
+builder.Services.AddScoped<IChargesTransactionalService, ChargesTransactionalService>();
+
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
 builder.Services.AddTransient<IMailService, MailService>();
 

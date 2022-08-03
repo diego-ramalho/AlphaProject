@@ -19,6 +19,10 @@ namespace WebApiTemplate.Data
 
         public DbSet<Filter> Filters { get; set; }
 
+        public DbSet<Charges> Charges { get; set; }
+
+        public DbSet<News> News { get; set; }
+
         [NotMapped]
         public DbSet<UserRoles> UserRoles { get; set; }
 

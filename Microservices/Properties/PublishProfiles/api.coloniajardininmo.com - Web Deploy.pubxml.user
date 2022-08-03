@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword />
+    <History>True|2022-07-28T21:40:50.3621225Z;True|2022-07-28T19:05:24.8294956+01:00;False|2022-07-28T19:04:43.0967903+01:00;True|2022-07-27T23:37:06.1078209+01:00;True|2022-07-27T23:03:49.4360001+01:00;True|2022-07-27T22:47:35.9776200+01:00;True|2022-07-27T22:07:14.5609860+01:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnStr">
+      <Value>Server=.\MSSQLSERVER2019%3bDatabase=coloniaj_db_4gdpae.3w09%3bUser Id=coloniaj_user0rysje%3bPassword=LTUB2za9ULjLUA5%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="WebApiTemplate.Data.AppDbContext">
+      <Value>Server=.\MSSQLSERVER2019%3bDatabase=coloniaj_db_4gdpae.3w09%3bUser Id=coloniaj_user0rysje%3bPassword=LTUB2za9ULjLUA5%3b</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

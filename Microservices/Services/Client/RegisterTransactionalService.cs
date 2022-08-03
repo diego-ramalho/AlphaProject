@@ -42,6 +42,20 @@ namespace WebApiTemplate.Services.Client
             _context.Registers.Add(_entity);
 
             _context.SaveChanges();
+
+            if (_entity.Id > 0 && entity.filterList.Count() > 0)
+            {
+                List<RegisterFilters> _registerFilters = new List<RegisterFilters>();
+
+                foreach (var item in entity.filterList)
+                {
+                    _registerFilters.Add(new RegisterFilters() { RegisterId = _entity.Id, FilterId = int.Parse(item) });
+                };
+
+                _context.RegisterFilters.AddRange(_registerFilters);
+            }
+
+            _context.SaveChanges();
         }
 
         public void Update(Register entity)

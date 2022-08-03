@@ -8,7 +8,7 @@ using WebApiTemplate.Services;
 
 namespace WebApiTemplate.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     [EnableCors("_myAllowSpecificOrigins")]
     public class ZoneController : ControllerBase
