@@ -8,9 +8,9 @@ function AdminFilters()
 {
     return (
         <Routes>
-            <Route exact path='/AlphaProject/Admin/Filters' element={<FiltersList />} />
-            <Route path='/AlphaProject/Admin/Filters/add' element={<FiltersAddEdit />} />
-            <Route path='/AlphaProject/Admin/Filters/edit/:id' element={<FiltersAddEdit />} />
+            <Route exact path='/Admin/Filters' element={<FiltersList />} />
+            <Route path='/Admin/Filters/add' element={<FiltersAddEdit />} />
+            <Route path='/Admin/Filters/edit/:id' element={<FiltersAddEdit />} />
         </Routes>
     );
 }

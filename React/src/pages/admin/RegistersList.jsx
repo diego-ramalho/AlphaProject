@@ -8,8 +8,8 @@ import { useSelector } from 'react-redux';
 function RegistersList()
 {
     //const { path } = match;
-    const path = '/AlphaProject/Admin/Registers';
-    const pathView = '/AlphaProject/Registers';
+    const path = '/Admin/Registers';
+    const pathView = '/Registers';
     const baseUrl = `${process.env.REACT_APP_API_URL}/register`;
     const [registers, setRegisters] = useState(null);
 

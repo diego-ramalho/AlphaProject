@@ -20,9 +20,9 @@ function AdminUsers()
             <Route path={`${path}/add`} component={UsersAddEdit} />
             <Route path={`${path}/edit/:id`} component={UsersAddEdit} /> */}
 
-            <Route exact path='/AlphaProject/Admin/Users' element={<UsersList />} />
-            <Route path='/AlphaProject/Admin/Users/add' element={<UsersAddEdit />} />
-            <Route path='/AlphaProject/Admin/Users/edit/:id' element={<UsersAddEdit />} />
+            <Route exact path='/Admin/Users' element={<UsersList />} />
+            <Route path='/Admin/Users/add' element={<UsersAddEdit />} />
+            <Route path='/Admin/Users/edit/:id' element={<UsersAddEdit />} />
         </Routes>
     );
 }

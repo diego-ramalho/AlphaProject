@@ -47,7 +47,8 @@ export default function Login()
 
     const auth = useRecoilValue(authAtom);
 
-    if(auth) window.location.href = '/AlphaProject/taraturas';
+    if (auth) window.location.href = '/taraturas';
+    //if (auth) navigate("/taraturas");
 
     const [value, setValue] = useState('');
     const dispatch = useDispatch();

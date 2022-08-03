@@ -61,9 +61,9 @@ function UsersAddEdit({ match }) {
             .then(() => {
                 useAlertActions.success('User added', { keepAfterRouteChange: true });
                 //history.push('.');
-                //history.push('/AlphaProject/Admin/Users/');
-                navigate("/AlphaProject/Admin/Users/");
-                //window.location.href = '/AlphaProject/Admin/Users/';
+                //history.push('/Admin/Users/');
+                navigate("/Admin/Users/");
+                //window.location.href = '/Admin/Users/';
             })
             .catch(useAlertActions.error);
     }
@@ -73,9 +73,9 @@ function UsersAddEdit({ match }) {
             .then(() => {
                 useAlertActions.success('User updated', { keepAfterRouteChange: true });
                 //history.push('..');
-                //history.push('/AlphaProject/Admin/Users/');
-                navigate("/AlphaProject/Admin/Users/");
-                //window.location.href = '/AlphaProject/Admin/Users/';
+                //history.push('/Admin/Users/');
+                navigate("/Admin/Users/");
+                //window.location.href = '/Admin/Users/';
             })
             .catch(useAlertActions.error);
     }
@@ -187,7 +187,7 @@ function UsersAddEdit({ match }) {
                     {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
                     Save
                 </button>
-                <Link to={isAddMode ? '/AlphaProject/Admin/Users' : '/AlphaProject/Admin/Users'} className="btn btn-link">Cancel</Link>
+                <Link to={isAddMode ? '/Admin/Users' : '/Admin/Users'} className="btn btn-link">Cancel</Link>
             </div>
         </form>
     );
@@ -211,7 +211,7 @@ export { UsersAddEdit };
 
 // import { UserRolesListDropDown } from '../../components/atoms/UserRolesDropdown';
 
-// function UsersAddEdit({ history, match = '/AlphaProject/Admin/Users' })
+// function UsersAddEdit({ history, match = '/Admin/Users' })
 // {
 
 //     const [user, setUser] = useState({});
@@ -265,7 +265,7 @@ export { UsersAddEdit };
 //             .then(() =>
 //             {
 //                 userAlerts.success('User added', { keepAfterRouteChange: true });
-//                 window.location.href = '/AlphaProject/Admin/Users/';
+//                 window.location.href = '/Admin/Users/';
 //                 //history.push('.');
 //             })
 //             .catch((error) =>
@@ -281,7 +281,7 @@ export { UsersAddEdit };
 //             .then(() =>
 //             {
 //                 userAlerts.success('User updated', { keepAfterRouteChange: true });
-//                 window.location.href = '/AlphaProject/Admin/Users/';
+//                 window.location.href = '/Admin/Users/';
 //                 //history.push('..');
 //             })
 //             .catch(error =>
@@ -420,7 +420,7 @@ export { UsersAddEdit };
 //                                 {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
 //                                 Save
 //                             </button>
-//                             <Link to={isAddMode ? '/AlphaProject/Admin/Users' : '/AlphaProject/Admin/Users'} className="btn btn-link">Cancel</Link>
+//                             <Link to={isAddMode ? '/Admin/Users' : '/Admin/Users'} className="btn btn-link">Cancel</Link>
 //                         </div>
 //                     </Form>
 //                 );

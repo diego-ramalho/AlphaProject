@@ -45,7 +45,7 @@ const Taraturas = () =>
   const zoneStore = useSelector(state => state.zone);
   const searchRegisterStore = useSelector(state => state.searchRegister);
 
-  const pathView = '/AlphaProject/Registers/view';
+  const pathView = '/Registers/view';
 
   // useEffect(() => {
   //   userActions.getAll().then(x => setUsers(x));

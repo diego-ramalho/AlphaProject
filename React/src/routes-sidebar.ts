@@ -24,7 +24,7 @@ export const routes_sidebar: Array<Route> = [
     {
         key: 'zona01-route',
         title: appLang.pt.menu.sidebar['item-01'],
-        path: '/AlphaProject/zona01',
+        path: '/zona01',
         enabled: true,
         component: Zona01,
         //color: 'default'
@@ -33,7 +33,7 @@ export const routes_sidebar: Array<Route> = [
     {
         key: 'zona02-route',
         title: appLang.pt.menu.sidebar['item-02'],
-        path: '/AlphaProject/zona02',
+        path: '/zona02',
         enabled: true,
         component: Zona02,
         //color: 'default'
@@ -42,7 +42,7 @@ export const routes_sidebar: Array<Route> = [
     {
         key: 'zona03-route',
         title: appLang.pt.menu.sidebar['item-03'],
-        path: '/AlphaProject/zona03',
+        path: '/zona03',
         enabled: true,
         component: Zona03,
         //color: 'default'
@@ -51,7 +51,7 @@ export const routes_sidebar: Array<Route> = [
     {
         key: 'zona04-route',
         title: appLang.pt.menu.sidebar['item-04'],
-        path: '/AlphaProject/zona04',
+        path: '/zona04',
         enabled: true,
         component: Zona04,
         //color: 'default'

@@ -16,11 +16,6 @@ export const Footer: FC = (): ReactElement => {
     >
       <Container maxWidth="lg">
         <Grid container direction="column" alignItems="center">
-          {/* <Grid item xs={12}>
-            <Typography color="black" variant="h5">
-              Alpha Project
-            </Typography>
-          </Grid> */}
           <Grid item xs={12}>
             <Typography color="textSecondary" variant="subtitle1">
               {`${new Date().getFullYear()} | ${appLang.pt.page["page-footer"]}`}

@@ -59,8 +59,9 @@ function useUserActions()
 
                 // get return url from location state or default to home page
                 const { from } = history.location.state || { from: { pathname: '/' } };
-                window.location.href = '/AlphaProject/taraturas';
-                history.push(from);
+                window.location.href = '/taraturas';
+                //history.push(from);
+                //navigate("/taraturas");
             });
     }
 
@@ -69,9 +70,9 @@ function useUserActions()
         // remove user from local storage, set auth state to null and redirect to login page
         localStorage.removeItem('user');
         setAuth(null);
-        //history.push('/AlphaProject/');
-        //window.location.href = '/AlphaProject/';
-        navigate("/AlphaProject/");
+        //history.push('/');
+        //window.location.href = '/';
+        navigate("/");
     }
 
     function create(user)

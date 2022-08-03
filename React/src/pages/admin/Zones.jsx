@@ -9,9 +9,9 @@ function AdminZones()
 {
     return (
         <Routes>
-            <Route exact path='/AlphaProject/Admin/Zones' element={<ZonesList />} />
-            <Route path='/AlphaProject/Admin/Zones/add' element={<ZonesAddEdit />} />
-            <Route path='/AlphaProject/Admin/Zones/edit/:id' element={<ZonesAddEdit />} />
+            <Route exact path='/Admin/Zones' element={<ZonesList />} />
+            <Route path='/Admin/Zones/add' element={<ZonesAddEdit />} />
+            <Route path='/Admin/Zones/edit/:id' element={<ZonesAddEdit />} />
         </Routes>
     );
 }

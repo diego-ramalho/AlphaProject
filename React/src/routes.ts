@@ -27,7 +27,7 @@ export const routes: Array<Route> = [
     {
         key: 'taraturas-route',
         title: appLang.pt.menu.main['item-01'][0],
-        path: '/AlphaProject/taraturas',
+        path: '/taraturas',
         enabled: true,
         component: Taraturas,
         color: appLang.pt.menu.main['item-01'][1]
@@ -35,7 +35,7 @@ export const routes: Array<Route> = [
     {
         key: 'pisos-vacios-route',
         title: appLang.pt.menu.main['item-02'][0],
-        path: '/AlphaProject/pisosvacios',
+        path: '/pisosvacios',
         enabled: true,
         component: PisosVacios,
         color: appLang.pt.menu.main['item-02'][1]
@@ -43,7 +43,7 @@ export const routes: Array<Route> = [
     {
         key: 'pisos-investigados-route',
         title: appLang.pt.menu.main['item-03'][0],
-        path: '/AlphaProject/pisosinvestigados',
+        path: '/pisosinvestigados',
         enabled: true,
         component: PisosInvestigados,
         color: appLang.pt.menu.main['item-03'][1]
@@ -51,7 +51,7 @@ export const routes: Array<Route> = [
     {
         key: 'noticias-route2',
         title: appLang.pt.menu.main['item-04'][0],
-        path: '/AlphaProject/noticias',
+        path: '/noticias',
         enabled: true,
         component: Noticias,
         color: appLang.pt.menu.main['item-04'][1]
@@ -59,7 +59,7 @@ export const routes: Array<Route> = [
     {
         key: 'encargos-route3',
         title: appLang.pt.menu.main['item-05'][0],
-        path: '/AlphaProject/encargos',
+        path: '/encargos',
         enabled: true,
         component: Encargos,
         color: appLang.pt.menu.main['item-05'][1]
@@ -67,7 +67,7 @@ export const routes: Array<Route> = [
     {
         key: 'pisos-vendidos-route4',
         title: appLang.pt.menu.main['item-06'][0],
-        path: '/AlphaProject/pisosvendidos',
+        path: '/pisosvendidos',
         enabled: true,
         component: PisosVendidos,
         color: appLang.pt.menu.main['item-06'][1]
@@ -75,7 +75,7 @@ export const routes: Array<Route> = [
     {
         key: 'pisos-alquilados-route5',
         title: appLang.pt.menu.main['item-07'][0],
-        path: '/AlphaProject/pisosalquilados',
+        path: '/pisosalquilados',
         enabled: true,
         component: PisosAlquilados,
         color: appLang.pt.menu.main['item-07'][1]

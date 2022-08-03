@@ -40,7 +40,7 @@ function ZonesAddEdit({ match })
             .then(() =>
             {
                 useAlertActions.success('Zone added', { keepAfterRouteChange: true });
-                navigate('/AlphaProject/Admin/Zones/');
+                navigate('/Admin/Zones/');
             })
             .catch(useAlertActions.error);
     }
@@ -51,7 +51,7 @@ function ZonesAddEdit({ match })
             .then(() =>
             {
                 useAlertActions.success('Zone updated', { keepAfterRouteChange: true });
-                navigate("/AlphaProject/Admin/Zones/");
+                navigate("/Admin/Zones/");
             })
             .catch(useAlertActions.error);
     }
@@ -90,7 +90,7 @@ function ZonesAddEdit({ match })
                     {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
                     Save
                 </button>
-                <Link to={isAddMode ? '/AlphaProject/Admin/Zones' : '/AlphaProject/Admin/Zones'} className="btn btn-link">Cancel</Link>
+                <Link to={isAddMode ? '/Admin/Zones' : '/Admin/Zones'} className="btn btn-link">Cancel</Link>
             </div>
         </form>
     );

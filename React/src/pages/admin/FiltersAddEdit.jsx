@@ -40,7 +40,7 @@ function FiltersAddEdit({ match })
             .then(() =>
             {
                 useAlertActions.success('Filter added', { keepAfterRouteChange: true });
-                navigate('/AlphaProject/Admin/Filters/');
+                navigate('/Admin/Filters/');
             })
             .catch(useAlertActions.error);
     }
@@ -51,7 +51,7 @@ function FiltersAddEdit({ match })
             .then(() =>
             {
                 useAlertActions.success('Filter updated', { keepAfterRouteChange: true });
-                navigate("/AlphaProject/Admin/Filters/");
+                navigate("/Admin/Filters/");
             })
             .catch(useAlertActions.error);
     }
@@ -90,7 +90,7 @@ function FiltersAddEdit({ match })
                     {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
                     Save
                 </button>
-                <Link to={isAddMode ? '/AlphaProject/Admin/Filters' : '/AlphaProject/Admin/Filters'} className="btn btn-link">Cancel</Link>
+                <Link to={isAddMode ? '/Admin/Filters' : '/Admin/Filters'} className="btn btn-link">Cancel</Link>
             </div>
         </form>
     );

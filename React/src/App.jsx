@@ -20,10 +20,10 @@ import { useRecoilValue } from 'recoil';
 import { authAtom } from './_state';
 
 // pages
-import AdminUsers from "./pages/admin/Users";
-import AdminRegisters from "./pages/admin/Registers";
-import AdminRegions from "./pages/admin/Regions";
-import AdminFilters from "./pages/admin/Filters";
+// import AdminUsers from "./pages/admin/Users";
+// import AdminRegisters from "./pages/admin/Registers";
+// import AdminRegions from "./pages/admin/Regions";
+// import AdminFilters from "./pages/admin/Filters";
 
 import { UsersList } from './pages/admin/UsersList';
 import { UsersAddEdit } from './pages/admin/UsersAddEdit';
@@ -34,6 +34,12 @@ import { FiltersAddEdit } from './pages/admin/FiltersAddEdit';
 import { ZonesList } from './pages/admin/ZonesList';
 import { ZonesAddEdit } from './pages/admin/ZonesAddEdit';
 
+import { NewsList } from './pages/admin/NewsList';
+import { NewsAddEdit } from './pages/admin/NewsAddEdit';
+
+import { ChargesList } from './pages/admin/ChargesList';
+import { ChargesAddEdit } from './pages/admin/ChargesAddEdit';
+
 import { RegistersList } from './pages/admin/RegistersList';
 import { RegistersAddEdit } from './pages/admin/RegistersAddEdit';
 import { TaraturasView } from './pages/TaraturasView';
@@ -43,7 +49,7 @@ const login_page = [
   {
     key: 'login-route',
     title: 'Login',
-    path: '/AlphaProject/',
+    path: '/',
     enabled: true,
     component: Login
   }
@@ -73,32 +79,40 @@ function App()
   {
     return (
       <Routes>
-        {/* {auth && <Redirect to={{ pathname: '/AlphaProject/' }} />} */}
+        {/* {auth && <Redirect to={{ pathname: '/' }} />} */}
 
-        {/* <Route path='/AlphaProject/Admin/UsersList' element={<UsersList />} /> */}
+        {/* <Route path='/Admin/UsersList' element={<UsersList />} /> */}
 
-        <Route exact path='/AlphaProject/Admin/Users' element={<UsersList />} />
-        <Route path='/AlphaProject/Admin/Users/add' element={<UsersAddEdit />} />
-        <Route path='/AlphaProject/Admin/Users/edit/:id' element={<UsersAddEdit />} />
+        <Route exact path='/Admin/Users' element={<UsersList />} />
+        <Route path='/Admin/Users/add' element={<UsersAddEdit />} />
+        <Route path='/Admin/Users/edit/:id' element={<UsersAddEdit />} />
 
-        <Route exact path='/AlphaProject/Admin/Filters' element={<FiltersList />} />
-        <Route path='/AlphaProject/Admin/Filters/add' element={<FiltersAddEdit />} />
-        <Route path='/AlphaProject/Admin/Filters/edit/:id' element={<FiltersAddEdit />} />
+        <Route exact path='/Admin/Filters' element={<FiltersList />} />
+        <Route path='/Admin/Filters/add' element={<FiltersAddEdit />} />
+        <Route path='/Admin/Filters/edit/:id' element={<FiltersAddEdit />} />
 
-        <Route exact path='/AlphaProject/Admin/Zones' element={<ZonesList />} />
-        <Route path='/AlphaProject/Admin/Zones/add' element={<ZonesAddEdit />} />
-        <Route path='/AlphaProject/Admin/Zones/edit/:id' element={<ZonesAddEdit />} />
+        <Route exact path='/Admin/Zones' element={<ZonesList />} />
+        <Route path='/Admin/Zones/add' element={<ZonesAddEdit />} />
+        <Route path='/Admin/Zones/edit/:id' element={<ZonesAddEdit />} />
 
-        <Route exact path='/AlphaProject/Admin/Registers' element={<RegistersList />} />
-        <Route path='/AlphaProject/Admin/Registers/add' element={<RegistersAddEdit />} />
-        <Route path='/AlphaProject/Admin/Registers/edit/:id' element={<RegistersAddEdit />} />
-        {/* <Route path='/AlphaProject/Admin/Registers/view/:id' element={<TaraturasView />} />
-        <Route path='/AlphaProject/TaraturasView/:id' element={<TaraturasView />} /> */}
-        <Route path='/AlphaProject/Registers/view/:id' element={<TaraturasView />} />
+        <Route exact path='/Admin/News' element={<NewsList />} />
+        <Route path='/Admin/News/add' element={<NewsAddEdit />} />
+        <Route path='/Admin/News/edit/:id' element={<NewsAddEdit />} />
 
-        {/* <Route exact path='/AlphaProject/Admin/Users' component={UsersList} />
-        <Route path='/AlphaProject/Admin/Users/add' component={UsersAddEdit} />
-        <Route path='/AlphaProject/Admin/Users/edit/:id' component={UsersAddEdit} /> */}
+        <Route exact path='/Admin/Charges' element={<ChargesList />} />
+        <Route path='/Admin/Charges/add' element={<ChargesAddEdit />} />
+        <Route path='/Admin/Charges/edit/:id' element={<ChargesAddEdit />} />
+
+        <Route exact path='/Admin/Registers' element={<RegistersList />} />
+        <Route path='/Admin/Registers/add' element={<RegistersAddEdit />} />
+        <Route path='/Admin/Registers/edit/:id' element={<RegistersAddEdit />} />
+        {/* <Route path='/Admin/Registers/view/:id' element={<TaraturasView />} />
+        <Route path='/TaraturasView/:id' element={<TaraturasView />} /> */}
+        <Route path='/Registers/view/:id' element={<TaraturasView />} />
+
+        {/* <Route exact path='/Admin/Users' component={UsersList} />
+        <Route path='/Admin/Users/add' component={UsersAddEdit} />
+        <Route path='/Admin/Users/edit/:id' component={UsersAddEdit} /> */}
 
         {login_page.map((route) => (
           <Route
@@ -142,10 +156,10 @@ function App()
             ))} */}
 
 
-        {/* auth ? <Route exact path='/AlphaProject/Admin/Users' element={<AdminUsers />} /> : '';
-        auth ? <Route exact path='/AlphaProject/Admin/Registers' element={<AdminRegisters />} /> : '';
-        auth ? <Route exact path='/AlphaProject/Admin/Regions' element={<AdminRegions />} /> : '';
-        auth ? <Route exact path='/AlphaProject/Admin/Filters' element={<AdminFilters />} /> : ''; */}
+        {/* auth ? <Route exact path='/Admin/Users' element={<AdminUsers />} /> : '';
+        auth ? <Route exact path='/Admin/Registers' element={<AdminRegisters />} /> : '';
+        auth ? <Route exact path='/Admin/Regions' element={<AdminRegions />} /> : '';
+        auth ? <Route exact path='/Admin/Filters' element={<AdminFilters />} /> : ''; */}
 
       </Routes>
     )
@@ -179,9 +193,9 @@ function App()
             element={<route.component />}
           />
         ))}
-        <Route path="*" element={<Navigate to="/AlphaProject/Profile" />} />
+        <Route path="*" element={<Navigate to="/Profile" />} />
 
-        <Route path='/AlphaProject/Registers/view/:id' element={<TaraturasView />} />
+        <Route path='/Registers/view/:id' element={<TaraturasView />} />
 
       </Routes>
     )
@@ -198,7 +212,7 @@ function App()
             element={<route.component />}
           />
         ))}
-        <Route path="*" element={<Navigate to="/AlphaProject/" />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     )
   };

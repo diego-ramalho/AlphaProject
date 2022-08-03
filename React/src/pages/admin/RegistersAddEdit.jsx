@@ -47,7 +47,7 @@ function RegistersAddEdit({ match })
             .then(() =>
             {
                 useAlertActions.success('Register added', { keepAfterRouteChange: true });
-                navigate('/AlphaProject/Admin/Registers/');
+                navigate('/Admin/Registers/');
             })
             .catch(useAlertActions.error);
     }
@@ -58,7 +58,7 @@ function RegistersAddEdit({ match })
             .then(() =>
             {
                 useAlertActions.success('Register updated', { keepAfterRouteChange: true });
-                navigate("/AlphaProject/Admin/Registers/");
+                navigate("/Admin/Registers/");
             })
             .catch(useAlertActions.error);
     }
@@ -151,7 +151,7 @@ function RegistersAddEdit({ match })
                     {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
                     Save
                 </button>
-                <Link to={isAddMode ? '/AlphaProject/Admin/Registers' : '/AlphaProject/Admin/Registers'} className="btn btn-link">Cancel</Link>
+                <Link to={isAddMode ? '/Admin/Registers' : '/Admin/Registers'} className="btn btn-link">Cancel</Link>
             </div>
         </form>
     );

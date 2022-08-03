@@ -20,7 +20,7 @@ import UsersDropdown from '../../components/atoms/UsersDropdown'
 function UsersList()
 {
     //const { path } = match;
-    const path = '/AlphaProject/Admin/Users';
+    const path = '/Admin/Users';
     const baseUrl = `${process.env.REACT_APP_API_URL}/user`;
     const [users, setUsers] = useState(null);
 

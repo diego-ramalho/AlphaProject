@@ -56,7 +56,7 @@ const ResponsiveAppBar = () =>
             <Link
                 className='nav-link-mobile'
                 key='user-login'
-                to='/AlphaProject/'
+                to='/'
                 onClick={handleCloseUserMenu}>
                 <Typography textAlign="center">Login</Typography>
             </Link>
@@ -66,7 +66,7 @@ const ResponsiveAppBar = () =>
             //     <Link
             //         className='nav-link-mobile'
             //         key='user-login'
-            //         to='/AlphaProject/'
+            //         to='/'
             //         onClick={handleCloseUserMenu}>
             //         <Typography textAlign="center">Login</Typography>
             //     </Link>
@@ -100,7 +100,7 @@ const ResponsiveAppBar = () =>
             <Link
                 className={`main menu default`}
                 key='user-login'
-                to='/AlphaProject/'
+                to='/'
                 onClick={handleCloseUserMenu}>
                 <Typography textAlign="center">Login</Typography>
             </Link>
@@ -120,7 +120,7 @@ const ResponsiveAppBar = () =>
             <Link
                 className='nav-link-mobile'
                 key='user-login'
-                to='/AlphaProject/'
+                to='/'
                 onClick={handleCloseUserMenu}>
                 <Typography textAlign="center">Login</Typography>
             </Link>
@@ -194,7 +194,7 @@ const ResponsiveAppBar = () =>
     {
         return (
             appRoutes.map((route) => (
-                <Link
+                <Link exact={route.path}
                     className={`main menu ${route.color}`}
                     key={route.key}
                     to={route.path}
@@ -234,18 +234,6 @@ const ResponsiveAppBar = () =>
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    {/* <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-                    >
-                        <a href="/AlphaProject">
-                            <i className='bx bxl-c-plus-plus icon'></i>
-                            <div className="logo_name">ALPHA</div>
-                        </a>
-                    </Typography> */}
-
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"

@@ -6,7 +6,7 @@ import { useFilterActions } from '../../_actions';
 function FiltersList()
 {
     //const { path } = match;
-    const path = '/AlphaProject/Admin/Filters';
+    const path = '/Admin/Filters';
     const baseUrl = `${process.env.REACT_APP_API_URL}/filter`;
     const [filters, setFilters] = useState(null);
 

@@ -47,7 +47,7 @@ function TaraturasView({ match })
             .then(() =>
             {
                 useAlertActions.success('Register added', { keepAfterRouteChange: true });
-                navigate('/AlphaProject/Admin/Registers/');
+                navigate('/Admin/Registers/');
             })
             .catch(useAlertActions.error);
     }
@@ -58,7 +58,7 @@ function TaraturasView({ match })
             .then(() =>
             {
                 useAlertActions.success('Register updated', { keepAfterRouteChange: true });
-                navigate("/AlphaProject/Admin/Registers/");
+                navigate("/Admin/Registers/");
             })
             .catch(useAlertActions.error);
     }
@@ -131,7 +131,7 @@ function TaraturasView({ match })
                 </div>
             </div>
             <div className="form-group">
-                {/* <Link to={'/AlphaProject/Admin/Registers'} className="btn btn-primary">Back</Link> */}
+                {/* <Link to={'/Admin/Registers'} className="btn btn-primary">Back</Link> */}
                 <button class="btn btn-primary" onClick={(evt) => { evt.preventDefault(); navigate(-1); }}>Back</button>
             </div>
         </form>

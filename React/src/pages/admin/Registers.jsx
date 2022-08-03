@@ -8,9 +8,9 @@ function AdminRegisters()
 {
     return (
         <Routes>
-            <Route exact path='/AlphaProject/Admin/Registers' element={<RegistersList />} />
-            <Route path='/AlphaProject/Admin/Registers/add' element={<RegistersAddEdit />} />
-            <Route path='/AlphaProject/Admin/Registers/edit/:id' element={<RegistersAddEdit />} />
+            <Route exact path='/Admin/Registers' element={<RegistersList />} />
+            <Route path='/Admin/Registers/add' element={<RegistersAddEdit />} />
+            <Route path='/Admin/Registers/edit/:id' element={<RegistersAddEdit />} />
         </Routes>
     );
 }
