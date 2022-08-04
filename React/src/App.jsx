@@ -43,6 +43,8 @@ import { ChargesAddEdit } from './pages/admin/ChargesAddEdit';
 import { RegistersList } from './pages/admin/RegistersList';
 import { RegistersAddEdit } from './pages/admin/RegistersAddEdit';
 import { TaraturasView } from './pages/TaraturasView';
+import { EncargosView } from './pages/EncargosView';
+import { NoticiasView } from './pages/NoticiasView';
 
 
 const login_page = [
@@ -108,7 +110,10 @@ function App()
         <Route path='/Admin/Registers/edit/:id' element={<RegistersAddEdit />} />
         {/* <Route path='/Admin/Registers/view/:id' element={<TaraturasView />} />
         <Route path='/TaraturasView/:id' element={<TaraturasView />} /> */}
+
         <Route path='/Registers/view/:id' element={<TaraturasView />} />
+        <Route path='/Encargos/view/:id' element={<EncargosView />} />
+        <Route path='/Noticias/view/:id' element={<NoticiasView />} />
 
         {/* <Route exact path='/Admin/Users' component={UsersList} />
         <Route path='/Admin/Users/add' component={UsersAddEdit} />

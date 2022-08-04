@@ -4,6 +4,9 @@ namespace WebApiTemplate.Dtos
 {
     public class NewsIn
     {
+        [Required]
+        public string Title { get; set; }
+
         public string Link { get; set; }
 
         [Required]

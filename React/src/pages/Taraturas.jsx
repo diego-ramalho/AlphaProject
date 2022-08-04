@@ -47,9 +47,13 @@ const Taraturas = () =>
 
   const pathView = '/Registers/view';
 
-  // useEffect(() => {
-  //   userActions.getAll().then(x => setUsers(x));
-  // }, []);
+  useEffect(() =>
+  {
+    if (document.querySelector('#search').value === "")
+    {
+      dispatch(searchRegister(""));
+    }
+  }, []);
 
   useEffect(() =>
   {

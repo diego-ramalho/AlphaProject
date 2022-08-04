@@ -1,4 +1,5 @@
 import React, { ReactElement, FC, useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { Box, Typography } from "@mui/material";
 
 import Paper from '@mui/material/Paper';
@@ -12,13 +13,14 @@ import TableRow from '@mui/material/TableRow';
 
 import * as Icon from 'react-bootstrap-icons';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { searchNews } from '../store/searchNewsSlice';
 
 import { useNewsActions } from '../_actions';
 
 const columns = [
-    { id: 'link', label: 'Link', minWidth: 100 },
-    { id: 'description', label: 'Description', minWidth: 100 }
+    { id: 'title', label: 'Title', minWidth: 100 },
+    { id: 'link', label: 'Link', minWidth: 100 }
 ];
 
 const Noticias = () =>
@@ -32,12 +34,30 @@ const Noticias = () =>
 
     const newsActions = useNewsActions();
 
-    //const zoneStore = useSelector(state => state.zone);
+    const dispatch = useDispatch();
+
+    const searchNewsStore = useSelector(state => state.searchNews);
+
+    const pathView = '/Noticias/view';
+
+    useEffect(() =>
+    {
+        if (document.querySelector('#search').value === "")
+        {
+            dispatch(searchNews(""));
+        }
+    }, []);
 
     useEffect(() =>
     {
         newsActions.getAll().then(x => { setNewsList(x); });
     }, []);
+
+    const handleSearch = (event) =>
+    {
+        let inputValue = event.target.value;
+        dispatch(searchNews(inputValue));
+    };
 
 
     const handleChangePage = (event, newPage) => { setPage(newPage); };
@@ -54,9 +74,20 @@ const Noticias = () =>
     // else if (registers.length === 0 && !isLoading) { content = <h1>There are no movies yet!</h1>; }
     // else if (isLoading) { content = <h1>Loading...</h1>; }
 
+    let content;
+
+    if (error) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>{error}</div></TableCell></TableRow>; }
+    else if (newsList.filter(x => x.title.includes(searchNewsStore)).length === 0 && !isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>There are no news!</div></TableCell></TableRow>; }
+    else if (isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>Loading...</div></TableCell></TableRow>; }
+
     return (
         <>
             <div className="PageContentTitle">Notícias <Icon.ArrowDownLeftSquareFill className='FontAwesomeIcon' /></div>
+
+            <div className="input-group">
+                <input id="search" type="text" className="form-control" name="search" placeholder="search by title" onChange={handleSearch} />
+            </div><br />
+
             <Paper sx={{ width: '100%', overflow: 'hidden' }}>
                 <TableContainer sx={{ maxHeight: 440 }}>
                     <Table stickyHeader aria-label="sticky table">
@@ -74,7 +105,11 @@ const Noticias = () =>
                             </TableRow>
                         </TableHead>
                         <TableBody>
+
+                            {content}
+
                             {newsList
+                                .filter(x => x.title.includes(searchNewsStore))
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((person, index) =>
                                 {
@@ -83,6 +118,12 @@ const Noticias = () =>
                                             {columns.map((column) =>
                                             {
                                                 let value = person[column.id];
+
+                                                if (column.id == 'title')
+                                                {
+                                                    value = <Link to={`${pathView}/${person.id}`} className="link-to-view">{person.title}</Link>
+                                                }
+
                                                 return (
                                                     <TableCell key={index} align={column.align}>
                                                         {column.format && typeof value === 'number'
@@ -100,7 +141,7 @@ const Noticias = () =>
                 <TablePagination
                     rowsPerPageOptions={[10, 25, 100]}
                     component="div"
-                    count={newsList.length}
+                    count={newsList.filter(x => x.title.includes(searchNewsStore)).length}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}

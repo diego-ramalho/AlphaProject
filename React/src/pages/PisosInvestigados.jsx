@@ -1,4 +1,5 @@
 import React, { ReactElement, FC, useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { Box, Typography } from "@mui/material";
 
 import Paper from '@mui/material/Paper';
@@ -12,7 +13,8 @@ import TableRow from '@mui/material/TableRow';
 
 import * as Icon from 'react-bootstrap-icons';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { searchRegister } from '../store/searchRegisterSlice';
 
 import { useRegisterActions, useZoneActions, useFilterActions } from '../_actions';
 
@@ -38,18 +40,22 @@ const PisosInvestigados = () =>
   const zoneActions = useZoneActions();
   const filterActions = useFilterActions();
 
+  const dispatch = useDispatch();
+
   const zoneStore = useSelector(state => state.zone);
+  const searchRegisterStore = useSelector(state => state.searchRegister);
+
+  const pathView = '/Registers/view';
 
   const filterId = 2;
 
-  // useEffect(() => {
-  //   userActions.getAll().then(x => setUsers(x));
-  // }, []);
-
-  // useEffect(() =>
-  // {
-  //   filterActions.getAllWithRegisters().then(x => { setFilterList(x.filter(f => f.filterId == filterId)); console.log(filterList); });
-  // }, [registers]);
+  useEffect(() =>
+  {
+    if (document.querySelector('#search').value === "")
+    {
+      dispatch(searchRegister(""));
+    }
+  }, []);
 
   useEffect(() =>
   {
@@ -61,6 +67,12 @@ const PisosInvestigados = () =>
   // useEffect(() => { fetchPeopleHandler(); }, []);
 
   const handleChangePage = (event, newPage) => { setPage(newPage); };
+
+  const handleSearch = (event) =>
+  {
+    let inputValue = event.target.value;
+    dispatch(searchRegister(inputValue));
+  };
 
   const handleChangeRowsPerPage = (event) =>
   {
@@ -89,13 +101,18 @@ const PisosInvestigados = () =>
 
   let content;
 
-  if (error) { content = <h1>{error}</h1>; }
-  else if (registers.length === 0 && !isLoading) { content = <h1>There are no movies yet!</h1>; }
-  else if (isLoading) { content = <h1>Loading...</h1>; }
+  if (error) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>{error}</div></TableCell></TableRow>; }
+  else if (registers.filter(x => x.address.includes(searchRegisterStore)).length === 0 && !isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>There are no registers!</div></TableCell></TableRow>; }
+  else if (isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>Loading...</div></TableCell></TableRow>; }
 
   return (
     <>
       <div className="PageContentTitle">Pisos Investigados <Icon.ArrowDownLeftSquareFill className='FontAwesomeIcon' /></div>
+
+      <div class="input-group">
+        <input id="search" type="text" class="form-control" name="search" placeholder="search by address" onChange={handleSearch} />
+      </div><br />
+
       <Paper sx={{ width: '100%', overflow: 'hidden' }}>
         <TableContainer sx={{ maxHeight: 440 }}>
           <Table stickyHeader aria-label="sticky table">
@@ -113,7 +130,11 @@ const PisosInvestigados = () =>
               </TableRow>
             </TableHead>
             <TableBody>
+
+              {content}
+
               {registers
+                .filter(x => x.address.includes(searchRegisterStore))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((person, index) =>
                 {
@@ -125,6 +146,11 @@ const PisosInvestigados = () =>
                         if (column.id == 'zoneId')
                         {
                           value = zoneList.filter(x => x.id === person.zoneId).map(x => x.zoneName);
+                        }
+                        if (column.id == 'address')
+                        {
+                          // value = person.id + " - " + person.address;
+                          value = <Link to={`${pathView}/${person.id}`} className="link-to-view">{person.address}</Link>
                         }
                         return (
                           <TableCell key={index} align={column.align}>
@@ -143,7 +169,7 @@ const PisosInvestigados = () =>
         <TablePagination
           rowsPerPageOptions={[10, 25, 100]}
           component="div"
-          count={registers.length}
+          count={registers.filter(x => x.address.includes(searchRegisterStore)).length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}
