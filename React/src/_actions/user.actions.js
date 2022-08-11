@@ -28,6 +28,7 @@ function useUserActions()
         getUsersZones,
         getById,
         getCurrentUser,
+        recoverPass,
         update,
         updateCurrentUser,
         delete: _delete,
@@ -108,6 +109,24 @@ function useUserActions()
     {
         //return fetchWrapper.get(`${baseUrl}/${id}`).then(setUser);
         return fetchWrapper.get(`${baseUrl}/GetCurrentUser`);
+    }
+
+    function recoverPass({ email })
+    {
+        return fetchWrapper.get(`${baseUrl}/NewPassword?email=${email}`);
+        
+        // if (!response.ok) {
+        //     throw new Error('Data coud not be fetched!')
+        //   } else {
+        //     return response.json()
+        //   }
+
+        //return JSON.parse(`{ "pass":"${response}" }`);
+        // .then(() =>
+        // {
+        //     const { from } = history.location.state || { from: { pathname: '/' } };
+        //     window.location.href = '/login';
+        // });
     }
 
     function update(id, params)

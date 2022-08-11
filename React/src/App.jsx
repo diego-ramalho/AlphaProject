@@ -8,6 +8,7 @@ import { routes_settings as appSettingsRoutes } from "./routes-settings";
 import { routes_admin as appAdminRoutes } from "./routes-admin";
 import Layout from "./components/Layout";
 import Login from "./pages/Login";
+import Recover from "./pages/Recover";
 
 import { Nav, Alert, PrivateRoute } from './_components';
 
@@ -54,8 +55,16 @@ const login_page = [
     path: '/',
     enabled: true,
     component: Login
+  },
+  {
+    key: 'recover-route',
+    title: 'Recover',
+    path: '/Recover',
+    enabled: true,
+    component: Recover
   }
 ]
+
 
 function App()
 {

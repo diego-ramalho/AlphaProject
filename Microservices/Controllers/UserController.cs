@@ -195,7 +195,7 @@ namespace WebApiTemplate.Controllers
             var userItem = _userTransactionalService.ValidateLogin(_user);
             if (userItem != null) {
 
-                var userUserId = _userTransactionalService.GetUserByEmail(userItem.Email);
+                var userUserId = _userTransactionalService.GetUserIdByEmail(userItem.Email);
                 var userZoneId = _userTransactionalService.GetZoneByUserId(userUserId);
                 if (userZoneId != null)
                     userItem.ZoneId = userZoneId;
@@ -220,6 +220,10 @@ namespace WebApiTemplate.Controllers
         [HttpGet("NewPassword")]
         public ActionResult<string> NewPassword(string email)
         {
+            var userItem = _userTransactionalService.GetUserByEmail(email);
+
+            if (userItem == null) throw new NullReferenceException("user is null");
+
             var getNewPassword = _userTransactionalService.NewPassword(email);
 
             return Ok(getNewPassword);

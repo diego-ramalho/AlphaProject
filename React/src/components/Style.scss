@@ -30,10 +30,14 @@ form,
     margin-left: 78px;
 }
 
-.login-form {
+.login-form, .forgot-pass-form {
     max-width: 400px;
     margin: 0 auto !important;
     margin-top: 50px !important;
+
+    &.hide {
+        display: none;
+    }
 }
 
 .checkbox-group {

@@ -22,18 +22,21 @@ namespace WebApiTemplate.Services.Client
         private readonly AppDbContext _context;
         private readonly AppSettings _appSettings;
         private readonly IMailService _mailService;
+        private readonly MailSettings _mailSettings;
         private readonly JwtAuthenticationManager _jwtAuthenticationManager;
         
         public UserTransactionalService(IMapper mapper, 
             AppDbContext context, 
             IOptions<AppSettings> appSettings, 
             IMailService mailService,
+            IOptions<MailSettings> mailSettings,
             JwtAuthenticationManager jwtAuthenticationManager)
         {
             _mapper = mapper;
             _context = context;
             _appSettings = appSettings.Value; 
             _mailService = mailService;
+            _mailSettings = mailSettings.Value;
             _jwtAuthenticationManager = jwtAuthenticationManager;
         }
 
@@ -78,6 +81,18 @@ namespace WebApiTemplate.Services.Client
             };
             _context.UserZones.Add(_userZone);
             _context.SaveChanges();
+
+            if (!String.IsNullOrEmpty(_user.Password))
+            {
+                try
+                {
+                    SendMail(new MailRequest() { ToEmail = _user.Email, Subject = "Coloniajardininmo.com - Nuevo Usuario", Body = String.Format(_mailSettings.NewUserBodyMail, _user.Name, _user.Email, Decrypt(_user.Password)) });
+                }
+                catch (Exception e)
+                {
+                    throw e;
+                }
+            }
         }
 
         public void DeleteUser(int id)
@@ -105,6 +120,21 @@ namespace WebApiTemplate.Services.Client
             _user.Name = user.Name;
             _user.Email = user.Email;
             _user.RoleId = user.RoleId;
+
+            _context.Users.Update(_user);
+            _context.SaveChanges();
+        }
+
+        public void UpdateUserPassword(int id, string pass)
+        {
+            if (id == null || id <= 0)
+            {
+                throw new ArgumentNullException(nameof(id));
+            }
+
+            var _user = _context.Users.FirstOrDefault(p => p.Id == id);
+
+            _user.Password = pass;
 
             _context.Users.Update(_user);
             _context.SaveChanges();
@@ -149,9 +179,14 @@ namespace WebApiTemplate.Services.Client
         {
             return _context.UserZones.FirstOrDefault(p => p.UserId == id).ZoneId;
         }
-        public int GetUserByEmail(string email)
+        public int GetUserIdByEmail(string email)
         {
             return _context.Users.FirstOrDefault(p => p.Email == email).Id;
+        }
+
+        public User GetUserByEmail(string email)
+        {
+            return _context.Users.FirstOrDefault(p => p.Email == email);
         }
 
         //public AuthenticateResponse Authenticate(AuthenticateRequest model)
@@ -279,10 +314,26 @@ namespace WebApiTemplate.Services.Client
                     rcs[rand.Next(0, rcs.Length)]);
             }
 
-            if(!String.IsNullOrEmpty(email))
-                SendMail(new MailRequest() { ToEmail = email , Subject = "Nova Password", Body = new string(chars.ToArray()) });
+            if (!String.IsNullOrEmpty(email))
+            {
+                try
+                {
+                    var _user = GetUserByEmail(email);
+
+                    SendMail(new MailRequest() { ToEmail = email, Subject = "Coloniajardininmo.com - Nueva Contraseña", Body = String.Format(_mailSettings.NewPasswordBodyMail, _user.Name, _user.Email, new string(chars.ToArray())) });
+
+                    UpdateUserPassword(_user.Id, Encrypt(new string(chars.ToArray())));
+
+                    return "true";
+                }
+                catch (Exception e)
+                {
+                    throw e;
+                }
+            }
 
             return new string(chars.ToArray());
+            //return "pass:" + new string(chars.ToArray()) + " / server:" + _mailSettings.Host + " / port:" + _mailSettings.Port + " / mail:" + _mailSettings.Mail;
         }
 
         public async void SendMail(MailRequest request)

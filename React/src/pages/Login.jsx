@@ -4,10 +4,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { updateZone } from '../store/zoneSlice';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { updateZone } from '../store/zoneSlice';
 
-import { useUserActions } from '../_actions';
+import { useUserActions, useAlertActions } from '../_actions';
 
 import { useRecoilValue } from 'recoil';
 
@@ -50,9 +50,9 @@ export default function Login()
     if (auth) window.location.href = '/taraturas';
     //if (auth) navigate("/taraturas");
 
-    const [value, setValue] = useState('');
-    const dispatch = useDispatch();
-    const zones = useSelector((state) => state.zones);
+    // const [value, setValue] = useState('');
+    // const dispatch = useDispatch();
+    // const zones = useSelector((state) => state.zones);
 
     // alert(zones);
 
@@ -71,8 +71,22 @@ export default function Login()
     const formOptions = { resolver: yupResolver(validationSchema) };
 
     // get functions to build form with useForm() hook
-    const { register, handleSubmit, formState } = useForm(formOptions);
-    const { errors, isSubmitting } = formState;
+    const { register, handleSubmit, formState: { errors }, formState } = useForm(formOptions);
+    const onSubmit = async (data) =>
+    {
+        await userActions.login(data)
+            .then(() =>
+            {
+                useAlertActions.success('successful login', { keepAfterRouteChange: true });
+                //navigate("/Login");
+            })
+            .catch(() =>
+            {
+                useAlertActions.error('Invalid email or password', { keepAfterRouteChange: true });
+            });
+    };
+
+    //const { errors, isSubmitting } = formState;
 
     // const handleSubmit = (event: any) => {
     //     event.preventDefault();
@@ -93,27 +107,32 @@ export default function Login()
     // };
 
     return (
-        <div className="card m-3 login-form">
-            <h4 className="card-header">Login {zones}</h4>
-            <div className="card-body">
-                <form onSubmit={handleSubmit(userActions.login)}>
-                    <div className="form-group">
-                        <label>Email</label>
-                        <input name="email" type="text" {...register('email')} className={`form-control ${errors.email ? 'is-invalid' : ''}`} />
-                        <div className="invalid-feedback">{errors.email?.message}</div>
-                    </div>
-                    <div className="form-group">
-                        <label>Password</label>
-                        <input name="password" type="password" {...register('password')} className={`form-control ${errors.password ? 'is-invalid' : ''}`} />
-                        <div className="invalid-feedback">{errors.password?.message}</div>
-                    </div>
-                    <button disabled={isSubmitting} className="btn btn-primary">
-                        {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                        Login
-                    </button>
-                    {/* <Link to="register" className="btn btn-link">Register</Link> */}
-                </form>
+        <>
+            <div className="card m-3 login-form">
+                <h4 className="card-header">Login</h4>
+                <div className="card-body">
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className="form-group">
+                            <label>Email</label>
+                            <input name="email" type="text" {...register('email')} className={`form-control ${errors.email ? 'is-invalid' : ''}`} />
+                            <div className="invalid-feedback">{errors.email?.message}</div>
+                        </div>
+                        <div className="form-group">
+                            <label>Password</label>
+                            <input name="password" type="password" {...register('password')} className={`form-control ${errors.password ? 'is-invalid' : ''}`} />
+                            <div className="invalid-feedback">{errors.password?.message}</div>
+                        </div>
+                        <button disabled={formState.isSubmitting} className="btn btn-primary">
+                            {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
+                            Login
+                        </button>
+                        {/* <a onClick={() => setForgotPass(!forgotPass)} className="btn text-primary">
+                            Forgot Password?
+                        </a> */}
+                        <Link to="Recover" className="btn btn-link">Forgot Password?</Link>
+                    </form>
+                </div>
             </div>
-        </div>
+        </>
     )
 }

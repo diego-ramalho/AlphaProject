@@ -20,13 +20,17 @@ namespace WebApiTemplate.Services
 
         void UpdateUser(int id, UserCreateIn user);
 
+        void UpdateUserPassword(int id, string pass);
+
         UserLoginDto ValidateLogin(UserLoginIn user);
 
         User GetUserById(int id);
 
         int GetZoneByUserId(int id);
 
-        int GetUserByEmail(string email);
+        int GetUserIdByEmail(string email);
+
+        User GetUserByEmail(string email);
 
         //AuthenticateResponse Authenticate(AuthenticateRequest model);
 
