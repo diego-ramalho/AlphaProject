@@ -22,8 +22,13 @@ function RegistersView({ match })
     const validationSchema = Yup.object().shape({
         address: Yup.string()
             .required('Address is required'),
+        name: Yup.string()
+            .required('Number is required'),
         number: Yup.string()
             .required('Number is required'),
+        observation: Yup.string(),
+        phone: Yup.string(),
+        tracing: Yup.string(),
         zoneId: Yup.string()
             .required('Zone is required'),
         filterList: Yup.array()
@@ -96,7 +101,7 @@ function RegistersView({ match })
             // get user and set form fields
             registerActions.getById(id).then(registerItem =>
             {
-                const fields = ['address', 'number', 'zoneId'];
+                const fields = ['address', 'name', 'number', 'observation', 'phone', 'tracing', 'zoneId'];
                 fields.forEach(field => setValue(field, registerItem[field], false));
                 setRegister(registerItem);
             });
@@ -108,16 +113,40 @@ function RegistersView({ match })
             <h1>{isAddMode ? 'Add Taratura' : 'Taratura'}</h1>
             <div className="form-row">
                 <div className="form-group col-12">
-                    <div className="page-view-item-label col-md-12 col-sm-12">Address</div>
+                    <div className="page-view-item-label col-md-12 col-sm-12">Direccion</div>
                     <div className="page-view-item-value col-md-12 col-sm-12">{registerItem.address}</div>
                 </div>
             </div>
             <div className="form-row">
-                <div className="form-group col-md-8 col-sm-12">
-                    <div className="page-view-item-label col-md-12 col-sm-12">Number</div>
+                <div className="form-group col-12">
+                    <div className="page-view-item-label col-md-12 col-sm-12">Nombre y Apellidos</div>
+                    <div className="page-view-item-value col-md-12 col-sm-12">{registerItem.name}</div>
+                </div>
+            </div>
+            <div className="form-row">
+                <div className="form-group col-md-4 col-sm-12">
+                    <div className="page-view-item-label col-md-12 col-sm-12">Puerta</div>
                     <div className="page-view-item-value col-md-12 col-sm-12">{registerItem.number}</div>
                 </div>
-                <div className="form-group col-md-4 col-sm-12">
+                <div className="form-group col-md-8 col-sm-12">
+                    <div className="page-view-item-label col-md-12 col-sm-12">Telefono</div>
+                    <div className="page-view-item-value col-md-12 col-sm-12">{registerItem.phone}</div>
+                </div>
+            </div>
+            <div className="form-row">
+                <div className="form-group col-12">
+                    <div className="page-view-item-label col-md-12 col-sm-12">Observaciones</div>
+                    <div className="page-view-item-value col-md-12 col-sm-12">{registerItem.observation}</div>
+                </div>
+            </div>
+            <div className="form-row">
+                <div className="form-group col-12">
+                    <div className="page-view-item-label col-md-12 col-sm-12">Seguimiento</div>
+                    <div className="page-view-item-value col-md-12 col-sm-12">{registerItem.tracing}</div>
+                </div>
+            </div>
+            <div className="form-row">
+                <div className="form-group col-12">
                     <div className="page-view-item-label col-md-12 col-sm-12">Zone</div>
                     <div className="page-view-item-value col-md-12 col-sm-12">{zoneoptions.filter(z => z.id == registerItem.zoneId).map(x => x.zoneName)}</div>
                 </div>

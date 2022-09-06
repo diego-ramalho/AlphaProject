@@ -58,6 +58,11 @@ namespace WebApiTemplate.Services.Client
             if (_entity == null) throw new ArgumentNullException(nameof(_entity));
 
             _entity.Address = entity.Address;
+            _entity.Name = entity.Name;
+            _entity.Number = entity.Number;
+            _entity.Phone = entity.Phone;
+            _entity.Observation = entity.Observation;
+            _entity.Tracing = entity.Tracing;
             _entity.Number = entity.Number;
             _entity.ZoneId = entity.ZoneId;
 

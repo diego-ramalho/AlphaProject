@@ -48,7 +48,7 @@ function RegistersList()
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th style={{ width: '70%' }}>Address</th>
+                        <th style={{ width: '70%' }}>Direccion</th>
                         <th style={{ width: '20%' }}>Zone</th>
                         <th style={{ width: '10%' }}></th>
                     </tr>

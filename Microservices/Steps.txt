@@ -5,3 +5,15 @@ Install » Microsoft.EntityFrameworkCore.Tools
 Install » AutoMapper.Extensions.Microsoft.DependencyInjection
 
 https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=vs
+
+# PMC
+PM > Add-Migration InitialCreate
+PM > Update-Database
+PM > Remove-Migration
+PM > Script-Migration
+
+# .NET CLI
+> dotnet ef migrations add InitialCreate
+> dotnet ef database update
+> dotnet ef migrations remove
+> dotnet ef migrations script

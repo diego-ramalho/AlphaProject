@@ -45,13 +45,13 @@ export const routes_admin = [
         enabled: true,
         component: AdminZones
     },
-    {
-        key: 'admin-records-route-4',
-        title: appLang.pt.menu.admin['item-04'],
-        path: '/Admin/Filters',
-        enabled: true,
-        component: AdminFilters
-    },
+    // {
+    //     key: 'admin-records-route-4',
+    //     title: appLang.pt.menu.admin['item-04'],
+    //     path: '/Admin/Filters',
+    //     enabled: true,
+    //     component: AdminFilters
+    // },
     {
         key: 'admin-records-route-5',
         title: appLang.pt.menu.admin['item-05'],

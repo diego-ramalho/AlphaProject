@@ -22,8 +22,13 @@ function RegistersAddEdit({ match })
     const validationSchema = Yup.object().shape({
         address: Yup.string()
             .required('Address is required'),
+        name: Yup.string()
+            .required('Number is required'),
         number: Yup.string()
             .required('Number is required'),
+        observation: Yup.string(),
+        phone: Yup.string(),
+        tracing: Yup.string(),
         zoneId: Yup.string()
             .required('Zone is required'),
         filterList: Yup.array()
@@ -94,7 +99,7 @@ function RegistersAddEdit({ match })
             // get user and set form fields
             registerActions.getById(id).then(registerItem =>
             {
-                const fields = ['address', 'number', 'zoneId'];
+                const fields = ['address', 'name', 'number', 'observation', 'phone', 'tracing', 'zoneId'];
                 fields.forEach(field => setValue(field, registerItem[field], false));
                 setRegister(registerItem);
             });
@@ -106,17 +111,46 @@ function RegistersAddEdit({ match })
             <h1>{isAddMode ? 'Add Taratura' : 'Edit Taratura'}</h1>
             <div className="form-row">
                 <div className="form-group col-12">
-                    <label>Address</label>
+                    <label>Direccion</label>
                     <input name="address" type="text" {...register('address')} className={'form-control' + (errors.address ? ' is-invalid' : '')} />
                     <div className="invalid-feedback">{errors.address?.message}</div>
                 </div>
             </div>
             <div className="form-row">
-                <div className="form-group col-md-8 col-sm-12">
-                    <label>Number</label>
+                <div className="form-group col-12">
+                    <label>Nombre y Apellidos</label>
+                    <input name="name" type="text" {...register('name')} className={'form-control' + (errors.name ? ' is-invalid' : '')} />
+                    <div className="invalid-feedback">{errors.name?.message}</div>
+                </div>
+            </div>
+            <div className="form-row">
+                <div className="form-group col-md-4 col-sm-12">
+                    <label>Puerta</label>
                     <input name="number" type="text" {...register('number')} className={'form-control' + (errors.number ? ' is-invalid' : '')} />
                     <div className="invalid-feedback">{errors.number?.message}</div>
                 </div>
+                <div className="form-group col-md-8 col-sm-12">
+                    <label>Telefono</label>
+                    <input name="phone" type="text" {...register('phone')} className={'form-control' + (errors.phone ? ' is-invalid' : '')} />
+                    <div className="invalid-feedback">{errors.phone?.message}</div>
+                </div>
+            </div>
+            <div className="form-row">
+                <div className="form-group col-12">
+                    <label>Observaciones</label>
+                    <textarea name="observation" rows={5} {...register('observation')} className={'form-control' + (errors.observation ? ' is-invalid' : '')} wrap="soft"></textarea>
+                    {/* <input name="observation" type="text" {...register('observation')} className={'form-control' + (errors.observation ? ' is-invalid' : '')} /> */}
+                    <div className="invalid-feedback">{errors.observation?.message}</div>
+                </div>
+            </div>
+            <div className="form-row">
+                <div className="form-group col-12">
+                    <label>Seguimiento</label>
+                    <input name="tracing" type="text" {...register('tracing')} className={'form-control' + (errors.tracing ? ' is-invalid' : '')} />
+                    <div className="invalid-feedback">{errors.tracing?.message}</div>
+                </div>
+            </div>
+            <div className="form-row">
                 <div className="form-group col-md-4 col-sm-12">
                     <label>Zone</label>
                     <select name="zoneId" {...register('zoneId')} className={'form-control' + (errors.zoneId ? ' is-invalid' : '')}>
