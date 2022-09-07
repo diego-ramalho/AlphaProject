@@ -19,9 +19,9 @@ function NewsAddEdit({ match })
     // form validation rules 
     const validationSchema = Yup.object().shape({
         link: Yup.string()
-            .required('Link is required'),
+            .required('Enlace obligatorio'),
         description: Yup.string()
-            .required('Link is required')
+            .required('Enlace obligatorio')
     });
 
     // functions to build form returned by useForm() hook
@@ -41,7 +41,7 @@ function NewsAddEdit({ match })
         return newsActions.create(data)
             .then(() =>
             {
-                useAlertActions.success('News added', { keepAfterRouteChange: true });
+                useAlertActions.success('Noticia agregada', { keepAfterRouteChange: true });
                 navigate('/Admin/News/');
             })
             .catch(useAlertActions.error);
@@ -52,7 +52,7 @@ function NewsAddEdit({ match })
         return newsActions.update(id, data)
             .then(() =>
             {
-                useAlertActions.success('News updated', { keepAfterRouteChange: true });
+                useAlertActions.success('Noticia actualizada', { keepAfterRouteChange: true });
                 navigate("/Admin/News/");
             })
             .catch(useAlertActions.error);
@@ -79,17 +79,17 @@ function NewsAddEdit({ match })
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
-            <h1>{isAddMode ? 'Add News' : 'Edit News'}</h1>
+            <h1>{isAddMode ? 'Agregar Noticias' : 'Editar Noticias'}</h1>
             <div className="form-row">
                 <div className="form-group col-12">
-                    <label>Link</label>
+                    <label>Enlace</label>
                     <input name="link" type="text" {...register('link')} className={'form-control' + (errors.link ? ' is-invalid' : '')} />
                     <div className="invalid-feedback">{errors.link?.message}</div>
                 </div>
             </div>
             <div className="form-row">
                 <div className="form-group col-12">
-                    <label>Description</label>
+                    <label>Descripción</label>
                     <input name="description" type="text" {...register('description')} className={'form-control' + (errors.description ? ' is-invalid' : '')} />
                     <div className="invalid-feedback">{errors.description?.message}</div>
                 </div>
@@ -97,9 +97,9 @@ function NewsAddEdit({ match })
             <div className="form-group">
                 <button type="submit" disabled={formState.isSubmitting} className="btn btn-primary">
                     {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                    Save
+                    Guardar
                 </button>
-                <Link to={isAddMode ? '/Admin/News' : '/Admin/News'} className="btn btn-link">Cancel</Link>
+                <Link to={isAddMode ? '/Admin/News' : '/Admin/News'} className="btn btn-link">Cancelar</Link>
             </div>
         </form>
     );

@@ -33,12 +33,12 @@ function ZonesList()
 
     return (
         <div>
-            <h1>Zones</h1>
-            <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add Zone</Link>
+            <h1>Zonas</h1>
+            <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Agregar Zona</Link>
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th style={{ width: '90%' }}>Zone Name</th>
+                        <th style={{ width: '90%' }}>Nombre de Zona</th>
                         <th style={{ width: '10%' }}></th>
                     </tr>
                 </thead>
@@ -47,11 +47,11 @@ function ZonesList()
                         <tr key={zone.id}>
                             <td>{zone.zoneName}</td>
                             <td style={{ whiteSpace: 'nowrap' }}>
-                                <Link to={`${path}/edit/${zone.id}`} className="btn btn-sm btn-primary mr-1">Edit</Link>
+                                <Link to={`${path}/edit/${zone.id}`} className="btn btn-sm btn-primary mr-1">Editar</Link>
                                 <button onClick={() => deleteZone(zone.id)} className="btn btn-sm btn-danger btn-delete-zone" disabled={zone.isDeleting}>
                                     {zone.isDeleting
                                         ? <span className="spinner-border spinner-border-sm"></span>
-                                        : <span>Delete</span>
+                                        : <span>Eliminar</span>
                                     }
                                 </button>
                             </td>

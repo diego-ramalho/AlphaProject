@@ -33,12 +33,12 @@ function NewsList()
 
     return (
         <div>
-            <h1>News</h1>
-            <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add News</Link>
+            <h1>Noticias</h1>
+            <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Agregar Noticias</Link>
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th style={{ width: '90%' }}>News</th>
+                        <th style={{ width: '90%' }}>Noticias</th>
                         <th style={{ width: '10%' }}></th>
                     </tr>
                 </thead>
@@ -47,11 +47,11 @@ function NewsList()
                         <tr key={news.id}>
                             <td>{news.link}</td>
                             <td style={{ whiteSpace: 'nowrap' }}>
-                                <Link to={`${path}/edit/${news.id}`} className="btn btn-sm btn-primary mr-1">Edit</Link>
+                                <Link to={`${path}/edit/${news.id}`} className="btn btn-sm btn-primary mr-1">Editar</Link>
                                 <button onClick={() => deleteNews(news.id)} className="btn btn-sm btn-danger btn-delete-news" disabled={news.isDeleting}>
                                     {news.isDeleting
                                         ? <span className="spinner-border spinner-border-sm"></span>
-                                        : <span>Delete</span>
+                                        : <span>Eliminar</span>
                                     }
                                 </button>
                             </td>

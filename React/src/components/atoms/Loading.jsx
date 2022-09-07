@@ -3,7 +3,7 @@ import React from "react";
 const Loading = () =>
 {
     return (
-        <div style={{padding:'20px', background:'#CCC'}}>Loading...</div>
+        <div style={{ padding: '20px', background: '#CCC' }}>Cargando...</div>
     );
 };
 

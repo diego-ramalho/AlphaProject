@@ -21,16 +21,16 @@ function TaraturasView({ match })
     // form validation rules 
     const validationSchema = Yup.object().shape({
         address: Yup.string()
-            .required('Address is required'),
+            .required('Direccion obligatoria'),
         name: Yup.string()
-            .required('Number is required'),
+            .required('Puerta obligatoria'),
         number: Yup.string()
-            .required('Number is required'),
+            .required('Puerta obligatoria'),
         observation: Yup.string(),
         phone: Yup.string(),
         tracing: Yup.string(),
         zoneId: Yup.string()
-            .required('Zone is required'),
+            .required('Zona obligatoria'),
         filterList: Yup.array()
     });
 
@@ -51,7 +51,7 @@ function TaraturasView({ match })
         return registerActions.create(data)
             .then(() =>
             {
-                useAlertActions.success('Register added', { keepAfterRouteChange: true });
+                useAlertActions.success('Registro agregado', { keepAfterRouteChange: true });
                 navigate('/Admin/Registers/');
             })
             .catch(useAlertActions.error);
@@ -62,7 +62,7 @@ function TaraturasView({ match })
         return registerActions.update(id, data)
             .then(() =>
             {
-                useAlertActions.success('Register updated', { keepAfterRouteChange: true });
+                useAlertActions.success('Registro actualizado', { keepAfterRouteChange: true });
                 navigate("/Admin/Registers/");
             })
             .catch(useAlertActions.error);
@@ -110,7 +110,7 @@ function TaraturasView({ match })
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
-            <h1>{isAddMode ? 'Add Taratura' : 'Taratura'}</h1>
+            <h1>{isAddMode ? 'Agregar Taratura' : 'Taratura'}</h1>
             <div className="form-row">
                 <div className="form-group col-12">
                     <div className="page-view-item-label col-md-12 col-sm-12">Direccion</div>
@@ -147,7 +147,7 @@ function TaraturasView({ match })
             </div>
             <div className="form-row">
                 <div className="form-group col-12">
-                    <div className="page-view-item-label col-md-12 col-sm-12">Zone</div>
+                    <div className="page-view-item-label col-md-12 col-sm-12">Zona</div>
                     <div className="page-view-item-value col-md-12 col-sm-12">{zoneoptions.filter(z => z.id == registerItem.zoneId).map(x => x.zoneName)}</div>
                 </div>
             </div>

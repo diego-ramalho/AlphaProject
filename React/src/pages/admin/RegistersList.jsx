@@ -44,12 +44,12 @@ function RegistersList()
     return (
         <div>
             <h1>Taratura</h1>
-            <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add</Link>
+            <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Agregar</Link>
             <table className="table table-striped">
                 <thead>
                     <tr>
                         <th style={{ width: '70%' }}>Direccion</th>
-                        <th style={{ width: '20%' }}>Zone</th>
+                        <th style={{ width: '20%' }}>Zona</th>
                         <th style={{ width: '10%' }}></th>
                     </tr>
                 </thead>
@@ -60,11 +60,11 @@ function RegistersList()
                             <td><Link to={`${pathView}/view/${register.id}`} className="link-to-view">{register.address}</Link></td>
                             <td>{zonesList.filter(x => x.id === register.zoneId).map(x => x.zoneName)}</td>
                             <td style={{ whiteSpace: 'nowrap' }}>
-                                <Link to={`${path}/edit/${register.id}`} className="btn btn-sm btn-primary mr-1">Edit</Link>
+                                <Link to={`${path}/edit/${register.id}`} className="btn btn-sm btn-primary mr-1">Editar</Link>
                                 <button onClick={() => deleteRegister(register.id)} className="btn btn-sm btn-danger btn-delete-register" disabled={register.isDeleting}>
                                     {register.isDeleting
                                         ? <span className="spinner-border spinner-border-sm"></span>
-                                        : <span>Delete</span>
+                                        : <span>Eliminar</span>
                                     }
                                 </button>
                             </td>

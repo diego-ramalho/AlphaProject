@@ -20,9 +20,9 @@ import { useRegisterActions, useZoneActions, useFilterActions } from '../_action
 
 const columns = [
     //{ id: 'id', label: 'Id', minWidth: 50 },
-    { id: 'address', label: 'Address', minWidth: 170 },
-    { id: 'number', label: 'Number', minWidth: 100 },
-    { id: 'zoneId', label: 'Zone', minWidth: 100 }
+    { id: 'address', label: 'Direccion', minWidth: 170 },
+    { id: 'number', label: 'Puerta', minWidth: 100 },
+    { id: 'zoneId', label: 'Zona', minWidth: 100 }
 ];
 
 const PisosVendidos = () =>
@@ -81,15 +81,15 @@ const PisosVendidos = () =>
     let content;
 
     if (error) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>{error}</div></TableCell></TableRow>; }
-    else if (registers.filter(x => x.address.includes(searchRegisterStore)).length === 0 && !isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>There are no registers!</div></TableCell></TableRow>; }
-    else if (isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>Loading...</div></TableCell></TableRow>; }
+    else if (registers.filter(x => x.address.includes(searchRegisterStore)).length === 0 && !isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>¡No hay registros!</div></TableCell></TableRow>; }
+    else if (isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>Cargando...</div></TableCell></TableRow>; }
 
     return (
         <>
             <div className="PageContentTitle">Pisos Vendidos <Icon.ArrowDownLeftSquareFill className='FontAwesomeIcon' /></div>
 
             <div class="input-group">
-                <input id="search" type="text" class="form-control" name="search" placeholder="search by address" onChange={handleSearch} />
+                <input id="search" type="text" class="form-control" name="search" placeholder="buscar por direccion" onChange={handleSearch} />
             </div><br />
 
             <Paper sx={{ width: '100%', overflow: 'hidden' }}>
@@ -125,8 +125,8 @@ const PisosVendidos = () =>
                                                 }
                                                 if (column.id == 'address')
                                                 {
-                                                  // value = person.id + " - " + person.address;
-                                                  value = <Link to={`${pathView}/${person.id}`} className="link-to-view">{person.address}</Link>
+                                                    // value = person.id + " - " + person.address;
+                                                    value = <Link to={`${pathView}/${person.id}`} className="link-to-view">{person.address}</Link>
                                                 }
                                                 return (
                                                     <TableCell key={index} align={column.align}>
@@ -150,7 +150,7 @@ const PisosVendidos = () =>
                     page={page}
                     onPageChange={handleChangePage}
                     onRowsPerPageChange={handleChangeRowsPerPage}
-                    labelRowsPerPage={"Itens por página"}
+                    labelRowsPerPage={"Ítems por página"}
                     labelDisplayedRows={({ from, to, count }) => `${from}-${to} de ${count}`}
                 />
             </Paper>

@@ -18,8 +18,8 @@ import axiosUsers from '../api/axiosinstance';
 
 const columns = [
   //{ id: 'id', label: 'Id', minWidth: 50 },
-  { id: 'name', label: 'Name', minWidth: 170 },
-  { id: 'email', label: 'Email', minWidth: 100 },
+  { id: 'name', label: 'Nombre', minWidth: 170 },
+  { id: 'email', label: 'Correo electrónico', minWidth: 100 },
   // {
   //   id: 'population',
   //   label: 'Column 03',
@@ -87,8 +87,8 @@ const Users = () =>
   let content;
 
   if (error) { content = <h1>{error}</h1>; }
-  else if (people.length === 0 && !isLoading) { content = <h1>There are no movies yet!</h1>; }
-  else if (isLoading) { content = <h1>Loading...</h1>; }
+  else if (people.length === 0 && !isLoading) { content = <h1>¡No hay registros!</h1>; }
+  else if (isLoading) { content = <h1>Cargando...</h1>; }
   else { content = <User people={people} />; }
 
   return (
@@ -142,7 +142,7 @@ const Users = () =>
           page={page}
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
-          labelRowsPerPage={"Itens por página"}
+          labelRowsPerPage={"Ítems por página"}
           labelDisplayedRows={({ from, to, count }) => `${from}-${to} de ${count}`}
         />
       </Paper>

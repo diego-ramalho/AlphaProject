@@ -19,7 +19,7 @@ function ZonesAddEdit({ match })
     // form validation rules 
     const validationSchema = Yup.object().shape({
         zoneName: Yup.string()
-            .required('Zone Name is required')
+            .required('Nombre de la zona obligatorio')
     });
 
     // functions to build form returned by useForm() hook
@@ -39,7 +39,7 @@ function ZonesAddEdit({ match })
         return zoneActions.create(data)
             .then(() =>
             {
-                useAlertActions.success('Zone added', { keepAfterRouteChange: true });
+                useAlertActions.success('Zona agregada', { keepAfterRouteChange: true });
                 navigate('/Admin/Zones/');
             })
             .catch(useAlertActions.error);
@@ -50,7 +50,7 @@ function ZonesAddEdit({ match })
         return zoneActions.update(id, data)
             .then(() =>
             {
-                useAlertActions.success('Zone updated', { keepAfterRouteChange: true });
+                useAlertActions.success('Zona actualizada', { keepAfterRouteChange: true });
                 navigate("/Admin/Zones/");
             })
             .catch(useAlertActions.error);
@@ -77,10 +77,10 @@ function ZonesAddEdit({ match })
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
-            <h1>{isAddMode ? 'Add Zone' : 'Edit Zone'}</h1>
+            <h1>{isAddMode ? 'Agregar Zona' : 'Editar Zona'}</h1>
             <div className="form-row">
                 <div className="form-group col-12">
-                    <label>Zone Name</label>
+                    <label>Nombre de Zona</label>
                     <input name="zoneName" type="text" {...register('zoneName')} className={'form-control' + (errors.zoneName ? ' is-invalid' : '')} />
                     <div className="invalid-feedback">{errors.zoneName?.message}</div>
                 </div>
@@ -88,9 +88,9 @@ function ZonesAddEdit({ match })
             <div className="form-group">
                 <button type="submit" disabled={formState.isSubmitting} className="btn btn-primary">
                     {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                    Save
+                    Guardar
                 </button>
-                <Link to={isAddMode ? '/Admin/Zones' : '/Admin/Zones'} className="btn btn-link">Cancel</Link>
+                <Link to={isAddMode ? '/Admin/Zones' : '/Admin/Zones'} className="btn btn-link">Cancelar</Link>
             </div>
         </form>
     );

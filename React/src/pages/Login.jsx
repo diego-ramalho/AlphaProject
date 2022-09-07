@@ -32,7 +32,7 @@ import * as Api from '../api/call';
 //         alignItems: "center",
 //       }}
 //     >
-//       <Typography variant="h3">Login</Typography>
+//       <Typography variant="h3">Acceso</Typography>
 //     </Box>
 //   );
 // };
@@ -65,8 +65,8 @@ export default function Login()
 
     // form validation rules 
     const validationSchema = Yup.object().shape({
-        email: Yup.string().required('Email is required'),
-        password: Yup.string().required('Password is required')
+        email: Yup.string().required('Correo electrónico obligatorio'),
+        password: Yup.string().required('Contraseña obligatoria')
     });
     const formOptions = { resolver: yupResolver(validationSchema) };
 
@@ -109,27 +109,27 @@ export default function Login()
     return (
         <>
             <div className="card m-3 login-form">
-                <h4 className="card-header">Login</h4>
+                <h4 className="card-header">Acceso</h4>
                 <div className="card-body">
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <form autocomplete="off" onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-group">
-                            <label>Email</label>
-                            <input name="email" type="text" {...register('email')} className={`form-control ${errors.email ? 'is-invalid' : ''}`} />
+                            <label>Correo electrónico</label>
+                            <input autocomplete="false" name="email" type="text" {...register('email')} className={`form-control ${errors.email ? 'is-invalid' : ''}`} />
                             <div className="invalid-feedback">{errors.email?.message}</div>
                         </div>
                         <div className="form-group">
-                            <label>Password</label>
-                            <input name="password" type="password" {...register('password')} className={`form-control ${errors.password ? 'is-invalid' : ''}`} />
+                            <label>Contraseña</label>
+                            <input autocomplete="false" name="password" type="password" {...register('password')} className={`form-control ${errors.password ? 'is-invalid' : ''}`} />
                             <div className="invalid-feedback">{errors.password?.message}</div>
                         </div>
                         <button disabled={formState.isSubmitting} className="btn btn-primary">
                             {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                            Login
+                            Continuar
                         </button>
                         {/* <a onClick={() => setForgotPass(!forgotPass)} className="btn text-primary">
                             Forgot Password?
                         </a> */}
-                        <Link to="Recover" className="btn btn-link">Forgot Password?</Link>
+                        <Link to="Recover" className="btn btn-link">Recuperar Contraseña</Link>
                     </form>
                 </div>
             </div>

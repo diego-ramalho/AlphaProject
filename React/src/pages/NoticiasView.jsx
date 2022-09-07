@@ -32,22 +32,22 @@ function NoticiasView({ match })
 
     return (
         <form>
-            <h1>{isAddMode ? 'Add News' : 'News'}</h1>
+            <h1>{isAddMode ? 'Agregar Noticias' : 'Noticias'}</h1>
             <div className="form-row">
                 <div className="form-group col-12">
-                    <div className="page-view-item-label col-md-12 col-sm-12">Title</div>
+                    <div className="page-view-item-label col-md-12 col-sm-12">Titulo</div>
                     <div className="page-view-item-value col-md-12 col-sm-12">{newsItem.title}</div>
                 </div>
             </div>
             <div className="form-row">
                 <div className="form-group col-12">
-                    <div className="page-view-item-label col-md-12 col-sm-12">Link</div>
+                    <div className="page-view-item-label col-md-12 col-sm-12">Enlace</div>
                     <div className="page-view-item-value col-md-12 col-sm-12"><a href={newsItem.link} target="_blank">{newsItem.link}</a></div>
                 </div>
             </div>
             <div className="form-row">
                 <div className="form-group col-md-8 col-sm-12">
-                    <div className="page-view-item-label col-md-12 col-sm-12">Description</div>
+                    <div className="page-view-item-label col-md-12 col-sm-12">Descripción</div>
                     <div className="page-view-item-value col-md-12 col-sm-12">{newsItem.description}</div>
                 </div>
             </div>

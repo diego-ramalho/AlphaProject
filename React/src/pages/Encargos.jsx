@@ -19,8 +19,8 @@ import { searchCharge } from '../store/searchChargeSlice';
 import { useChargesActions } from '../_actions';
 
 const columns = [
-    { id: 'description', label: 'Description', minWidth: 100 },
-    { id: 'value', label: 'Value', minWidth: 100 }
+    { id: 'description', label: 'Descripción', minWidth: 100 },
+    { id: 'value', label: 'Valor', minWidth: 100 }
 ];
 
 const Encargos = () =>
@@ -71,21 +71,21 @@ const Encargos = () =>
     // let content;
 
     // if (error) { content = <h1>{error}</h1>; }
-    // else if (registers.length === 0 && !isLoading) { content = <h1>There are no movies yet!</h1>; }
-    // else if (isLoading) { content = <h1>Loading...</h1>; }
+    // else if (registers.length === 0 && !isLoading) { content = <h1>¡No hay registros!</h1>; }
+    // else if (isLoading) { content = <h1>Cargando...</h1>; }
 
     let content;
 
     if (error) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>{error}</div></TableCell></TableRow>; }
-    else if (chargesList.filter(x => x.description.includes(searchChargeStore)).length === 0 && !isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>There are no charges!</div></TableCell></TableRow>; }
-    else if (isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>Loading...</div></TableCell></TableRow>; }
+    else if (chargesList.filter(x => x.description.includes(searchChargeStore)).length === 0 && !isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>¡No hay registros!</div></TableCell></TableRow>; }
+    else if (isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>Cargando...</div></TableCell></TableRow>; }
 
     return (
         <>
             <div className="PageContentTitle">Encargos <Icon.ArrowDownLeftSquareFill className='FontAwesomeIcon' /></div>
 
             <div className="input-group">
-                <input id="search" type="text" className="form-control" name="search" placeholder="search by description" onChange={handleSearch} />
+                <input id="search" type="text" className="form-control" name="search" placeholder="buscar por descripción" onChange={handleSearch} />
             </div><br />
 
             <Paper sx={{ width: '100%', overflow: 'hidden' }}>
@@ -146,7 +146,7 @@ const Encargos = () =>
                     page={page}
                     onPageChange={handleChangePage}
                     onRowsPerPageChange={handleChangeRowsPerPage}
-                    labelRowsPerPage={"Itens por página"}
+                    labelRowsPerPage={"Ítems por página"}
                     labelDisplayedRows={({ from, to, count }) => `${from}-${to} de ${count}`}
                 />
             </Paper>

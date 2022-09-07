@@ -19,9 +19,9 @@ function ChargesAddEdit({ match })
     // form validation rules 
     const validationSchema = Yup.object().shape({
         value: Yup.string()
-            .required('Value is required'),
+            .required('Valor obligatorio'),
         description: Yup.string()
-            .required('Description is required')
+            .required('Descripción obligatorio')
     });
 
     // functions to build form returned by useForm() hook
@@ -41,7 +41,7 @@ function ChargesAddEdit({ match })
         return chargesActions.create(data)
             .then(() =>
             {
-                useAlertActions.success('Charges added', { keepAfterRouteChange: true });
+                useAlertActions.success('Encargo agregado', { keepAfterRouteChange: true });
                 navigate('/Admin/Charges/');
             })
             .catch(useAlertActions.error);
@@ -52,7 +52,7 @@ function ChargesAddEdit({ match })
         return chargesActions.update(id, data)
             .then(() =>
             {
-                useAlertActions.success('Charges updated', { keepAfterRouteChange: true });
+                useAlertActions.success('Encargo actualizado', { keepAfterRouteChange: true });
                 navigate("/Admin/Charges/");
             })
             .catch(useAlertActions.error);
@@ -79,17 +79,17 @@ function ChargesAddEdit({ match })
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
-            <h1>{isAddMode ? 'Add Charges' : 'Edit Charges'}</h1>
+            <h1>{isAddMode ? 'Agregar Encargo' : 'Editar Encargos'}</h1>
             <div className="form-row">
                 <div className="form-group col-12">
-                    <label>Value</label>
+                    <label>Valor</label>
                     <input name="value" type="text" {...register('value')} className={'form-control' + (errors.value ? ' is-invalid' : '')} />
                     <div className="invalid-feedback">{errors.value?.message}</div>
                 </div>
             </div>
             <div className="form-row">
                 <div className="form-group col-12">
-                    <label>Description</label>
+                    <label>Descripción</label>
                     <input name="description" type="text" {...register('description')} className={'form-control' + (errors.description ? ' is-invalid' : '')} />
                     <div className="invalid-feedback">{errors.description?.message}</div>
                 </div>
@@ -97,9 +97,9 @@ function ChargesAddEdit({ match })
             <div className="form-group">
                 <button type="submit" disabled={formState.isSubmitting} className="btn btn-primary">
                     {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                    Save
+                    Guardar
                 </button>
-                <Link to={isAddMode ? '/Admin/Charges' : '/Admin/Charges'} className="btn btn-link">Cancel</Link>
+                <Link to={isAddMode ? '/Admin/Charges' : '/Admin/Charges'} className="btn btn-link">Cancelar</Link>
             </div>
         </form>
     );

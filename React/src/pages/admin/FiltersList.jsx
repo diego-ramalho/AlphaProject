@@ -34,7 +34,7 @@ function FiltersList()
     return (
         <div>
             <h1>Filters</h1>
-            <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add Filter</Link>
+            <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Agregar Filter</Link>
             <table className="table table-striped">
                 <thead>
                     <tr>
@@ -47,11 +47,11 @@ function FiltersList()
                         <tr key={filter.id}>
                             <td>{filter.filterName}</td>
                             <td style={{ whiteSpace: 'nowrap' }}>
-                                <Link to={`${path}/edit/${filter.id}`} className="btn btn-sm btn-primary mr-1">Edit</Link>
+                                <Link to={`${path}/edit/${filter.id}`} className="btn btn-sm btn-primary mr-1">Editar</Link>
                                 <button onClick={() => deleteFilter(filter.id)} className="btn btn-sm btn-danger btn-delete-filter" disabled={filter.isDeleting}>
                                     {filter.isDeleting
                                         ? <span className="spinner-border spinner-border-sm"></span>
-                                        : <span>Delete</span>
+                                        : <span>Eliminar</span>
                                     }
                                 </button>
                             </td>

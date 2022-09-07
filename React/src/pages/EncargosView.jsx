@@ -32,7 +32,7 @@ function EncargosView({ match })
 
     return (
         <form>
-            <h1>{isAddMode ? 'Add Charge' : 'Charge'}</h1>
+            <h1>{isAddMode ? 'Agregar Encargo' : 'Charge'}</h1>
             <div className="form-row">
                 <div className="form-group col-12">
                     <div className="page-view-item-label col-md-12 col-sm-12">Charge</div>
@@ -41,7 +41,7 @@ function EncargosView({ match })
             </div>
             <div className="form-row">
                 <div className="form-group col-md-8 col-sm-12">
-                    <div className="page-view-item-label col-md-12 col-sm-12">Value</div>
+                    <div className="page-view-item-label col-md-12 col-sm-12">Valor</div>
                     <div className="page-view-item-value col-md-12 col-sm-12">{chargeItem.value}</div>
                 </div>
             </div>

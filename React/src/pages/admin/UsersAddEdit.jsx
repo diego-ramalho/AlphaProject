@@ -21,28 +21,28 @@ function UsersAddEdit({ match }) {
     // form validation rules 
     const validationSchema = Yup.object().shape({
         // title: Yup.string()
-        //     .required('Title is required'),
+        //     .required('Título obligatorio'),
         // lastName: Yup.string()
-        //     .required('Last Name is required'),
+        //     .required('Apellido obligatorio'),
         // password: Yup.string()
         //     .transform(x => x === '' ? undefined : x)
-        //     .concat(isAddMode ? Yup.string().required('Password is required') : null)
+        //     .concat(isAddMode ? Yup.string().required('Contraseña obligatoria') : null)
         //     .min(6, 'Password must be at least 6 characters'),
         // confirmPassword: Yup.string()
         //     .transform(x => x === '' ? undefined : x)
         //     .when('password', (password, schema) => {
-        //         if (password || isAddMode) return schema.required('Confirm Password is required');
+        //         if (password || isAddMode) return schema.required('Confirm Contraseña obligatoria');
         //     })
         //     .oneOf([Yup.ref('password')], 'Passwords must match'),
         name: Yup.string()
-            .required('First Name is required'),
+            .required('Nombre obligatorio'),
         email: Yup.string()
-            .email('Email is invalid')
-            .required('Email is required'),
+            .email('El correo electrónico es invalido')
+            .required('Correo electrónico obligatorio'),
         roleId: Yup.string()
-            .required('Role is required'),
+            .required('Rol obligatorio'),
         zoneId: Yup.string()
-            .required('Zone is required'),
+            .required('Zona obligatoria'),
     });
 
     // functions to build form returned by useForm() hook
@@ -59,7 +59,7 @@ function UsersAddEdit({ match }) {
     function createUser(data) {
         return userActions.create(data)
             .then(() => {
-                useAlertActions.success('User added', { keepAfterRouteChange: true });
+                useAlertActions.success('Usuario agregado', { keepAfterRouteChange: true });
                 //history.push('.');
                 //history.push('/Admin/Users/');
                 navigate("/Admin/Users/");
@@ -71,7 +71,7 @@ function UsersAddEdit({ match }) {
     function updateUser(id, data) {
         return userActions.update(id, data)
             .then(() => {
-                useAlertActions.success('User updated', { keepAfterRouteChange: true });
+                useAlertActions.success('Usuario actualizado', { keepAfterRouteChange: true });
                 //history.push('..');
                 //history.push('/Admin/Users/');
                 navigate("/Admin/Users/");
@@ -101,10 +101,10 @@ function UsersAddEdit({ match }) {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
-            <h1>{isAddMode ? 'Add User' : 'Edit User'}</h1>
+            <h1>{isAddMode ? 'Agregar Usuario' : 'Editar Usuario'}</h1>
             <div className="form-row">
                 {/* <div className="form-group col">
-                    <label>Title</label>
+                    <label>Titulo</label>
                     <select name="title" className={'form-control' + (errors.title ? ' is-invalid' : '')} >
                         <option value=""></option>
                         <option value="Mr">Mr</option>
@@ -115,7 +115,7 @@ function UsersAddEdit({ match }) {
                     <div className="invalid-feedback">{errors.title?.message}</div>
                 </div> */}
                 <div className="form-group col-12">
-                    <label>Name</label>
+                    <label>Nombre</label>
                     <input name="name" type="text" {...register('name')} className={'form-control' + (errors.name ? ' is-invalid' : '')} />
                     <div className="invalid-feedback">{errors.name?.message}</div>
                 </div>
@@ -127,14 +127,14 @@ function UsersAddEdit({ match }) {
             </div>
             <div className="form-row">
                 <div className="form-group col-md-12 col-sm-12">
-                    <label>Email</label>
+                    <label>Correo electrónico</label>
                     <input name="email" type="text" {...register('email')} className={'form-control' + (errors.email ? ' is-invalid' : '')} />
                     <div className="invalid-feedback">{errors.email?.message}</div>
                 </div>
             </div>
             <div className="form-row">
                 <div className="form-group col-md-6 col-sm-12">
-                    <label>Role</label>
+                    <label>Rol</label>
                     <select name="roleId" {...register('roleId')} className={'form-control' + (errors.roleId ? ' is-invalid' : '')}>
                         {options.map(option => (
                             <option key={option.roleName} value={option.id}>
@@ -145,7 +145,7 @@ function UsersAddEdit({ match }) {
                     <div className="invalid-feedback">{errors.roleId?.message}</div>
                 </div>
                 <div className="form-group col-md-6 col-sm-12">
-                    <label>Zone</label>
+                    <label>Zona</label>
                     <select name="zoneId" {...register('zoneId')} className={'form-control' + (errors.zoneId ? ' is-invalid' : '')}>
                         {zonesOptions.map(option => (
                             <option key={option.zoneName} value={option.id}>
@@ -185,9 +185,9 @@ function UsersAddEdit({ match }) {
             <div className="form-group">
                 <button type="submit" disabled={formState.isSubmitting} className="btn btn-primary">
                     {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                    Save
+                    Guardar
                 </button>
-                <Link to={isAddMode ? '/Admin/Users' : '/Admin/Users'} className="btn btn-link">Cancel</Link>
+                <Link to={isAddMode ? '/Admin/Users' : '/Admin/Users'} className="btn btn-link">Cancelar</Link>
             </div>
         </form>
     );
@@ -239,12 +239,12 @@ export { UsersAddEdit };
 
 //     const validationSchema = Yup.object().shape({
 //         name: Yup.string()
-//             .required('First Name is required'),
+//             .required('Nombre obligatorio'),
 //         email: Yup.string()
-//             .email('Email is invalid')
-//             .required('Email is required'),
+//             .email('El correo electrónico es invalido')
+//             .required('Correo electrónico obligatorio'),
 //         roleId: Yup.string()
-//             .required('Role is required')
+//             .required('Rol obligatorio')
 //     });
 
 //     function onSubmit(fields, { setStatus, setSubmitting })
@@ -264,7 +264,7 @@ export { UsersAddEdit };
 //         userActions.create(fields)
 //             .then(() =>
 //             {
-//                 userAlerts.success('User added', { keepAfterRouteChange: true });
+//                 userAlerts.success('Usuario agregado', { keepAfterRouteChange: true });
 //                 window.location.href = '/Admin/Users/';
 //                 //history.push('.');
 //             })
@@ -280,7 +280,7 @@ export { UsersAddEdit };
 //         userActions.update(id, fields)
 //             .then(() =>
 //             {
-//                 userAlerts.success('User updated', { keepAfterRouteChange: true });
+//                 userAlerts.success('Usuario actualizado', { keepAfterRouteChange: true });
 //                 window.location.href = '/Admin/Users/';
 //                 //history.push('..');
 //             })
@@ -338,10 +338,10 @@ export { UsersAddEdit };
 
 //                 return (
 //                     <Form>
-//                         <h1>{isAddMode ? 'Add User' : 'Edit User'}</h1>
+//                         <h1>{isAddMode ? 'Agregar Usuario' : 'Editar Usuario'}</h1>
 //                         <div className="form-row">
 //                             {/* <div className="form-group col">
-//                                 <label>Title</label>
+//                                 <label>Titulo</label>
 //                                 <Field name="title" as="select" className={'form-control' + (errors.title && touched.title ? ' is-invalid' : '')}>
 //                                     <option value=""></option>
 //                                     <option value="Mr">Mr</option>
@@ -364,12 +364,12 @@ export { UsersAddEdit };
 //                         </div>
 //                         <div className="form-row">
 //                             <div className="form-group col-7">
-//                                 <label>Email</label>
+//                                 <label>Correo electrónico</label>
 //                                 <Field name="email" type="text" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
 //                                 <ErrorMessage name="email" component="div" className="invalid-feedback" />
 //                             </div>
 //                             <div className="form-group col">
-//                                 <label>Role</label>
+//                                 <label>Rol</label>
 //                                 {/* <Field name="role" as="select" className={'form-control' + (errors.role && touched.role ? ' is-invalid' : '')}>
 //                                     <option value="2">User</option>
 //                                     <option value="1">Admin</option>
@@ -418,9 +418,9 @@ export { UsersAddEdit };
 //                         <div className="form-group">
 //                             <button type="submit" disabled={isSubmitting} className="btn btn-primary">
 //                                 {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-//                                 Save
+//                                 Guardar
 //                             </button>
-//                             <Link to={isAddMode ? '/Admin/Users' : '/Admin/Users'} className="btn btn-link">Cancel</Link>
+//                             <Link to={isAddMode ? '/Admin/Users' : '/Admin/Users'} className="btn btn-link">Cancelar</Link>
 //                         </div>
 //                     </Form>
 //                 );

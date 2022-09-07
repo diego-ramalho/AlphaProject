@@ -18,12 +18,12 @@ const Profile = () =>
     const userActions = useUserActions();
     const validationSchema = Yup.object().shape({
         name: Yup.string()
-            .required('First Name is required'),
+            .required('Nombre obligatorio'),
         email: Yup.string()
-            .email('Email is invalid')
-            .required('Email is required'),
+            .email('El correo electrónico es invalido')
+            .required('Correo electrónico obligatorio'),
         roleId: Yup.string()
-            .required('Role is required'),
+            .required('Rol obligatorio'),
     });
 
     // functions to build form returned by useForm() hook
@@ -43,7 +43,7 @@ const Profile = () =>
         return userActions.create(data)
             .then(() =>
             {
-                useAlertActions.success('User added', { keepAfterRouteChange: true });
+                useAlertActions.success('Usuario agregado', { keepAfterRouteChange: true });
                 //history.push('.');
                 //history.push('/Admin/Users/');
                 navigate("/Admin/Users/");
@@ -57,7 +57,7 @@ const Profile = () =>
         return userActions.updateCurrentUser(data)
             .then(() =>
             {
-                useAlertActions.success('User updated', { keepAfterRouteChange: true });
+                useAlertActions.success('Usuario actualizado', { keepAfterRouteChange: true });
                 //history.push('..');
                 //history.push('/Admin/Users/');
                 navigate("/Admin/Users/");
@@ -88,22 +88,22 @@ const Profile = () =>
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
-            <h1>{isAddMode ? 'Add User' : 'Edit User'}</h1>
+            <h1>{isAddMode ? 'Agregar Usuario' : 'Editar Usuario'}</h1>
             <div className="form-row">
                 <div className="form-group col-12">
-                    <label>Name</label>
+                    <label>Nombre</label>
                     <input name="name" type="text" {...register('name')} className={'form-control' + (errors.name ? ' is-invalid' : '')} />
                     <div className="invalid-feedback">{errors.name?.message}</div>
                 </div>
             </div>
             <div className="form-row">
                 <div className="form-group col-md-8 col-sm-12">
-                    <label>Email</label>
+                    <label>Correo electrónico</label>
                     <input name="email" type="text" {...register('email')} className={'form-control' + (errors.email ? ' is-invalid' : '')} />
                     <div className="invalid-feedback">{errors.email?.message}</div>
                 </div>
                 <div className="form-group col-md-4 col-sm-12">
-                    <label>Role</label>
+                    <label>Rol</label>
                     <select name="roleId" {...register('roleId')} className={'form-control' + (errors.roleId ? ' is-invalid' : '')}>
                         {options.map(option => (
                             <option key={option.roleName} value={option.id}>
@@ -117,9 +117,9 @@ const Profile = () =>
             <div className="form-group">
                 <button type="submit" disabled={formState.isSubmitting} className="btn btn-primary">
                     {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                    Save
+                    Guardar
                 </button>
-                <Link to={isAddMode ? '/Admin/Users' : '/Admin/Users'} className="btn btn-link">Cancel</Link>
+                <Link to={isAddMode ? '/Admin/Users' : '/Admin/Users'} className="btn btn-link">Cancelar</Link>
             </div>
         </form>
     );

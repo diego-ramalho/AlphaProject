@@ -43,16 +43,16 @@
                 "item-04": "Zona 04"
             },
             "settings": {
-                "item-01": "Your Profile",
-                "item-02": "Logout"
+                "item-01": "Tu Perfil",
+                "item-02": "Cerrar Sesión"
             },
             "admin": {
-                "item-01": "Users Admin",
-                "item-02": "Registers Admin",
-                "item-03": "Zones Admin",
+                "item-01": "Adm. de Usuarios",
+                "item-02": "Adm. de Taraturas",
+                "item-03": "Adm. de Zonas",
                 "item-04": "Filters Admin",
-                "item-05": "News Admin",
-                "item-06": "Charges Admin"
+                "item-05": "Adm. de Noticias",
+                "item-06": "Adm. de Encargos"
             }
         },
         "form": {

@@ -56,14 +56,14 @@ function UsersList()
 
     return (
         <div>
-            <h1>Users</h1>
-            <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add User</Link>
+            <h1>Usuarios</h1>
+            <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Agregar Usuario</Link>
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th style={{ width: '35%' }}>Name</th>
-                        <th style={{ width: '35%' }}>Email</th>
-                        <th style={{ width: '20%' }}>Role</th>
+                        <th style={{ width: '35%' }}>Nombre</th>
+                        <th style={{ width: '35%' }}>Correo electrónico</th>
+                        <th style={{ width: '20%' }}>Rol</th>
                         <th style={{ width: '10%' }}></th>
                     </tr>
                 </thead>
@@ -74,11 +74,11 @@ function UsersList()
                             <td>{user.email}</td>
                             <td>{rolesList.filter(x => x.id === user.roleId).map(x => x.roleName)}</td>
                             <td style={{ whiteSpace: 'nowrap' }}>
-                                <Link to={`${path}/edit/${user.id}`} className="btn btn-sm btn-primary mr-1">Edit</Link>
+                                <Link to={`${path}/edit/${user.id}`} className="btn btn-sm btn-primary mr-1">Editarar</Link>
                                 <button onClick={() => deleteUser(user.id)} className="btn btn-sm btn-danger btn-delete-user" disabled={user.isDeleting}>
                                     {user.isDeleting
                                         ? <span className="spinner-border spinner-border-sm"></span>
-                                        : <span>Delete</span>
+                                        : <span>Eliminar</span>
                                     }
                                 </button>
                             </td>
@@ -94,7 +94,7 @@ function UsersList()
                     {users && !users.length &&
                         <tr>
                             <td colSpan="4" className="text-center">
-                                <div className="p-2">No Users To Display</div>
+                                <div className="p-2">No hay usuarios para mostrar</div>
                             </td>
                         </tr>
                     }

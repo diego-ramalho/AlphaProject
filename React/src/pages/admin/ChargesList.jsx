@@ -33,12 +33,12 @@ function ChargesList()
 
     return (
         <div>
-            <h1>Charges</h1>
-            <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add Charges</Link>
+            <h1>Encargos</h1>
+            <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Agregar Encargos</Link>
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th style={{ width: '45%' }}>Charges</th>
+                        <th style={{ width: '45%' }}>Encargos</th>
                         <th style={{ width: '45%' }}></th>
                         <th style={{ width: '10%' }}></th>
                     </tr>
@@ -49,11 +49,11 @@ function ChargesList()
                             <td>{charges.value}</td>
                             <td>{charges.description}</td>
                             <td style={{ whiteSpace: 'nowrap' }}>
-                                <Link to={`${path}/edit/${charges.id}`} className="btn btn-sm btn-primary mr-1">Edit</Link>
+                                <Link to={`${path}/edit/${charges.id}`} className="btn btn-sm btn-primary mr-1">Editar</Link>
                                 <button onClick={() => deleteCharges(charges.id)} className="btn btn-sm btn-danger btn-delete-charges" disabled={charges.isDeleting}>
                                     {charges.isDeleting
                                         ? <span className="spinner-border spinner-border-sm"></span>
-                                        : <span>Delete</span>
+                                        : <span>Eliminar</span>
                                     }
                                 </button>
                             </td>

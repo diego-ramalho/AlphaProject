@@ -21,16 +21,16 @@ function RegistersAddEdit({ match })
     // form validation rules 
     const validationSchema = Yup.object().shape({
         address: Yup.string()
-            .required('Address is required'),
+            .required('Direccion obligatoria'),
         name: Yup.string()
-            .required('Number is required'),
+            .required('Puerta obligatoria'),
         number: Yup.string()
-            .required('Number is required'),
+            .required('Puerta obligatoria'),
         observation: Yup.string(),
         phone: Yup.string(),
         tracing: Yup.string(),
         zoneId: Yup.string()
-            .required('Zone is required'),
+            .required('Zona obligatoria'),
         filterList: Yup.array()
     });
 
@@ -51,7 +51,7 @@ function RegistersAddEdit({ match })
         return registerActions.create(data)
             .then(() =>
             {
-                useAlertActions.success('Register added', { keepAfterRouteChange: true });
+                useAlertActions.success('Registro agregado', { keepAfterRouteChange: true });
                 navigate('/Admin/Registers/');
             })
             .catch(useAlertActions.error);
@@ -62,7 +62,7 @@ function RegistersAddEdit({ match })
         return registerActions.update(id, data)
             .then(() =>
             {
-                useAlertActions.success('Register updated', { keepAfterRouteChange: true });
+                useAlertActions.success('Registro actualizado', { keepAfterRouteChange: true });
                 navigate("/Admin/Registers/");
             })
             .catch(useAlertActions.error);
@@ -108,7 +108,7 @@ function RegistersAddEdit({ match })
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
-            <h1>{isAddMode ? 'Add Taratura' : 'Edit Taratura'}</h1>
+            <h1>{isAddMode ? 'Agregar Taratura' : 'Editar Taratura'}</h1>
             <div className="form-row">
                 <div className="form-group col-12">
                     <label>Direccion</label>
@@ -152,7 +152,7 @@ function RegistersAddEdit({ match })
             </div>
             <div className="form-row">
                 <div className="form-group col-md-4 col-sm-12">
-                    <label>Zone</label>
+                    <label>Zona</label>
                     <select name="zoneId" {...register('zoneId')} className={'form-control' + (errors.zoneId ? ' is-invalid' : '')}>
                         {zoneoptions.map(option => (
                             <option key={option.zoneName} value={option.id}>
@@ -183,9 +183,9 @@ function RegistersAddEdit({ match })
             <div className="form-group">
                 <button type="submit" disabled={formState.isSubmitting} className="btn btn-primary">
                     {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                    Save
+                    Guardar
                 </button>
-                <Link to={isAddMode ? '/Admin/Registers' : '/Admin/Registers'} className="btn btn-link">Cancel</Link>
+                <Link to={isAddMode ? '/Admin/Registers' : '/Admin/Registers'} className="btn btn-link">Cancelar</Link>
             </div>
         </form>
     );

@@ -39,7 +39,7 @@ export default function Recover()
 
     // form validation rules 
     const validationSchema = Yup.object().shape({
-        email: Yup.string().required('Email is required')
+        email: Yup.string().required('Correo electrónico obligatorio')
     });
     const formOptions = { resolver: yupResolver(validationSchema) };
 
@@ -67,19 +67,19 @@ export default function Recover()
     return (
         <>
             <div className="card m-3 forgot-pass-form">
-                <h4 className="card-header">Recover Password</h4>
+                <h4 className="card-header">Recuperar Contraseña</h4>
                 <div className="card-body">
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <form autocomplete="off" onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-group">
-                            <label>Email</label>
-                            <input name="email" type="text" {...register('email')} className={`form-control ${errors.email ? 'is-invalid' : ''}`} />
+                            <label>Correo electrónico</label>
+                            <input autocomplete="false" name="email" type="text" {...register('email')} className={`form-control ${errors.email ? 'is-invalid' : ''}`} />
                             <div className="invalid-feedback">{errors.email?.message}</div>
                         </div>
                         <button disabled={formState.isSubmitting} className="btn btn-primary">
                             {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                            Recover
+                            Recuperar
                         </button>
-                        <Link to="Login" className="btn btn-link">Back to Login</Link>
+                        <Link to="Login" className="btn btn-link">Acceso</Link>
                     </form>
                 </div>
             </div>

@@ -19,7 +19,7 @@ function FiltersAddEdit({ match })
     // form validation rules 
     const validationSchema = Yup.object().shape({
         filterName: Yup.string()
-            .required('Filter Name is required')
+            .required('Nombre del filtro obligatorio')
     });
 
     // functions to build form returned by useForm() hook
@@ -39,7 +39,7 @@ function FiltersAddEdit({ match })
         return filterActions.create(data)
             .then(() =>
             {
-                useAlertActions.success('Filter added', { keepAfterRouteChange: true });
+                useAlertActions.success('Filtro agregado', { keepAfterRouteChange: true });
                 navigate('/Admin/Filters/');
             })
             .catch(useAlertActions.error);
@@ -50,7 +50,7 @@ function FiltersAddEdit({ match })
         return filterActions.update(id, data)
             .then(() =>
             {
-                useAlertActions.success('Filter updated', { keepAfterRouteChange: true });
+                useAlertActions.success('Filtro actualizado', { keepAfterRouteChange: true });
                 navigate("/Admin/Filters/");
             })
             .catch(useAlertActions.error);
@@ -77,7 +77,7 @@ function FiltersAddEdit({ match })
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
-            <h1>{isAddMode ? 'Add Filter' : 'Edit Filter'}</h1>
+            <h1>{isAddMode ? 'Agregar Filtro' : 'Editar Filtro'}</h1>
             <div className="form-row">
                 <div className="form-group col-12">
                     <label>Filter Name</label>
@@ -88,9 +88,9 @@ function FiltersAddEdit({ match })
             <div className="form-group">
                 <button type="submit" disabled={formState.isSubmitting} className="btn btn-primary">
                     {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                    Save
+                    Guardar
                 </button>
-                <Link to={isAddMode ? '/Admin/Filters' : '/Admin/Filters'} className="btn btn-link">Cancel</Link>
+                <Link to={isAddMode ? '/Admin/Filters' : '/Admin/Filters'} className="btn btn-link">Cancelar</Link>
             </div>
         </form>
     );
