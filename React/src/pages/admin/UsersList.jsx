@@ -74,7 +74,7 @@ function UsersList()
                             <td>{user.email}</td>
                             <td>{rolesList.filter(x => x.id === user.roleId).map(x => x.roleName)}</td>
                             <td style={{ whiteSpace: 'nowrap' }}>
-                                <Link to={`${path}/edit/${user.id}`} className="btn btn-sm btn-primary mr-1">Editarar</Link>
+                                <Link to={`${path}/edit/${user.id}`} className="btn btn-sm btn-primary mr-1">Editar</Link>
                                 <button onClick={() => deleteUser(user.id)} className="btn btn-sm btn-danger btn-delete-user" disabled={user.isDeleting}>
                                     {user.isDeleting
                                         ? <span className="spinner-border spinner-border-sm"></span>
