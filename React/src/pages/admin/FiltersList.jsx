@@ -67,7 +67,7 @@ function FiltersList()
                     {filters && !filters.length &&
                         <tr>
                             <td colSpan="4" className="text-center">
-                                <div className="p-2">No Filters To Display</div>
+                                <div className="p-2">Sin filtros para mostrar</div>
                             </td>
                         </tr>
                     }

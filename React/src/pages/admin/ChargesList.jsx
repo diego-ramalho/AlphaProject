@@ -69,7 +69,7 @@ function ChargesList()
                     {charges && !charges.length &&
                         <tr>
                             <td colSpan="4" className="text-center">
-                                <div className="p-2">No Charges To Display</div>
+                                <div className="p-2">Sin encargos para mostrar</div>
                             </td>
                         </tr>
                     }

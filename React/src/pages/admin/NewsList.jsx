@@ -67,7 +67,7 @@ function NewsList()
                     {news && !news.length &&
                         <tr>
                             <td colSpan="4" className="text-center">
-                                <div className="p-2">No News To Display</div>
+                                <div className="p-2">Sin noticias para mostrar</div>
                             </td>
                         </tr>
                     }

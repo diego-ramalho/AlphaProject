@@ -67,7 +67,7 @@ function ZonesList()
                     {zones && !zones.length &&
                         <tr>
                             <td colSpan="4" className="text-center">
-                                <div className="p-2">No Zones To Display</div>
+                                <div className="p-2">Sin zonas para mostrar</div>
                             </td>
                         </tr>
                     }

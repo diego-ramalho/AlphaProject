@@ -80,7 +80,7 @@ function RegistersList()
                     {registers && !registers.length &&
                         <tr>
                             <td colSpan="4" className="text-center">
-                                <div className="p-2">No Registers To Display</div>
+                                <div className="p-2">Sin registros para mostrar</div>
                             </td>
                         </tr>
                     }
