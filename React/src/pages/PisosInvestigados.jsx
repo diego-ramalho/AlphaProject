@@ -174,7 +174,7 @@ const PisosInvestigados = () =>
           page={page}
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
-          labelRowsPerPage={"Ítems por página"}
+          labelRowsPerPage={"Ítems"}
           labelDisplayedRows={({ from, to, count }) => `${from}-${to} de ${count}`}
         />
       </Paper>
