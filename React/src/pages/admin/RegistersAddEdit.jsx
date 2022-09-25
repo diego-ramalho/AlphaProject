@@ -154,6 +154,7 @@ function RegistersAddEdit({ match })
                 <div className="form-group col-md-4 col-sm-12">
                     <label>Zona</label>
                     <select name="zoneId" {...register('zoneId')} className={'form-control' + (errors.zoneId ? ' is-invalid' : '')}>
+                        {isAddMode ? <option value="">- Seleccione una opción -</option> : ''}
                         {zoneoptions.map(option => (
                             <option key={option.zoneName} value={option.id}>
                                 {option.zoneName}

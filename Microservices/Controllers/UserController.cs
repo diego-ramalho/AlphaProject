@@ -15,14 +15,19 @@ namespace WebApiTemplate.Controllers
     [EnableCors("_myAllowSpecificOrigins")]
     public class UserController : ControllerBase
     {
+        private readonly IUserService _userService;
         private readonly IUserTransactionalService _userTransactionalService;
         private readonly IMapper _mapper;
         private readonly Helpers.JwtAuthenticationManager _jwtAuthenticationManager;
         //private readonly ICommandDataClient _commandDataClient;
         //private readonly IMessageBusClient _messageBusClient;
 
-        public UserController(IMapper mapper, IUserTransactionalService userTransactionalService, Helpers.JwtAuthenticationManager jwtAuthenticationManager)
+        public UserController(IMapper mapper,
+            IUserService userService,
+            IUserTransactionalService userTransactionalService,
+            Helpers.JwtAuthenticationManager jwtAuthenticationManager)
         {
+            _userService = userService;
             _userTransactionalService = userTransactionalService;
             _mapper = mapper;
             _jwtAuthenticationManager = jwtAuthenticationManager;
@@ -48,6 +53,7 @@ namespace WebApiTemplate.Controllers
                 var userItem = _userTransactionalService.GetUserById(int.Parse(jwtTokenId));
                 if (userItem != null)
                 {
+                    userItem.Password = _userService.Decrypt(userItem.Password);
                     return Ok(_mapper.Map<UserReadDto>(userItem));
                 }
                 else
@@ -159,6 +165,8 @@ namespace WebApiTemplate.Controllers
 
             if (!String.IsNullOrEmpty(jwtTokenId))
             {
+                if (!String.IsNullOrEmpty(user.Password)) user.Password = _userService.Encrypt(user.Password);
+
                 _userTransactionalService.UpdateUser(Int32.Parse(jwtTokenId), user);
                 _userTransactionalService.SaveChanges();
             }

@@ -136,6 +136,7 @@ function UsersAddEdit({ match }) {
                 <div className="form-group col-md-6 col-sm-12">
                     <label>Rol</label>
                     <select name="roleId" {...register('roleId')} className={'form-control' + (errors.roleId ? ' is-invalid' : '')}>
+                        {isAddMode ? <option value="">- Seleccione una opción -</option> : ''}
                         {options.map(option => (
                             <option key={option.roleName} value={option.id}>
                                 {option.roleName}
@@ -147,6 +148,7 @@ function UsersAddEdit({ match }) {
                 <div className="form-group col-md-6 col-sm-12">
                     <label>Zona</label>
                     <select name="zoneId" {...register('zoneId')} className={'form-control' + (errors.zoneId ? ' is-invalid' : '')}>
+                        {isAddMode ? <option value="">- Seleccione una opción -</option> : ''}
                         {zonesOptions.map(option => (
                             <option key={option.zoneName} value={option.id}>
                                 {option.zoneName}

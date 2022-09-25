@@ -58,6 +58,17 @@ namespace WebApiTemplate.Services.Client
             _context.SaveChanges();
         }
 
+        public void AddBulk(List<RegisterIn> entities)
+        {
+            if (entities == null) throw new ArgumentNullException(nameof(entities));
+
+            var _entities = _mapper.Map<List<Register>>(entities);
+
+            _context.Registers.AddRange(_entities);
+
+            _context.SaveChanges();
+        }
+
         public void Update(Register entity)
         {
             if (entity == null) throw new ArgumentNullException(nameof(entity));

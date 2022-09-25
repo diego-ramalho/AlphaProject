@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
+import * as Icon from 'react-bootstrap-icons';
+
 import { history } from '../../_helpers';
 import { useUserActions, useAlertActions } from '../../_actions';
 
@@ -24,6 +26,17 @@ const Profile = () =>
             .required('Correo electrónico obligatorio'),
         roleId: Yup.string()
             .required('Rol obligatorio'),
+        password: Yup.string()
+            .transform(x => x === '' ? undefined : x)
+            .concat(isAddMode ? Yup.string().required('Contraseña obligatoria') : null)
+            .min(6, 'La contraseña debe tener al menos 6 caracteres'),
+        confirmPassword: Yup.string()
+            .transform(x => x === '' ? undefined : x)
+            .when('password', (password, schema) =>
+            {
+                if (password || isAddMode) return schema.required('Contraseña obligatoria');
+            })
+            .oneOf([Yup.ref('password')], 'Las contraseñas deben coincidir'),
     });
 
     // functions to build form returned by useForm() hook
@@ -79,7 +92,7 @@ const Profile = () =>
             // get user and set form fields
             userActions.getCurrentUser().then(user =>
             {
-                const fields = ['name', 'email', 'roleId'];
+                const fields = ['name', 'email', 'roleId', 'password', 'confirmPassword'];
                 fields.forEach(field => setValue(field, user[field], false));
                 setUser(user);
             });
@@ -105,6 +118,7 @@ const Profile = () =>
                 <div className="form-group col-md-4 col-sm-12">
                     <label>Rol</label>
                     <select name="roleId" {...register('roleId')} className={'form-control' + (errors.roleId ? ' is-invalid' : '')}>
+                        {isAddMode ? <option value="">- Seleccione una opción -</option> : ''}
                         {options.map(option => (
                             <option key={option.roleName} value={option.id}>
                                 {option.roleName}
@@ -113,6 +127,34 @@ const Profile = () =>
                     </select>
                     <div className="invalid-feedback">{errors.roleId?.message}</div>
                 </div>
+
+                {!isAddMode &&
+                    <div>
+                        <h3 className="pt-3">Cambia la contraseña</h3>
+                        <p>Dejar en blanco para mantener la misma contraseña</p>
+                    </div>
+                }
+                <div className="form-row">
+                    <div className="form-group col-md-6 col-sm-12">
+                        <label>
+                            Contraseña
+                            {!isAddMode &&
+                                (!showPassword
+                                    ? <span> <a onMouseDown={() => setShowPassword(!showPassword)} className="text-primary" style={{ cursor: 'pointer' }}><Icon.EyeFill className='FontAwesomeIcon' /></a></span>
+                                    : <span> <a onMouseUp={() => setShowPassword(!showPassword)} onMouseLeave={() => setShowPassword(!showPassword)} className="text-primary" style={{ cursor: 'pointer' }}><Icon.EyeSlash className='FontAwesomeIcon' /></a></span>
+                                )
+                            }
+                        </label>
+                        <input name="password" type={showPassword ? "text" : "password"} {...register('password')} className={'form-control' + (errors.password ? ' is-invalid' : '')} />
+                        <div className="invalid-feedback">{errors.password?.message}</div>
+                    </div>
+                    <div className="form-group col-md-6 col-sm-12">
+                        <label>Confirmar contraseña</label>
+                        <input name="confirmPassword" type="password" {...register('confirmPassword')} className={'form-control' + (errors.confirmPassword ? ' is-invalid' : '')} />
+                        <div className="invalid-feedback">{errors.confirmPassword?.message}</div>
+                    </div>
+                </div>
+
             </div>
             <div className="form-group">
                 <button type="submit" disabled={formState.isSubmitting} className="btn btn-primary">

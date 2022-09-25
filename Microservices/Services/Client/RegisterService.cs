@@ -49,6 +49,13 @@ namespace WebApiTemplate.Services.Client
             _registerTransactionalService.Add(entity);
         }
 
+        public void AddBulk(List<RegisterIn> entities)
+        {
+            if (entities == null) throw new ArgumentNullException(nameof(entities));
+
+            _registerTransactionalService.AddBulk(entities);
+        }
+
         public void Update(int id, RegisterIn entity)
         {
             if (id == null || id <= 0) throw new ArgumentNullException(nameof(id));

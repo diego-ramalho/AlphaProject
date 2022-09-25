@@ -1,0 +1,4187 @@
+[
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "SIN NOMBRE",
+    "Number": "LOCAL",
+    "Phone": "-",
+    "Observation": "TALLER HNOS TALAVERA ( LO TIENEN ALQUILADO HACE MUCHOS AÑOS , EL LOCAL ES DE GERARDO SECO  )",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "SIN NOMBRE",
+    "Number": "LOFT A",
+    "Phone": "-",
+    "Observation": "VIVE EL NEGRITO DOMINICANO QUE ESTA CON LA GORDA DEL BARRIO MAYOR, TIENE UN BMW BLANCO EL",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "JAVIER COMPRADOR",
+    "Number": "LOFT B",
+    "Phone": "-",
+    "Observation": "SE LO VENDIMOS A JAVIER EN 90 MIL EUROS EN 80 M2  EN AGOSTO 2016,LO TIENE CERRADO/ SE LO HAN EMBARGADO Y HA SALIDO POR BANCO EN 120 MIL",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "SIN NOMBRE",
+    "Number": "LOFT C",
+    "Phone": "-",
+    "Observation": "VACIO ES DE BANCO ANTES VIVIAN DE OKUPAS DOMINICANAZOS",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "ALVARO COMPRADOR",
+    "Number": "LOFT D",
+    "Phone": "-",
+    "Observation": "VENDIDO POR NOSOTROS EN 103000 EUROS ES EL DE FERNANDO AHORA ESTA ALVARO",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "ANA JUDITH TORRES CORONEL/JOSE CAO CARBALLO/NADESKA JHONATAN",
+    "Number": "1A",
+    "Phone": "-",
+    "Observation": "PARECE VACIO INVESTIGAR /SIGUE CERRADO/NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "ISIDORO SANCHEZ DE LA NAVA/SOLEDAD GOMEZ RODRIGUEZ",
+    "Number": "1B",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "ELISA LERENA MARTIN/ROSA MARIA MONTIEL ARPON/ALBERTO LERENA MONTIEL/MARCOS LERENA MONTIEL/ANDRES LERENA MONTIEL",
+    "Number": "1C",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "PURIFICACION BRAVO LUCEÑO/MARIA DEL CARMEN BRAVO LUCEÑO/RICARDO BRAVO LUCEÑO/LAURA BRAVO ENCINAR",
+    "Number": "1D",
+    "Phone": "-",
+    "Observation": "NO QUIERE ABRIR DEJAR EN BUZON/BORDE NO QUIERE NADA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "ELENA MARTIN PEREZ/OTEGA ZAPATA ANGULO",
+    "Number": "2A",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "ANTONIO CALAHORRO DAMAS/ENCARNACION OCAÑA RODRIGUEZ/JULIA CALAHORRO OCAÑA/HANS PETER WEBER",
+    "Number": "2B",
+    "Phone": "-",
+    "Observation": "SEÑORA MAYOR NO SABE NADA ME DICE QUE CREE SE VENDE UN 4º/Nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "BEATRIZ SANCHEZ SIERRA",
+    "Number": "2C",
+    "Phone": "-",
+    "Observation": "NO ABRE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "MIGUEL ANGEL MARTINEZ ARTOLA/CARMEN GALLARDO MEDINA/MIGUEL ANGEL MARTINEZ GALLARDO",
+    "Number": "2D",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "FELISA DE FRUTOS PEREZ/FERNANDO LOPEZ DE FRUTOS/GESTIMEDIAL,S.L.",
+    "Number": "3A",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "MARIA ISABEL FERNANDEZ/MARIA ESTHER PRIETO/EVA AMRIA PRIETO/ANA BELEN PRIETO",
+    "Number": "3B",
+    "Phone": "-",
+    "Observation": "MUY MAJA ABRE ME DICE QUE TODO LLENO",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "LUIS MIGUEL NUÑEZ JIMENEZ/MARIA DE LOS BALAS IGLESIAS",
+    "Number": "3C",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "DOLORES BARRANCOCIPRI/MIGUEL ANGEL COLMENAREJO BARRANCO/MARIFE COLMENAREJO BARRANCO",
+    "Number": "3D",
+    "Phone": "-",
+    "Observation": "DEJAR BUZON",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "SILVIA VALENCIA PEREZ/CRISTOBAL SANCHEZ BLESA",
+    "Number": "4A",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "FLOR",
+    "Number": "4B",
+    "Phone": 654230924,
+    "Observation": "VENDIDO POR NOSOTROS Y AHORA LO QUIERE VENDER ROSA EN 300 000 EUROS ESTA LOCA, LO COMPRARON EN 150 MIL /LA MADRE ES MAYOR Y CUIDADORA DE UNA MUJER EN EL BARRIO DE SALAMANCA , SON MUY MAJAS Y SE LLEVAN MUY BIEN CON JUAN , FLOR MUY FIDELIZADA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "SIN NOMBRE",
+    "Number": "4C",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "DAVID PEREZ ALVAREZ",
+    "Number": "4D",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "LUIS MIGUEL AUHMADA SANCHEZ/LETICIA YUSTOS FERNANDEZ/LETICIA AHUMADA YUSTOS/LUIS AHUMADA YUSTOS",
+    "Number": "5A",
+    "Phone": 917118341,
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "BELINDA ESCAMEZ LOPEZ/MIGUEL REY ESCAMEZ(",
+    "Number": "5B",
+    "Phone": 646788122,
+    "Observation": "VALORACION HECHA. QUERIAN 160 MIL  / MUCHAS CARTAS DEBAJO PUERTA/NADIE PERO ME DICE UN VECINO QUE TRABAJA HASTA TARDE/ SE ESTABA SEPARANDO Y VIVE CON EL HIJO PERO PARECE /se escucha gente pero no abre QUE FINALMENTE SE QUEDAN /  me acaba de llamar y lo quiere alquilar en 900 €",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "GLORIA CUERVO UBEDA/VICTOR GALAN CUERVO/ESTELA GALAN CUERVO",
+    "Number": "5C",
+    "Phone": 915180851,
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "GREGORIA BLAZQUEZ/JAVIER SAUGAR/EVA SAUGAR/HUMBERTO GUTIERRREZ",
+    "Number": "5D",
+    "Phone": "-",
+    "Observation": "ME DICE LA VECINA DEL b SI VIVEN PERO TRABAJA TARDE/nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "NUEVO FUTURO",
+    "Number": "6A",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "NUEVO FUTURO",
+    "Number": "6B",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "LUIS PORRO CAPOTE/MARI AMPARO PERIS MORA",
+    "Number": "6C",
+    "Phone": 915181203,
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "FRANCISCO PELAEZ FERNANDEZ/EMILIAGOMEZ FRUTOS/ISABEL PELAEZ FRUTOS",
+    "Number": "6D",
+    "Phone": 915180356,
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "MANUEL GAVILAN GARRIDO/MANUELA FONSECA LOPEZ",
+    "Number": "7A",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "CARMEN MARTIN ERDOLZA/JOSE LUIS OLIVA PORCUERA",
+    "Number": "7B",
+    "Phone": "-",
+    "Observation": "LO HAN SACADO A LA VENTA POR PARTICULAR EN 200 MIL /LO HAN VENDIDO EL AÑO PASADO EN 200 000 EUROS",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "AMMA ELESH ORTEGA/FATIMA ELESH ORTEGA/JOSE ELESH ORTEGA",
+    "Number": "7C",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "ZHANG YAU/ZIAO YIONYAN",
+    "Number": "7D",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "-",
+    "Number": "7C",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "-",
+    "Number": "7D",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "EMILIO RICARDO ALMARAN MORENO",
+    "Number": "8A",
+    "Phone": "-",
+    "Observation": "NO ABRE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "SILVIA NUÑEZ SANCLEMENTE/SILVIA NUÑEZ SANCLEMENTE",
+    "Number": "8B",
+    "Phone": "-",
+    "Observation": "MIRILLAZO",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "JACOBO JOSE CAPEANS SANCHEZ",
+    "Number": "8C",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 302",
+    "Name": "ELVIRA BARRIGUETE SANTAMARIA",
+    "Number": "8D",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 304",
+    "Name": "CARPINTERO CALVO DE GAFAS",
+    "Number": "LOCAL A",
+    "Phone": "-",
+    "Observation": "SE LO COMPRO  A PAQUITO, ERA DE MATILDE , SE LO COMPRO EN 40 MIL Y UN EXTRA POR DEBAJO/ AQUÍ VIVIA DE OKUPA FELIX QUE ESTA AHORA EN CALAMON 12 / YA HAN HECHO UN PISO Y LO TIENE ALQUILADO",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 304",
+    "Name": "Beatriz/ Manuel Sevillano",
+    "Number": "LOCAL B",
+    "Phone": 616607047,
+    "Observation": "lo tienen alquilado pero lo quiere vender hablo con ella nos lo van a dar/ se presenta aquí Manuel que les ayudemos con el alquiler si no lo alquilan hoy , que no tienen tiempo , les cobramos media mensualidad , ME LLAMA Y ME DICE QUE NOS LO DAN EN ALQUILER , QUIEREN 600/650 € / Lo alquilamos nosotros en 600€.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 304",
+    "Name": "HASSAM",
+    "Number": "BAJO C",
+    "Phone": "-",
+    "Observation": "seguir llamando a Jose porque estaba vendiendo todo y tenia mas cosas , era un buen bala , estaba con una panchitaza, EN 70 MIL  NOS LO COMPRO HASSAM EL MARROQUI EN FEBRERO DE 2018 EN 75.000 € , LO TENIA COMO PISO DE 2 DORMITORIOS / FAMILIA MUY BUENE GENTE Y HONRADA , LE SACO LA FINANCIACION MARCOS",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 304",
+    "Name": "CONCEPCION GONZALEZ ALDUDO/BEGOÑA JIMENEZ GONZALEZ/ELICIO JIMENEZ GONZALEZ/SONIA JIMENEZ GONZALEZ",
+    "Number": "1A",
+    "Phone": "-",
+    "Observation": "señora mayor no quiere nada,ME CONFIRMA EL 2C VACIO",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 304",
+    "Name": "RAQUEL GARCIA MATESANZ/DAVID GARCIA MATESANZ/LOURDES ANDUJAR TEJEDA",
+    "Number": "1B",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 304",
+    "Name": "ANSELMO ALIQUE ARRAIZ/ANA FERNANDEZ ORTEGA/MAR ALIQUE ORTEGA",
+    "Number": "1C",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 304",
+    "Name": "JOSE MARIA AYUSO ENCINAS/JOSEFA GARCIA GONZALEZ/ANGEL AYUSO GARCIA/MIGUEL AYUSO GARCIA",
+    "Number": "1D",
+    "Phone": "-",
+    "Observation": "LO VENDIERON EN 2016 DE PARTICULAR POR 125000 € , ESTABA PARA ACTUALIZAR",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 304",
+    "Name": "HORENCIO Y SU HIJO MIGUEL ANGEL ( toritomiguel@hotmail.com )",
+    "Number": "2A",
+    "Phone": "-",
+    "Observation": "ALQUILADO CHICAS JOVENES MEJICANAS /sigue alquilado",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 304",
+    "Name": "ANASTASIO E FERNANDEZ ROBLES/MARIA VICTORIA GARCIA DE FERNANDO/DANIEL Y LUNA FERNANDEZ",
+    "Number": "2B",
+    "Phone": "-",
+    "Observation": "INFORMADORA ME CONFIRMA EL 2ºC VACIO",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 304",
+    "Name": "ALFONSO ALFONSO VAZQUEZ/RAMONA GONZALEZ BERRIO/JULIO ALFONSO/MIKEL ALFONSO",
+    "Number": "2C",
+    "Phone": "-",
+    "Observation": "VACIO SE FUERON A FUENLABRADA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 304",
+    "Name": "JULIO PASCUAL/ANTONIA SEBASTIAN/J.A.PASCUAL SEBASTIAN/MºGEMA SILVIA ASENSIO",
+    "Number": "2D",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 304",
+    "Name": "EVARISTO LOPEZ FERNANDEZ/CARLOS LOPEZ FERNANDEZ",
+    "Number": "3A",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 304",
+    "Name": "-",
+    "Number": "3B",
+    "Phone": "-",
+    "Observation": "CHINAS ALQUILER",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 304",
+    "Name": "ENRIQUE CASTILLO CASTILLO/MARINA GORDILLO GRACIA",
+    "Number": "3C",
+    "Phone": "-",
+    "Observation": "EN OBRAS",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 304",
+    "Name": "F.LOZANO ZALDO/BUSTOS LOZANO/HERNANDEZ CHICAS",
+    "Number": "3D",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 304",
+    "Name": "ANCIAR BEDEYA RAMIREZ/LUIS MARIA OROZCO ZAPATA/DANIELA BEDEYA OROZCO",
+    "Number": "4A",
+    "Phone": "-",
+    "Observation": "CHICA JOVEN ALQUILER",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 304",
+    "Name": "MARCO PILLAJO LORCHAMIN",
+    "Number": "4B",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 304",
+    "Name": "JOAQUIN JOSE GARCIA HERAS/MARIA ELENA JIMENEZ MARTIN",
+    "Number": "4C",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 304",
+    "Name": "PILAR DEL VADO CASTELLANOS/J.CASTELLANOS SANCHEZ",
+    "Number": "4D",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO DE EXTREMADURA 306",
+    "Name": "Leonor Torres Vargas/Juan Carlos Almaro",
+    "Number": "BAJO IZQ",
+    "Phone": "-",
+    "Observation": "alquilado",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO DE EXTREMADURA 306",
+    "Name": "sin nombre",
+    "Number": "BAJO DCHA",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO DE EXTREMADURA 306",
+    "Name": "MARIA ROSA MARTINEZ/YAREMA LYUBOV",
+    "Number": "1A",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO DE EXTREMADURA 306",
+    "Name": "CESAR HERRAIZ CHENA/VANESSA SALGADO TARTAJO/",
+    "Number": "1B",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO DE EXTREMADURA 306",
+    "Name": "LUCIA CAMPANARIO YAGUE/MERCEDES CAMPANARIO YAGUE/RAUL TINEO/ELENA BENITO CAMPANARIO",
+    "Number": "1C",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO DE EXTREMADURA 306",
+    "Name": "SIN NOMBRE",
+    "Number": "1D",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO DE EXTREMADURA 306",
+    "Name": "ANGEL SANZ RUIZ/SONIA SANZ RIOS",
+    "Number": "2A",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO DE EXTREMADURA 306",
+    "Name": "ARTURO SANCHEZ SANCHEZ /VICTORIA FERNANDEZ/JOAOSOL PAGANI/LUANA BONFANTE",
+    "Number": "2B",
+    "Phone": "ARTURO 626.880.824",
+    "Observation": "DE ALQUILER ESTUDIANTES",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO DE EXTREMADURA 306",
+    "Name": "OLENA NEGODA/JESUS DIU HERREDERO/CARMEN HIDALGO MUNIOZGUREN/",
+    "Number": "2C",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO DE EXTREMADURA 306",
+    "Name": "JUAN CARLOS GIRALDO/SONIA ISABEL RAMIREZ",
+    "Number": "2D",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO DE EXTREMADURA 306",
+    "Name": "OSCAR GAOZALEZ",
+    "Number": "3A",
+    "Phone": "OSCAR GONZALEZ 696119355",
+    "Observation": "LO TIENE ALQUILADO VENDIDO POR NOSOTROS AL CALVOROTI (OSCAR INMOBILIARIA) /sigue alquilado, ES UN PIRATA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO DE EXTREMADURA 306",
+    "Name": "ANGELA TANIA PONCE DE LEON",
+    "Number": "3B",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO DE EXTREMADURA 306",
+    "Name": "SIN NOMBRE",
+    "Number": "3C",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO DE EXTREMADURA 306",
+    "Name": "JESUS",
+    "Number": "3D",
+    "Phone": 618260321,
+    "Observation": "vendido por nosotros a Jesus/JESUS IMPOLITO REFORMADISIMO/nadie /  AHORA EL DUEÑO ES JESUS QUE LO COMPRO EN OCT 2016 EN 107 MIL, LO HA SUPERREFORMADO/ TIENEN UN PISO EN ALQUILER EN FUENTESAUCO 38 4 PLANTA , SE LO ALQUILAMOS EN 650",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO DE EXTREMADURA 306",
+    "Name": "REMEDIOS BARBOSA BLANCO/",
+    "Number": "4A",
+    "Phone": "-",
+    "Observation": "INFORMADORA SOLO SABE EL DE MAXI/VENDRA A POR UN CARRITO ME DICE SE VENDIO UN BAJO /informadora me dice todo lleno es la que pase un perrito por la colonia ella esta de alquiler renta antigua",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO DE EXTREMADURA 306",
+    "Name": "BEATRIZ HERNANDEZ BRAVO/ANDRES MAGDALENA RUBIO",
+    "Number": "4B",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO DE EXTREMADURA 306",
+    "Name": "SIN NOMBRE",
+    "Number": "4C",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO DE EXTREMADURA 306",
+    "Name": "SIN NOMBRE",
+    "Number": "4D",
+    "Phone": "-",
+    "Observation": "NADIE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 308",
+    "Name": "DIEGO",
+    "Number": "4A",
+    "Phone": "-",
+    "Observation": "VENDIMOS EN 126 MIL EN FEBRERO 2017 , YA NOS HAN PAGADO LOS VENDEDORES , AHORA QUEDA LA DENUNCIA DEL COMPRADOR , NOS LA JUGO MAITE  NUESTRA ANTIGUA FINANCIERA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 308",
+    "Name": "SAVID RIVERA VIDAL/MARIA RIBERA VIDAL",
+    "Number": "4B",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 308",
+    "Name": "BENJAMIN AUGUSTO/MARIA DOLORES RODRIGUEZ ARGANZA",
+    "Number": "4C",
+    "Phone": "-",
+    "Observation": "SE LO VENDIMOS EN 107 MIL EN MARZO 2016 /no esta benjamin",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 308",
+    "Name": "NATALIO LUCAS/CONCEPCION CHAQUE/SARA PEREZ LUCAS",
+    "Number": "4D",
+    "Phone": "915180756/639428069/670718174",
+    "Observation": "LE VENDIMO SU CHALET EN EL TIEMBLO EN 115 MIL Y AHORA LE VAMOS A VENDER SU PISO/sigue con eduardo mollet con la nuda propiedad, YA LO HAN VENDIDO",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 308",
+    "Name": "MºIGNACIA SARDIÑA DE SANCHEZ",
+    "Number": "3A",
+    "Phone": 915180615,
+    "Observation": "ACABA DE FALLECER , NOS VA A DAR JORGE BENJAMIN Y LOLI EL TELEFONO/no abre se escucha gente",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 308",
+    "Name": "CONCEPCION MORO GARCIA/ESTHER LUENGO TRINIDAD/ALBERTO MORO GARCIA",
+    "Number": "3B",
+    "Phone": "-",
+    "Observation": "no abre",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 308",
+    "Name": "ROBERTO CARDOZO",
+    "Number": "3C",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 308",
+    "Name": "JAVIER ANTONIO MARTIN MARTINEZ",
+    "Number": "3D",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 308",
+    "Name": "JOSE MARIA JORDAN/DOLORES DE LAS HERAS/JORDAN DE LAS HERAS",
+    "Number": "2A",
+    "Phone": "-",
+    "Observation": "señora mayor me dice que el de arriba esta vacio investigarlo",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 308",
+    "Name": "HUERTAS CAMPANERO",
+    "Number": "2B",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 308",
+    "Name": "SIN NOMBRE",
+    "Number": "2C",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 308",
+    "Name": "SIN NOMBRE",
+    "Number": "2D",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 308",
+    "Name": "ANTONIO MARTINEZ JUAN/FEMY BENITO DE MARTINEZ",
+    "Number": "1A",
+    "Phone": "-",
+    "Observation": "mirillazo dejar buzon",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 308",
+    "Name": "DINA RUBIO RUBIO/OLIVER FERNANDEZ RUBIO/MIGUEL ANGEL FERZ MORENO",
+    "Number": "1B",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 308",
+    "Name": "SIN NOMBRE",
+    "Number": "1C",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 308",
+    "Name": "SIN NOMBRE",
+    "Number": "1D",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 308",
+    "Name": "JUAN CARLOS MELA",
+    "Number": "BA",
+    "Phone": "-",
+    "Observation": "SE LO VENDIMOS NOSOTROS EN ENERO 2016 EN 45 MIL/alquilado/ESTAN ESPECULANDO CON VENDER EN 130 MIL",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 308",
+    "Name": "SAIMOL DAVID REYES",
+    "Number": "BB",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 308",
+    "Name": "MºTERESA GARCIA CHAVIDA /JOAQUIN MACIA",
+    "Number": "BC",
+    "Phone": "-",
+    "Observation": "okupas/vive una dominicana para por hasam",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 308",
+    "Name": "SIN NOMBRE",
+    "Number": "BD",
+    "Phone": "-",
+    "Observation": "okupado",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 310",
+    "Name": "PACO FARMACEUTICO",
+    "Number": "LOCALES A/B",
+    "Phone": 627932466,
+    "Observation": "LOS COMPRO PACO EL DE LA FARMACIA A TRAVES DE PACO DE MATILDE , LOS HIZO PISO REFORMADO POR FELIPE Y LOS TIENE ALQUILADO",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 310",
+    "Name": "ANDRES MALE PEINADO/ROCIO HERNANDEZ MORENO/CLARA MALE HERNANDEZ/ANDRES MALE HERNANDEZ",
+    "Number": "1A",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 310",
+    "Name": "ENRIQUE VERDU RUIZ/MYRIAM NAVAS PERELLON/LAURA VERDU NAVAS/JAIME VERDU NAVAS",
+    "Number": "1B",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 310",
+    "Name": "CARMEN ALMUDENA/GOMEZ PEREZ/MARIA TERESA GOMEZ PEREZ",
+    "Number": "1C",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 310",
+    "Name": "FELIPE INVERSOR",
+    "Number": "1D",
+    "Phone": 667590851,
+    "Observation": "VIVEN ESTUDIANTES ALQUILADO POR FELIPE / LO VENDIMOS EN OCTUBRE DE 2016 EN 86.000 € A TARVES DE PAQUITO GESTOR DE MATILDE SECO",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 310",
+    "Name": "KNOW HOW MILLENIUM",
+    "Number": "2A",
+    "Phone": "-",
+    "Observation": "misma persona que la del B",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 310",
+    "Name": "ANA MARIA VIDAL GIRALDO/FERNANDO PANIAGUA/ANA PANIAGUA",
+    "Number": "2B",
+    "Phone": "-",
+    "Observation": "misma persona que la del A",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 310",
+    "Name": "ALBINO FERNANDEZ DOMINGUEZ/MARIA ROSA GARCIA VERDU/BEGOÑA FERNANDEZ GARCIA/",
+    "Number": "2C",
+    "Phone": "-",
+    "Observation": "nadie, es el piso de Matilde seco o Gerardo que lo ha vendido el hijo de paquito Javier en 165 mil, según nos dice , aunque julio alberto nos dice que no pagan y deben dinero , investigar ,vendido por javier en 165.000 a la inquilina",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 310",
+    "Name": "CONCEPCION RODRIGUEZ VALLE",
+    "Number": "2D",
+    "Phone": "-",
+    "Observation": "boliviana el piso es de la familia seco de gerardo lo vendio javier en 155",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 310",
+    "Name": "JOSE MARIA BLAZQUEZ BLAZQUEZ/MARIA ROSARIO NEILA LUMERAS/RUTH BLAZQUEZ NEILA",
+    "Number": "3A",
+    "Phone": "-",
+    "Observation": "señor borde",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 310",
+    "Name": "ANTONIO BERRUGUETE GENTO/RICARDO BERRUGUETE FERNANDEZ/RAUL BERRUGUETE FERNANDEZ",
+    "Number": "3B",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 310",
+    "Name": "ALFONSO BUENO GONZALEZ/BURNA BURRIEZA BUENO",
+    "Number": "3C",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 310",
+    "Name": "MIGUEL HORTELANO NIGUA/MARIA CARMEN ALFARO ALFARO/NURIA HORTELANO ALFARA",
+    "Number": "3D",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 310",
+    "Name": "BELARTES COMERCIALIZACION",
+    "Number": "4A",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 310",
+    "Name": "BERNA BURRIEZA BUENO/SILVERIO HERNAIZ LOPEZ",
+    "Number": "4B",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 310",
+    "Name": "SIN NOMBRE",
+    "Number": "4C",
+    "Phone": "-",
+    "Observation": "informador  su hija tiene un piso en c.boadilla",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 310",
+    "Name": "PILAR BADAJOZ JIMENEZ/IÑIGO ECHEVARRENA BADAJOZ/PILAR ECHEVARRENA BADAJOZ/MARC ECHEVARRENA MUT",
+    "Number": "4D",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 310",
+    "Name": "LOS COMPRO LUIS VIEJETE INVERSOR LOS HIZO APARTAMENTO Y ALQUILO SEPTIEMBRE 2016",
+    "Number": "LOCALES C/D",
+    "Phone": "917112518/688308859",
+    "Observation": "LO COMPRO EN 40 MIL EUROS , ERAN DE MATILDE SECO/alquilado",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 312",
+    "Name": "JOSE ALBERTO",
+    "Number": "LOCAL A/B",
+    "Phone": "-",
+    "Observation": "Estos locales son de Jose Alberto , señor mayor del barrio de toda la vida con bigote y boina , tuve 7 tiendas de ropa en carabanchel y aluche , los esta haciendo pisos para alquilar finalmente , el edificio acaba de pasar la Ite",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 312",
+    "Name": "GERARDO DE DIEGO SACRISTAN/FRANCISCA SACRISTAN MARTIN/LUCIA DE DIEGO SACRISTAN",
+    "Number": "1A",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 312",
+    "Name": "ROSARIO LOBO DEL BARRIO/ALOHA AREVALO LOBO/",
+    "Number": "1B",
+    "Phone": "-",
+    "Observation": "Dominicanos que quieren vender ya se lo hemos valorado 2 veces una en 2018 y otra en 2022 , quieren unos 200 pero se lo valoramos en 160 mil , totalmente reformado",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 312",
+    "Name": "PEDRO AGUSTINO CARRAICO/CRISTINA NUÑEZ GOMEZ",
+    "Number": "1C",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 312",
+    "Name": "JUAN JOSE SANTOS CARRASCO/ELEICER LOBO GONZALEZ/BORJA SANTOS LOBO/SERGIO SANTOS LOBO",
+    "Number": "1D",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 312",
+    "Name": "JOSE VIDAL MIRASIERRA/INES YELMO PODEROSO/JOSE MANUEL VIDAL YELMO",
+    "Number": "2A",
+    "Phone": "-",
+    "Observation": "sudamericanos de alquiler",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 312",
+    "Name": "CONCEPCION MARTIN GARRIDO/DAVID ALCON MARTIN/EVA ALCON MARTIN/RICARDO ALCON MARTIN, SE LLAMA ALVARO",
+    "Number": "2B",
+    "Phone": "-",
+    "Observation": "QUIEREN VENDER EN 190 MIL , ESTA SUPER REFORMADO 3 DORM 2 BAÑOS , 1 DESPACHO , SE LO VA A COGER RED PISO EN 196 MIL , COMPRARON EN 2015 EN 85 MIL/nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 312",
+    "Name": "AGUSTIN GAYO MARTIN/ANGELITA BACARIZO MAYA",
+    "Number": "2C",
+    "Phone": "-",
+    "Observation": "no quiere nada",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 312",
+    "Name": "JULIO ALBERTOS MARTIN/LUIS MORENO GARCIA/LUIS MIGUEL ALBERTOS MORENO",
+    "Number": "2D",
+    "Phone": "-",
+    "Observation": "informador me dice que el 4ºd lo quiere vender el hijo",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 312",
+    "Name": "VICTOR BIEHLER CANILLAS/SARA SANCHEZ FERNANDEZ",
+    "Number": "3A",
+    "Phone": "-",
+    "Observation": "sin timbre",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 312",
+    "Name": "RICARDO BRAVO LUCEÑO/PALOMA ENCINAR CHIQUERO",
+    "Number": "3B",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 312",
+    "Name": "BERTHA LULY RIOS LLANOS/GONZALO MARTIN CASTILLO/RAFAEL CASTILLO CAMARA/MARIA CARMEN VILLEGAS  LERMO",
+    "Number": "3C",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 312",
+    "Name": "MARIA DEL CARMEN VALVERDE CHACON/ANTONIO J. GARCIA SOTO VALVERDE",
+    "Number": "3D",
+    "Phone": "-",
+    "Observation": "sudamericanos en alquiler",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 312",
+    "Name": "CESAR URDIALES DE LACAL/MARIA TERESA URDIALES MEDRANO/J.L. VALDIVIEJO BAUTISTA",
+    "Number": "4A",
+    "Phone": 916806080,
+    "Observation": "piso Maite  cerrado, SEGUIMIENTO/ 916.806.080",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 312",
+    "Name": "MARIA REYES PRIER PINILLA",
+    "Number": "4B",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 312",
+    "Name": "EUGENIO CASTRO CORTINA/MARISOL ALVAREZ PRENDES",
+    "Number": "4C",
+    "Phone": "-",
+    "Observation": "vendido por nosotros a Marta en 135.000 € Abril 2018",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 312",
+    "Name": "ANGEL ESCUDERO BAYAN/ALEJANDRA SACRISTAN BACHILLER/ANGEL ESCUDERO SACRISTAN",
+    "Number": "4D",
+    "Phone": 917118801,
+    "Observation": "no quiere nada",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "PASEO EXTREMADURA 312",
+    "Name": "LUIS BIGOTIN",
+    "Number": "LOCAL C/D",
+    "Phone": "-",
+    "Observation": "LOS TIENE ALQUILADOS",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "A.FERNANDEZ HIDALGO/M.BENITO FERNANDEZ/MºJOSE FERNANDEZ BENITO",
+    "Number": "4A",
+    "Phone": "-",
+    "Observation": "señora mayor no abre dejar buzon/",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "SIN NOMBRE",
+    "Number": "4B",
+    "Phone": "-",
+    "Observation": "no abre",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "T.RUSTYMOVA/F.VAZQUEZ ALAMILLO",
+    "Number": "4C",
+    "Phone": "-",
+    "Observation": "sin timbre investigar/sigue sin timbre/ES DE BANCO VIVIAN UNOS RUMANOS",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "R.GONZALEZ ROSADO/LUCIA GONZALEZ",
+    "Number": "4D",
+    "Phone": "-",
+    "Observation": "sin timbre/sigue vacio/SIN TIMBRE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "A.PARDILLO DE LAS HERAS/P.HERNANDEZ HERRANZ",
+    "Number": "4E",
+    "Phone": 915182880,
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "L.SALDIAS DE HERRERA/L.R.ORTEGA BARRIENTOS/ ROSA LA HIJA DE MARGARITA , LA DEL BASTON",
+    "Number": "4F",
+    "Phone": 651778381,
+    "Observation": "VIVE LA DEL BASTON, QUE ES HNA DE FLOR E HIJA DE MARGARITA , COMPRO Y CAMBIO LAS VENTANAS DE  3 DORMITORIOS",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "SIN NOMBRE",
+    "Number": "3A",
+    "Phone": "-",
+    "Observation": "sin timbre",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "ARGIMIRO CALVO/OBDULIA FERNANDEZ",
+    "Number": "3B",
+    "Phone": 917110593,
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "AURELIO DE CASI/JULIA CONDE/MªDEL  MAR  DE CASI CONDE",
+    "Number": "3C",
+    "Phone": 917118154,
+    "Observation": "sres muy mayores que se van los dos a la residencia , ella 88 años y el 92 , estan recogiendo las cosas para venderlo, tienen 4 hijos /me dice que al final se quedan en el piso/SIGUE EN EL PISO / Viene  a la oficina para decirme que ya le han dado una residencia de mayores privada y van a vender",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "SIN NOMBRE",
+    "Number": "3D",
+    "Phone": "-",
+    "Observation": "sin timbre",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "SIN NOMBRE",
+    "Number": "3E",
+    "Phone": "-",
+    "Observation": "sin timbre",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "JUANA BURGUEÑO/CASIMIRA MARTIN",
+    "Number": "3F",
+    "Phone": "-",
+    "Observation": "me confirma nahim , que la tia ha vendido con aldea en 80 para ella y aldea vendio 89 mil/nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "M.ALCANTARA RUBIO/D.ALCANTARA RUBIO",
+    "Number": "2A",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "M.ALCANTARA MARTIN/M.RUBIO CALZADO",
+    "Number": "2B",
+    "Phone": 917119580,
+    "Observation": "señores mayores hartos de la gentuza",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "CHRISTIAN FERDINAND FRANCO ORTIZ/VICTORIA ZEVALLOS MUÑOZ",
+    "Number": "2C",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "CARLOS PEREZ VALIENTE",
+    "Number": "2D",
+    "Phone": 917114395,
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "REINA LUCIA/LORENZO ARGUETA / MARIA LOURDEZ SANCHEZ GARCIA",
+    "Number": "2E",
+    "Phone": "-",
+    "Observation": "Aquí viven alquiladas por habitaciones , 1 es hondureña Maria Mardaly Hernandez Martinez , va a alquilar con la hermana Carazo 4 3ºa , tambien ha vivido en Paseo 298 11º4",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "ELISA GONZALEZ ALVAREZ/FRANCISCO COELLO MARTIN",
+    "Number": "2F",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "MARIA PAZ YAÑEZ RODRIGUEZ",
+    "Number": "1A",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "JESUS CHAVES/MªANGELES FERNANDEZ",
+    "Number": "1B",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "ANGELA VIZOSO SUAREZ",
+    "Number": "1C",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "W.JAVIER MURILLO/ISABEL JIMENEZ",
+    "Number": "1D",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "ANA ESMERALDA SALGADO",
+    "Number": "1E",
+    "Phone": "-",
+    "Observation": "SE HIZO LA VALORACION LO TIENE UNA AGENCIA EN 90 MIL/ AL FINAL LO TERMINARIAN VENDIENDO /siguen viviendo en el piso",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "FCA MARTINEZ BARREDA/ANDRES PAN MARTINEZ/ALEJANDRO PAN MARTINEZ",
+    "Number": "1F",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "BAR YERBABUENA",
+    "Number": "0ºF",
+    "Phone": "-",
+    "Observation": "LO CERRARON EN JUNIO 2018 , INVESTIGAR QUIENES SON LOS DUEÑOS, SON DE ALCORCON , JUAN LES DIO UNA TARJETA, LE VUELVO A DAR UNA TARJETA, SEGUIAN REFORMANDO",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "JAVIER IZQUIERDO / YOLANDA PEÑA ALCAZAR / MONICA GOMEZ PEÑA",
+    "Number": "0ºE",
+    "Phone": "-",
+    "Observation": "EL DUEÑO ESTA HACIENDO OBRAS, TENIA HUMEDADES Y SE LO TENIA ALQUILADO A UNA ENFERMERA , VER SI LO QUIERE ALQUILAR O VENDER , ME LO INFORMA DANI EL JARDINERO",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "C.GARZO CAÑIZARES / F. ARGUELLO GARZO",
+    "Number": "0ºD",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "JULIAN MUÑOZ PALOMO",
+    "Number": "0ºC",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "JOSEFA VELASCO FERNANDEZ / JOSE ANGEL CALERO VELASCO / FCO JAVIER CALERO VELASCO / JULIAN CALERO VELASCO",
+    "Number": "0ºB",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE VILLAVICIOSA 9",
+    "Name": "PABLO ENRIQUEZ / VIVIANA PINARGOTE / CHRISTOPHER ENRIQUEZ",
+    "Number": "0ºA",
+    "Phone": "-",
+    "Observation": "madre de javier le vendimos el piso de carballino 10 ,acaba de fallecer van hacer la herencia y seguramente vendan /AL FINAL LO QUIEREN ALQUILAR/ALQUILADO POR NOSOTROS EN 650",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE CARBALLINO 17",
+    "Name": "olga abejon gonzalez/ javier sanchez vara",
+    "Number": "4I",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE CARBALLINO 17",
+    "Name": "jorge notario camara",
+    "Number": "4D",
+    "Phone": "-",
+    "Observation": "nadie, Buzon muy lleno , tiene pinta de estar vacio, investigar / parce que vive de alquiler el chaval pero ni recoge cartas ni nada /Dia 27/07/2022 Investigando en zona veo por una carta del agua que tiene un consumo de 19 €",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE CARBALLINO 17",
+    "Name": "sofia diez diez/miguel hernandez diez/vanesa sanchez/natividad prada",
+    "Number": "3I",
+    "Phone": "MIGUEL 699.671.277 /MARIA ANGELES 616.681.668",
+    "Observation": "Dia 07/06/2022 Entre Miguel por la oficina diciendo que tiene un piso en la C/Carballino ,17 y que lo quiere vender es una herencia de 3 hermanos Miguel y Maria Angeles que  son los dos mayores. Va Juan y Marco a valorarle la vivienda, el piso se compone de 3 habitaciones , salon y baño le da Juan un precio de 105.000€ a 115.000€ pero el precio de salida  es de 119.900€ + la promocion de 2.995 + I.V.A",
+    "Tracing": "despues de llamar varias veces me comenta que esta en el pueblo en Sanabria y que al hablar con sus hermanas quieren 150-160 mil, le digo que eso es inviable y me dice que nos dira mas adelante",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE CARBALLINO 17",
+    "Name": "josefa miranda/lourdes pacios",
+    "Number": "3D",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE CARBALLINO 17",
+    "Name": "ramiro perez/josefina ferrero",
+    "Number": "2I",
+    "Phone": "-",
+    "Observation": "no quiere abrir",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE CARBALLINO 17",
+    "Name": "mªpaz gonzalez cancela/natalia rodriguez gonzalez",
+    "Number": "2D",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE CARBALLINO 17",
+    "Name": "rafaela fernandez arellara",
+    "Number": "1IZ",
+    "Phone": "-",
+    "Observation": "señora mayor no sabe nada/ lo esta vendiendo red piso en 125.000 € , presionar para quitarselo y meter cartas /VENDIDO POR REDPISO",
+    "Tracing": "3 dorm salon cocina 1 baño , ventanas reformadas  y rejas negras",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE CARBALLINO 17",
+    "Name": "PEDRO pablo garcia - BUENO - PILO/encarna pereira",
+    "Number": "1D",
+    "Phone": "663.76.54.48",
+    "Observation": "DNI PABLO : 49024535 N",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE CARBALLINO 17",
+    "Name": "roberto menendez/amador menendez/carmina alvarez",
+    "Number": "BI",
+    "Phone": "-",
+    "Observation": "investigar cerrado",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE CARBALLINO 17",
+    "Name": "gaudencio/hernandez oreja",
+    "Number": "BD",
+    "Phone": "-",
+    "Observation": "nadie",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 1",
+    "Name": "L. Ramón Navares",
+    "Number": "SEMISOTANO DERECHA",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 1",
+    "Name": "Carlos J. Montesinos Garvi",
+    "Number": "1ºIZQ",
+    "Phone": 915183558,
+    "Observation": "Me comenta Rafaela que el 1º Izquierda es el hermano de los de la chatarra y que tienen otro piso más en el edificio vacío, al que solo viene la chica de la limpieza. Me comenta que por ahora no quieren hacer nada, que están mirando precios para hacer la reforma. / No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 1",
+    "Name": "Leila de Oliveira Cordeiro, Alisson Aguiar de Lima",
+    "Number": "1ºDCHA",
+    "Phone": "666230516 (Gago)",
+    "Observation": "Lo vendimos en abril de 2017 en 94.000€. Después de dos años de seguimiento de noticia. Vivienda de 3 dormitorios, salón, cocina, baño y trastero a reformar. Ella nos informa de que el 2ºD es alquilado y que los demás son propietarios. Nos dice que el que están reformando vive gente y que el único vació, según Alisson, es el de los chatarreros pero no quieren hacer nada con él. / No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 1",
+    "Name": "Laura Montesinos Garvi",
+    "Number": "2ºI",
+    "Phone": "915.122.979/660.448.793",
+    "Observation": "Tanto el 1º izquierda como el 2º Izquierda son de los chatarreros de Calamón. / No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 1",
+    "Name": "-",
+    "Number": "2ºD",
+    "Phone": "-",
+    "Observation": "Me comenta Leila que son los únicos alquilados. Rafaela nos lo confirma. / No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 1",
+    "Name": "Alfredo Gómez Capdevila, María del Carmen Garrido Martínez, Mario Gómez Garrido, Javier Gómez Garrido, David Gómez Garrido",
+    "Number": "3ºI",
+    "Phone": 915186643,
+    "Observation": "Puerta en uso sin timbre, con felpudo. / No contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 1",
+    "Name": "Antonio Gómez Navarro, Josefina Alonso Muñoz, María José Gómez Alonso",
+    "Number": "3ºD",
+    "Phone": 917112466,
+    "Observation": "Señora latina traspuerta a la que no escucho porque habla muy bajito. / Hombre español canoso de unos 75 años con bigote desconfiado. / Señor que no puede atenderme, me pide que deje la revista en el buzón.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 1",
+    "Name": "Valentín González, María Luz Brava",
+    "Number": "4ºI",
+    "Phone": 917111314,
+    "Observation": "Puerta nueva sin timbre. / Valentín, señor mayor propietario muy majo que está haciendo gimnasia.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 1",
+    "Name": "Ignacio Solana García, Rodolfo Solana García, Alfonso Solana Bordón, Admiración García Graña, Carolina Graña Fernández",
+    "Number": "4ºD",
+    "Phone": 915183530,
+    "Observation": "Puerta antigua desgastada pero en uso. / Ignacio, majo propietario, no le interesa.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 1",
+    "Name": "Luis F. Casedas Fernández, María Pilar Alcaide Garcúía, Luis Casedas Alcaide",
+    "Number": "5ºI",
+    "Phone": 917118679,
+    "Observation": "Puerta recién puesta. / Hombre español canoso que entraba en el ascensor. / Luis, propietario, no le interesa.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 1",
+    "Name": "Beatriz Martín, Raila Alonso Martín, Paula Alonso Martín, Rosa María Martín Romero",
+    "Number": "5ºD",
+    "Phone": 917111726,
+    "Observation": "Puerta antigua en uso. / Katia, vecina hija de Beatriz la propietaria del piso, vive con su madre otra vez después de 20 años. Busca piso de alquiler. Traer dos calendarios: INFORMADORA.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 1",
+    "Name": "Mariano Javier Molinero Nieto, María del Carmen Olga Mellado García, Jaime y Laura Molinero Mellado",
+    "Number": "6ºI",
+    "Phone": 915187616,
+    "Observation": "Piso en reformas. Me comentan tanto la mujer de Alisson como Rafaela que viven allí. / Hombre español con perro negro que abre y cierra. / Carmen, española propietaria, su hija está buscando piso con la pareja. Fumo un cigarro con ella en el portal, baja con el perrito, FIDELIZADA.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 1",
+    "Name": "Alfredo Lozano de Mingo, Elena Lozano de Mingo, Mercedes Lozano de Mingo, María de los Ángeles Lozano de Mingo",
+    "Number": "6ºD",
+    "Phone": 915186643,
+    "Observation": "Señora mayor española que no le interesa. / No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 1",
+    "Name": "Ángel Troiliño Pulido",
+    "Number": "7ºI",
+    "Phone": "912.553.720 / 630.626.200",
+    "Observation": "Ángel, hombre gordito canoso con pastor alemán que me comenta que es enfermero  y que si soy compañero del de TECNOCASA, que lleva tiempo sin verlo. Dice que quería darle las gracias por la labor que hacía con los vecinos en el momento de la pandemia. / Hombre español muy educado. / No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 1",
+    "Name": "Fausto Andrés Marco / CENTRAL CONTABLE  ELECTRONICA",
+    "Number": "7ºD",
+    "Phone": 915184676,
+    "Observation": "Sin timbre. Puerta en uso y felpudo. / No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 1",
+    "Name": "Rafael Gómez, Benita Gavilán Acosta, Abraham Gómez",
+    "Number": "8ºI",
+    "Phone": 917111850,
+    "Observation": "Hermano de Mane, es el que decide sobre Pikatapas y el piso de Villacarriedo. / Señora mayor canosa desconfiada. / No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 1",
+    "Name": "Antonio Zafra Arroyo, Rosa María Martín Romero, María Paz y Eduardo Zafra Martín",
+    "Number": "8ºD",
+    "Phone": 917111726,
+    "Observation": "Gente dentro. Zapatos de hombre en el rellano. Me comenta Rafaela que en dos años que lleva limpiando el portal, nunca le ha llegado a ver porque, además, pasa temporadas en el pueblo. Buzón lleno. / No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 5",
+    "Name": "Ionel Sima, Mariora Sima, Alexandra Mihaela Sima",
+    "Number": "SEMISOTANO DERECHA",
+    "Phone": "-",
+    "Observation": "Está hecho piso y reformado. / María, alquilada, quizás se mude en un tiempo.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 5",
+    "Name": "José María Zamora Hinojosa / Luis y Elisa",
+    "Number": "1ºIZQ",
+    "Phone": "915188467/619.648.211/ 648. 796. 005",
+    "Observation": "Me comenta Teresa que si la hija no se queda el piso, están pensando en vender. El teléfono que llamó Simón no existe. / Sale en venta por particular en 180.000€. Se lo compraron a Inma y José María. / No hay nadie. /  Le llamamos el 26/01/2022 y nos dice que siguen teniendo visitas y que de momento no quieren agencia. Es amable pero tampoco me da mucho de sí. Le digo que le llamaré mensualmente...parece que no lo vendieron en su dia y lo reformaron para vivir la hija y ahora lo quieren vender",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 5",
+    "Name": "Miguel Lara Maza, Ángeles Contreras Lara, Juan Lara Castillo",
+    "Number": "1ºDCHA",
+    "Phone": 917114662,
+    "Observation": "Matrimonio español de mediana edad entrando por la puerta con la compra. / No contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 5",
+    "Name": "-",
+    "Number": "2ºI",
+    "Phone": "-",
+    "Observation": "Me comenta Teresa que es un matrimonio peruano con una niña que compraron el piso. / No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 5",
+    "Name": "Eduardo Parra Teruel, Teresa Villardón Rubio, Javier Parra Villardón",
+    "Number": "2ºD",
+    "Phone": 917118465,
+    "Observation": "Señora mayor me comenta que lleva 50 años en el barrio. Nos cuenta que los dos 5º son alquilados: que en el 5º Derecha viven unos franceses que llevan muchos años aquí y que el 5º Izquierda  es de Marcelo el peluquero. El 2º Izquierda lo tiene en venta TECNOCASA, que es de una maestra de unos 60 años y que pisos vacíos no hay. Me comenta Teresa que el 1º Izquierda están pensando en venderlo si la hija no se lo queda y que no vuelva a tocar a Bonifacio porque abre el cuñado y es un maleducado. / Hablo con Teresa, señora muy maja, INFORMADORA. Coge la revista pero entra el hijo de 30 y pico años y la regaña por abrir.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 5",
+    "Name": "Blanca Cecilia Merino, Bienvenida Maqueda García, Pablo Plana Sánchez",
+    "Number": "3ºI",
+    "Phone": 917117094,
+    "Observation": "Puerta nueva. / No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 5",
+    "Name": "José María Esquivel Domingo, Mercedes Vellón Molina",
+    "Number": "3ºD",
+    "Phone": "-",
+    "Observation": "Puerta en uso. Alarma de Securitas. / Hay dos perros dentro, muy locos.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 5",
+    "Name": "Juan José Zafra Arroyo, María Isabel Gascón Salcedo",
+    "Number": "4ºI",
+    "Phone": 917110834,
+    "Observation": "Puerta antigua en uso. / No hay nadie. Posiblemente Juan José sea el hijo de los vecinos del 5º Izquierda. Preguntar por el piso de sus padres.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 5",
+    "Name": "Bonifacio Melero Gil, Pilar Yban García, José I. y Pilar Melero Yban",
+    "Number": "4ºD",
+    "Phone": "917.119.120 /650882789",
+    "Observation": "Le alquilamos en Calle Ayllón, 14, 3ºA un piso de los que tiene. Le metimos a un moro que por desgracia le dejo de pagar. Es amigo nuestro y buen informados. La frutería de Fuentesauco también es suyo. / NO quiere que le toquemos más a la puerta, abrió el cuñado y es un auténtico mal educado. Me comenta Teresa que viven ahí la mujer y Bonifacio con el cuñado y que ninguno de los vecinos tiene relación con el cuñado. / No hay nadie. Falleció Bonifacio a finales de 2021. Realmente ya cuenta con otra agencia para la gestión de las viviendas... ver si se puede retomar relación de alguna forma.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 5",
+    "Name": "Francisco Zafra Bueno, Eduarda Arroyo Gordo, Juan José Zafra Arroyo",
+    "Number": "5ºI",
+    "Phone": "JUAN JOSE 917110777 FRANSCISCO 917.110.834",
+    "Observation": "Puerta antigua mal barnizada. Sin timbre. Me comenta la señora del 2º Derecha que son franceses y que llevan muchos años viviendo allí. / Sin timbre. Puerta algo vieja. INVESTIGAR.  Por nombre de buzón, parece que son los padres del del 4º izquierda.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 5",
+    "Name": "Josefa Martínez Mateo, Jorge Lista Castro, Felix Hidalgo Roman",
+    "Number": "5ºD",
+    "Phone": "Felix Hidalgo Roman 915.182.486",
+    "Observation": "Puerta recién puesta de 2 metros. Este piso era de Marcelo el peluquero. / Niño dentro hablando con abuelo, no abren. ¿ALQUILADO?",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 5",
+    "Name": "Antonio López Gabriel, Marily Martín Adsuar",
+    "Number": "6ºI",
+    "Phone": 915184622,
+    "Observation": "Puerta antigua con felpudo. / Marili, señora muy maja, no tiene tiempo para atenderme.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 5",
+    "Name": "Natalio Romero Hernández, María del Carmen San José",
+    "Number": "6ºD",
+    "Phone": 917116284,
+    "Observation": "Chico español joven con barba de media altura dormido con piso reformado. / Natalio y su mujer, pareja mayor, muy maja. No les interesa.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 5",
+    "Name": "Pedro V. Moreno Sánchez, Eva D. Sánchez Ramos",
+    "Number": "7ºI",
+    "Phone": "-",
+    "Observation": "Puerta en usa desagastada. / Ana, señora mayor muy maja, propietaria, no le interesa. Coge revista por si conoce a alguien.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 5",
+    "Name": "Manuela Paniagua Prado, Luis Barral Paniagua",
+    "Number": "7ºD",
+    "Phone": 915187784,
+    "Observation": "Señora latina cuidadora. / Señora mayor cuando cierra se le escucha decir que somos unos pesados, que ella no va a vender el piso. / No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 5",
+    "Name": "Pedro López",
+    "Number": "8ºI",
+    "Phone": "-",
+    "Observation": "Chico joven español con gafas poco interesado. / Mirillazo",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 5",
+    "Name": "José González Mere, Concepción Quilez",
+    "Number": "8ºD",
+    "Phone": 915188467,
+    "Observation": "Puerta antigua sin timbre pero en uso. Tienen otro piso en Fuentesauco, 10, 5ºC. / No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 7",
+    "Name": "-",
+    "Number": "SEMISÓTANO IZQ",
+    "Phone": "-",
+    "Observation": "No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 7",
+    "Name": "Ángel Rueda Rod´riguez, David Muñoz Martín",
+    "Number": "1ºIZQ",
+    "Phone": "-",
+    "Observation": "GESTAFIN / Hombre español mayor con piso recién reformado me comenta que alquilados hay pero ahora mismo ninguno vacío. / Me comenta que el vecindario sigue igual y que no vende nadie. / Señor simpático, cierra rápido",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 7",
+    "Name": "Faustino San Frutos Pinerla, Eduvigis Carmen García Fernán",
+    "Number": "1ºDCHA",
+    "Phone": "917.115.183/666.987.705",
+    "Observation": "Puerta en uso, sin felpudo. / No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 7",
+    "Name": "Sergio Martín Benedit, Ana María González Cobo",
+    "Number": "2ºIZQ",
+    "Phone": "-",
+    "Observation": "Señora de mediana edad con gafas morena y niños. Piso reformado. Me comenta que no le da tiempo a conocer a los vecinos porque siempre hay movimiento. / Chico español joven simpática. / No le interesa.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 7",
+    "Name": "Francisco Javier Prestel Zarza, Concha Alfonso Rodríguez, Cristina prestel Alfonso, Óscar Galiano Pérez",
+    "Number": "2ºDCHA",
+    "Phone": 917118941,
+    "Observation": "Chica joven morenilla con lunar en la mejilla medio dormida. / Lesly, latina alquilada. Quiere comprar pero no tiene entrada ni aval.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 7",
+    "Name": "Leonor Fernández González",
+    "Number": "3ºIZQ",
+    "Phone": 915183643,
+    "Observation": "Me comenta la señora del bloque 5, 2º Derecha que estaba vendiendo por particular hace tiempo pero que no sabía si seguía en venta. / Puerta antigua con felpudo de gente joven. / No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 7",
+    "Name": "Carmen Ferrer Arguiso, Sergio Ocaña Ferrer, Borja Ocaña Ferrer",
+    "Number": "3ºDCHA",
+    "Phone": "-",
+    "Observation": "Puerta en uso con alarma. / No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 7",
+    "Name": "Basilio Martín de Pozuelo Ter",
+    "Number": "4ºIZQ",
+    "Phone": 915184804,
+    "Observation": "Alarma de Securitas. No hay nadie. / No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 7",
+    "Name": "Nieves Ordóñez Miguel, Emilio Ordóñez Fabra",
+    "Number": "4ºDCHA",
+    "Phone": "-",
+    "Observation": "No hay nadie. / No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 7",
+    "Name": "Juan Alegre Herreros Pastor, Adela Herreros, Ana Celia Casado, María Jesús Aragón, José Luis Alegre",
+    "Number": "5ºIZQ",
+    "Phone": 915184879,
+    "Observation": "Con timbre pero sin felpudo. Puerta antigua. / Pareja de señores mayores, ella es maja.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 7",
+    "Name": "Félix Hidalgo Román, Montserrat Guillén Calzada",
+    "Number": "5ºDCHA",
+    "Phone": "-",
+    "Observation": "Gente dentor escuchando la radio. Señora africana traspuerta con muy mala educación. / Me abre la africana con señor mayor español dentro en calzoncillos comiendo. No le interesa y la africana no sabe ni hablar.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 7",
+    "Name": "Ángela Edermira Chicaiza, Yéssica Patricia Duque, Yenifer Alejandra Duque",
+    "Number": "6ºIZQ",
+    "Phone": "-",
+    "Observation": "Chica española con gafas me comenta que está ALQUILADA y que lleva tiempo mirando para comprar. / Jason, colombiano alquilado, dice que nos va a llamar para asesoramiento.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 7",
+    "Name": "Manuel Vázquez Rodríguez / Doris Geraldina López / Kaly Yumari López",
+    "Number": "6ºDCHA",
+    "Phone": "-",
+    "Observation": "Chico larino joven durmiendo. / Latinos alquilados majos.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 7",
+    "Name": "Óscar Donicke Mancilla, Mercedes Vegas Alonso",
+    "Number": "7ºIZQ",
+    "Phone": 917113260,
+    "Observation": "Chico latino joven me comenta que lleva 5 días alquilado. / Suceli, latina, alquilada, muy maja.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 7",
+    "Name": "Felisa Aquiso Vigón, Luis Ignacio Sánchez Benítez, Pilar Benítez Aquiso",
+    "Number": "7ºDCHA",
+    "Phone": 915184713,
+    "Observation": "Gente dentro. Tienen alarma PROSEGUR. / No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 7",
+    "Name": "Pedro Muñoz López, Pilar Puerta Noales, Pedro Muñoz Puerta, Fabiana López Pérez, Lucía Nogales Imbernon",
+    "Number": "8ºIZQ",
+    "Phone": "-",
+    "Observation": "Matrimonio español simpático que iban a la compra. Ella es rubia teñida y nos conoce. El marido es de media altura con gafas y se pensaba que eramos de TECNOCASA. / No hay nadie,.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALAMÓN 7",
+    "Name": "Eloy Rodríguez Palacios, Constantina Fernández Carracedo, Jorge y José Manuel Rodríguez Fernández",
+    "Number": "8ºDCHA",
+    "Phone": 915186246,
+    "Observation": "Puerta con timbre pero sin felpudo. / No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Peregrina Garriga Mosquera (dueña) / Manuel (inquilino)",
+    "Number": "LOCAL IZQ 1",
+    "Phone": "-",
+    "Observation": "Se lo alquilamos a la dueña en julio de 2015, que vive en C/ Santa María de la Cabeza, 57, 10ºA. Ella es de Ourense, del año 1937. Se lo alquilamos a Jesús Campos Rodríguez, que finalmente le dejó de pagar y se lo alquiló por particular por 500€ a Manuel (pintor de cuadros), ex pareja de María la brasileña (600.390.665), que vivía en C/ Fuentesauco, 8.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "-",
+    "Number": "LOCAL IZQ 2",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "-",
+    "Number": "LOCAL IZQ 3",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "-",
+    "Number": "LOCAL DER 1",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "José Manuel Méndez Amago (dueño)",
+    "Number": "LOCAL DER 2",
+    "Phone": "-",
+    "Observation": "El dueño vive en la C/ Alhambra, 102, 3ºD. Se lo alquilamos en diciembre de 2015 por 275€ a un ingeniero como almacén de herramientas (NUEVAS APUESTAS COMERCIALES SL).vendido por nosotros el pequeño de al lado sigue alquilado se lo han quedado las hermanas.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Concepción Montoro Candela, César Cano Rodriguez",
+    "Number": "BºA",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Sin nombre.",
+    "Number": "1ºA",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Santiago Cubino Gallego, Alejandro Dominguez Lizana, Maria Carmen Dominguez Río",
+    "Number": "1ºB",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Raúl Cano Tomas, Ana Rodriguez Valencia.",
+    "Number": "1ºC",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Josefa Torres Corredoira, Aquilino López Álvarez",
+    "Number": "1ºD",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Sin nombre.",
+    "Number": "2ºA",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Teodora Saenz Lopez, Abel Miguel Jimenez",
+    "Number": "2ºB",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Maria Eugenia Angulo Zamorano, Jose María",
+    "Number": "2ºC",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "María Luz Martínez Suárez, Enrique Resco Zazo",
+    "Number": "2ºD",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Jose Francisco Gómez Ruiz, Fernando Sanchez",
+    "Number": "3ºA",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Francisco Javier Molero Díaz, Dolores Sainero",
+    "Number": "3ºB",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Acindino Martínez Francia, Alejandra Rodriguez Martinez, Graciano Rodriguez Alvarez, María Pilar Martinez Francia, Estela Rodriguez Martinez",
+    "Number": "3ºC",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Julia Melendez Sanchez",
+    "Number": "3ºD",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Sin nombre.",
+    "Number": "4ºA",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "María Amparo Moneo Arnaez, Jose Manuel.",
+    "Number": "4ºB",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Felizdania Hernandez Hernandez, Inocencia.",
+    "Number": "4ºC",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Carlos Rodriguez Antibon, Raquel Navarro Alejo",
+    "Number": "4ºD",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "María Carmen Rodriguez Sol",
+    "Number": "5ºA",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Sin nombre.",
+    "Number": "5ºB",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Manuel Recio Cano, María Mercedes González.",
+    "Number": "5ºC",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Milagros Sanchez Martín, Lorenzo Ávila Martín.",
+    "Number": "5ºD",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "María Rosa Rodriguez Santiago, Enrique Antona de Frutos",
+    "Number": "6ºA",
+    "Phone": "ENRIQUE ANTONA (TAXISTA) 626.825.171",
+    "Observation": "Entra Enrique Antona por la puerta de la oficina de Carabias, preguntando que tiene un piso en la  C/ Carracedo que lo tiene alquilado a uno rumanos que se van ha ir de el piso y queria saber cual era el valor del inmueble, por que no sabe si va alquilar o vender. previamente hablo con Cesar el portero que fue el que lo envio a la oficina.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Sin nombre.",
+    "Number": "6ºB",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Sin nombre.",
+    "Number": "6ºC",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "María Teresa Contreras Pascual, Carlos Rodriguez.",
+    "Number": "6ºD",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Sin nombre.",
+    "Number": "7ºA",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Alicia Pirez Calvo, Daniel Robles Pirez",
+    "Number": "7ºB",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "María Carmen Calvo Puente",
+    "Number": "7ºC",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Sin nombre.",
+    "Number": "7ºD",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Flora Garci Martinez Fernandez",
+    "Number": "8ºA",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Candelas Martín Sanz, Ángel Martín Rodriguez",
+    "Number": "8ºB",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Sin nombre.",
+    "Number": "8ºC",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "María Fe Ruiperez Fernández, Pedro Vaquero",
+    "Number": "8ºD",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Sin nombre.",
+    "Number": "9ºA",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Montserrat Pilar Muñoz Almeida",
+    "Number": "9ºB",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "María Rocío Martín Sanz, Atilano Megia Martinez",
+    "Number": "9ºC",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Sin nombre.",
+    "Number": "9ºD",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "María Soledad Mayo Barzano, Carlos Avellano Mayo, Carlos Avellano Martinez, Óscar Avellano Mayo",
+    "Number": "10ºA",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "María Rincón Martínez",
+    "Number": "10ºB",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "María Luz Olmo Milán, Javier Baron Pingarron",
+    "Number": "10ºC",
+    "Phone": 620067287,
+    "Observation": "Le ha tocado el roscón, se pasa a por él.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Sin nombre.",
+    "Number": "10ºD",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Sin nombre.",
+    "Number": "11ºA",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Félix Javier Saez Jauregui Sanz",
+    "Number": "11ºB",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Diego Martínez Contreras, David Martínez Grande",
+    "Number": "11ºC",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Sin nombre.",
+    "Number": "11ºD",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Mónica Moreno Andrés, Lucila Andrés Díez, Miguel",
+    "Number": "12ºA",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Paula Cazorla González",
+    "Number": "12ºB",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Antonio Quevedo Caparros, Fernando Atienza",
+    "Number": "12ºC",
+    "Phone": 917116550,
+    "Observation": "Señor de 85 años, me dice que a lo mejor se  va a Torrelodones  o a Torrejón, y vende el piso. Dice que tiene 4 pisos, hacer seguimiento todas las semanas. Señor muy majo, me promete que lo vamos a vender nosotros. / Simón me comenta que ese señor lleva queriendo vender 7 años y es un auténtico pierdetiempos.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Sin nombre.",
+    "Number": "12ºD",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "-",
+    "Number": "13ºA",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Sin nombre.",
+    "Number": "13ºB",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "María Ángeles Navarro Alejo, Eduardo Gallego",
+    "Number": "13ºC",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 1",
+    "Name": "Sin nombre.",
+    "Number": "13ºD",
+    "Phone": "-",
+    "Observation": "-",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 3",
+    "Name": "Edilma Alegría, Gordo Lugmania",
+    "Number": "1ºIZQ",
+    "Phone": "-",
+    "Observation": "CERRADO VACIO/sigue cerrado (GUILLERMO): No contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 3",
+    "Name": "Enrique Mateos Martín, Emilia Martin de Mateos, Montserrat Mateos Martín",
+    "Number": "1ºDCHA",
+    "Phone": "-",
+    "Observation": "NADIE/nadie (GUILLERMO):NO contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 3",
+    "Name": "Antonio Guijarro Santos, Laura Revilla Martínez",
+    "Number": "2ºIZQ",
+    "Phone": "-",
+    "Observation": "mirillazo (guillermo): no contesta.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 3",
+    "Name": "Teresa Martín García, Juan Carlos Mateos Martín",
+    "Number": "2ºDCHA",
+    "Phone": "-",
+    "Observation": "NADIE/nadie. /(guillermo): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 3",
+    "Name": "Francisco Prieto Codesal, Francisca García Sánchez, Sebastián Prieto García",
+    "Number": "3ºIZQ",
+    "Phone": "-",
+    "Observation": "informador me dice que el 1 esta cerrado pero es de banco. /(GUILLERMO): Me encuentro a sebastian en el portal, chico joven, majo, con prisa que se va, dejo revista.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 3",
+    "Name": "Gregorio Gómez Herguijuela, Josefa Solis de Gómez",
+    "Number": "3ºDCHA",
+    "Phone": "-",
+    "Observation": "NADIE/nadie/(GUILLERMO):NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 3",
+    "Name": "Jose Manuel López Cano Pulido, Esther Fernández Gallardo",
+    "Number": "4ºIZQ",
+    "Phone": "-",
+    "Observation": "CURA INFORMADOR AMIGO CESAR ME CONFIRMA PRIMERO VACIO/kiko es el presidente ahora me va conseguir telefono/se va al pueblo me dice que todo sigue igual/(GUILLERMO): NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 3",
+    "Name": "Francisco Javier García González",
+    "Number": "4ºDCHA",
+    "Phone": "-",
+    "Observation": "NADIE/nadie/(GUILLERMO): NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 3",
+    "Name": "Javier Guillén, J. Manuel Santos",
+    "Number": "5ºIZQ",
+    "Phone": "-",
+    "Observation": "CERRADO CHICOS JOVENES LO TENIAN A LA VENTA EN 12000/sigue cerrado/(GUILLERMO):NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 3",
+    "Name": "Manuel López Fernández, Ángela Román de López",
+    "Number": "5ºDCHA",
+    "Phone": "-",
+    "Observation": "NADIE/(GUILLERMO): SALE DOMINICANA, alquilada , no interesa tiene prisa, dejo folleto.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 17",
+    "Name": "Beatriz Dorado Minguez, Manuel Vila Dorado",
+    "Number": "1ºA",
+    "Phone": "-",
+    "Observation": "No contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 17",
+    "Name": "Evaristo Izquierdo Delgado, Carmen Dominguez, Laura Izquierdo Dominguez",
+    "Number": "1ºB",
+    "Phone": "-",
+    "Observation": "Señor bastante borde, no abre, no interesa",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 17",
+    "Name": "Jose Águila Muñoz, Carmen Águila Yuste",
+    "Number": "2ºA",
+    "Phone": "-",
+    "Observation": "No contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 17",
+    "Name": "Sin nombre",
+    "Number": "2ºB",
+    "Phone": "-",
+    "Observation": "Marroquí alquilado, dejo revista, no le interesa.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 17",
+    "Name": "Rosa María Garde Lamana, Almudena J. de Borbón Garde, A. Eduardo J. de Borbón Vidal, Ruiz Moraga",
+    "Number": "3ºA",
+    "Phone": "-",
+    "Observation": "No contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 17",
+    "Name": "Juan Pablo Salgado",
+    "Number": "3ºB",
+    "Phone": "-",
+    "Observation": "No contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 17",
+    "Name": "Fermín Arenas del Río",
+    "Number": "4ºA",
+    "Phone": "-",
+    "Observation": "No contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 17",
+    "Name": "Emiliano Ramos, Fernanda Tejero",
+    "Number": "4ºB",
+    "Phone": "-",
+    "Observation": "Señora maja, mayor y sorda, dejo revista, posible futura informadora.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 19",
+    "Name": "Nizca Marius",
+    "Number": "1ºA",
+    "Phone": "-",
+    "Observation": "No contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 19",
+    "Name": "Rosa Gómez López, Francisco Herrero",
+    "Number": "1ºB",
+    "Phone": "-",
+    "Observation": "Hablo con Rosalía, señora mayor muy maja, informadora, tiene al marido muy enfermo, dice que son sólo 3 propietarios en el bloque, los demás son alquilados.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 19",
+    "Name": "Sin nombre",
+    "Number": "2ºA",
+    "Phone": "-",
+    "Observation": "Se oyen dominicanos dentro, no abren.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 19",
+    "Name": "Mª Ángeles Cano Sanchez, Marta Bermejo Cano",
+    "Number": "2ºB",
+    "Phone": "-",
+    "Observation": "No contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 19",
+    "Name": "Sin nombre",
+    "Number": "3ºA",
+    "Phone": "-",
+    "Observation": "No contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 19",
+    "Name": "Ismael Fuentes Fernández, Laura Asenjo Cantera",
+    "Number": "3ºB",
+    "Phone": "-",
+    "Observation": "Dominicana, abre portal pero sin saber quién soy y me dice que me vaya. Ni caso. Alquilada no interesa",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 19",
+    "Name": "Jose Luis Martín Sanchez (DNI.11857976-G)",
+    "Number": "4ºA",
+    "Phone": "-",
+    "Observation": "VACIO INVESTIGAR NO TIMBRE/(GUILLERMO):no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 19",
+    "Name": "Michael Stancu",
+    "Number": "4ºB",
+    "Phone": "-",
+    "Observation": "No contesta.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 19",
+    "Name": "Sin nombre",
+    "Number": "5ºA",
+    "Phone": "-",
+    "Observation": "No contesta.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 19",
+    "Name": "Gabriela Sánchez Zancudo, Julián Cano Blanco",
+    "Number": "5ºB",
+    "Phone": 915187571,
+    "Observation": "Hablo con Gabriela, mujer mayor, adorable, apenada que se le ha muerto el marido y vive en un 5º sin ascensor, 80 y pico de años, le aconsejo hablar con sus hijos para vender este piso y comprarse otro cerca de ellos para que no esté mal.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 21",
+    "Name": "ALIOU KEIT/LOUNCENY CONDE",
+    "Number": "1ºIZQ",
+    "Phone": "-",
+    "Observation": "siguen okupas/(Guillermo):no contesta/Dia 01/08/2022 Investigando en zona por una carta del banco de ibercaja veo que  Lounceny tiene una deuda 44€.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 21",
+    "Name": "ANTONIO GARCIA/ANGELA TIRADO",
+    "Number": "1ºDCHA",
+    "Phone": 912594554,
+    "Observation": "NADIE/(Guillermo):familia peruana simpatica, dejo revista y tarjeta, estan de alquiler, en un tiempo quieren comprar.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 21",
+    "Name": "AGUSTINA DOMINGUEZ DE DIEGO/ANGEL DE LA HOZ DOMINGUEZ",
+    "Number": "2ºIZQ",
+    "Phone": "915184789/6368106",
+    "Observation": "vacio confirmado son 5 hijos y la madre vivie en la residencia de villaviciosa, INVESTIGANDO SACAMOS QUE TIENE DOS HIJOS  ROSA Mª DE LA HOZ DOMINGUEZ 917175080 , VIVE EN C ILLESCAS 46 , Y JOSE HOZ DOMINGUEZ  VIVE EN MOSTOLES  912263155 , NACIERON EN FRESNO DE CANTESPINO SEGOVIA /(Guillermo):no contesta, parece vacío. NO LLAMAR METER CARTA BAJO LA PUERTA.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 21",
+    "Name": "JUAN ANTONIO CORRALES MUÑOZ/MERCEDES MARTINEZ MATEOS/",
+    "Number": "2ºDCHA",
+    "Phone": 912594364,
+    "Observation": "NADIE/(Guillermo):no contesta.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 21",
+    "Name": "JUAN GARCIA PORTERO",
+    "Number": "3ºIZQ",
+    "Phone": "917114225 /",
+    "Observation": "SEÑOR MAYOR ME CONFIRMA QUE SU VECINO DE ARRIBA ESTA CERRADO / juan esta viudo y tiene 84 años. Se pasa un dia por la oficina a ver el escaparate y salgo a hablar con el. Me dice que esta pensando en vender su piso e ir a una residencia. Le doy tarjeta. me comenta q los unicos propietarios que quedan en el bloque son los del 4ºizq. muy majo. (04/03/2020)/(Guillermo):hablo con juan, señor mayor majisimo, le echo una mano con la compra, se axfixia con las escaleras, le aconsejo vender e irse a una residencia, pero necesita ayuda con eso, el hombre está deprimido./ VIENE POR LA OFICINA Y QUIERE VENDER UNA PLAZA DE GARAJE EN FUENTESAUCO 8 -3 PLANTA. LA COMPRO EN SU MOMENTO EN 2.000.000 PTAS. LE DECIMOS QUE ENTRE 10.000 Y 12.000€. TAMBIEN QUIERE VENDER SU COCHE UN PEUGEOT 207 DE 15 AÑOS. (28/03/2022)",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 21",
+    "Name": "SIN NOMBRE",
+    "Number": "3ºDCHA",
+    "Phone": "-",
+    "Observation": "NADIE/(Guillermo):no conTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 21",
+    "Name": "Lucio Requejo Rodriguez/Mª Luz Calvo Hernández/Javier Requejo Calvo/Raúl Requejo Calvo",
+    "Number": "4ºIZQ",
+    "Phone": "-",
+    "Observation": "SEÑORA MUY MAJA ME CONFIRMA TAMBIEN 2 CERRADO/(Guillermo):conozco a luz y lucio, señores mayores, ella lleva tiempo sin salir de la casa, y el marido es un poco cortante. Buscan piso para su hijo que se acaba de separar, le dejo revista y tarjeta.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 21",
+    "Name": "CARMEN GUTIERREZ GARCIA",
+    "Number": "4ºDCHA",
+    "Phone": "-",
+    "Observation": "DE ALQUILER CHICOS JOVENES/(Guillermo):NO CONTESTA, ME DICE LUZ QUE NO ESTAN.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 21",
+    "Name": "JOSE SAN JULIAN/CARMEN NISTAL DE LA FUENTE (DNI S50062785-L)",
+    "Number": "5ºIZQ",
+    "Phone": 915188549,
+    "Observation": "NADIE /(Guillermo):NO CONTESTAN",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "MIRLO 21",
+    "Name": "FERNANDO SAMUEZA/MARIANA AMAGUAÑA",
+    "Number": "5ºDCHA",
+    "Phone": "-",
+    "Observation": "NADIE/(Guillermo):NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 23",
+    "Name": "Eduardo A. González Menendez, Mª Teresa Ocaña Sirvent, David González Ocaña, Javier González",
+    "Number": "1ºA",
+    "Phone": "-",
+    "Observation": "NADIE/(Guillermo):no contesta.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 23",
+    "Name": "Manuel Carro Matellán, Natividad Pérez Pastrian, Julio Cesar Carro Pérez, Patricia Carro López",
+    "Number": "1ºB",
+    "Phone": "-",
+    "Observation": "ALQUILADO POR EL NOMBRE DE BUZON PUEDE SER DEL SEÑOR MAYOR QUE LE ALQUILAMOS VILLAVICIOSA/(Guillermo):no contesta.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 23",
+    "Name": "D. Enrique Arancon Morales, Dª Antonia Martín Prados, D. Enrique Arancon Martín",
+    "Number": "1ºC",
+    "Phone": "-",
+    "Observation": "NO ABRE/(Guillermo): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 23",
+    "Name": "WILLIAMS AUGUSTO SAAVEDRA VALDIVIA(DNI 50634625X)/LUZ DORA SILVA RODRIGUEZ(DNI X7097717 D)",
+    "Number": "1ºD",
+    "Phone": "-",
+    "Observation": "NADIE/(Guillermo):no contesta.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 23",
+    "Name": "Sin nombre.",
+    "Number": "2ºA",
+    "Phone": "-",
+    "Observation": "PANCHITOS DE ALQUILER/(Guillermo):hablo con María, alquilada con su pareja, y no interesa, pero dejo revista simpática. Veo un poco el piso por fuera,destrozado. Su perro se llama Pancho.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 23",
+    "Name": "Jimenez López A., Quiros Fontadez, A.",
+    "Number": "2ºB",
+    "Phone": "-",
+    "Observation": "SEÑORA SUDAMERICANA CUIDANDO DE SEÑORA MAYOR/(Guillermo):no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 23",
+    "Name": "Alvaro Fuenseca Martín (dni 50118776-M), Nicolás Alaz",
+    "Number": "2ºC",
+    "Phone": "-",
+    "Observation": "piso vacio/(Guillermo): Hablo con Álvaro, chico jóven, propietario. Simpático dejo revista y tarjeta. Lo acaba de comprar, no interesa.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 23",
+    "Name": "Sultberto Colmenero Galan, Mª del Carmen de la torre Pascual, Esther Colmenero de la Torre.",
+    "Number": "2ºD",
+    "Phone": "-",
+    "Observation": "NADIE/(Guillermo): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 23",
+    "Name": "María Vidal Lorenzo, M. Osa Reyes.",
+    "Number": "3ºA",
+    "Phone": "-",
+    "Observation": "DEJAR EN BUZON NO QUIERE ABRIR/(Guillermo):no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 23",
+    "Name": "Sin nombre.",
+    "Number": "3ºB",
+    "Phone": "-",
+    "Observation": "INFORMADOR ME COMUNICA que se vende un primero /(Guillermo):no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 23",
+    "Name": "Eloy Torrico López, Gloria López Esteban, Laura Torrico López, Víctor Torrico López",
+    "Number": "3ºC",
+    "Phone": "-",
+    "Observation": "NADIE/(Guillermo):Hablo con Eloy, señor muy majo, propietario, no interesa, ha sido financiero, dejo revista y tarjeta.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 23",
+    "Name": "Nosonorol ediciones, Manuel J. Sueiro Abad, Pilar Martin Espinosa",
+    "Number": "3ºD",
+    "Phone": "-",
+    "Observation": "MIRILLAZO/(Guillermo): chico jóven , me abre el portal, pero en la puerta no me deja hablar y no interesa.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 23",
+    "Name": "Rubén Sánchez Pérez, Sonia Peña de San Siderio",
+    "Number": "4ºA",
+    "Phone": "-",
+    "Observation": "NADIE/(Guillermo):hablo con Paulo,chico jóven alquilado, dejo revista.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 23",
+    "Name": "Byron Samueza Amaguaña, Laura Fernanda Pabon Ruiz",
+    "Number": "4ºB",
+    "Phone": "-",
+    "Observation": "NADIE/(Guillermo):no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 23",
+    "Name": "JOSE LUIS LLORENTE FERNANDEZ/MARIA BELEN BERDEAL BRAVO",
+    "Number": "4ºC",
+    "Phone": "-",
+    "Observation": "NADIE/(Guillermo):no contesta /25/03/2022 Investigando encuentra que la madre de Maria Belen Berdeal que se llama Flora Bravo Arevalo tiene en C/ Carracedo 7,4ºC su piso alquilado ha una chica Colombiana que se llama Natalia y esta buscano piso por que le queda un año de contrato.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 23",
+    "Name": "MARIA DOLORES RAMOS TRUJILLO (DNI 02251161 J)/DANIEL FERNANDEZ SANMIGUEL (DNI 05425794 W)",
+    "Number": "4ºD",
+    "Phone": "-",
+    "Observation": "valoracion quieren 180.000 euros,POSIBLE VACIO INVESTIGAR QUERIAN VENDERLO /(Guillermo):Hablo con Carla, chica alquilada , hay otro hombre dentro, y un bebe. Dejo revista y tarjeta, esta liada con los pañales del niño.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 23",
+    "Name": "VICTOR MANUEL RODRIGUEZ MONTERO(DNI 43657690X )",
+    "Number": "5ºA",
+    "Phone": "-",
+    "Observation": "No hay nadie.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 23",
+    "Name": "Sin nombre.",
+    "Number": "5ºB",
+    "Phone": "-",
+    "Observation": "NADIE/(Guillermo):no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 23",
+    "Name": "Cesar",
+    "Number": "5ºC",
+    "Phone": "-",
+    "Observation": "NADIE/(Guillermo):hablo con Elmer, señor alquilado algo desorientado de la vida. Dejo tarjeta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 23",
+    "Name": "Chamorro Benet, Ana Quirona",
+    "Number": "5ºD",
+    "Phone": "-",
+    "Observation": "NADIE/(Guillermo):Hablo con Cristian, son 3 chavales de alquiler, jóvenes, venezolanos, él trabaja en Tempocasa. Dejo revista y tarjeta.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 25",
+    "Name": "Ana Mª Dominguez Guil, George Abi Nahed Dominguez",
+    "Number": "1ºA",
+    "Phone": 917111140,
+    "Observation": "/(Guillermo):no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 25",
+    "Name": "María Peinado",
+    "Number": "1ºB",
+    "Phone": "-",
+    "Observation": "(Guillermo):Hablo con Carmen, señora maja , propietaria , no interesa, dejo revista y tarjeta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 25",
+    "Name": "Sin nombre.",
+    "Number": "2ºA",
+    "Phone": "-",
+    "Observation": "NADIE(Guillermo):Hablo con Frank, majete, chaval joven alquilado, no interesa, dejo tarjeta y revista por si acaso.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 25",
+    "Name": "Mª Elías Nicolás Mateos, Manuela Baez Dominguez, Juan M. G. Saavedra Baez, Vanesa Nicolás Baez",
+    "Number": "2ºB",
+    "Phone": "-",
+    "Observation": "NADIE(Guillermo): Hablo con Manuel, señor majo dejo revista, pero es propietario y no le interesa.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 25",
+    "Name": "Víctor, del Bar Yebes",
+    "Number": "2ºC",
+    "Phone": "-",
+    "Observation": "(Guillermo): EL DUEÑO ES  VICTOR DEL BAR YEBES . Hablo con Helena, señora mayor, han comprado el piso hace 2 años y aparece la hija con el nieto. Dejo revista y tarjeta son rumanos / VA JUAN A SU CASA, 3 DORMITORIOS 1 BAÑO, TOTALMENTE REFORMADA, ITE Y ELECTRICIDAD HECHA, PODRIA VALER ENTRE 160-170, PERO EL QUIERE 190-200.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 25",
+    "Name": "Mª Jesús Moreno Corrales, Beatriz Moreno Corrales, Jesús Moreno Pérez, Guadalupe Corrales Sánchez",
+    "Number": "2ºD",
+    "Phone": "-",
+    "Observation": "ABRE Y CIERRA NO QUIERE NADA(Guillermo):no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 25",
+    "Name": "Joaquín Monco Taracena, Sofía Monco Taracena, Beatriz Monco Taracena, Joaquín Monco Pérez, Sofía Taracena Toro Adelina.",
+    "Number": "3ºA",
+    "Phone": "-",
+    "Observation": "NO ABRE(Guillermo):señora con asistenta, borde, ni abre, no interesa. La cuesta llegar a la puerta oigo muletas o taca taca/ Me comenta Vicente que ha fallecido el dia 26 de Febrero y estuvo en el tanatorio , los hijos lo van a poner a la venta , estar alerta y enviar carta por debajo de la puerta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 25",
+    "Name": "Francisco García González, Ángel García González, Mª González Ramiro, Lourdes González García.",
+    "Number": "3ºB",
+    "Phone": "-",
+    "Observation": "NADIE(Guillermo):no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 25",
+    "Name": "Vicente Silvero Romero, Josefa Morera Pampano, Raquel Silvero Morera, David Silvero Morera",
+    "Number": "3ºC",
+    "Phone": "649.586.118 (Vicente)",
+    "Observation": "VICENTE INFORMADOR JARDINERO ME CONFIRMA SOLO 5 CERRADO/SIGUE CERRADO/NO ESTA VICENTIN(Guillermo):Hablo con Vicente, el presidente, el informante. Maquina de señor.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 25",
+    "Name": "Dolores Carballo",
+    "Number": "3ºD",
+    "Phone": "-",
+    "Observation": "NO ABRE(Guillermo):no contesta, este piso esta cerrado hace años , es de un señor que vive con la madre , y de momento  no quiere hacer nada , esta Luis el Colorao detrás del piso , alerta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 25",
+    "Name": "Jerónimo Bermejo Jiménez",
+    "Number": "4ºA",
+    "Phone": "-",
+    "Observation": "SEÑOR MAYOR (Guillermo):no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 25",
+    "Name": "Luis Armando Maila Quilumba",
+    "Number": "4ºB",
+    "Phone": "-",
+    "Observation": "NADIE(Guillermo):no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 25",
+    "Name": "Josefina Herranz Rueda, Raquel González Herranz",
+    "Number": "4ºC",
+    "Phone": 915188825,
+    "Observation": "(Guillermo):Hablo con Josefina, mujer mayor, maja, no interesa pero dejo revista y tarjeta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 25",
+    "Name": "Antonio alvarez Sanchez rubio, Mª Concepción Corchado Coro, Pablo Corchado Redondo, Elena Álvarez Corchado",
+    "Number": "4ºD",
+    "Phone": "-",
+    "Observation": "ME CONFIRMA 5 CERRADO(Guillermo):no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 25",
+    "Name": "Milagros Sierra Martín, Jose María López Tineo",
+    "Number": "5ºA",
+    "Phone": 917110336,
+    "Observation": "NOS DA LA INFORMACION VICENTE DE QUE MAÑANA DIA 20 DE ENERO 2018 , HACEN LA MUDANZA Y VAN A VENDER , IR A VISITARLOS/ 917.110.336(Guillermo):no contesta/ de momento n o quieren vender aunque no lo descartan , hacer seguimiento /se pasara por la oficina para ver la vivienda,quiere 150.000 euros .",
+    "Tracing": "informacion actualizada por Vicente , me comenta que ya le ha dicho que lo haga con nosotros",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 25",
+    "Name": "Sacramento del Valle, Elisa Ducal",
+    "Number": "5ºB",
+    "Phone": 917110786,
+    "Observation": "(Guillermo):Señores mayores, no interesa , desconfiados, no abren la puerta del todo, con pestillo puesto de seguridad.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 25",
+    "Name": "Mª Rosa Velasco Merino",
+    "Number": "5ºC",
+    "Phone": 625862963,
+    "Observation": "le hacemos valoracion ,lo tiene nuevo y se esta  planteando vender para irse a trabajar fuera,piso reformado de hace un año valoracion 120 empezar en 129/DEMOMENTO NO QUIERE HACER NADA LE PARECE BAJA LA VALORACION EN 130 ELLA QUERRIA SACAR UNOS 140-150",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE MIRLO 25",
+    "Name": "Ana Lashera Moneo",
+    "Number": "5ºD",
+    "Phone": "-",
+    "Observation": "NADIE(Guillermo): se oye television dentro pero no contestan.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 1",
+    "Name": "Ana Cano Pérez",
+    "Number": "1ºA",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE, NO ABRE /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 1",
+    "Name": "Juan Miguel Santiago Ruiz, Concepción Triguero Bustamante, Jonathan Santiago Triguero",
+    "Number": "1ºB",
+    "Phone": "-",
+    "Observation": "SEÑOR CON DOS PERROS  SALCHICHA, PERROS NO ABRE, SEÑOR CON PERROS LE DOY REVISTA POR EL HUECO DE LA PUERTA /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 1",
+    "Name": "Laura Domínguez Domínguez, Aurora Rodríguez Nogales",
+    "Number": "2ºA",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE, NO NABRE /(GUILLERMO): Ariadna, chica española, propietaria, perro Flash, no interesa pero muy maja, futura informadora.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 1",
+    "Name": "Sin nombre.",
+    "Number": "2ºB",
+    "Phone": "-",
+    "Observation": "SOSPECHOSO, NO TIMBRE CHAPA EN PUERTA NO ABRE, NO ABRE /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 1",
+    "Name": "Sin nombre.",
+    "Number": "3ºA",
+    "Phone": "-",
+    "Observation": "PERRITO NO ABRE, PERRO NO ABRE, SEÑOR LATINO COGE REVISTA NO DICE NADA /(GUILLERMO): Mujer, enferma, me abre blanca, apenas me coge la revista, perro yorkshire",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 1",
+    "Name": "Francisco Manuel Arroyo García, Mª del Carmen del Agua Díaz",
+    "Number": "3ºB",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO QABRE, NO ABRE /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 1",
+    "Name": "Daniel Arranz Martina, Daniel Arranz Paraíso, Sandra Arranz Paraíso/ Agueda Paraiso Bobito(dni 50699335-k)",
+    "Number": "4ºA",
+    "Phone": "-",
+    "Observation": "CHICA JOVEN PREGUNTA QUIEN ES Y NO VUELVE A HABLAR NI A  ABRIR, NO LE INTERESA, SE MOLESTA, NO LE INTERESA /(GUILLERMO): no contesta. Puerta antigua/Dia 23/06/2022 investigando en zona por una carta del banco entro que se esta pagando una derrama de 50€ de derrama.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 1",
+    "Name": "Isidoro Jose Alvarez Poveda/Victoria Ruiz Tiemblo/Miguel Ángel Alvarez Ruiz/VERONICA CALIENES",
+    "Number": "4ºB",
+    "Phone": 917115145,
+    "Observation": "NO ABRE, NO ABRE, buzon medio lleno ripolll. ESTA EL BUZON NORMAL NO ABRE DEJO CARTA POR SI ACASO /(GUILLERMO): Sin timbre, INVESTIGAR",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 1",
+    "Name": "Juan Martín Palencia, Gregoria García Iglesias, Juan Pedro Martín García, Juan José Prat Rivero.",
+    "Number": "5ºA",
+    "Phone": "-",
+    "Observation": "SEÑOR MAJO CANOSO COGE FOLLETO, NO ABRE, NON ABRE /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 1",
+    "Name": "Valentín Horrillo/Iván Horrillo Cabezas, Claudia Morrillos Cabezas",
+    "Number": "5ºB",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE, NO ABRE /(GUILLERMO): Blanca , española propietaria, muy maja, la ayudo a abrir el portal, traer calendario",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 1",
+    "Name": "Ignacio Obrero Rodriguez, Macarena Obrero Calvo",
+    "Number": "6ºA",
+    "Phone": "-",
+    "Observation": "SEÑORA NO ME ABRE QUE LO DEJE EN BUZON, NO LE INTERESASEÑORA COGE REVISTA NO SABE NADA , MUY SECA /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 1",
+    "Name": "Mª Blanca Areces López, Enrique Burgaleta Fraile B.Teresa Burgaleta Areces, Noelia Burgalete Areces",
+    "Number": "6ºB",
+    "Phone": "-",
+    "Observation": "SEÑOR ALTO CON GAS RECIEN LEVANTADO, ES MAJO COGE FOLLETO, SEÑOR MAJETE COGE FOLETO, SEÑOR MAJETE POSIBLE INFORMADOR CPGE REVISTA ES HABLADOR /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 1",
+    "Name": "Anastasia Rodríguez, M.Ángel Moreson, Ainara Vara",
+    "Number": "7ºA",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE, CHICA JOVEN DE UNOS 18 OGE REVISTA SOMN INQ /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 1",
+    "Name": "Zurran Rodriguez, Mariel Bdmar, Muriel Zurron",
+    "Number": "7ºB",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE, SEÑOR MAYOR DE UNOS 50 MAJETE CGE REVISTA /(GUILLERMO): Josefina, mujer española propietaria, majisima, INFORMADORA, vendió hace tiempo pero no le suena la empresa nuestra",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 1",
+    "Name": "Sin nombre.",
+    "Number": "8ºA",
+    "Phone": "-",
+    "Observation": "SEÑORA MAJA COGE FOLLETO ABRE PORTAL, NO ME ABRE PORTAL QUE LO DEJE FUERA. DICE QUE NO ME CONOCE POR TANTO NO ME ABRE /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 1",
+    "Name": "Bautista Fernández Mico, Mª José Fernández Fernández, Daniel Fernández Fernández, Sara Fernández Fernández, Bautista Fernández Mico.",
+    "Number": "8ºB",
+    "Phone": "-",
+    "Observation": "NO ABRE, DEJAR EN BUZON, NO ABRE NI PORTAL NI PUERTA /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 7",
+    "Name": "Juan Luis López Álcazar, Carmen Casas Camacho.",
+    "Number": "1ºA",
+    "Phone": 917110768,
+    "Observation": "NO ABRE, LATINO GORDITO BAJITO Y CON GAFAS, LATINA COGE REVISTA DE UNOS 45 AÑOS /(GUILLERMO): Rosa, latina propietaria,",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 7",
+    "Name": "Francisco Bolaños Martínez, Nancy Holguin Feo, Francisco Bolaños Holguin",
+    "Number": "1ºB",
+    "Phone": "-",
+    "Observation": "BUZON LLENO, INVESTIGAR, NO ABRE, BUZON NORMAL NO ABRE /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 7",
+    "Name": "Sin nombre.",
+    "Number": "2ºA",
+    "Phone": "-",
+    "Observation": "NO ABRE,NO ABRE, NO ABRE /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 7",
+    "Name": "Luis Heriberto Ortiz Escobar, Esperanza Noemi Quizhpe, Luis Eduardo Ortiz Quizhpe",
+    "Number": "2ºB",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE, SEÑORA MAYOR MAJA ME DICE QUE SOY MUY GRANDE. SEÑÓRA MAYOR POSIBLE INFORMADORA MUY MAJA NO SABE DE VACIOS PQ CAMBIAN MUICHO LOS VECINOS /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 7",
+    "Name": "Sara Martín",
+    "Number": "3ºA",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE, NO ABRE /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 7",
+    "Name": "Piedad Villacorta García",
+    "Number": "3ºB",
+    "Phone": 917119080,
+    "Observation": "SEÑORA NO LE INTERESA, NO ABRE, NO ABRE ESTA DENTRO /(GUILLERMO): Edita, latina, maja, están los hijos pequeños por ahí.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 7",
+    "Name": "Alicia Grande Custodio, Víctor Raúl Castrillon Grande, Sonia Castrillon Grande, Nuria Castrillon Grande",
+    "Number": "4ºA",
+    "Phone": 917111546,
+    "Observation": "NO ABRE, TV A TODO VOLUMEN  PERO NO ABRE MIRILLAZO /(GUILLERMO): Alicia. Señora mayor muy maja, nos conoce pero no interesa.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 7",
+    "Name": "Jesús María Escudero Vilariño.",
+    "Number": "4ºB",
+    "Phone": "-",
+    "Observation": "SEÑOR MAYOR COGE FOLLETO, NO ABRE, SEÑOR MAYO NO PUEDE ABRIR",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 7",
+    "Name": "Sin nombre.",
+    "Number": "5ºA",
+    "Phone": "-",
+    "Observation": "NO ABRE, CUIDADORA LATINA Y SEÑORA MUY MAYOR COGEN FOLLETO, NEGRITA MAJA ES LA CUIDADORA COGE REVISTA  /(GUILLERMO): Me abre la cuidadora de una señora mayor, la veo en el sofá un poco reventada",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 7",
+    "Name": "Ana Pinero Blanco, Carlos Santos Sánchez Redondo",
+    "Number": "5ºB",
+    "Phone": 915184599,
+    "Observation": "NO ABRE, CHICA GORDITA MORENA CON GAFAS NO LE INTERESA /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 7",
+    "Name": "Antonio Vázquez Lorente, Mª Pilar Fernández Rodrigo, Miguel Ángel Vázquez Fernández",
+    "Number": "6ºA",
+    "Phone": 917113716,
+    "Observation": "NO ABRE, NO ABRE, HA FALLECIDO EL CUÑADO DE PILAR, MAJA INFORMADORA, FAMILIA WILLOW MUY MAJA /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 7",
+    "Name": "juan fernandez garcia/juana carrasco notario/francisca notario romero/m.pilar fernandez carrasco",
+    "Number": "6ºB",
+    "Phone": 917116178,
+    "Observation": "NO ABRE, CHICA CON GAFAS Y MASCARILLA NO LE INTERESA/SEÑORA CON MASCARILA COGE REVISTA /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 7",
+    "Name": "ANTONIO SANCHEZ BOCANTES( D.N.I 03796546-M)",
+    "Number": "7ºA",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE, SEÑOR COGE REVISTA MUY BORDE Y SECO, NO ABRE /(GUILLERMO): Antonio, señor un poco reventado, majete pero apenas puede hablar.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 7",
+    "Name": "isidoro martin valriberas/maria teresa lopez ortega/olga amrtin lopez/ernesto martin lopez",
+    "Number": "7ºB",
+    "Phone": 915185853,
+    "Observation": "NO ABRE, NO ABRE, SEÑORA VIZCA CON GAFAS ME PREGUNTA EN CUANTO SE ESTAN VENDIENDO ESOS PISOS SOLO POR INFORMARSE.SEÑORA MAJA COTILLA, BUENA INFORMADORA COGE REVISTA /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 7",
+    "Name": "ANA ISABEL ILLANES RUIZ",
+    "Number": "8ºA",
+    "Phone": "-",
+    "Observation": "NO ABRE, CHICA MAJISIMA INFORMADORA ES PARALITICA,  CHICA INFORMADORA PARALITICA PERO MAJISIMA,  /(GUILLERMO): Anabel, con discapacidad móvil, super maja, traer calendario.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 7",
+    "Name": "LUIS JIMENEZ /ALICIA ALDEA",
+    "Number": "8ºB",
+    "Phone": 917111806,
+    "Observation": "NO ABRE, NO ABRE,NO ABRE /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 9",
+    "Name": "Osuna Ortuño",
+    "Number": "1ºA",
+    "Phone": "-",
+    "Observation": "MIRILLAZO /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 9",
+    "Name": "María Gema Villalobos Esteban/Fernando Romero Martin Borregon (Dni 05397482-A)",
+    "Number": "1ºB",
+    "Phone": 917118280,
+    "Observation": "NO ABRE, SEÑORA MAJA COGE REVISTA LE INFORMO DE LA VENTA DEL 2 /(GUILLERMO): no contesta/Dia 6/07/2022 hacienzo zona por una carta de luz de endesa veo que Fernando Romero tiene otro piso en Santa Cruz de Tenerife en Luengo 13 en Valle Hermoso ,4 ,1-67 Los Cristianos",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 9",
+    "Name": "Glicerio Antón Martín",
+    "Number": "2ºA",
+    "Phone": 618155444,
+    "Observation": "TIENE VARIOS PISOS ALQUILADOS EN EL BARRIO, NO ABRE,NO ABRE /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 9",
+    "Name": "Rosina Temprano",
+    "Number": "2ºB",
+    "Phone": 917114654,
+    "Observation": "SEÑORA NO ABRE DEJAR EN PUERTA, LO COGEMNOS EN VENTA 149.000€, VENDIDO ESPRANDO ARRAS /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 9",
+    "Name": "Carlos Álvarez Cano, Soledad Cano Martínez, José Antonio Gómez.",
+    "Number": "3ºA",
+    "Phone": 917110242,
+    "Observation": "NO ABRE, NO ABRE ESTA EN LA DUCHA, SEÑORA NO QUIERE ABRIR /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 9",
+    "Name": "Camila Sánchez Bogantes, Ramón García Sánchez, Inmaculada García Sánchez",
+    "Number": "3ºB",
+    "Phone": 917117446,
+    "Observation": "NO ABRE, NO ABRE, CHICa joven coge revista no sabe de vacios INFORMO DE LQ VENTA /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 9",
+    "Name": "Sin nombre.",
+    "Number": "4ºA",
+    "Phone": "-",
+    "Observation": "NOA BRE, NO ABRE, NO ABRE /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 9",
+    "Name": "Ángel Fernández",
+    "Number": "4ºB",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE, SEÑOR MAYOR COGE REVISTA NO MUY SIMPATICO /(GUILLERMO): no contesta / ALQUILADO: El piso es de Ángel, que es un informador muy importante de Simón. Nos da su piso en alquiler en 850€ en enero de 2022./ALQUILADO POR NOSOTROS EN DICIEMBRE 2021  Y ALQUILAMOS EN SU PADRE EN BOADILLA DEL MONTE",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 9",
+    "Name": "Ángel Maso Lobo, Mª Luisa de Maso",
+    "Number": "5ºA",
+    "Phone": 917113612,
+    "Observation": "NO ABRE, NO ABRE, NO ABRE /(GUILLERMO): Carolina, chica latina maja, alquilada, no intereesa, quiere comprar pero en bastante tiempo.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 9",
+    "Name": "María Rosa Carmen Meléndez Sanchez, María Esther Aguilar Meléndez, Jesús Aguilar Haro.",
+    "Number": "5ºB",
+    "Phone": 915184824,
+    "Observation": "SEÑORA MAJA, NO VACIOS, NO ABRE, SEÑORA PELIRFROJA MAJA COGE REVISTA, SEÑORA MJA INFORMADORA COGE REVISTA INFORMO DE VENTA DEL 2 /(GUILLERMO): señora española, no abre la puerta, no le interesa, que le deje la revista en el buzón",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 9",
+    "Name": "Jose Abad Castellanos/pilar murillo marciel/concepcion murillo/",
+    "Number": "6ºA",
+    "Phone": 917112636,
+    "Observation": "PERRAZO NO ABRE, PERRO NO ABRE, NO ABRE HAY PERRO /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 9",
+    "Name": "NO NOMBRE",
+    "Number": "6ºB",
+    "Phone": "-",
+    "Observation": "CHICO JOVEN COGE FOLLETO, NO ABRE PUERTA NUEVA, NO ABRE /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 9",
+    "Name": "ruiz del rosal/lamolda ruiz",
+    "Number": "7ºA",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE CARTEL DE ABUELA EN PUERTA, SEÑORA MUYMAYOR NO ABRE DETRÁS DE PUERTA /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 9",
+    "Name": "PILAR TAGARRO",
+    "Number": "7ºB",
+    "Phone": 917113604,
+    "Observation": "SEÑORA ANTIPATICA NO QUIERE ABRIR, NO ABRE,NO LE INTERESA /(GUILLERMO): señora medio mayor, teletrabajando no me puede atender.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 9",
+    "Name": "MANUEL LOPEZ",
+    "Number": "8ºA",
+    "Phone": "-",
+    "Observation": "SEÑOR MAJO COGE FOLLETO, NO ABRE, SEÑOR MAJETE POSIBLE INFORMADOR COGE REVISTA /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 9",
+    "Name": "NO NOMBRE",
+    "Number": "8ºB",
+    "Phone": "-",
+    "Observation": "NO ABRE, SEÑOR CALVITO MAJETE CON LA CASA SUPE RREFORMADA, CALVITO MAJO COGE REVISTA /(GUILLERMO): no contesta. Puerta muy vieja",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 11",
+    "Name": "Abel Cossio Gonzales, Marcela Ortiz Gonzales, Ximena Cossio Ortiz",
+    "Number": "1ºA",
+    "Phone": "-",
+    "Observation": "CHICO JOVENCITO CON UNA HIJA PEQUEÑA, COGE FOLLETO ES INQUILINO, CHICA JOVEN LATINA CON GAFAS, SALE EN ALQUILER 800 /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 11",
+    "Name": "Mª Socorro Pérez Dieguez, J. Antonio Ibarreche García",
+    "Number": "1ºB",
+    "Phone": 915180892,
+    "Observation": "NO ABRE NO FELPUDO, NO ABRE /(GUILLERMO): me abre señor mayor en tetas, no interesa.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 11",
+    "Name": "Ángeles Rodriguez Ciudad, Miguel Ángel Velix Méndez",
+    "Number": "2ºA",
+    "Phone": "-",
+    "Observation": "CHICA JOVEN DEJAR EN PUERTA NO ABRE, NO LE INTERESA /(GUILLERMO): señora, no abre puerta, no interesa.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 11",
+    "Name": "Pascual Romanillos Vega, Pilar Villalba Corbin",
+    "Number": "2ºB",
+    "Phone": "-",
+    "Observation": "MIRILLAZO, SEÑORA CANOSA COGE REVISTA NOS ABE NADA /(GUILLERMO): señora muy mayor, no sabe ni abrir la puerta, se le cae la baba, no interesa y tiene miedo.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 11",
+    "Name": "Ramón García Sánchez, Mª José Serrano Rodríguez",
+    "Number": "3ºA",
+    "Phone": "-",
+    "Observation": "SOSPECHOSO NO TIMBRE NO FELPUDO, NO ABREN, NO TIMBRE SOSPECHOSO PERO LUEGO VENTANAS Y BUZON BIEN /(GUILLERMO): no contesta, sin timbre ni felpudo",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 11",
+    "Name": "Luisa Guzmán Sanz, Benita G. Yates, Alfonso Manjón Guzmán",
+    "Number": "3ºB",
+    "Phone": "-",
+    "Observation": "LATINA ME DICE QUE SUS VECINOS NO ESTANNO ABRE /(GUILLERMO): me abre latina, cuidadora de una señora mayor, coge la revista y le dice a la dueña que no soy nadie que es una revista.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 11",
+    "Name": "Victoria Orensanz, Martínez López, Victoria Martínez Orensanz, Francisco Martínez Orensanz",
+    "Number": "4ºA",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE /(GUILLERMO): no contesta, mirillazo",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 11",
+    "Name": "Lucía Llamas González",
+    "Number": "4ºB",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 11",
+    "Name": "Elena Fernández, Israel García",
+    "Number": "5ºA",
+    "Phone": "-",
+    "Observation": "PUERTA REVENTADA, POSIBLE OKUPAZO MIRILLAZO, PUERTA CON CHAPA NO ABRE /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 11",
+    "Name": "Familia Franco Ferreira",
+    "Number": "5ºB",
+    "Phone": "-",
+    "Observation": "CHICO JOVEN COGE FOLLETO, NO ABRE /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 11",
+    "Name": "Jaime Tosto Planet",
+    "Number": "6ºA",
+    "Phone": "-",
+    "Observation": "NO ABRE, SEÑOR CALVO DE 40 COGE REVISTA ESTA EN LA DUCHA /(GUILLERMO): chavales jovenes latinos, no interesa. Creo que son de alquiler.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 11",
+    "Name": "Francisca León Torres, Manuela Escobar León",
+    "Number": "6ºB",
+    "Phone": "-",
+    "Observation": "PUERTA NUEVA NO ABRE, NO ABRE /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 11",
+    "Name": "Lucía González González, Manuel Martín Jimenez, Jose Luis Vivanco Martínez, Carmen Feliz González",
+    "Number": "7ºA",
+    "Phone": "-",
+    "Observation": "SEÑOR COGE FOLLETO, NO ABRE /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 11",
+    "Name": "Amparo López Sampedro",
+    "Number": "7ºB",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 11",
+    "Name": "Francisco Conejero Clemente, Basilia Alcon Gordo, Juan Conejero Alcon",
+    "Number": "8ºA",
+    "Phone": 917119093,
+    "Observation": "NO ABRE, , SEÑOR MUY MAYOR XCON GAFAS COGE FOLLETO /(GUILLERMO): Juan, señor mayor, propietario, majo. Dejo revista y calendario.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 11",
+    "Name": "Carmen Luisa Aranda Domínguez, esteban Puerto Ponce",
+    "Number": "8ºB",
+    "Phone": "-",
+    "Observation": "NO ABRE,NO LE FUSTA QUE SUBAM MOS A LOS PISOS PERRO NEGRO /(GUILLERMO): no contesta",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 13",
+    "Name": "LORENZO GARVIN ROCIO/CONSUELO GARVIN MORCUENDE / SUSANA LORENZO",
+    "Number": "1ºA",
+    "Phone": "-",
+    "Observation": "son todos de la familia Garvin , Maria son dueños del local de debajo de mudanzas tambien SEÑORA BAJITA COGE FOLLETO, SEÑORA MAYOR DE PELO CORTO Y GAFAS COGE REVFISTA, SEÑORA MAJA POSIBLE INFORMADORA COGE REVISTA NO SABE DE VACIOS AUNQUE HAY UN SEGUNODO SOSPECHOSO /(GUILLERMO): NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 13",
+    "Name": "CANDIDA DOMINGUEZ SOBRINO/JUAN PERLADO PEÑA/MºCARMEN PERLADO DOMINGUEZ / Mº ANGELES PERLADO DOMINGUEZ",
+    "Number": "1ºB",
+    "Phone": "-",
+    "Observation": "SE ESCUCHA MUSICA Y GENTE JOVEN NO ABRENSEÑORA PELO RUBIO RIZADO Y CON GAFAS ROJAS COGE REVISTA Y ME DA LAS GRACIAS  MAJA, SEÑORA MAJA RUBITA COGE REVISTA/(GUILLERMO): NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 13",
+    "Name": "ROCIO LORENZO GARVIN/CONSUELO GARVIN MORCUENDE (DNI 01065622-D)",
+    "Number": "1ºC",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE, NO ABREN DEBEN SER FAMILIA DE LOS DEL 1ºA/(GUILLERMO): SEÑORA MAJA./Dia 01/08/2022 Investigando en zona por una carta de iberdrola de luz que tiene otra vivienda en C/Cristo ,7,Bjº1 Villanueva de la Vera (Caceres).",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 13",
+    "Name": "GONZALEZ HERNANDEZ MARCOS/PLACIDO /HERNANDEZ HERNANDEZ/ LUZ DIVINA HERNANDEZ HERNANDEZ",
+    "Number": "2ºA",
+    "Phone": "650,31,09,44 (gema, HIJA)",
+    "Observation": "NO ABRE, NO ABRE / piso con ascensor y por la zona de colonia jardin/ campamento. La hija vive en ctra de boadilla.  /(GUILLERMO): NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 13",
+    "Name": "ANTONIO PEREZ ARRANZ / PAQUITA MENDOZA GALAN",
+    "Number": "2ºB",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE, SEÑORA MUY MAYOR COGE REVISTA/(GUILLERMO): NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 13",
+    "Name": "ALFONSO LEON TORRES/BEATRIZ CARMONA FERNANDEZ",
+    "Number": "2ºC",
+    "Phone": "-",
+    "Observation": "ESTAN DE OBRAS NO TIENE TIMBRE ES SOSPECHOSO, NO ABRE, NO ABRE PERSIANAS MUY CERRADAS/(GUILLERMO): MUJER AL TELÉFONO, ESPAÑOLA, NO INTERESA.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 13",
+    "Name": "FLORENTINO PRIETO/ ALBERTO PRIETO MORAN/ JOSE LUIS PRIETO MORAN",
+    "Number": "3ºA",
+    "Phone": "-",
+    "Observation": "NO ABRE, CHICO JOVEN DICE QUE ES PROPIIETARIO CON PERRAZO INHUMANO, CHICO JOVEN CON PERRAZO/(GUILLERMO): PERRO DENTRO, NADIE CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 13",
+    "Name": "DORU MARIAN AXINTE/MIHAELA AXINTE",
+    "Number": "3ºB",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE,NO ABRE SON RUMANOS/(GUILLERMO): SIN TIMBRE, TODO NORMAL, NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 13",
+    "Name": "FERNANDO CARRASCO / MERCEDES LAZARO/ FERNANDO CARRASCO LAZARO/ ALEJANDRO CARRASCO LAZARO/ Mº MERCEDES CARRASCO LAZARO",
+    "Number": "3ºC",
+    "Phone": "-",
+    "Observation": "NO ABRE NO ABRE/(GUILLERMO): SEÑOR MAJO, CON GAFAS, MUESTRA MUY POCO INTERÉS.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 13",
+    "Name": "JOSE OCHOA PALACIOS/MªVICENTA RUS/ FCA ANTONIA NOVOA RUX",
+    "Number": "4ºA",
+    "Phone": "-",
+    "Observation": "NO ABRE, MATRIMONIO MUY MAYOR COGE REVISTA  INFORMADORES, SEÑOR MUY MAYOR COGE REVISTA/(GUILLERMO): SEÑOR MAYOR, NO OYE.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 13",
+    "Name": "JOSE LUIS PRIETO",
+    "Number": "4ºB",
+    "Phone": "-",
+    "Observation": "SEÑORA MAJA ABRE PORTAL CF, CHICA JOVEN CON GAFAS MUY DELGADITA COGE REVISTA ES INQUILINA NO QUIERE COMPRAR, INQUILINA MAJA JOVENCITA COGE REVISTA/(GUILLERMO):  SIN TIMBRE, SIN FELPUDO",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 13",
+    "Name": "DIONISIO NAVARRETE MANJON/MARGARITA TORREJON TORRES/ANABEL NAVARRETE TORREJON/ DIONSIO NAVARRETE TORREJON",
+    "Number": "4ºC",
+    "Phone": "630390319, 607827046",
+    "Observation": "FEO SIN CAMISA COGE FOLLETO, DIONI QUIERE COMPRAR PARA SU HIJA Y EL NOVIO, TIDENE 7000 DE AHORRO Y QUIEREN ALGO ECONOMICO VIVIEN EN SESEÑA NUEVO POR 600 DE ALQUILER, SI SE ENTERA DE ALGUN PISO EN VENTA NOS DIRA, NO ABRE VIO PISOS CON NOSOTROS, DIONISIIO SIGUE BUSCANDO PARA SU HIJA/(GUILLERMO): SEÑORA DENTRO DICE ALGO DE TECNOCASA Y NO ABRE.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 15",
+    "Name": "Luis Martín Prados, Carmen Prados Catalan, Primitivo Martin Sanz",
+    "Number": "1ºA",
+    "Phone": "-",
+    "Observation": "NOA BRE, NO ABRE, NO ABRE /(GUILLERMO): CHAVAL ESPAÑOL, JÓVEN, NO INTERESA, NO ABRE.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 15",
+    "Name": "Ana Rosario Cando Sisa",
+    "Number": "1ºB",
+    "Phone": "-",
+    "Observation": "LATINA DOMINICANA DE ALQUILER, COGE FOLLETO, LATINA FEUCHA Y MARIDO AUN MAS FEO LATINOS DOMINICANOS, DONICANO COGE REVISTA SON INQUILINOS/(GUILLERMO): SEÑORA DOMINICANA, MAJA, ALQUILADA.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 15",
+    "Name": "Araceli González, Felisa González, Jose A. González",
+    "Number": "2ºA",
+    "Phone": "-",
+    "Observation": "NO ABRE INTENTAR HACER TARATURA TELEFONICA A VER SI NOS DA EL TELEFONO DEL 4ºA, NO ABRE, NO ABRE DEJO CARTA/(GUILLERMO): NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 15",
+    "Name": "Luis de la Fuente, Ana Aparicio",
+    "Number": "2ºB",
+    "Phone": "-",
+    "Observation": "INQUILINA MEDIO MORA, MAJA CON UNA NIÑA PEQUEÑA, COGE FOLLETO./ los dueños compraron con nosotros varios pisos ( Luis ), NO ABRE/(GUILLERMO): LATINO ALQUILADO, NO HABLA APENAS.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 15",
+    "Name": "Moisés Ortiz Ortiz, Jose Rafael Martínez Martínez, Ramón Teodoro Colón,Eulalia Alemania Martinez Martines.",
+    "Number": "3ºA",
+    "Phone": "-",
+    "Observation": "LATINA MAJA INFORMADORA, ES INQUILINA PERO INFORMA DE TODO EL BLOQUE, NO ABRE PUERTA CON 5 CERROJOS, INQUILINA LATINA MAJA NO VACIOS O NO SABE/(GUILLERMO): MOISÉS, DOMINICANO, ALQUILADO",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 15",
+    "Name": "Damaris Feliz Feliz, Estalin Mancebo Feliz",
+    "Number": "3ºB",
+    "Phone": "-",
+    "Observation": "LATINA VIZCA GORDA Y  MAJA, COGE FOLLETONO ABRE, LATINA OINQULINA MUY FEA COGE REVISTA/(GUILLERMO): DOMINICANA ALQUILER",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 15",
+    "Name": "Feliciano Hernández Gómez, Dolores Blázquez Blázquez, Feliciano Hernández Blázquez",
+    "Number": "4ºA",
+    "Phone": "-",
+    "Observation": "NOTICIA DE VICENTE INVESTIGAR, ESTA VACIO, ES UNA HERENCIA, SIGUE VACIO DEJO CARTA HAY QUE IR A BOADILLA A VER SI ESTA FELICIANO, NO ABRE SIGUE IGUAL YA LE DEJE UNA CARTA A FELICIANO EN BOADILLA, DEJO OTRA CARTA/(GUILLERMO): NO CONTESTA",
+    "Tracing": "Sra mayor con Alzheimer que se pierde a menudo , nacio en Llerena y vive en Merida , pero esta viviendo con la hija aquí , Purificacion Herrezuelo Esteban , la policia nacional la deja en casa y nos da la informacion , yo les llame ( Juan )",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 15",
+    "Name": "Gabina Arias Rodríguez, Santos Arias Rodríguez",
+    "Number": "4ºB",
+    "Phone": "-",
+    "Observation": "NO ABRE, SEÑORA MEDIO SORDA QUE LO DEJE EN BUZON, DEJAR EN BUZON NO ABRE/(GUILLERMO): SEÑORA DOMINICANA, NO ABRE, DICE QUE LA DUEÑA NO ESTÁ",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 15",
+    "Name": "Julián Chueca Millán, Mª Juana Novoa Rus",
+    "Number": "5ºA",
+    "Phone": "-",
+    "Observation": "SEÑORA MAYOR NO LE INTERESA, NO ABRE/(GUILLERMO): SEÑORA CON BASTÓN O MULETAS DENTRO, NO ABRE.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 15",
+    "Name": "Sin nombre",
+    "Number": "5ºB",
+    "Phone": "-",
+    "Observation": "NO PUEDE ABRIR DEJAR EN PUERTA, NO QUIERE COMPRAR NI VENDER NI REVISTA NI NADA, NO LE INTERESA Y SE VA A LA PLAYA, NO ABRE/(GUILLERMO): SIN TIMBRE, NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 15",
+    "Name": "Emilio Herrero Sánchez, Mónica Pulgar Sánchez, Adrián Herrero Pulgar, David Herrero Pulgar",
+    "Number": "6ºA",
+    "Phone": "-",
+    "Observation": "CHICO JOVEN MAJETE, DICE QUE NOS ABE DE PISOS VACIOS., NO ABRE/(GUILLERMO): ME ABRE EL HIJO DEL DUEÑO, MAJO.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 15",
+    "Name": "Mª Esperanza Sánchez Escalonilla, Alfredo Ballesteros Sánchez",
+    "Number": "6ºB",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE, SEÑORA MAJA COGE REVISTA/(GUILLERMO): SIN FELPUDO. NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 15",
+    "Name": "Antonio Pérez Mendoza, Mª José Martín García",
+    "Number": "7ºA",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE, SEÑOR ANTIPATICO NO LE INTERESA/(GUILLERMO): SEÑORA LATINA, ALQUILADA, NO INTERESA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 15",
+    "Name": "Elvira Tost, Jaime Tost, Daniel Tost",
+    "Number": "7ºB",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE/(GUILLERMO): NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 15",
+    "Name": "Mª Isabel Abelleira Barahona, Cristina Aznar Aballeira",
+    "Number": "8ºA",
+    "Phone": "-",
+    "Observation": "NO TIMBRE NO ABRE PERO LA VECINA DICE QUE VIVE ALLI, NO ABRE/(GUILLERMO): NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 15",
+    "Name": "epifania reyes/socrates cespedes/deyomira cespedes",
+    "Number": "8ºB",
+    "Phone": "662.242.255(DAVID)689.508.910(JORGE)",
+    "Observation": "VENEZOLANA CON NIÑA PEQUELA MAJA, COGE FOLLETO, NO ABRE/(GUILLERMO): DORIANA, ME ABRE LA AMIGA DE LA QUE VIVE AHÍ, CREO QUE ALQUILADA, VENEZOLANA./JUAN : ESTE ES EL PISO QUE ME DAN EL TELEFONO DAVID CASAS : 662242255 Y JORGE CASAS 689508910, SE ACABA DE IR EL DE TALLER DE MOTOS DE MIRLO , DANI EL VENEZOLANO Y YA LO QUIEREN VENDER O ALQUILAR HABLO CON JORGE QUE ES MAS SECO Y DICE QUE VA LA COSA DESPACIO . / SEGUIMIENTO CADA 15 DIAS PARA COGERLO / SE LO HA DADO A ALDEA EN 149.900 €  / Llamo a Jorge y me dice que ya lo han vendido aunque Aldea lo ssigue teniendo a la venta en idealista .",
+    "Tracing": "22/09/2021/(GUILLERMO): 16/12/2021/ 10/02/22 02/03/22",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 17",
+    "Name": "Ana Mª Salmerón Castellanos, Encarnación Felipe Lorenzo",
+    "Number": "1ºA",
+    "Phone": "-",
+    "Observation": "NO ABRE, SEÑORA INFORMADORA MAJA COGE REVISTA NO VACIOS, SEÑORA  MAJA ME DICE QUE LOS DE AL LADO LLEVAN DE OBRA MUCHO TIEMPO/(GUILLERMO): DOMINICANOS ALQUILADOS",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 17",
+    "Name": "Cruz Rodero Santos, Miriam Garrido Deogracias",
+    "Number": "1ºB",
+    "Phone": "-",
+    "Observation": "OBRAS, NO ABRE, SIGUEN DE OBRAS NO HAY NADIE SE VE EL SUELO CON CARTONES DE OBRA/(GUILLERMO): GENTE DENTRO ARRASTRANDO LOS PIES, NO CONTESTAN",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 17",
+    "Name": "Sin nombre.",
+    "Number": "2ºA",
+    "Phone": "-",
+    "Observation": "CHICA JOVEN MUY GUAPA EN PIJAMA MAJA, CHICA MAJISIMA NO SABE NADA, NO ABRE/(GUILLERMO): CHAVAL JÓVEN ESPAÑOL MEDIO DORMIDO NO HABLA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 17",
+    "Name": "Mª Carmen Pérez Sánchez",
+    "Number": "2ºB",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE, NO ABRE/(GUILLERMO): NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 17",
+    "Name": "Jose Antonio Mateo Olmos, Beatriz Mateos Olmos",
+    "Number": "3ºA",
+    "Phone": "-",
+    "Observation": "NO ABRE, SEÑOR DE UNOS 40 RARITO NO SABE NADA, SEÑORA MAJILLA COGE REVISTA NO VACIOS/(GUILLERMO): NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 17",
+    "Name": "Nerea Reviejo Meneses/Manuel Petrut Feticu",
+    "Number": "3ºB",
+    "Phone": "-",
+    "Observation": "MUJER JOVEN ALTA, MAJA, COGE FOLLETO, NO ABRE /(GUILLERMO): NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 17",
+    "Name": "Gilberto Henao Osorio, Gloria Elena Murillo Cardona",
+    "Number": "4ºA",
+    "Phone": "-",
+    "Observation": "NO ABRE, LATINO DE ALQUILER NOO QUIERE COMPRAR, SEÑOR LATINO COGE REVISTA/(GUILLERMO): NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 17",
+    "Name": "Herminia Raso Ruiz, María García Raso, Sara García Raso.",
+    "Number": "4ºB",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO LE INTERESA DESDE PUERTA/(GUILLERMO): SARA, PROPIETARIA, MUY MAJA, HIJA DE ESPAÑOLES PROPIETARIOS",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 17",
+    "Name": "julia ruiz rames",
+    "Number": "5ºA",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE, NO ABRE/(GUILLERMO): WISLEIKA VENEZOLANA, ALQUILADA MAJA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 17",
+    "Name": "Óscar Espinosa, Carlos Cadena, Laura Cadena",
+    "Number": "5ºB",
+    "Phone": "-",
+    "Observation": "SEÑOR PARECIDO A JOSELITO MAJO, COGE FOLLETO, SEÑOR MAJETE POSIBLE INFORMADOR COGE REVISTA/(GUILLERMO): NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 17",
+    "Name": "Mariano Martín Pérez, María José García Quiros",
+    "Number": "6ºA",
+    "Phone": "-",
+    "Observation": "HERENCIA, SEGUIR INVESTIGANDO, NO ABRE NADIE DEJO CARTA/(GUILLERMO): NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 17",
+    "Name": "Sin nombre.",
+    "Number": "6ºB",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE, NO ABRE DEJO CARTA/(GUILLERMO): NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 17",
+    "Name": "Sin nombre.",
+    "Number": "7ºA",
+    "Phone": "-",
+    "Observation": "SON DOS PISOS UNIDOS ME ABRE LA CUIDADORA LATINA COGE FOLLLETO MAJA, CONOCE A SIMON, VECINA INFORMADORA MAJA, SEÑORES MUY MAYORES/(GUILLERMO): UNIDO CON EL B, ME ABRE LA DE LA LIMPIEZA.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 17",
+    "Name": "Sin nombre.",
+    "Number": "7ºB",
+    "Phone": "-",
+    "Observation": "SON DOS PISOS UNIDOS ME ABRE LA CUIDADORA LATINA COGE FOLLLETO MAJA, CONOCE A SIMON, VECINA INFORMADORA MAJA, SEÑORES MUY MAYORES/(GUILLERMO): NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 17",
+    "Name": "Mª Ángeles Hidalgo García, Carlos González del Castillo",
+    "Number": "8ºA",
+    "Phone": 601069376,
+    "Observation": "LOCA QUE LO DEJE EN BUZON, NO LE INTERESA, NO QUIERE ABRIR/(GUILLERMO): MARI ANGEL, PONE EN UNA DENUNCIA QUE TIENE PEGADA EN LA PUERTA, LA HAN ENTRADO A ROBAR EN CASA, NO ABRE, HABLA CONMIGO MUY POCO DETRÁS DE LA PUERTA.",
+    "Tracing": "-",
+    "ZoneId": 1
+  },
+  {
+    "Address": "CALLE DE AZOR 17",
+    "Name": "Sin nombre. ALQUILADO MISMA PROPIETARIA QUE EL 8A",
+    "Number": "8ºB",
+    "Phone": "-",
+    "Observation": "NO ABRE, NO ABRE, NO ABRE/(GUILLERMO): NO CONTESTA",
+    "Tracing": "-",
+    "ZoneId": 1
+  }
+]
