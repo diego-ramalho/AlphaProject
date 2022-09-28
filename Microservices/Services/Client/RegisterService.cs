@@ -30,7 +30,7 @@ namespace WebApiTemplate.Services.Client
             //var teste = _context.I.Items["User"];
 
 
-            return _context.Registers.ToList();
+            return _context.Registers.OrderBy(r => r.Address).ToList();
         }
 
         public Register GetById(int id)
