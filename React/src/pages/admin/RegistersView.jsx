@@ -161,7 +161,7 @@ function RegistersView({ match })
             </div>
             <div className="form-group">
                 {/* <Link to={'/Admin/Registers'} className="btn btn-primary">Back</Link> */}
-                <button class="btn btn-primary" onClick={(evt) => { evt.preventDefault(); navigate(-1); }}>Back</button>
+                <button class="btn btn-primary" onClick={(evt) => { evt.preventDefault(); navigate(-1); }}>Retroceder</button>
             </div>
         </form>
     );

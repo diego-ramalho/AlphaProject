@@ -46,7 +46,7 @@ function EncargosView({ match })
                 </div>
             </div>
             <div className="form-group">
-                <button class="btn btn-primary" onClick={(evt) => { evt.preventDefault(); navigate(-1); }}>Back</button>
+                <button class="btn btn-primary" onClick={(evt) => { evt.preventDefault(); navigate(-1); }}>Retroceder</button>
             </div>
         </form>
     );
