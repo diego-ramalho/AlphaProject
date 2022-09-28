@@ -109,6 +109,9 @@ const PisosVendidos = () =>
                             </TableRow>
                         </TableHead>
                         <TableBody>
+
+                            {content}
+
                             {registers
                                 .filter(x => x.address.includes(searchRegisterStore))
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
