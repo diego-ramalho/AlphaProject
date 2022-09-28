@@ -40,11 +40,23 @@ namespace WebApiTemplate.Controllers
 
             List<RegisterIn> items = new List<RegisterIn>();
 
-            using (StreamReader r = new StreamReader($"Files/{json_file}"))
+            try
             {
-                string json = r.ReadToEnd();
-                items = JsonConvert.DeserializeObject<List<RegisterIn>>(json);
+                using (StreamReader r = new StreamReader($"Files/{json_file}"))
+                {
+                    string json = r.ReadToEnd();
+                    items = JsonConvert.DeserializeObject<List<RegisterIn>>(json);
+                }
+
+                import_result = false;
             }
+            catch (Exception e)
+            {
+                import_result = false;
+
+                throw new Exception(e.Message);
+            }
+            
 
             _registerService.AddBulk(items);
 
