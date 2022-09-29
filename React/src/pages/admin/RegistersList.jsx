@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { useRegisterActions, useZoneActions } from '../../_actions';
+import { searchRegister } from '../../store/searchRegisterSlice';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { useRegisterActions, useZoneActions } from '../../_actions';
 
 function RegistersList()
 {
@@ -11,11 +13,15 @@ function RegistersList()
     const path = '/Admin/Registers';
     const pathView = '/Registers';
     const baseUrl = `${process.env.REACT_APP_API_URL}/register`;
+
+    const dispatch = useDispatch();
+
     const [registers, setRegisters] = useState(null);
 
     const [zonesList, setZones] = useState([]);
 
     const zoneStore = useSelector(state => state.zone);
+    const searchRegisterStore = useSelector(state => state.searchRegister);
 
     const registerActions = useRegisterActions();
     const zoneActions = useZoneActions();
@@ -40,36 +46,71 @@ function RegistersList()
         });
     }
 
+    useEffect(() =>
+    {
+        if (document.querySelector('#search').value === "")
+        {
+            dispatch(searchRegister(""));
+        }
+    }, []);
+
+    const handleSearch = (event) =>
+    {
+        let inputValue = event.target.value;
+
+        // if (inputValue.length >= 3)
+        // {
+        //testeee = {...people.filter(x => x.address.includes(inputValue))};
+        dispatch(searchRegister(inputValue))
+        //alert(inputValue);
+        // userActions.getAll()
+        //   .then(x => setPeople(x
+        //     .filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0)
+        //     .filter(x => x.address.includes(inputValue))));
+        //}
+    };
+
 
     return (
         <div>
             <h1>Taratura</h1>
             <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Agregar</Link>
+
+            <div class="input-group">
+                {/* <Icon.Search className='Input-FontAwesomeIcon' /> */}
+                <input id="search" type="text" class="form-control" name="search" placeholder="buscar por direccion" onChange={handleSearch} />
+            </div><br />
+
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th style={{ width: '70%' }}>Direccion</th>
-                        <th style={{ width: '20%' }}>Zona</th>
+                        <th style={{ width: '50%' }}>Direccion</th>
+                        <th style={{ width: '25%' }}>Puerta</th>
+                        <th style={{ width: '15%' }}>Zona</th>
                         <th style={{ width: '10%' }}></th>
                     </tr>
                 </thead>
                 <tbody>
-                    {registers && registers.filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0).map(register =>
-                        <tr key={register.id}>
-                            {/* <td>{register.address}</td> */}
-                            <td><Link to={`${pathView}/view/${register.id}`} className="link-to-view">{register.address}</Link></td>
-                            <td>{zonesList.filter(x => x.id === register.zoneId).map(x => x.zoneName)}</td>
-                            <td style={{ whiteSpace: 'nowrap' }}>
-                                <Link to={`${path}/edit/${register.id}`} className="btn btn-sm btn-primary mr-1">Editar</Link>
-                                <button onClick={() => deleteRegister(register.id)} className="btn btn-sm btn-danger btn-delete-register" disabled={register.isDeleting}>
-                                    {register.isDeleting
-                                        ? <span className="spinner-border spinner-border-sm"></span>
-                                        : <span>Eliminar</span>
-                                    }
-                                </button>
-                            </td>
-                        </tr>
-                    )}
+                    {registers && registers
+                        .filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0)
+                        .filter(x => x.address.includes(searchRegisterStore))
+                        .map(register =>
+                            <tr key={register.id}>
+                                {/* <td>{register.address}</td> */}
+                                <td><Link to={`${pathView}/view/${register.id}`} className="link-to-view">{register.address}</Link></td>
+                                <td>{register.number}</td>
+                                <td>{zonesList.filter(x => x.id === register.zoneId).map(x => x.zoneName.split(" ")[1])}</td>
+                                <td style={{ whiteSpace: 'nowrap' }}>
+                                    <Link to={`${path}/edit/${register.id}`} className="btn btn-sm btn-primary mr-1">Editar</Link>
+                                    <button onClick={() => deleteRegister(register.id)} className="btn btn-sm btn-danger btn-delete-register" disabled={register.isDeleting}>
+                                        {register.isDeleting
+                                            ? <span className="spinner-border spinner-border-sm"></span>
+                                            : <span>Eliminar</span>
+                                        }
+                                    </button>
+                                </td>
+                            </tr>
+                        )}
                     {!registers &&
                         <tr>
                             <td colSpan="4" className="text-center">

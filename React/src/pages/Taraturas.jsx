@@ -34,10 +34,10 @@ const Taraturas = () =>
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(25);
 
-  const [people, setPeople] = useState([]);
+  const [registers, setRegisters] = useState(null);
   const [zoneList, setZoneList] = useState([]);
 
-  const userActions = useRegisterActions();
+  const registerActions = useRegisterActions();
   const zoneActions = useZoneActions();
 
   const dispatch = useDispatch();
@@ -61,10 +61,11 @@ const Taraturas = () =>
     //userActions.getAll().then(x => setPeople(x)).filter(r => r.zoneId == zoneStore);
     //alert(zoneStore);
     //setTimeout(userActions.getAll().then(x => setPeople(x)), 3000)
-    setIsLoading(true);
-    userActions.getAll().then(x => setPeople(x.filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0)));
+    //setIsLoading(true);
+    registerActions.getAll().then(x => setRegisters(x.filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0)));
+    //registerActions.getAll().then(x => setRegisters(x));
     zoneActions.getAll().then(x => { setZoneList(x); });
-    setIsLoading(false);
+    //setIsLoading(false);
   }, [zoneStore]);
 
   //useEffect(() => { fetchPeopleHandler(); }, []);
@@ -119,9 +120,9 @@ const Taraturas = () =>
 
   let content;
 
-  if (error) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>{error}</div></TableCell></TableRow>; }
-  else if (people.filter(x => x.address.includes(searchRegisterStore)).length === 0 && !isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>¡No hay registros!</div></TableCell></TableRow>; }
-  else if (isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>Cargando...</div></TableCell></TableRow>; }
+  // if (error) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>{error}</div></TableCell></TableRow>; }
+  // else if (registers.filter(x => x.address.includes(searchRegisterStore)).length === 0 && !isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>¡No hay registros!</div></TableCell></TableRow>; }
+  // else if (isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>Cargando...</div></TableCell></TableRow>; }
   // else { content = <User people={people} />; }
 
   //const zone = useSelector(state => state.zone);
@@ -155,9 +156,9 @@ const Taraturas = () =>
             </TableHead>
             <TableBody>
 
-              {content}
+              {/* {content} */}
 
-              {people
+              {registers && registers
                 //.filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0)
                 .filter(x => x.address.includes(searchRegisterStore))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -170,7 +171,7 @@ const Taraturas = () =>
                         let value = person[column.id];
                         if (column.id == 'zoneId')
                         {
-                          value = zoneList.filter(x => x.id === person.zoneId).map(x => x.zoneName);
+                          value = zoneList.filter(x => x.id === person.zoneId).map(x => x.zoneName.split(" ")[1]);
                         }
                         if (column.id == 'address')
                         {
@@ -188,13 +189,27 @@ const Taraturas = () =>
                     </TableRow>
                   );
                 })}
+              {!registers &&
+                <tr>
+                  <td colSpan="4" className="text-center">
+                    <div className="spinner-border spinner-border-lg align-center"></div>
+                  </td>
+                </tr>
+              }
+              {registers && !registers.length &&
+                <tr>
+                  <td colSpan="4" className="text-center">
+                    <div className="p-2">¡No hay registros!</div>
+                  </td>
+                </tr>
+              }
             </TableBody>
           </Table>
         </TableContainer>
         <TablePagination
           rowsPerPageOptions={[10, 25, 100]}
           component="div"
-          count={people.filter(x => x.address.includes(searchRegisterStore)).length}
+          count={registers && registers.filter(x => x.address.includes(searchRegisterStore)).length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}
