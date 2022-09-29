@@ -48,7 +48,7 @@ namespace WebApiTemplate.Controllers
                     items = JsonConvert.DeserializeObject<List<RegisterIn>>(json);
                 }
 
-                import_result = false;
+                import_result = true;
             }
             catch (Exception e)
             {
