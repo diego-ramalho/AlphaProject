@@ -17,7 +17,7 @@ builder.Services.AddCors(options =>
                           builder.WithOrigins("http://localhost:3000",
                                               "http://localhost:3001",
                                               "https://coloniajardininmo.com",
-                                              "https://*.coloniajardininmo.com")
+                                              "https://www.coloniajardininmo.com")
                             .AllowAnyMethod()
                             .AllowAnyHeader();
                       });

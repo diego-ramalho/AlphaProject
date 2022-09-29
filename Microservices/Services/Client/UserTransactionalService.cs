@@ -121,6 +121,8 @@ namespace WebApiTemplate.Services.Client
             _user.Email = user.Email;
             _user.RoleId = user.RoleId;
 
+            if (!String.IsNullOrEmpty(user.Password)) _user.Password = user.Password;
+
             _context.Users.Update(_user);
             _context.SaveChanges();
         }
