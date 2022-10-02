@@ -31,13 +31,13 @@ export const routes_admin = [
         enabled: true,
         component: AdminUsers
     },
-    {
-        key: 'admin-records-route-2',
-        title: appLang.pt.menu.admin['item-02'],
-        path: '/Admin/Registers',
-        enabled: true,
-        component: AdminRegisters
-    },
+    // {
+    //     key: 'admin-records-route-2',
+    //     title: appLang.pt.menu.admin['item-02'],
+    //     path: '/Admin/Registers',
+    //     enabled: true,
+    //     component: AdminRegisters
+    // },
     {
         key: 'admin-records-route-3',
         title: appLang.pt.menu.admin['item-03'],

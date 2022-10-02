@@ -10,7 +10,7 @@ import { history } from '../../_helpers';
 import { useUserActions, useAlertActions } from '../../_actions';
 
 
-const Profile = () =>
+function Profile()
 {
     //const { id } = useParams();
     const isAddMode = false;

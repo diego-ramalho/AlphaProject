@@ -15,4 +15,4 @@ function AdminRegisters()
     );
 }
 
-export default { AdminRegisters };
+export default AdminRegisters;

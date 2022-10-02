@@ -9,6 +9,8 @@ import { routes_admin as appAdminRoutes } from "./routes-admin";
 import Layout from "./components/Layout";
 import Login from "./pages/Login";
 import Recover from "./pages/Recover";
+import Profile from "./pages/settings/Profile";
+import Logout from "./pages//settings/Logout";
 
 import { Nav, Alert, PrivateRoute } from './_components';
 
@@ -200,16 +202,24 @@ function App()
         ))
         }
 
-        {appSettingsRoutes.map((route) => (
+        {/* {appSettingsRoutes.map((route) => (
           <Route
             key={route.key}
             path={route.path}
             element={<route.component />}
           />
-        ))}
+        ))} */}
+
+        <Route exact path='/Profile' element={<Profile />} />
         <Route path="*" element={<Navigate to="/Profile" />} />
 
+        <Route exact path='/Logout' element={<Logout />} />
+
         <Route path='/Registers/view/:id' element={<TaraturasView />} />
+
+        <Route exact path='/Admin/Registers' element={<RegistersList />} />
+        <Route path='/Admin/Registers/add' element={<RegistersAddEdit />} />
+        <Route path='/Admin/Registers/edit/:id' element={<RegistersAddEdit />} />
 
       </Routes>
     )
