@@ -4,8 +4,11 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
+import * as Icon from 'react-bootstrap-icons';
+
 import { history } from '../../_helpers';
 import { useRegisterActions, useZoneActions, useFilterActions, useAlertActions } from '../../_actions';
+import { color } from '@mui/system';
 
 function RegistersAddEdit({ match })
 {
@@ -28,6 +31,9 @@ function RegistersAddEdit({ match })
             .required('Puerta obligatoria'),
         observation: Yup.string(),
         phone: Yup.string(),
+        dni: Yup.string(),
+        lastContact: Yup.string(),
+        email: Yup.string(),
         tracing: Yup.string(),
         zoneId: Yup.string()
             .required('Zona obligatoria'),
@@ -68,8 +74,11 @@ function RegistersAddEdit({ match })
             .catch(useAlertActions.error);
     }
 
+    const [isPageInitialLoad, setIsPageInitialLoad] = useState(true);
     const [registerItem, setRegister] = useState({});
-    const [filteroptions, setFilterOptions] = useState([]);
+    const [filterOptions, setFilterOptions] = useState([]);
+    const [filterChecked, setFilterChecked] = useState([]);
+    const [initialFilters, setInitialFilters] = useState([]);
     const [selectedFilters, setSelectedFilters] = useState([]);
     const [zoneoptions, setZoneOptions] = useState([]);
 
@@ -82,10 +91,12 @@ function RegistersAddEdit({ match })
         {
             const name = event.target.getAttribute("filterList")
             setSelectedFilters(selectedFilters.filter(item => item !== value));
+            //setInitialFilters(initialFilters.filter(item => item !== value));
         } else
         {
             const name = event.target.getAttribute("filterList")
             setSelectedFilters(...selectedFilters, value);
+            //setInitialFilters(...initialFilters, value);
         }
     }
 
@@ -96,10 +107,12 @@ function RegistersAddEdit({ match })
 
         if (!isAddMode)
         {
+            filterActions.getByRegisterId(id).then(x => { setInitialFilters(x); setSelectedFilters(x); console.log(x); });
+
             // get user and set form fields
             registerActions.getById(id).then(registerItem =>
             {
-                const fields = ['address', 'name', 'number', 'observation', 'phone', 'tracing', 'zoneId'];
+                const fields = ['address', 'name', 'number', 'observation', 'phone', 'dni', 'lastContact', 'email', 'tracing', 'zoneId'];
                 fields.forEach(field => setValue(field, registerItem[field], false));
                 setRegister(registerItem);
             });
@@ -135,6 +148,29 @@ function RegistersAddEdit({ match })
                     <div className="invalid-feedback">{errors.phone?.message}</div>
                 </div>
             </div>
+
+
+
+            <div className="form-row">
+                <div className="form-group col-md-4 col-sm-12">
+                    <label>DNI</label>
+                    <input name="dni" type="text" {...register('dni')} className={'form-control' + (errors.dni ? ' is-invalid' : '')} />
+                    <div className="invalid-feedback">{errors.dni?.message}</div>
+                </div>
+                <div className="form-group col-md-8 col-sm-12">
+                    <label>Fecha Último Contacto</label>
+                    <input name="lastContact" type="text" {...register('lastContact')} className={'form-control' + (errors.lastContact ? ' is-invalid' : '')} />
+                    <div className="invalid-feedback">{errors.lastContact?.message}</div>
+                </div>
+                <div className="form-group col-md-12 col-sm-12">
+                    <label>Email</label>
+                    <input name="email" type="text" {...register('email')} className={'form-control' + (errors.email ? ' is-invalid' : '')} />
+                    <div className="invalid-feedback">{errors.email?.message}</div>
+                </div>
+            </div>
+
+
+
             <div className="form-row">
                 <div className="form-group col-12">
                     <label>Observaciones</label>
@@ -146,7 +182,7 @@ function RegistersAddEdit({ match })
             <div className="form-row">
                 <div className="form-group col-12">
                     <label>Seguimiento</label>
-                    <input name="tracing" type="text" {...register('tracing')} className={'form-control' + (errors.tracing ? ' is-invalid' : '')} />
+                    <textarea name="tracing" rows={5} {...register('tracing')} className={'form-control' + (errors.tracing ? ' is-invalid' : '')} wrap="soft"></textarea>
                     <div className="invalid-feedback">{errors.tracing?.message}</div>
                 </div>
             </div>
@@ -173,12 +209,17 @@ function RegistersAddEdit({ match })
                             </option>
                         ))}
                     </select> */}
-                    {filteroptions.map(option => (
+                    <label>Filtros</label><br />
+                    {filterOptions.map(option => (
                         <>
+                            {/* <input type="checkbox" checked={initialFilters.indexOf(option.filterName) > 0 || selectedFilters.indexOf(option.filterName) > 0 ? true : false} {...register('filterList')} id={option.id} name="filterList" onChange={handleChkboxChange} key={"filter-" + option.id} value={option.id}></input> */}
                             <input type="checkbox" {...register('filterList')} id={option.id} name="filterList" onChange={handleChkboxChange} key={"filter-" + option.id} value={option.id}></input>
-                            <label for={"filter-" + option.id}>{option.filterName}</label><br />
+                            <label for={"filter-" + option.id}>{option.filterName}</label>
+                            {initialFilters.map(initial => (initial === option.filterName ? <Icon.CheckSquareFill style={{ color: "#50C878" }} className='FontAwesomeIcon' /> : ""))}
+                            <br />
                         </>
                     ))}
+                    <Icon.InfoCircleFill style={{ color: "#2554C7" }} className='FontAwesomeIcon' /> Los filtros actuales están marcados con <Icon.CheckSquareFill style={{ color: "#50C878" }} className='FontAwesomeIcon' /> . Deje todo sin marcar para mantenerlos o elija filtros nuevamente.
                 </div>
             </div>
             <div className="form-group">

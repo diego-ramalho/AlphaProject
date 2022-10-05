@@ -28,6 +28,9 @@ function RegistersView({ match })
             .required('Puerta obligatoria'),
         observation: Yup.string(),
         phone: Yup.string(),
+        dni: Yup.string(),
+        lastContact: Yup.string(),
+        email: Yup.string(),
         tracing: Yup.string(),
         zoneId: Yup.string()
             .required('Zona obligatoria'),
@@ -101,7 +104,7 @@ function RegistersView({ match })
             // get user and set form fields
             registerActions.getById(id).then(registerItem =>
             {
-                const fields = ['address', 'name', 'number', 'observation', 'phone', 'tracing', 'zoneId'];
+                const fields = ['address', 'name', 'number', 'observation', 'phone', 'dni', 'lastContact', 'email', 'tracing', 'zoneId'];
                 fields.forEach(field => setValue(field, registerItem[field], false));
                 setRegister(registerItem);
             });
@@ -133,6 +136,26 @@ function RegistersView({ match })
                     <div className="page-view-item-value col-md-12 col-sm-12">{registerItem.phone}</div>
                 </div>
             </div>
+
+
+            <div className="form-row">
+                <div className="form-group col-md-4 col-sm-12">
+                    <div className="page-view-item-label col-md-12 col-sm-12">DNI</div>
+                    <div className="page-view-item-value col-md-12 col-sm-12">{registerItem.dni}</div>
+                </div>
+                <div className="form-group col-md-8 col-sm-12">
+                    <div className="page-view-item-label col-md-12 col-sm-12">Fecha Último Contacto</div>
+                    <div className="page-view-item-value col-md-12 col-sm-12">{registerItem.lastContact}</div>
+                </div>
+            </div>
+            <div className="form-row">
+                <div className="form-group col-12">
+                    <div className="page-view-item-label col-md-12 col-sm-12">Email</div>
+                    <div className="page-view-item-value col-md-12 col-sm-12">{registerItem.email}</div>
+                </div>
+            </div>
+
+
             <div className="form-row">
                 <div className="form-group col-12">
                     <div className="page-view-item-label col-md-12 col-sm-12">Observaciones</div>

@@ -134,6 +134,22 @@ function TaraturasView({ match })
                 </div>
             </div>
             <div className="form-row">
+                <div className="form-group col-md-4 col-sm-12">
+                    <div className="page-view-item-label col-md-12 col-sm-12">DNI</div>
+                    <div className="page-view-item-value col-md-12 col-sm-12">{registerItem.dni}</div>
+                </div>
+                <div className="form-group col-md-8 col-sm-12">
+                    <div className="page-view-item-label col-md-12 col-sm-12">Fecha Último Contacto</div>
+                    <div className="page-view-item-value col-md-12 col-sm-12">{registerItem.lastContact}</div>
+                </div>
+            </div>
+            <div className="form-row">
+                <div className="form-group col-12">
+                    <div className="page-view-item-label col-md-12 col-sm-12">Email</div>
+                    <div className="page-view-item-value col-md-12 col-sm-12">{registerItem.email}</div>
+                </div>
+            </div>
+            <div className="form-row">
                 <div className="form-group col-12">
                     <div className="page-view-item-label col-md-12 col-sm-12">Observaciones</div>
                     <div className="page-view-item-value col-md-12 col-sm-12">{registerItem.observation}</div>
