@@ -13,7 +13,7 @@ namespace WebApiTemplate.Profiles
 
             CreateMap<Register, RegisterIn>().ReverseMap();
 
-            CreateMap<Register, RegisterDto>().ReverseMap();
+            CreateMap<Register, RegisterSmallDto>().ReverseMap();
 
             CreateMap<RegisterIn, RegisterDto>().ReverseMap();
         }

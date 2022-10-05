@@ -33,7 +33,7 @@ namespace WebApiTemplate.Controllers
         }
 
         [HttpGet("GetAll")]
-        public ActionResult<IEnumerable<RegisterDto>> GetAll()
+        public ActionResult<IEnumerable<RegisterSmallDto>> GetAll()
         {
             //if (context.Request.Headers.TryGetValue("AccessToken", out StringValues headerValue))
             //{
@@ -81,7 +81,7 @@ namespace WebApiTemplate.Controllers
 
             //var getAll = _registerService.GetAll();
 
-            return Ok(_mapper.Map<IEnumerable<RegisterDto>>(getAll));
+            return Ok(_mapper.Map<IEnumerable<RegisterSmallDto>>(getAll));
         }
 
         [HttpGet("GetAllByFilter")]
