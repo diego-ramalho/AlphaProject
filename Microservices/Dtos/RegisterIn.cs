@@ -15,6 +15,12 @@ namespace WebApiTemplate.Dtos
 
         public string Phone { get; set; }
 
+        public string Dni { get; set; }
+
+        public string LastContact { get; set; }
+
+        public string Email { get; set; }
+
         public string Observation { get; set; }
 
         public string Tracing { get; set; }

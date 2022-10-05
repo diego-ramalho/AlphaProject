@@ -68,12 +68,38 @@ namespace WebApiTemplate.Services.Client
             _entity.Name = entity.Name;
             _entity.Number = entity.Number;
             _entity.Phone = entity.Phone;
+            _entity.Dni = entity.Dni;
+            _entity.LastContact = entity.LastContact;
+            _entity.Email = entity.Email;
             _entity.Observation = entity.Observation;
             _entity.Tracing = entity.Tracing;
             _entity.Number = entity.Number;
             _entity.ZoneId = entity.ZoneId;
 
             _registerTransactionalService.Update(_entity);
+
+            if (_entity.Id > 0 && entity.filterList.Count() > 0)
+            {
+                var _getEntity = _context.RegisterFilters.Where(f => f.RegisterId == _entity.Id).ToList();
+
+                if (_getEntity.Count > 0) {
+                    _context.RegisterFilters.RemoveRange(_getEntity);
+                }
+            }
+
+            if (_entity.Id > 0 && entity.filterList.Count() > 0)
+            {
+                List<RegisterFilters> _registerFilters = new List<RegisterFilters>();
+
+                foreach (var item in entity.filterList)
+                {
+                    _registerFilters.Add(new RegisterFilters() { RegisterId = _entity.Id, FilterId = int.Parse(item) });
+                };
+
+                _context.RegisterFilters.AddRange(_registerFilters);
+            }
+
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
