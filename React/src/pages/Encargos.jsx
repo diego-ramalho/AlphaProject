@@ -32,7 +32,7 @@ const Encargos = () =>
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(25);
 
-    const [registers, setRegisters] = useState([]);
+    const [registers, setRegisters] = useState(null);
     const [zoneList, setZoneList] = useState([]);
     const [filterList, setFilterList] = useState([]);
 
@@ -123,7 +123,7 @@ const Encargos = () =>
 
                             {/* {content} */}
 
-                            {registers
+                            {registers && registers
                                 //.filter(x => x.address.includes(searchRegisterStore))
                                 .filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore)))
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -174,7 +174,7 @@ const Encargos = () =>
                 <TablePagination
                     rowsPerPageOptions={[10, 25, 100]}
                     component="div"
-                    count={registers.filter(x => x.address.includes(searchRegisterStore)).length}
+                    count={registers && registers.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore))).length}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}

@@ -85,7 +85,7 @@ namespace WebApiTemplate.Controllers
         }
 
         [HttpGet("GetAllByFilter")]
-        public ActionResult<IEnumerable<RegisterDto>> GetAllByFilter(int filterId)
+        public ActionResult<IEnumerable<RegisterSmallDto>> GetAllByFilter(int filterId)
         {
             var getAllFilters = _filterService.GetFilterRegistersAll().Where(f => f.FilterId == filterId);
             var getAllFiltersId = getAllFilters.Select(f => f.RegisterId);
@@ -121,7 +121,7 @@ namespace WebApiTemplate.Controllers
 
             //getAll = getAll.Where(r => getAllFilters.Contains(r.Id));
 
-            return Ok(_mapper.Map<IEnumerable<RegisterDto>>(getAll));
+            return Ok(_mapper.Map<IEnumerable<RegisterSmallDto>>(getAll));
         }
 
         [HttpGet("GetById/{id}")]
