@@ -71,6 +71,13 @@ namespace WebApiTemplate.Services.Client
             _entity.Dni = entity.Dni;
             _entity.LastContact = entity.LastContact;
             _entity.Email = entity.Email;
+            _entity.SaleDate = entity.SaleDate;
+            _entity.Adviser = entity.Adviser;
+            _entity.FinalSalePrice = entity.FinalSalePrice;
+            _entity.Reduction = entity.Reduction;
+            _entity.Particular = entity.Particular;
+            _entity.RealEstate = entity.RealEstate;
+            _entity.Fee = entity.Fee;
             _entity.Observation = entity.Observation;
             _entity.Tracing = entity.Tracing;
             _entity.Number = entity.Number;

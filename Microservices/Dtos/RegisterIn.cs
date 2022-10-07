@@ -21,6 +21,20 @@ namespace WebApiTemplate.Dtos
 
         public string Email { get; set; }
 
+        public string SaleDate { get; set; }
+
+        public string Adviser { get; set; }
+
+        public string FinalSalePrice { get; set; }
+
+        public string Reduction { get; set; }
+
+        public string Particular { get; set; }
+
+        public string RealEstate { get; set; }
+
+        public string Fee { get; set; }
+
         public string Observation { get; set; }
 
         public string Tracing { get; set; }
