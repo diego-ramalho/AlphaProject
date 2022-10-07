@@ -45,13 +45,18 @@ const Taraturas = () =>
   const zoneStore = useSelector(state => state.zone);
   const searchRegisterStore = useSelector(state => state.searchRegister);
 
-  const pathView = '/Registers/view';
+  //const pathView = '/Registers/view';
+  const pathView = '/Admin/Registers/edit';
 
   useEffect(() =>
   {
-    if (document.querySelector('#search').value === "")
+    // if (document.querySelector('#search').value === "")
+    // {
+    //   dispatch(searchRegister(""));
+    // }
+    if (searchRegisterStore !== "")
     {
-      dispatch(searchRegister(""));
+      document.querySelector('#search').value = searchRegisterStore;
     }
   }, []);
 
@@ -92,6 +97,12 @@ const Taraturas = () =>
   {
     setRowsPerPage(+event.target.value);
     setPage(0);
+  };
+
+  const toLowCaseAndSpecChars = (input_text) =>
+  {
+    var output_text = input_text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[.,:;ºª]/g, "");
+    return output_text;
   };
 
   // const fetchPeopleHandler = async () =>
@@ -160,7 +171,7 @@ const Taraturas = () =>
 
               {registers && registers
                 //.filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0)
-                .filter(x => x.address.includes(searchRegisterStore))
+                .filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore)))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((person, index) =>
                 {
@@ -196,7 +207,7 @@ const Taraturas = () =>
                   </td>
                 </tr>
               }
-              {registers && !registers.length &&
+              {registers && !registers.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore))).length &&
                 <tr>
                   <td colSpan="4" className="text-center">
                     <div className="p-2">¡No hay registros!</div>
@@ -209,7 +220,7 @@ const Taraturas = () =>
         <TablePagination
           rowsPerPageOptions={[10, 25, 100]}
           component="div"
-          count={registers && registers.filter(x => x.address.includes(searchRegisterStore)).length}
+          count={registers && registers.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore))).length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}

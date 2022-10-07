@@ -48,9 +48,13 @@ function RegistersList()
 
     useEffect(() =>
     {
-        if (document.querySelector('#search').value === "")
+        // if (document.querySelector('#search').value === "")
+        // {
+        //   dispatch(searchRegister(""));
+        // }
+        if (searchRegisterStore !== "")
         {
-            dispatch(searchRegister(""));
+            document.querySelector('#search').value = searchRegisterStore;
         }
     }, []);
 
@@ -68,6 +72,12 @@ function RegistersList()
         //     .filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0)
         //     .filter(x => x.address.includes(inputValue))));
         //}
+    };
+
+    const toLowCaseAndSpecChars = (input_text) =>
+    {
+        var output_text = input_text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[.,:;ºª]/g, "");
+        return output_text;
     };
 
 
@@ -93,7 +103,8 @@ function RegistersList()
                 <tbody>
                     {registers && registers
                         .filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0)
-                        .filter(x => x.address.includes(searchRegisterStore))
+                        //.filter(x => x.address.includes(searchRegisterStore))
+                        .filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore)))
                         .map(register =>
                             <tr key={register.id}>
                                 {/* <td>{register.address}</td> */}
@@ -118,7 +129,7 @@ function RegistersList()
                             </td>
                         </tr>
                     }
-                    {registers && !registers.length &&
+                    {registers && !registers.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore))).length &&
                         <tr>
                             <td colSpan="4" className="text-center">
                                 <div className="p-2">Sin registros para mostrar</div>

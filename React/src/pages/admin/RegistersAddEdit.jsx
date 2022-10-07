@@ -34,6 +34,13 @@ function RegistersAddEdit({ match })
         dni: Yup.string(),
         lastContact: Yup.string(),
         email: Yup.string(),
+        saleDate: Yup.string(),
+        adviser: Yup.string(),
+        finalSalePrice: Yup.string(),
+        reduction: Yup.string(),
+        particular: Yup.string(),
+        realEstate: Yup.string(),
+        fee: Yup.string(),
         tracing: Yup.string(),
         zoneId: Yup.string()
             .required('Zona obligatoria'),
@@ -58,7 +65,8 @@ function RegistersAddEdit({ match })
             .then(() =>
             {
                 useAlertActions.success('Registro agregado', { keepAfterRouteChange: true });
-                navigate('/Admin/Registers/');
+                //navigate('/Admin/Registers/');
+                navigate('/Taraturas');
             })
             .catch(useAlertActions.error);
     }
@@ -69,7 +77,8 @@ function RegistersAddEdit({ match })
             .then(() =>
             {
                 useAlertActions.success('Registro actualizado', { keepAfterRouteChange: true });
-                navigate("/Admin/Registers/");
+                //navigate('/Admin/Registers/');
+                navigate('/Taraturas');
             })
             .catch(useAlertActions.error);
     }
@@ -112,7 +121,7 @@ function RegistersAddEdit({ match })
             // get user and set form fields
             registerActions.getById(id).then(registerItem =>
             {
-                const fields = ['address', 'name', 'number', 'observation', 'phone', 'dni', 'lastContact', 'email', 'tracing', 'zoneId'];
+                const fields = ['address', 'name', 'number', 'observation', 'phone', 'dni', 'lastContact', 'email', 'saleDate', 'adviser', 'finalSalePrice', 'reduction', 'particular', 'realEstate', 'fee', 'tracing', 'zoneId'];
                 fields.forEach(field => setValue(field, registerItem[field], false));
                 setRegister(registerItem);
             });
@@ -168,6 +177,54 @@ function RegistersAddEdit({ match })
                     <div className="invalid-feedback">{errors.email?.message}</div>
                 </div>
             </div>
+
+
+
+
+            <div className="form-row">
+                <div className="form-group col-md-6 col-sm-12">
+                    <label>Fecha Venta</label>
+                    <input name="saleDate" type="text" {...register('saleDate')} className={'form-control' + (errors.saleDate ? ' is-invalid' : '')} />
+                    <div className="invalid-feedback">{errors.saleDate?.message}</div>
+                </div>
+                <div className="form-group col-md-6 col-sm-12">
+                    <label>Precio Final Venta</label>
+                    <input name="finalSalePrice" type="text" {...register('finalSalePrice')} className={'form-control' + (errors.finalSalePrice ? ' is-invalid' : '')} />
+                    <div className="invalid-feedback">{errors.finalSalePrice?.message}</div>
+                </div>
+            </div>
+            <div className="form-row">
+                <div className="form-group col-md-4 col-sm-12">
+                    <label>Particular</label>
+                    <input name="particular" type="text" {...register('particular')} className={'form-control' + (errors.particular ? ' is-invalid' : '')} />
+                    <div className="invalid-feedback">{errors.particular?.message}</div>
+                </div>
+                <div className="form-group col-md-4 col-sm-12">
+                    <label>Inmobiliaria</label>
+                    <input name="realEstate" type="text" {...register('realEstate')} className={'form-control' + (errors.realEstate ? ' is-invalid' : '')} />
+                    <div className="invalid-feedback">{errors.realEstate?.message}</div>
+                </div>
+                <div className="form-group col-md-4 col-sm-12">
+                    <label>Rebaja</label>
+                    <input name="reduction" type="text" {...register('reduction')} className={'form-control' + (errors.reduction ? ' is-invalid' : '')} />
+                    <div className="invalid-feedback">{errors.reduction?.message}</div>
+                </div>
+            </div>
+            <div className="form-row">
+                <div className="form-group col-md-6 col-sm-12">
+                    <label>Asesor</label>
+                    <input name="adviser" type="text" {...register('adviser')} className={'form-control' + (errors.adviser ? ' is-invalid' : '')} />
+                    <div className="invalid-feedback">{errors.adviser?.message}</div>
+                </div>
+                <div className="form-group col-md-6 col-sm-12">
+                    <label>Honorarios</label>
+                    <input name="fee" type="text" {...register('fee')} className={'form-control' + (errors.fee ? ' is-invalid' : '')} />
+                    <div className="invalid-feedback">{errors.fee?.message}</div>
+                </div>
+            </div>
+
+
+
 
 
 
@@ -227,7 +284,8 @@ function RegistersAddEdit({ match })
                     {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
                     Guardar
                 </button>
-                <Link to={isAddMode ? '/Admin/Registers' : '/Admin/Registers'} className="btn btn-link">Cancelar</Link>
+                {/* <Link to={isAddMode ? '/Admin/Registers' : '/Admin/Registers'} className="btn btn-link">Cancelar</Link> */}
+                <Link to={isAddMode ? '/Taraturas' : '/Taraturas'} className="btn btn-link">Cancelar</Link>
             </div>
         </form>
     );

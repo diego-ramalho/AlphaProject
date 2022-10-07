@@ -45,15 +45,20 @@ const PisosVendidos = () =>
     const zoneStore = useSelector(state => state.zone);
     const searchRegisterStore = useSelector(state => state.searchRegister);
 
-    const pathView = '/Registers/view';
+    //const pathView = '/Registers/view';
+    const pathView = '/Admin/Registers/edit';
 
     const filterId = 3;
 
     useEffect(() =>
     {
-        if (document.querySelector('#search').value === "")
+        // if (document.querySelector('#search').value === "")
+        // {
+        //   dispatch(searchRegister(""));
+        // }
+        if (searchRegisterStore !== "")
         {
-            dispatch(searchRegister(""));
+            document.querySelector('#search').value = searchRegisterStore;
         }
     }, []);
 
@@ -78,11 +83,17 @@ const PisosVendidos = () =>
         setPage(0);
     };
 
-    let content;
+    const toLowCaseAndSpecChars = (input_text) =>
+    {
+        var output_text = input_text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[.,:;ºª]/g, "");
+        return output_text;
+    };
 
-    if (error) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>{error}</div></TableCell></TableRow>; }
-    else if (registers.filter(x => x.address.includes(searchRegisterStore)).length === 0 && !isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>¡No hay registros!</div></TableCell></TableRow>; }
-    else if (isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>Cargando...</div></TableCell></TableRow>; }
+    // let content;
+
+    // if (error) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>{error}</div></TableCell></TableRow>; }
+    // else if (registers.filter(x => x.address.includes(searchRegisterStore)).length === 0 && !isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>¡No hay registros!</div></TableCell></TableRow>; }
+    // else if (isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>Cargando...</div></TableCell></TableRow>; }
 
     return (
         <>
@@ -110,10 +121,11 @@ const PisosVendidos = () =>
                         </TableHead>
                         <TableBody>
 
-                            {content}
+                            {/* {content} */}
 
                             {registers
-                                .filter(x => x.address.includes(searchRegisterStore))
+                                //.filter(x => x.address.includes(searchRegisterStore))
+                                .filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore)))
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((person, index) =>
                                 {
@@ -142,6 +154,20 @@ const PisosVendidos = () =>
                                         </TableRow>
                                     );
                                 })}
+                            {!registers &&
+                                <tr>
+                                    <td colSpan="4" className="text-center">
+                                        <div className="spinner-border spinner-border-lg align-center"></div>
+                                    </td>
+                                </tr>
+                            }
+                            {registers && !registers.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore))).length &&
+                                <tr>
+                                    <td colSpan="4" className="text-center">
+                                        <div className="p-2">¡No hay registros!</div>
+                                    </td>
+                                </tr>
+                            }
                         </TableBody>
                     </Table>
                 </TableContainer>

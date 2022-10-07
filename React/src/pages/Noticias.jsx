@@ -14,13 +14,15 @@ import TableRow from '@mui/material/TableRow';
 import * as Icon from 'react-bootstrap-icons';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { searchNews } from '../store/searchNewsSlice';
+import { searchRegister } from '../store/searchRegisterSlice';
 
-import { useNewsActions } from '../_actions';
+import { useRegisterActions, useZoneActions, useFilterActions } from '../_actions';
 
 const columns = [
-    { id: 'title', label: 'Titulo', minWidth: 100 },
-    { id: 'link', label: 'Enlace', minWidth: 100 }
+    //{ id: 'id', label: 'Id', minWidth: 50 },
+    { id: 'address', label: 'Direccion', minWidth: 170 },
+    { id: 'number', label: 'Puerta', minWidth: 100 },
+    { id: 'zoneId', label: 'Zona', minWidth: 100 }
 ];
 
 const Noticias = () =>
@@ -30,37 +32,50 @@ const Noticias = () =>
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(25);
 
-    const [newsList, setNewsList] = useState([]);
+    const [registers, setRegisters] = useState([]);
+    const [zoneList, setZoneList] = useState([]);
+    const [filterList, setFilterList] = useState([]);
 
-    const newsActions = useNewsActions();
+    const registerActions = useRegisterActions();
+    const zoneActions = useZoneActions();
+    const filterActions = useFilterActions();
 
     const dispatch = useDispatch();
 
-    const searchNewsStore = useSelector(state => state.searchNews);
+    const zoneStore = useSelector(state => state.zone);
+    const searchRegisterStore = useSelector(state => state.searchRegister);
 
-    const pathView = '/Noticias/view';
+    //const pathView = '/Registers/view';
+    const pathView = '/Admin/Registers/edit';
+
+    const filterId = 6;
 
     useEffect(() =>
     {
-        if (document.querySelector('#search').value === "")
+        // if (document.querySelector('#search').value === "")
+        // {
+        //   dispatch(searchRegister(""));
+        // }
+        if (searchRegisterStore !== "")
         {
-            dispatch(searchNews(""));
+            document.querySelector('#search').value = searchRegisterStore;
         }
     }, []);
 
     useEffect(() =>
     {
-        newsActions.getAll().then(x => { setNewsList(x); });
-    }, []);
+        registerActions.getAllByFilter(filterId).then(x => setRegisters(x.filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0)));
+        zoneActions.getAll().then(x => { setZoneList(x); });
+    }, [zoneStore]);
+
+
+    const handleChangePage = (event, newPage) => { setPage(newPage); };
 
     const handleSearch = (event) =>
     {
         let inputValue = event.target.value;
-        dispatch(searchNews(inputValue));
+        dispatch(searchRegister(inputValue));
     };
-
-
-    const handleChangePage = (event, newPage) => { setPage(newPage); };
 
     const handleChangeRowsPerPage = (event) =>
     {
@@ -68,24 +83,24 @@ const Noticias = () =>
         setPage(0);
     };
 
+    const toLowCaseAndSpecChars = (input_text) =>
+    {
+        var output_text = input_text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[.,:;ºª]/g, "");
+        return output_text;
+    };
+
     // let content;
 
-    // if (error) { content = <h1>{error}</h1>; }
-    // else if (registers.length === 0 && !isLoading) { content = <h1>¡No hay registros!</h1>; }
-    // else if (isLoading) { content = <h1>Cargando...</h1>; }
-
-    let content;
-
-    if (error) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>{error}</div></TableCell></TableRow>; }
-    else if (newsList.filter(x => x.title.includes(searchNewsStore)).length === 0 && !isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>¡No hay registros!</div></TableCell></TableRow>; }
-    else if (isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>Cargando...</div></TableCell></TableRow>; }
+    // if (error) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>{error}</div></TableCell></TableRow>; }
+    // else if (registers.filter(x => x.address.includes(searchRegisterStore)).length === 0 && !isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>¡No hay registros!</div></TableCell></TableRow>; }
+    // else if (isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>Cargando...</div></TableCell></TableRow>; }
 
     return (
         <>
-            <div className="PageContentTitle">Notícias <Icon.ArrowDownLeftSquareFill className='FontAwesomeIcon' /></div>
+            <div className="PageContentTitle">Noticias <Icon.ArrowDownLeftSquareFill className='FontAwesomeIcon' /></div>
 
-            <div className="input-group">
-                <input id="search" type="text" className="form-control" name="search" placeholder="buscar por título" onChange={handleSearch} />
+            <div class="input-group">
+                <input id="search" type="text" class="form-control" name="search" placeholder="buscar por direccion" onChange={handleSearch} />
             </div><br />
 
             <Paper sx={{ width: '100%', overflow: 'hidden' }}>
@@ -106,10 +121,11 @@ const Noticias = () =>
                         </TableHead>
                         <TableBody>
 
-                            {content}
+                            {/* {content} */}
 
-                            {newsList
-                                .filter(x => x.title.includes(searchNewsStore))
+                            {registers
+                                //.filter(x => x.address.includes(searchRegisterStore))
+                                .filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore)))
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((person, index) =>
                                 {
@@ -118,12 +134,15 @@ const Noticias = () =>
                                             {columns.map((column) =>
                                             {
                                                 let value = person[column.id];
-
-                                                if (column.id == 'title')
+                                                if (column.id == 'zoneId')
                                                 {
-                                                    value = <Link to={`${pathView}/${person.id}`} className="link-to-view">{person.title}</Link>
+                                                    value = zoneList.filter(x => x.id === person.zoneId).map(x => x.zoneName);
                                                 }
-
+                                                if (column.id == 'address')
+                                                {
+                                                    // value = person.id + " - " + person.address;
+                                                    value = <Link to={`${pathView}/${person.id}`} className="link-to-view">{person.address}</Link>
+                                                }
                                                 return (
                                                     <TableCell key={index} align={column.align}>
                                                         {column.format && typeof value === 'number'
@@ -135,13 +154,27 @@ const Noticias = () =>
                                         </TableRow>
                                     );
                                 })}
+                            {!registers &&
+                                <tr>
+                                    <td colSpan="4" className="text-center">
+                                        <div className="spinner-border spinner-border-lg align-center"></div>
+                                    </td>
+                                </tr>
+                            }
+                            {registers && !registers.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore))).length &&
+                                <tr>
+                                    <td colSpan="4" className="text-center">
+                                        <div className="p-2">¡No hay registros!</div>
+                                    </td>
+                                </tr>
+                            }
                         </TableBody>
                     </Table>
                 </TableContainer>
                 <TablePagination
                     rowsPerPageOptions={[10, 25, 100]}
                     component="div"
-                    count={newsList.filter(x => x.title.includes(searchNewsStore)).length}
+                    count={registers.filter(x => x.address.includes(searchRegisterStore)).length}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}

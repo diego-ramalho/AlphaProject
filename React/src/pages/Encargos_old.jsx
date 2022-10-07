@@ -14,15 +14,13 @@ import TableRow from '@mui/material/TableRow';
 import * as Icon from 'react-bootstrap-icons';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { searchRegister } from '../store/searchRegisterSlice';
+import { searchCharge } from '../store/searchChargeSlice';
 
-import { useRegisterActions, useZoneActions, useFilterActions } from '../_actions';
+import { useChargesActions } from '../_actions';
 
 const columns = [
-    //{ id: 'id', label: 'Id', minWidth: 50 },
-    { id: 'address', label: 'Direccion', minWidth: 170 },
-    { id: 'number', label: 'Puerta', minWidth: 100 },
-    { id: 'zoneId', label: 'Zona', minWidth: 100 }
+    { id: 'description', label: 'Descripción', minWidth: 100 },
+    { id: 'value', label: 'Valor', minWidth: 100 }
 ];
 
 const Encargos = () =>
@@ -32,50 +30,37 @@ const Encargos = () =>
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(25);
 
-    const [registers, setRegisters] = useState([]);
-    const [zoneList, setZoneList] = useState([]);
-    const [filterList, setFilterList] = useState([]);
+    const [chargesList, setChargesList] = useState([]);
 
-    const registerActions = useRegisterActions();
-    const zoneActions = useZoneActions();
-    const filterActions = useFilterActions();
+    const chargesActions = useChargesActions();
 
     const dispatch = useDispatch();
 
-    const zoneStore = useSelector(state => state.zone);
-    const searchRegisterStore = useSelector(state => state.searchRegister);
+    const searchChargeStore = useSelector(state => state.searchCharge);
 
-    //const pathView = '/Registers/view';
-    const pathView = '/Admin/Registers/edit';
-
-    const filterId = 7;
+    const pathView = '/Encargos/view';
 
     useEffect(() =>
     {
-        // if (document.querySelector('#search').value === "")
-        // {
-        //   dispatch(searchRegister(""));
-        // }
-        if (searchRegisterStore !== "")
+        if (document.querySelector('#search').value === "")
         {
-            document.querySelector('#search').value = searchRegisterStore;
+            dispatch(searchCharge(""));
         }
     }, []);
 
     useEffect(() =>
     {
-        registerActions.getAllByFilter(filterId).then(x => setRegisters(x.filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0)));
-        zoneActions.getAll().then(x => { setZoneList(x); });
-    }, [zoneStore]);
-
-
-    const handleChangePage = (event, newPage) => { setPage(newPage); };
+        chargesActions.getAll().then(x => { setChargesList(x); });
+    }, []);
 
     const handleSearch = (event) =>
     {
         let inputValue = event.target.value;
-        dispatch(searchRegister(inputValue));
+        dispatch(searchCharge(inputValue));
     };
+
+
+    const handleChangePage = (event, newPage) => { setPage(newPage); };
 
     const handleChangeRowsPerPage = (event) =>
     {
@@ -83,24 +68,24 @@ const Encargos = () =>
         setPage(0);
     };
 
-    const toLowCaseAndSpecChars = (input_text) =>
-    {
-        var output_text = input_text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[.,:;ºª]/g, "");
-        return output_text;
-    };
-
     // let content;
 
-    // if (error) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>{error}</div></TableCell></TableRow>; }
-    // else if (registers.filter(x => x.address.includes(searchRegisterStore)).length === 0 && !isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>¡No hay registros!</div></TableCell></TableRow>; }
-    // else if (isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>Cargando...</div></TableCell></TableRow>; }
+    // if (error) { content = <h1>{error}</h1>; }
+    // else if (registers.length === 0 && !isLoading) { content = <h1>¡No hay registros!</h1>; }
+    // else if (isLoading) { content = <h1>Cargando...</h1>; }
+
+    let content;
+
+    if (error) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>{error}</div></TableCell></TableRow>; }
+    else if (chargesList.filter(x => x.description.includes(searchChargeStore)).length === 0 && !isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>¡No hay registros!</div></TableCell></TableRow>; }
+    else if (isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>Cargando...</div></TableCell></TableRow>; }
 
     return (
         <>
             <div className="PageContentTitle">Encargos <Icon.ArrowDownLeftSquareFill className='FontAwesomeIcon' /></div>
 
-            <div class="input-group">
-                <input id="search" type="text" class="form-control" name="search" placeholder="buscar por direccion" onChange={handleSearch} />
+            <div className="input-group">
+                <input id="search" type="text" className="form-control" name="search" placeholder="buscar por descripción" onChange={handleSearch} />
             </div><br />
 
             <Paper sx={{ width: '100%', overflow: 'hidden' }}>
@@ -121,11 +106,10 @@ const Encargos = () =>
                         </TableHead>
                         <TableBody>
 
-                            {/* {content} */}
+                            {content}
 
-                            {registers
-                                //.filter(x => x.address.includes(searchRegisterStore))
-                                .filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore)))
+                            {chargesList
+                                .filter(x => x.description.includes(searchChargeStore))
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((person, index) =>
                                 {
@@ -134,15 +118,12 @@ const Encargos = () =>
                                             {columns.map((column) =>
                                             {
                                                 let value = person[column.id];
-                                                if (column.id == 'zoneId')
+
+                                                if (column.id == 'description')
                                                 {
-                                                    value = zoneList.filter(x => x.id === person.zoneId).map(x => x.zoneName);
+                                                    value = <Link to={`${pathView}/${person.id}`} className="link-to-view">{person.description}</Link>
                                                 }
-                                                if (column.id == 'address')
-                                                {
-                                                    // value = person.id + " - " + person.address;
-                                                    value = <Link to={`${pathView}/${person.id}`} className="link-to-view">{person.address}</Link>
-                                                }
+
                                                 return (
                                                     <TableCell key={index} align={column.align}>
                                                         {column.format && typeof value === 'number'
@@ -154,27 +135,13 @@ const Encargos = () =>
                                         </TableRow>
                                     );
                                 })}
-                            {!registers &&
-                                <tr>
-                                    <td colSpan="4" className="text-center">
-                                        <div className="spinner-border spinner-border-lg align-center"></div>
-                                    </td>
-                                </tr>
-                            }
-                            {registers && !registers.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore))).length &&
-                                <tr>
-                                    <td colSpan="4" className="text-center">
-                                        <div className="p-2">¡No hay registros!</div>
-                                    </td>
-                                </tr>
-                            }
                         </TableBody>
                     </Table>
                 </TableContainer>
                 <TablePagination
                     rowsPerPageOptions={[10, 25, 100]}
                     component="div"
-                    count={registers.filter(x => x.address.includes(searchRegisterStore)).length}
+                    count={chargesList.filter(x => x.description.includes(searchChargeStore)).length}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}

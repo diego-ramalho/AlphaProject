@@ -46,8 +46,8 @@ import { ChargesAddEdit } from './pages/admin/ChargesAddEdit';
 import { RegistersList } from './pages/admin/RegistersList';
 import { RegistersAddEdit } from './pages/admin/RegistersAddEdit';
 import { TaraturasView } from './pages/TaraturasView';
-import { EncargosView } from './pages/EncargosView';
-import { NoticiasView } from './pages/NoticiasView';
+import { EncargosView } from './pages/EncargosView_old';
+import { NoticiasView } from './pages/NoticiasView_old';
 
 
 const login_page = [
