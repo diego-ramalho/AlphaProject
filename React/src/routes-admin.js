@@ -52,18 +52,18 @@ export const routes_admin = [
     //     enabled: true,
     //     component: AdminFilters
     // },
-    {
-        key: 'admin-records-route-5',
-        title: appLang.pt.menu.admin['item-05'],
-        path: '/Admin/News',
-        enabled: true,
-        component: AdminNews
-    },
-    {
-        key: 'admin-records-route-6',
-        title: appLang.pt.menu.admin['item-06'],
-        path: '/Admin/Charges',
-        enabled: true,
-        component: AdminCharges
-    }
+    // {
+    //     key: 'admin-records-route-5',
+    //     title: appLang.pt.menu.admin['item-05'],
+    //     path: '/Admin/News',
+    //     enabled: true,
+    //     component: AdminNews
+    // },
+    // {
+    //     key: 'admin-records-route-6',
+    //     title: appLang.pt.menu.admin['item-06'],
+    //     path: '/Admin/Charges',
+    //     enabled: true,
+    //     component: AdminCharges
+    // }
 ]

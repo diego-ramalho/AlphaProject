@@ -1,5 +1,5 @@
 import React, { ReactElement, FC, useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Box, Typography } from "@mui/material";
 
 import Paper from '@mui/material/Paper';
@@ -16,13 +16,20 @@ import * as Icon from 'react-bootstrap-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchRegister } from '../store/searchRegisterSlice';
 
+import { previousPageCode } from '../store/previousPageCodeSlice';
+import { previousPagePath } from '../store/previousPagePathSlice';
+
 import { useRegisterActions, useZoneActions, useFilterActions } from '../_actions';
+
+const pageCode = "PVe";
+
+const path = '/Admin/Registers';
 
 const columns = [
     //{ id: 'id', label: 'Id', minWidth: 50 },
-    { id: 'address', label: 'Direccion', minWidth: 170 },
-    { id: 'number', label: 'Puerta', minWidth: 100 },
-    { id: 'zoneId', label: 'Zona', minWidth: 100 }
+    { id: 'address', label: 'Direccion', minWidth: 200 },
+    { id: 'number', label: 'Puerta', minWidth: 100, align: 'center' },
+    { id: 'zoneId', label: 'Zona', minWidth: 50, align: 'center' }
 ];
 
 const PisosVendidos = () =>
@@ -41,6 +48,8 @@ const PisosVendidos = () =>
     const filterActions = useFilterActions();
 
     const dispatch = useDispatch();
+
+    let location = useLocation();
 
     const zoneStore = useSelector(state => state.zone);
     const searchRegisterStore = useSelector(state => state.searchRegister);
@@ -68,6 +77,18 @@ const PisosVendidos = () =>
         zoneActions.getAll().then(x => { setZoneList(x); });
     }, [zoneStore]);
 
+    function deleteRegister(id)
+    {
+        setRegisters(registers.map(x =>
+        {
+            if (x.id === id) { x.isDeleting = true; }
+            return x;
+        }));
+        registerActions.delete(id).then(() =>
+        {
+            setRegisters(registers => registers.filter(x => x.id !== id));
+        });
+    }
 
     const handleChangePage = (event, newPage) => { setPage(newPage); };
 
@@ -99,14 +120,22 @@ const PisosVendidos = () =>
         <>
             <div className="PageContentTitle">Pisos Vendidos <Icon.ArrowDownLeftSquareFill className='FontAwesomeIcon' /></div>
 
+            {/* <Link to={`${path}/add`} onClick={() => { dispatch(previousPageCode(pageCode)); dispatch(previousPagePath(location.pathname)); }} className="btn btn-sm btn-success mb-2">Agregar Pisos Vendidos</Link>
+
             <div class="input-group">
                 <input id="search" type="text" class="form-control" name="search" placeholder="buscar por direccion" onChange={handleSearch} />
-            </div><br />
+            </div><br /> */}
 
             <Paper sx={{ width: '100%', overflow: 'hidden' }}>
                 <TableContainer sx={{ maxHeight: 440 }}>
                     <Table stickyHeader aria-label="sticky table">
                         <TableHead>
+                            <TableRow>
+                                <TableCell colSpan={4}>
+                                    <input id="search" type="text" class="form-control" name="search" placeholder="buscar por direccion" onChange={handleSearch} />
+                                </TableCell>
+                            </TableRow>
+
                             <TableRow>
                                 {columns.map((column) => (
                                     <TableCell
@@ -117,6 +146,7 @@ const PisosVendidos = () =>
                                         {column.label}
                                     </TableCell>
                                 ))}
+                                <TableCell align='center'><Link to={`${path}/add`} onClick={() => { dispatch(previousPageCode(pageCode)); dispatch(previousPagePath(location.pathname)); }} className="btn btn-md btn-success"><Icon.PlusCircleFill className='FontAwesomeIcon' /></Link></TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -136,12 +166,12 @@ const PisosVendidos = () =>
                                                 let value = person[column.id];
                                                 if (column.id == 'zoneId')
                                                 {
-                                                    value = zoneList.filter(x => x.id === person.zoneId).map(x => x.zoneName);
+                                                    value = zoneList.filter(x => x.id === person.zoneId).map(x => x.zoneName.split(" ")[1]);
                                                 }
                                                 if (column.id == 'address')
                                                 {
                                                     // value = person.id + " - " + person.address;
-                                                    value = <Link to={`${pathView}/${person.id}`} className="link-to-view">{person.address}</Link>
+                                                    value = <Link to={`${pathView}/${person.id}`} onClick={() => { dispatch(previousPageCode(pageCode)); dispatch(previousPagePath(location.pathname)); }} className="link-to-view">{person.address}</Link>
                                                 }
                                                 return (
                                                     <TableCell key={index} align={column.align}>
@@ -151,6 +181,15 @@ const PisosVendidos = () =>
                                                     </TableCell>
                                                 );
                                             })}
+
+                                            <TableCell key={index} align='center'>
+                                                <button onClick={() => { if (window.confirm('¿eliminar este registro?')) deleteRegister(person.id); }} className="btn btn-md btn-danger btn-delete-register" disabled={person.isDeleting}>
+                                                    {person.isDeleting
+                                                        ? <span className="spinner-border spinner-border-sm"></span>
+                                                        : <span><Icon.TrashFill className='FontAwesomeIcon' /></span>
+                                                    }
+                                                </button>
+                                            </TableCell>
                                         </TableRow>
                                     );
                                 })}

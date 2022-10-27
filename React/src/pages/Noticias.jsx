@@ -1,5 +1,5 @@
 import React, { ReactElement, FC, useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Box, Typography } from "@mui/material";
 
 import Paper from '@mui/material/Paper';
@@ -18,11 +18,19 @@ import { searchRegister } from '../store/searchRegisterSlice';
 
 import { useRegisterActions, useZoneActions, useFilterActions } from '../_actions';
 
+import { previousPageCode } from '../store/previousPageCodeSlice';
+import { previousPagePath } from '../store/previousPagePathSlice';
+import { history } from '../_helpers';
+
+const pageCode = "NO";
+
+const path = '/Admin/Registers';
+
 const columns = [
     //{ id: 'id', label: 'Id', minWidth: 50 },
-    { id: 'address', label: 'Direccion', minWidth: 170 },
-    { id: 'number', label: 'Puerta', minWidth: 100 },
-    { id: 'zoneId', label: 'Zona', minWidth: 100 }
+    { id: 'address', label: 'Noticias', minWidth: 200, color: '#FF6600' },
+    // { id: 'number', label: 'Puerta', minWidth: 100 },
+    { id: 'zoneId', label: 'Zona', minWidth: 50, align: 'center' }
 ];
 
 const Noticias = () =>
@@ -41,6 +49,26 @@ const Noticias = () =>
     const filterActions = useFilterActions();
 
     const dispatch = useDispatch();
+
+    //const [current, setCurrent] = useState(useSelector(state => state.currentPage)); 
+    //const [previous, setPrevious] = useState(useSelector(state => state.currentPage));
+
+    //var teste = history.back;
+
+
+    // const prevPage = useSelector(state => state.currentPage);
+    // const currPage = pageCode;
+
+    //const prevCount = usePrevious(useSelector(state => state.currentPage));
+
+    // let location = useLocation();
+    // let from = document.referrer;
+
+    let location = useLocation();
+
+    //dispatch(previousPagePath(""));
+    // dispatch(previousPage(from));
+    // dispatch(currentPage(pageCode));
 
     const zoneStore = useSelector(state => state.zone);
     const searchRegisterStore = useSelector(state => state.searchRegister);
@@ -67,6 +95,19 @@ const Noticias = () =>
         registerActions.getAllByFilter(filterId).then(x => setRegisters(x.filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0)));
         zoneActions.getAll().then(x => { setZoneList(x); });
     }, [zoneStore]);
+
+    function deleteRegister(id)
+    {
+        setRegisters(registers.map(x =>
+        {
+            if (x.id === id) { x.isDeleting = true; }
+            return x;
+        }));
+        registerActions.delete(id).then(() =>
+        {
+            setRegisters(registers => registers.filter(x => x.id !== id));
+        });
+    }
 
 
     const handleChangePage = (event, newPage) => { setPage(newPage); };
@@ -99,14 +140,22 @@ const Noticias = () =>
         <>
             <div className="PageContentTitle">Noticias <Icon.ArrowDownLeftSquareFill className='FontAwesomeIcon' /></div>
 
+            {/* <Link to={`${path}/add`} onClick={() => { dispatch(previousPageCode(pageCode)); dispatch(previousPagePath(location.pathname)); }} className="btn btn-sm btn-success mb-2">Agregar Noticias</Link>
+
             <div class="input-group">
-                <input id="search" type="text" class="form-control" name="search" placeholder="buscar por direccion" onChange={handleSearch} />
-            </div><br />
+                <input id="search" type="text" class="form-control" name="search" placeholder="buscar por noticias" onChange={handleSearch} />
+            </div><br /> */}
 
             <Paper sx={{ width: '100%', overflow: 'hidden' }}>
                 <TableContainer sx={{ maxHeight: 440 }}>
                     <Table stickyHeader aria-label="sticky table">
                         <TableHead>
+                            <TableRow>
+                                <TableCell colSpan={3}>
+                                    <input id="search" type="text" class="form-control" name="search" placeholder="buscar por noticias" onChange={handleSearch} />
+                                </TableCell>
+                            </TableRow>
+
                             <TableRow>
                                 {columns.map((column) => (
                                     <TableCell
@@ -117,6 +166,7 @@ const Noticias = () =>
                                         {column.label}
                                     </TableCell>
                                 ))}
+                                <TableCell align='center'><Link to={`${path}/add`} onClick={() => { dispatch(previousPageCode(pageCode)); dispatch(previousPagePath(location.pathname)); }} className="btn btn-md btn-success"><Icon.PlusCircleFill className='FontAwesomeIcon' /></Link></TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -136,12 +186,12 @@ const Noticias = () =>
                                                 let value = person[column.id];
                                                 if (column.id == 'zoneId')
                                                 {
-                                                    value = zoneList.filter(x => x.id === person.zoneId).map(x => x.zoneName);
+                                                    value = zoneList.filter(x => x.id === person.zoneId).map(x => x.zoneName.split(" ")[1]);
                                                 }
                                                 if (column.id == 'address')
                                                 {
                                                     // value = person.id + " - " + person.address;
-                                                    value = <Link to={`${pathView}/${person.id}`} className="link-to-view">{person.address}</Link>
+                                                    value = <Link to={`${pathView}/${person.id}`} onClick={() => { dispatch(previousPageCode(pageCode)); dispatch(previousPagePath(location.pathname)); }} className="link-to-view">{person.address}</Link>
                                                 }
                                                 return (
                                                     <TableCell key={index} align={column.align}>
@@ -151,6 +201,15 @@ const Noticias = () =>
                                                     </TableCell>
                                                 );
                                             })}
+
+                                            <TableCell key={index} align='center'>
+                                                <button onClick={() => { if (window.confirm('¿eliminar este registro?')) deleteRegister(person.id); }} className="btn btn-md btn-danger btn-delete-register" disabled={person.isDeleting}>
+                                                    {person.isDeleting
+                                                        ? <span className="spinner-border spinner-border-sm"></span>
+                                                        : <span><Icon.TrashFill className='FontAwesomeIcon' /></span>
+                                                    }
+                                                </button>
+                                            </TableCell>
                                         </TableRow>
                                     );
                                 })}

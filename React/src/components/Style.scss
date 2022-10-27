@@ -41,12 +41,51 @@ form,
     }
 }
 
-.checkbox-group {
+table thead {
+    // border: solid 4px #000 !important;
+
+    & tr th {
+        // background: #3e4c93 !important;
+        // background: #7f8ccc !important;
+        background: #e0e6ff !important;
+        color: #3e4c93 !important;
+        font-weight: 700 !important;
+        font-size: 0.9rem !important;
+        padding: 8px 16px !important;
+    }
+}
+
+table tbody {
+    & tr td {
+        padding: 8px 16px !important;
+    }
+}
+
+label {
+    color: #3e4c93;
+    font-weight: 500;
+    margin-bottom: 0;
+    list-style-type: square;
+}
+
+label:before {
+    content: "▪ ";
+    font-weight: bold;
+    font-style: italic;
+}
+
+.checkbox-group .form-group {
 
     input,
     label {
         display: inline-block;
         padding: 5px;
+        color: #333333;
+        font-weight: normal;
+    }
+
+    label:before {
+        content: "";
     }
 }
 
@@ -111,8 +150,9 @@ input.login-input {
     width: 78px;
     // background: #11101D;
     // background: $bg-color;
-    background: rgb(0, 0, 0);
-    background: linear-gradient(145deg, rgba(0, 0, 0, 1) 0%, rgba(2, 0, 36, 1) 20%, rgba(56, 68, 83, 1) 100%);
+    // background: rgb(0, 0, 0);
+    // background: linear-gradient(145deg, rgba(0, 0, 0, 1) 0%, rgba(2, 0, 36, 1) 20%, rgba(56, 68, 83, 1) 100%);
+    background: linear-gradient(145deg, rgb(25, 32, 71) 0%, rgb(40, 49, 97) 35%, rgba(127, 140, 204, 1) 100%);
     padding: 6px 14px;
     z-index: 99;
     transition: all 0.5s ease;
@@ -142,6 +182,7 @@ input.login-input {
     opacity: 0;
     transition: all 0.5s ease;
     display: none;
+    margin: 0 auto;
 }
 
 .sidebar .logo-details .LogoIcon {
@@ -153,6 +194,7 @@ input.login-input {
     transition: all 0.5s ease;
     display: block;
     opacity: 1;
+    margin: 0 auto;
 }
 
 
@@ -175,7 +217,7 @@ input.login-input {
 
 .sidebar i {
     color: #fff;
-    color: $font-color;
+    // color: $font-color;
     height: 60px;
     min-width: 50px;
     font-size: 28px;
@@ -302,7 +344,7 @@ input.login-input {
 
 .sidebar li a .links_name {
     color: #fff;
-    color: $font-color;
+    // color: $font-color;
     font-size: 15px;
     font-weight: 400;
     white-space: nowrap;
@@ -319,7 +361,8 @@ input.login-input {
 .sidebar li a .links_name_short {
     //opacity: 1;
     display: inline-block;
-    color: $font-color;
+    color: #fff;
+    // color: $font-color;
     font-style: normal;
     font-size: 80%;
     padding: 0px 0px 0px 5px;
@@ -429,8 +472,8 @@ input.login-input {
     padding: 15px 15px;
 
     .PageContentTitle {
-        color: #b7c1f3;
-        border-bottom: 3px solid #b7c1f3;
+        color: #7f8ccc;
+        border-bottom: 3px solid #7f8ccc;
         margin: 15px 0px;
         text-transform: uppercase;
         font-weight: 600;
@@ -757,4 +800,9 @@ a.main.menu {
 
 .css-1evjoiv {
     max-height: 500px !important;
+}
+
+.css-pdct74-MuiTablePagination-selectLabel,
+.css-levciy-MuiTablePagination-displayedRows {
+    margin-bottom: 0 !important;
 }

@@ -48,32 +48,32 @@ function NewsList()
                             <td>{news.link}</td>
                             <td style={{ whiteSpace: 'nowrap' }}>
                                 <Link to={`${path}/edit/${news.id}`} className="btn btn-sm btn-primary mr-1">Editar</Link>
-                                <button onClick={() => deleteNews(news.id)} className="btn btn-sm btn-danger btn-delete-news" disabled={news.isDeleting}>
-                                    {news.isDeleting
-                                        ? <span className="spinner-border spinner-border-sm"></span>
-                                        : <span>Eliminar</span>
-                                    }
-                                </button>
-                            </td>
+                            <button onClick={() => deleteNews(news.id)} className="btn btn-sm btn-danger btn-delete-news" disabled={news.isDeleting}>
+                                {news.isDeleting
+                                    ? <span className="spinner-border spinner-border-sm"></span>
+                                    : <span>Eliminar</span>
+                                }
+                            </button>
+                        </td>
                         </tr>
                     )}
-                    {!news &&
-                        <tr>
-                            <td colSpan="4" className="text-center">
-                                <div className="spinner-border spinner-border-lg align-center"></div>
-                            </td>
-                        </tr>
-                    }
-                    {news && !news.length &&
-                        <tr>
-                            <td colSpan="4" className="text-center">
-                                <div className="p-2">Sin noticias para mostrar</div>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+                {!news &&
+                    <tr>
+                        <td colSpan="4" className="text-center">
+                            <div className="spinner-border spinner-border-lg align-center"></div>
+                        </td>
+                    </tr>
+                }
+                {news && !news.length &&
+                    <tr>
+                        <td colSpan="4" className="text-center">
+                            <div className="p-2">Sin noticias para mostrar</div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div >
     );
 }
 

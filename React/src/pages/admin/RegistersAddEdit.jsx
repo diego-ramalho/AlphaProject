@@ -4,11 +4,16 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
+// config
+import appForm from '../../lang/resources.json';
+
 import * as Icon from 'react-bootstrap-icons';
 
 import { history } from '../../_helpers';
 import { useRegisterActions, useZoneActions, useFilterActions, useAlertActions } from '../../_actions';
 import { color } from '@mui/system';
+
+import { useDispatch, useSelector } from 'react-redux';
 
 function RegistersAddEdit({ match })
 {
@@ -52,6 +57,9 @@ function RegistersAddEdit({ match })
         resolver: yupResolver(validationSchema)
     });
 
+    var pageCode = useSelector(state => state.previousPageCode);
+    var pagePath = useSelector(state => state.previousPagePath);
+
     function onSubmit(data)
     {
         return isAddMode
@@ -66,7 +74,9 @@ function RegistersAddEdit({ match })
             {
                 useAlertActions.success('Registro agregado', { keepAfterRouteChange: true });
                 //navigate('/Admin/Registers/');
-                navigate('/Taraturas');
+                //navigate('/Taraturas');
+                let redir = pagePath !== "" ? pagePath : '/Taraturas'
+                navigate(redir);
             })
             .catch(useAlertActions.error);
     }
@@ -78,19 +88,86 @@ function RegistersAddEdit({ match })
             {
                 useAlertActions.success('Registro actualizado', { keepAfterRouteChange: true });
                 //navigate('/Admin/Registers/');
-                navigate('/Taraturas');
+                //navigate('/Taraturas');
+                let redir = pagePath !== "" ? pagePath : '/Taraturas'
+                navigate(redir);
             })
             .catch(useAlertActions.error);
     }
 
-    const [isPageInitialLoad, setIsPageInitialLoad] = useState(true);
     const [registerItem, setRegister] = useState({});
     const [filterOptions, setFilterOptions] = useState([]);
-    const [filterChecked, setFilterChecked] = useState([]);
+    //const [filterChecked, setFilterChecked] = useState([]);
     const [initialFilters, setInitialFilters] = useState([]);
     const [selectedFilters, setSelectedFilters] = useState([]);
     const [zoneoptions, setZoneOptions] = useState([]);
 
+    const [isPageInitialLoad, setIsPageInitialLoad] = useState(true);
+    const [chkPisosVacios, setChkPisosVacios] = useState(false); //1
+    const [chkPisosInvestigados, setChkPisosInvestigados] = useState(false); //2
+    const [chkPisosVendidos, setChkPisosVendidos] = useState(false); //3
+    const [chkPisosAlquilados, setChkPisosAlquilados] = useState(false); //4
+    const [chkInformadores, setChkInformadores] = useState(false); //5
+    const [chkNoticias, setChkNoticias] = useState(false); //6
+    const [chkEncargos, setChkEncargos] = useState(false); //7
+
+    const handleCheckbox = (event) =>
+    {
+        const id = event.target.id;
+        const isChecked = event.target.checked;
+
+        switch (id)
+        {
+            case "1": setChkPisosVacios(isChecked); break;
+            case "2": setChkPisosInvestigados(isChecked); break;
+            case "3": setChkPisosVendidos(isChecked); break;
+            case "4": setChkPisosAlquilados(isChecked); break;
+            case "5": setChkInformadores(isChecked); break;
+            case "6": setChkNoticias(isChecked); break;
+            case "7": setChkEncargos(isChecked); break;
+            default: break;
+        }
+    }
+
+    useEffect(() =>
+    {
+        if (!isAddMode && isPageInitialLoad)
+        {
+            filterActions.getByRegisterId(id).then(x =>
+            {
+                setInitialFilters(x);
+                setSelectedFilters(x);
+                console.log(x);
+                setIsPageInitialLoad(false);
+
+                x.forEach(function (item, index)
+                {
+                    //setCheckboxes(checkboxes => checkboxes.map((it, idx) => idx === it ? !item : item))
+
+                    switch (item.toString())
+                    {
+                        case "1": setChkPisosVacios(true); break;
+                        case "2": setChkPisosInvestigados(true); break;
+                        case "3": setChkPisosVendidos(true); break;
+                        case "4": setChkPisosAlquilados(true); break;
+                        case "5": setChkInformadores(true); break;
+                        case "6": setChkNoticias(true); break;
+                        case "7": setChkEncargos(true); break;
+                        default: break;
+                    }
+                    //console.log("filters: " + item, index)
+                });
+            });
+        }
+    }, [isPageInitialLoad]);
+
+    // const [checkboxes, setCheckboxes] = useState([false, false, false, false, true, false, false]);
+    //let checkboxes = [false, false, false, false, false, false, false];
+
+    //let filterChecked = [];
+    // let teste = [];
+    // filterActions.getByRegisterId(id).then(x => { teste = x; });
+    //filterActions.getByRegisterId(id).then(x => { setInitialFilters(x); setSelectedFilters(x); console.log(x); });
 
     const handleChkboxChange = (event) =>
     {
@@ -100,12 +177,83 @@ function RegistersAddEdit({ match })
         {
             const name = event.target.getAttribute("filterList")
             setSelectedFilters(selectedFilters.filter(item => item !== value));
-            //setInitialFilters(initialFilters.filter(item => item !== value));
+            //setInitialFilters(initialFilters.filter(value));
+            //teste = initialFilters.filter(item => item !== parseInt(value));
+            //setInitialFilters(initialFilters.filter(item => item !== parseInt(value)));
+            //console.log(parseInt(teste));
         } else
         {
             const name = event.target.getAttribute("filterList")
-            setSelectedFilters(...selectedFilters, value);
-            //setInitialFilters(...initialFilters, value);
+            setSelectedFilters(...selectedFilters, parseInt(value));
+            //setInitialFilters(...initialFilters, parseInt(value));
+            //teste.push(value);
+            //console.log(teste);
+        }
+    }
+
+    const [formOption, setFormOption] = useState("");
+    // const handlerRadioChange = (event) =>
+    // {
+    // const target = event.target;
+    // var value = target.value;
+
+    let getAddressTitle = () =>
+    {
+        switch (pageCode)
+        {
+            case "NO": return "Noticia";
+            case "EN": return "Encargo";
+            case "IN": return "Informador";
+            default: return "Direccion";
+        }
+    }
+
+    let getTitle = () =>
+    {
+        switch (pageCode)
+        {
+            case "NO": return "Noticias";
+            case "EN": return "Encargos";
+            case "IN": return "Informadores";
+            case "PI": return "Pisos Investigados";
+            case "PA": return "Pisos Alquilados";
+            case "PVa": return "Pisos Vacios";
+            case "PVe": return "Pisos Vendidos";
+            default: return "Taratura";
+        }
+    }
+
+    let pageTitle = getTitle(); //"Taratura";
+
+    //setFormOption(value);
+
+
+    if (document.querySelector('form .form-group .form-control'))
+    {
+        //document.querySelector('.NO, .EN, .IN, .PI, .PA, .PVa, .PVe').style.display = 'none';
+        const matches = document.querySelectorAll("form .form-group .form-control");
+        matches.forEach(myFunction);
+        function myFunction(item, index)
+        {
+            //teste += index + ": " + item.getAttribute("name") + "\n";
+
+            //teste += appForm.pt.form.taraturas.address;
+
+            let nameAtt = item.getAttribute("name");
+
+            if (appForm.pt.form.taraturas[item.getAttribute("name")].includes(pageCode) || pageCode === "TA")
+            {
+                item.style.removeProperty('display');
+            } else
+            {
+                item.parentElement.style.display = 'none';
+            }
+
+
+
+            // if(appForm.pt.form.taraturas.nameAtt.includes(pageCode)){
+            //     teste += item.getAttribute("name") + "\n";
+            // }
         }
     }
 
@@ -116,7 +264,34 @@ function RegistersAddEdit({ match })
 
         if (!isAddMode)
         {
-            filterActions.getByRegisterId(id).then(x => { setInitialFilters(x); setSelectedFilters(x); console.log(x); });
+            filterActions.getByRegisterId(id).then(x =>
+            {
+                setInitialFilters(x);
+                setSelectedFilters(x);
+                console.log(x);
+
+                // checkboxes.forEach(function (item, index)
+                // {
+                //     if (x.includes(index + 1))
+                //     {
+                //         checkboxes[index] = true;
+                //     }
+                //     //checkboxes.map((item) => it === item-1 ? item : !item)
+                //     // var teste = checkboxes[item];
+                //     // setCheckboxes(checkboxes => checkboxes.map((it, idx) => idx === item ? item : !item))
+                //     // console.log("filters: " + item, index)
+                // });
+
+                // x.forEach(function (item, index) {
+                //     setCheckboxes(checkboxes => checkboxes.map((it, idx) => idx === it ? !item : item))
+                //     console.log("filters: " + item, index)
+                //   });
+
+                // x.forEach(function (item, index) {
+                //     setCheckboxes(checkboxes => checkboxes.map((item, idx) => idx === index ? !item : item))
+                //     console.log("filters: " + item, index)
+                //   });
+            });
 
             // get user and set form fields
             registerActions.getById(id).then(registerItem =>
@@ -128,12 +303,31 @@ function RegistersAddEdit({ match })
         }
     }, []);
 
+
+
+
     return (
         <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
-            <h1>{isAddMode ? 'Agregar Taratura' : 'Editar Taratura'}</h1>
+            {/* <h1>{isAddMode ? 'Agregar Taratura' : 'Editar Taratura'}</h1> */}
+            <h3 className="PageContentTitle">{isAddMode ? 'Agregar ' + pageTitle : 'Editar ' + pageTitle}</h3>
+
+            {/* {teste} */}
+
+            {/* <div className="PageContentTitle" style={{ textAlign: "left" }}>
+                <input id="z" onClick={handlerRadioChange} style={{ float: "left;", clear: "none;", marginRight: "5px", marginLeft: "20px" }} type="radio" value="0" name="group2" />
+                <label for="a">Nenhum</label>
+                <input id="a" onClick={handlerRadioChange} style={{ float: "left;", clear: "none;", marginRight: "5px", marginLeft: "20px" }} type="radio" value="5" name="group2" />
+                <label for="z">Informadores</label>
+                <input id="x" onClick={handlerRadioChange} style={{ float: "left;", clear: "none;", marginRight: "5px", marginLeft: "20px" }} type="radio" value="6" name="group2" />
+                <label for="x">Noticias</label>
+                <input id="y" onClick={handlerRadioChange} style={{ float: "left;", clear: "none;", marginRight: "5px", marginLeft: "20px " }} type="radio" value="7" name="group2" />
+                <label for="y">Encargos</label>
+                <br />
+            </div> */}
+
             <div className="form-row">
                 <div className="form-group col-12">
-                    <label>Direccion</label>
+                    <label>{getAddressTitle()}</label>
                     <input name="address" type="text" {...register('address')} className={'form-control' + (errors.address ? ' is-invalid' : '')} />
                     <div className="invalid-feedback">{errors.address?.message}</div>
                 </div>
@@ -257,35 +451,68 @@ function RegistersAddEdit({ match })
                     <div className="invalid-feedback">{errors.zoneId?.message}</div>
                 </div>
             </div>
-            <div className="form-row">
-                <div className="form-group col-sm-12 checkbox-group">
-                    {/* <select name="filterId" {...register('filterId')} className={'form-control' + (errors.filterId ? ' is-invalid' : '')}>
+            <div className="form-row checkbox-group">
+                <label className="col-sm-12">Filtros</label>
+                {/* <div className="form-group col-sm-12 checkbox-group"> */}
+                {/* <select name="filterId" {...register('filterId')} className={'form-control' + (errors.filterId ? ' is-invalid' : '')}>
                         {Array.from(filteroptions).map(option => (
                             <option key={option.filterName} value={option.id}>
                                 {option.filterName}
                             </option>
                         ))}
                     </select> */}
-                    <label>Filtros</label><br />
-                    {filterOptions.map(option => (
-                        <>
-                            {/* <input type="checkbox" checked={initialFilters.indexOf(option.filterName) > 0 || selectedFilters.indexOf(option.filterName) > 0 ? true : false} {...register('filterList')} id={option.id} name="filterList" onChange={handleChkboxChange} key={"filter-" + option.id} value={option.id}></input> */}
-                            <input type="checkbox" {...register('filterList')} id={option.id} name="filterList" onChange={handleChkboxChange} key={"filter-" + option.id} value={option.id}></input>
-                            <label for={"filter-" + option.id}>{option.filterName}</label>
-                            {initialFilters.map(initial => (initial === option.filterName ? <Icon.CheckSquareFill style={{ color: "#50C878" }} className='FontAwesomeIcon' /> : ""))}
+                <div className="form-group col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                    <input type="checkbox" checked={chkPisosVacios} id="1" name="filterList" onChange={handleCheckbox} key="filter-1" value="1"></input>
+                    <label for={"filter-1"}>Pisos Vacios</label>
+                </div>
+                <div className="form-group col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                    <input type="checkbox" checked={chkPisosInvestigados} {...register('filterList')} id="2" name="filterList" onChange={handleCheckbox} key={"filter-2"} value={"2"}></input>
+                    <label for={"filter-2"}>Pisos Investigados</label>
+                </div>
+                <div className="form-group col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                    <input type="checkbox" checked={chkPisosVendidos} {...register('filterList')} id="3" name="filterList" onChange={handleCheckbox} key={"filter-3"} value={"3"}></input>
+                    <label for={"filter-3"}>Pisos Vendidos</label>
+                </div>
+                <div className="form-group col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                    <input type="checkbox" checked={chkPisosAlquilados} {...register('filterList')} id="4" name="filterList" onChange={handleCheckbox} key={"filter-4"} value={"4"}></input>
+                    <label for={"filter-4"}>Pisos Alquilados</label>
+                </div>
+                <div className="form-group col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                    <input type="checkbox" checked={chkInformadores} {...register('filterList')} id="5" name="filterList" onChange={handleCheckbox} key={"filter-5"} value={"5"}></input>
+                    <label for={"filter-5"}>Informadores</label>
+                </div>
+                <div className="form-group col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                    <input type="checkbox" checked={chkNoticias} {...register('filterList')} id="6" name="filterList" onChange={handleCheckbox} key={"filter-6"} value={"6"}></input>
+                    <label for={"filter-6"}>Noticias</label>
+                </div>
+                <div className="form-group col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                    <input type="checkbox" checked={chkEncargos} {...register('filterList')} id="7" name="filterList" onChange={handleCheckbox} key={"filter-7"} value={"7"}></input>
+                    <label for={"filter-7"}>Encargos</label>
+                </div>
+
+
+                {/* {filterOptions.map(option => (
+                        <> */}
+                {/* <input type="checkbox" checked={initialFilters.indexOf(option.filterName) > 0 || selectedFilters.indexOf(option.filterName) > 0 ? true : false} {...register('filterList')} id={option.id} name="filterList" onChange={handleChkboxChange} key={"filter-" + option.id} value={option.id}></input> */}
+                {/* <input type="checkbox" checked={initialFilters.indexOf(option.id) >= 0 || selectedFilters.indexOf(option.id) > 0 ? true : false} {...register('filterList')} id={option.id} name="filterList" onChange={handleChkboxChange} key={"filter-" + option.id} value={option.id}></input> */}
+                {/* <input type="checkbox" checked={checkboxes[option.id]} {...register('filterList')} id={option.id} name="filterList" onChange={handleChkboxChange} key={"filter-" + option.id} value={option.id}></input> */}
+                {/* <label for={"filter-" + option.id}>{option.filterName}</label> */}
+                {/* {initialFilters.map(initial => (initial === option.id ? <Icon.CheckSquareFill style={{ color: "#50C878" }} className='FontAwesomeIcon' /> : ""))}
                             <br />
                         </>
-                    ))}
-                    <Icon.InfoCircleFill style={{ color: "#2554C7" }} className='FontAwesomeIcon' /> Los filtros actuales están marcados con <Icon.CheckSquareFill style={{ color: "#50C878" }} className='FontAwesomeIcon' /> . Deje todo sin marcar para mantenerlos o elija filtros nuevamente.
-                </div>
+                    ))} */}
+                {/* <Icon.InfoCircleFill style={{ color: "#2554C7" }} className='FontAwesomeIcon' /> Los filtros actuales están marcados con <Icon.CheckSquareFill style={{ color: "#50C878" }} className='FontAwesomeIcon' /> . Deje todo sin marcar para mantenerlos o elija filtros nuevamente. */}
+                {/* </div> */}
             </div>
-            <div className="form-group">
+            <div className="form-row">
                 <button type="submit" disabled={formState.isSubmitting} className="btn btn-primary">
                     {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
                     Guardar
                 </button>
                 {/* <Link to={isAddMode ? '/Admin/Registers' : '/Admin/Registers'} className="btn btn-link">Cancelar</Link> */}
-                <Link to={isAddMode ? '/Taraturas' : '/Taraturas'} className="btn btn-link">Cancelar</Link>
+                {/* <Link to={isAddMode ? '/Taraturas' : '/Taraturas'} className="btn btn-link">Cancelar</Link> */}
+                <Link to={pagePath !== "" ? pagePath : '/Taraturas'} className="btn btn-link">Cancelar</Link>
+
             </div>
         </form>
     );

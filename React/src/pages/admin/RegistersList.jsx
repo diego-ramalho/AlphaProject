@@ -113,7 +113,7 @@ function RegistersList()
                                 <td>{zonesList.filter(x => x.id === register.zoneId).map(x => x.zoneName.split(" ")[1])}</td>
                                 <td style={{ whiteSpace: 'nowrap' }}>
                                     <Link to={`${path}/edit/${register.id}`} className="btn btn-sm btn-primary mr-1">Editar</Link>
-                                    <button onClick={() => deleteRegister(register.id)} className="btn btn-sm btn-danger btn-delete-register" disabled={register.isDeleting}>
+                                    <button onClick={() => {if(window.confirm('Delete the item?'))deleteRegister(register.id);}} className="btn btn-sm btn-danger btn-delete-register" disabled={register.isDeleting}>
                                         {register.isDeleting
                                             ? <span className="spinner-border spinner-border-sm"></span>
                                             : <span>Eliminar</span>

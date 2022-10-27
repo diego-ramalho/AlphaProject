@@ -67,6 +67,166 @@
                 "button": "entrar",
                 "remember": "lembrar-me",
                 "forgot": "esqueceu sua password"
+            },
+            "taraturas": {
+                "address": [
+                    "NO",
+                    "EN",
+                    "IN",
+                    "PI",
+                    "PA",
+                    "PVa",
+                    "PVe"
+                ],
+                "name": [
+                    "NO",
+                    "EN",
+                    "IN",
+                    "PI",
+                    "PA",
+                    "PVa",
+                    "PVe"
+                ],
+                "number": [
+                    "EN",
+                    "IN",
+                    "PI",
+                    "PA",
+                    "PVa",
+                    "PVe"
+                ],
+                "phone": [
+                    "EN",
+                    "IN",
+                    "PI",
+                    "PA",
+                    "PVa",
+                    "PVe"
+                ],
+                "dni": [
+                    "EN",
+                    "IN",
+                    "PI",
+                    "PA",
+                    "PVa",
+                    "PVe"
+                ],
+                "lastContact": [
+                    "EN",
+                    "IN",
+                    "PI",
+                    "PA",
+                    "PVa",
+                    "PVe"
+                ],
+                "email": [
+                    "NO",
+                    "EN",
+                    "IN",
+                    "PI",
+                    "PA",
+                    "PVa",
+                    "PVe"
+                ],
+                "saleDate": [
+                    "NO",
+                    "EN",
+                    "IN",
+                    "PI",
+                    "PA",
+                    "PVa",
+                    "PVe"
+                ],
+                "finalSalePrice": [
+                    "NO",
+                    "EN",
+                    "IN",
+                    "PI",
+                    "PA",
+                    "PVa",
+                    "PVe"
+                ],
+                "particular": [
+                    "NO",
+                    "EN",
+                    "IN",
+                    "PI",
+                    "PA",
+                    "PVa",
+                    "PVe"
+                ],
+                "realEstate": [
+                    "NO",
+                    "EN",
+                    "IN",
+                    "PI",
+                    "PA",
+                    "PVa",
+                    "PVe"
+                ],
+                "reduction": [
+                    "NO",
+                    "EN",
+                    "IN",
+                    "PI",
+                    "PA",
+                    "PVa",
+                    "PVe"
+                ],
+                "adviser": [
+                    "NO",
+                    "EN",
+                    "IN",
+                    "PI",
+                    "PA",
+                    "PVa",
+                    "PVe"
+                ],
+                "fee": [
+                    "NO",
+                    "EN",
+                    "IN",
+                    "PI",
+                    "PA",
+                    "PVa",
+                    "PVe"
+                ],
+                "observation": [
+                    "NO",
+                    "EN",
+                    "IN",
+                    "PI",
+                    "PA",
+                    "PVa",
+                    "PVe"
+                ],
+                "tracing": [
+                    "NO",
+                    "EN",
+                    "IN",
+                    "PI",
+                    "PA",
+                    "PVa",
+                    "PVe"
+                ],
+                "zoneId": [
+                    "NO",
+                    "EN",
+                    "IN",
+                    "PI",
+                    "PA",
+                    "PVa",
+                    "PVe"
+                ],
+                "filterList": [
+                    "NO",
+                    "EN",
+                    "IN",
+                    "PI",
+                    "PA",
+                    "PVa",
+                    "PVe"
+                ]
             }
         }
     }

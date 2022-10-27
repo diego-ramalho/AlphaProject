@@ -164,7 +164,7 @@ function TaraturasView({ match })
             <div className="form-row">
                 <div className="form-group col-12">
                     <div className="page-view-item-label col-md-12 col-sm-12">Zona</div>
-                    <div className="page-view-item-value col-md-12 col-sm-12">{zoneoptions.filter(z => z.id == registerItem.zoneId).map(x => x.zoneName)}</div>
+                    <div className="page-view-item-value col-md-12 col-sm-12">{zoneoptions.filter(z => z.id == registerItem.zoneId).map(x => x.zoneName.split(" ")[1])}</div>
                 </div>
             </div>
             <div className="form-row">
