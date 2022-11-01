@@ -462,7 +462,7 @@ function RegistersAddEdit({ match })
                         ))}
                     </select> */}
                 <div className="form-group col-sm-12 col-md-6 col-lg-4 col-xl-3">
-                    <input type="checkbox" checked={chkPisosVacios} id="1" name="filterList" onChange={handleCheckbox} key="filter-1" value="1"></input>
+                    <input type="checkbox" checked={chkPisosVacios} {...register('filterList')} id="1" name="filterList" onChange={handleCheckbox} key={"filter-1"} value={"2"}></input>
                     <label for={"filter-1"}>Pisos Vacios</label>
                 </div>
                 <div className="form-group col-sm-12 col-md-6 col-lg-4 col-xl-3">
