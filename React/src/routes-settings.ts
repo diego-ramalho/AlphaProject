@@ -32,12 +32,12 @@ export const routes_settings = [
         path: '/logout',
         enabled: true,
         component: Logout
-    },
-    {
-        key: 'admin-records-route-2',
-        title: appLang.pt.menu.admin['item-02'],
-        path: '/Admin/Registers',
-        enabled: true,
-        component: AdminRegisters
     }
+    // {
+    //     key: 'admin-records-route-2',
+    //     title: appLang.pt.menu.admin['item-02'],
+    //     path: '/Admin/Registers',
+    //     enabled: true,
+    //     component: AdminRegisters
+    // }
 ]

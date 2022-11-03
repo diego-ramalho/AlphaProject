@@ -27,35 +27,37 @@ function RegistersAddEdit({ match })
     const filterActions = useFilterActions();
 
     // form validation rules 
-    const validationSchema = Yup.object().shape({
-        address: Yup.string()
-            .required('Direccion obligatoria'),
-        name: Yup.string()
-            .required('Puerta obligatoria'),
-        number: Yup.string()
-            .required('Puerta obligatoria'),
-        observation: Yup.string(),
-        phone: Yup.string(),
-        dni: Yup.string(),
-        lastContact: Yup.string(),
-        email: Yup.string(),
-        saleDate: Yup.string(),
-        adviser: Yup.string(),
-        finalSalePrice: Yup.string(),
-        reduction: Yup.string(),
-        particular: Yup.string(),
-        realEstate: Yup.string(),
-        fee: Yup.string(),
-        tracing: Yup.string(),
-        zoneId: Yup.string()
-            .required('Zona obligatoria'),
-        filterList: Yup.array()
-    });
+    // const validationSchema = Yup.object().shape({
+    //     address: Yup.string()
+    //         .required('Direccion obligatoria'),
+    //     name: Yup.string()
+    //         .required('Puerta obligatoria'),
+    //     number: Yup.string()
+    //         .required('Puerta obligatoria'),
+    //     observation: Yup.string(),
+    //     phone: Yup.string(),
+    //     dni: Yup.string(),
+    //     lastContact: Yup.string(),
+    //     email: Yup.string(),
+    //     saleDate: Yup.string(),
+    //     adviser: Yup.string(),
+    //     finalSalePrice: Yup.string(),
+    //     reduction: Yup.string(),
+    //     particular: Yup.string(),
+    //     realEstate: Yup.string(),
+    //     fee: Yup.string(),
+    //     tracing: Yup.string(),
+    //     zoneId: Yup.string()
+    //         .required('Zona obligatoria'),
+    //     filterList: Yup.array()
+    // });
 
     // functions to build form returned by useForm() hook
-    const { register, handleSubmit, reset, setValue, formState: { errors }, formState } = useForm({
-        resolver: yupResolver(validationSchema)
-    });
+    // const { register, handleSubmit, reset, setValue, formState: { errors }, formState } = useForm({
+    //     resolver: yupResolver(validationSchema)
+    // });
+
+    const { register, handleSubmit, reset, setValue, formState: { errors }, formState } = useForm();
 
     var pageCode = useSelector(state => state.previousPageCode);
     var pagePath = useSelector(state => state.previousPagePath);
@@ -69,6 +71,8 @@ function RegistersAddEdit({ match })
 
     function createRegister(data)
     {
+        if(data.filterList === false) data.filterList = [];
+
         return registerActions.create(data)
             .then(() =>
             {
@@ -83,6 +87,8 @@ function RegistersAddEdit({ match })
 
     function updateRegister(id, data)
     {
+        if(data.filterList === false) data.filterList = [];
+
         return registerActions.update(id, data)
             .then(() =>
             {
@@ -328,22 +334,22 @@ function RegistersAddEdit({ match })
             <div className="form-row">
                 <div className="form-group col-12">
                     <label>{getAddressTitle()}</label>
-                    <input name="address" type="text" {...register('address')} className={'form-control' + (errors.address ? ' is-invalid' : '')} />
-                    <div className="invalid-feedback">{errors.address?.message}</div>
+                    <input name="address" type="text" {...register('address', { required: true })} className={'form-control' + (errors.address ? ' is-invalid' : '')} />
+                    <div className="invalid-feedback">{errors.address && <p>campo obligatorio</p>}</div>
                 </div>
             </div>
             <div className="form-row">
                 <div className="form-group col-12">
                     <label>Nombre y Apellidos</label>
-                    <input name="name" type="text" {...register('name')} className={'form-control' + (errors.name ? ' is-invalid' : '')} />
-                    <div className="invalid-feedback">{errors.name?.message}</div>
+                    <input name="name" type="text" {...register('name', { required: true })} className={'form-control' + (errors.name ? ' is-invalid' : '')} />
+                    <div className="invalid-feedback">{errors.name && <p>campo obligatorio</p>}</div>
                 </div>
             </div>
             <div className="form-row">
                 <div className="form-group col-md-4 col-sm-12">
                     <label>Puerta</label>
-                    <input name="number" type="text" {...register('number')} className={'form-control' + (errors.number ? ' is-invalid' : '')} />
-                    <div className="invalid-feedback">{errors.number?.message}</div>
+                    <input name="number" type="text" {...register('number', { required: true })} className={'form-control' + (errors.number ? ' is-invalid' : '')} />
+                    <div className="invalid-feedback">{errors.number && <p>campo obligatorio</p>}</div>
                 </div>
                 <div className="form-group col-md-8 col-sm-12">
                     <label>Telefono</label>
@@ -440,7 +446,7 @@ function RegistersAddEdit({ match })
             <div className="form-row">
                 <div className="form-group col-md-4 col-sm-12">
                     <label>Zona</label>
-                    <select name="zoneId" {...register('zoneId')} className={'form-control' + (errors.zoneId ? ' is-invalid' : '')}>
+                    <select name="zoneId" {...register('zoneId', { required: true })} className={'form-control' + (errors.zoneId ? ' is-invalid' : '')}>
                         {isAddMode ? <option value="">- Seleccione una opción -</option> : ''}
                         {zoneoptions.map(option => (
                             <option key={option.zoneName} value={option.id}>
@@ -448,7 +454,7 @@ function RegistersAddEdit({ match })
                             </option>
                         ))}
                     </select>
-                    <div className="invalid-feedback">{errors.zoneId?.message}</div>
+                    <div className="invalid-feedback">{errors.zoneId && <p>campo obligatorio</p>}</div>
                 </div>
             </div>
             <div className="form-row checkbox-group">
