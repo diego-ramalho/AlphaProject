@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as Yup from 'yup';
 
 // config
 import appForm from '../../lang/resources.json';
 
-import * as Icon from 'react-bootstrap-icons';
-
-import { history } from '../../_helpers';
 import { useRegisterActions, useZoneActions, useFilterActions, useAlertActions } from '../../_actions';
-import { color } from '@mui/system';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function RegistersAddEdit({ match })
 {
@@ -71,7 +65,7 @@ function RegistersAddEdit({ match })
 
     function createRegister(data)
     {
-        if(data.filterList === false) data.filterList = [];
+        if (data.filterList === false) data.filterList = [];
 
         return registerActions.create(data)
             .then(() =>
@@ -87,7 +81,7 @@ function RegistersAddEdit({ match })
 
     function updateRegister(id, data)
     {
-        if(data.filterList === false) data.filterList = [];
+        if (data.filterList === false) data.filterList = [];
 
         return registerActions.update(id, data)
             .then(() =>
@@ -313,7 +307,7 @@ function RegistersAddEdit({ match })
 
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
+        <form onSubmit={ handleSubmit(onSubmit) } onReset={reset}>
             {/* <h1>{isAddMode ? 'Agregar Taratura' : 'Editar Taratura'}</h1> */}
             <h3 className="PageContentTitle">{isAddMode ? 'Agregar ' + pageTitle : 'Editar ' + pageTitle}</h3>
 
