@@ -56,18 +56,18 @@ function RegistersAddEdit({ match })
     var pageCode = useSelector(state => state.previousPageCode);
     var pagePath = useSelector(state => state.previousPagePath);
 
-    function onSubmit(data)
+    const onSubmit = async (data) =>
     {
         return isAddMode
-            ? createRegister(data)
-            : updateRegister(id, data);
+            ? await createRegister(data)
+            : await updateRegister(id, data);
     }
 
-    function createRegister(data)
+    const createRegister = async (data) =>
     {
         if (data.filterList === false) data.filterList = [];
 
-        return registerActions.create(data)
+        return await registerActions.create(data)
             .then(() =>
             {
                 useAlertActions.success('Registro agregado', { keepAfterRouteChange: true });
@@ -76,14 +76,18 @@ function RegistersAddEdit({ match })
                 let redir = pagePath !== "" ? pagePath : '/Taraturas'
                 navigate(redir);
             })
-            .catch(useAlertActions.error);
+            .catch((error) =>
+            {
+                useAlertActions.error(error.toString());
+                alert(error.toString());
+            });
     }
 
-    function updateRegister(id, data)
+    const updateRegister = async (id, data) =>
     {
         if (data.filterList === false) data.filterList = [];
 
-        return registerActions.update(id, data)
+        return await registerActions.update(id, data)
             .then(() =>
             {
                 useAlertActions.success('Registro actualizado', { keepAfterRouteChange: true });
@@ -92,7 +96,11 @@ function RegistersAddEdit({ match })
                 let redir = pagePath !== "" ? pagePath : '/Taraturas'
                 navigate(redir);
             })
-            .catch(useAlertActions.error);
+            .catch((error) =>
+            {
+                useAlertActions.error(error.toString(), { keepAfterRouteChange: true });
+                alert(error.toString());
+            });
     }
 
     const [registerItem, setRegister] = useState({});
@@ -137,7 +145,7 @@ function RegistersAddEdit({ match })
             {
                 setInitialFilters(x);
                 setSelectedFilters(x);
-                console.log(x);
+                //console.log(x);
                 setIsPageInitialLoad(false);
 
                 x.forEach(function (item, index)
@@ -259,7 +267,7 @@ function RegistersAddEdit({ match })
 
     useEffect(() =>
     {
-        filterActions.getAll().then(x => { setFilterOptions(x); console.log(x); });
+        filterActions.getAll().then(x => { setFilterOptions(x); });
         zoneActions.getAll().then(x => setZoneOptions(x));
 
         if (!isAddMode)
@@ -268,7 +276,7 @@ function RegistersAddEdit({ match })
             {
                 setInitialFilters(x);
                 setSelectedFilters(x);
-                console.log(x);
+                //console.log(x);
 
                 // checkboxes.forEach(function (item, index)
                 // {
@@ -307,7 +315,7 @@ function RegistersAddEdit({ match })
 
 
     return (
-        <form onSubmit={ handleSubmit(onSubmit) } onReset={reset}>
+        <form autocomplete="off" onSubmit={handleSubmit(onSubmit)}>
             {/* <h1>{isAddMode ? 'Agregar Taratura' : 'Editar Taratura'}</h1> */}
             <h3 className="PageContentTitle">{isAddMode ? 'Agregar ' + pageTitle : 'Editar ' + pageTitle}</h3>
 
@@ -505,7 +513,8 @@ function RegistersAddEdit({ match })
                 {/* </div> */}
             </div>
             <div className="form-row">
-                <button type="submit" disabled={formState.isSubmitting} className="btn btn-primary">
+                {/* <button type="submit" disabled={formState.isSubmitting} className="btn btn-primary"> */}
+                <button disabled={formState.isSubmitting} className="btn btn-primary">
                     {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
                     Guardar
                 </button>

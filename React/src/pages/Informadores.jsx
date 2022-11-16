@@ -28,7 +28,7 @@ const path = '/Admin/Registers';
 const columns = [
     //{ id: 'id', label: 'Id', minWidth: 50 },
     { id: 'address', label: 'Informadores', minWidth: 200 },
-    // { id: 'number', label: 'Puerta', minWidth: 100 },
+    { id: 'number', label: 'Puerta', minWidth: 100, align: 'center' },
     { id: 'zoneId', label: 'Zona', minWidth: 50, align: 'center' }
 ];
 
