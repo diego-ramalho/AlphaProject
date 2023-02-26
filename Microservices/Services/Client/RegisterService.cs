@@ -85,7 +85,7 @@ namespace WebApiTemplate.Services.Client
 
             _registerTransactionalService.Update(_entity);
 
-            if (_entity.Id > 0 && entity.filterList.Count() > 0)
+            if (_entity.Id > 0)
             {
                 var _getEntity = _context.RegisterFilters.Where(f => f.RegisterId == _entity.Id).ToList();
 
