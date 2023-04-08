@@ -56,6 +56,22 @@ function RegistersAddEdit({ match })
     var pageCode = useSelector(state => state.previousPageCode);
     var pagePath = useSelector(state => state.previousPagePath);
 
+    const [registerItem, setRegister] = useState({});
+    const [filterOptions, setFilterOptions] = useState([]);
+    //const [filterChecked, setFilterChecked] = useState([]);
+    const [initialFilters, setInitialFilters] = useState([]);
+    const [selectedFilters, setSelectedFilters] = useState([]);
+    const [zoneoptions, setZoneOptions] = useState([]);
+
+    const [isPageInitialLoad, setIsPageInitialLoad] = useState(true);
+    const [chkPisosVacios, setChkPisosVacios] = useState(false); //1
+    const [chkPisosInvestigados, setChkPisosInvestigados] = useState(false); //2
+    const [chkPisosVendidos, setChkPisosVendidos] = useState(false); //3
+    const [chkPisosAlquilados, setChkPisosAlquilados] = useState(false); //4
+    const [chkInformadores, setChkInformadores] = useState(false); //5
+    const [chkNoticias, setChkNoticias] = useState(false); //6
+    const [chkEncargos, setChkEncargos] = useState(false); //7
+
     const onSubmit = async (data) =>
     {
         return isAddMode
@@ -87,6 +103,32 @@ function RegistersAddEdit({ match })
     {
         if (data.filterList === false) data.filterList = [];
 
+        if (data.filterList.length === 0)
+        {
+            var cklist = document.querySelectorAll('input[name="filterList"]:checked');
+
+            cklist.forEach(element =>
+            {
+                data.filterList.push(element.value + "");
+
+                //alert(element.value);
+                const id = element.value;
+                const isChecked = true;
+
+                switch (id)
+                {
+                    case "1": setChkPisosVacios(isChecked); break;
+                    case "2": setChkPisosInvestigados(isChecked); break;
+                    case "3": setChkPisosVendidos(isChecked); break;
+                    case "4": setChkPisosAlquilados(isChecked); break;
+                    case "5": setChkInformadores(isChecked); break;
+                    case "6": setChkNoticias(isChecked); break;
+                    case "7": setChkEncargos(isChecked); break;
+                    default: break;
+                }
+            });
+        }
+
         return await registerActions.update(id, data)
             .then(() =>
             {
@@ -103,37 +145,24 @@ function RegistersAddEdit({ match })
             });
     }
 
-    const [registerItem, setRegister] = useState({});
-    const [filterOptions, setFilterOptions] = useState([]);
-    //const [filterChecked, setFilterChecked] = useState([]);
-    const [initialFilters, setInitialFilters] = useState([]);
-    const [selectedFilters, setSelectedFilters] = useState([]);
-    const [zoneoptions, setZoneOptions] = useState([]);
-
-    const [isPageInitialLoad, setIsPageInitialLoad] = useState(true);
-    const [chkPisosVacios, setChkPisosVacios] = useState(false); //1
-    const [chkPisosInvestigados, setChkPisosInvestigados] = useState(false); //2
-    const [chkPisosVendidos, setChkPisosVendidos] = useState(false); //3
-    const [chkPisosAlquilados, setChkPisosAlquilados] = useState(false); //4
-    const [chkInformadores, setChkInformadores] = useState(false); //5
-    const [chkNoticias, setChkNoticias] = useState(false); //6
-    const [chkEncargos, setChkEncargos] = useState(false); //7
-
     const handleCheckbox = (event) =>
     {
-        const id = event.target.id;
-        const isChecked = event.target.checked;
-
-        switch (id)
+        if (event != null)
         {
-            case "1": setChkPisosVacios(isChecked); break;
-            case "2": setChkPisosInvestigados(isChecked); break;
-            case "3": setChkPisosVendidos(isChecked); break;
-            case "4": setChkPisosAlquilados(isChecked); break;
-            case "5": setChkInformadores(isChecked); break;
-            case "6": setChkNoticias(isChecked); break;
-            case "7": setChkEncargos(isChecked); break;
-            default: break;
+            const id = event.target.id;
+            const isChecked = event.target.checked;
+
+            switch (id)
+            {
+                case "1": setChkPisosVacios(isChecked); break;
+                case "2": setChkPisosInvestigados(isChecked); break;
+                case "3": setChkPisosVendidos(isChecked); break;
+                case "4": setChkPisosAlquilados(isChecked); break;
+                case "5": setChkInformadores(isChecked); break;
+                case "6": setChkNoticias(isChecked); break;
+                case "7": setChkEncargos(isChecked); break;
+                default: break;
+            }
         }
     }
 
@@ -209,10 +238,10 @@ function RegistersAddEdit({ match })
     {
         switch (pageCode)
         {
-            case "NO": return "Noticia";
-            case "EN": return "Encargo";
-            case "IN": return "Informador";
-            default: return "Direccion";
+            // case "NO": return "Noticia";
+            // case "EN": return "Encargo";
+            // case "IN": return "Informador";
+            default: return "Dirección";
         }
     }
 
