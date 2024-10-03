@@ -199,7 +199,8 @@ const Taraturas = () =>
 
               {registers && registers
                 //.filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0)
-                .filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore)))
+                //.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore)))
+                .filter(x => searchRegisterStore.split(" ").every(t => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(t))))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((person, index) =>
                 {
