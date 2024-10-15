@@ -14,7 +14,7 @@ import TableRow from '@mui/material/TableRow';
 import * as Icon from 'react-bootstrap-icons';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { searchRegister } from '../store/searchRegisterSlice';
+import { searchRegisterDireccion } from '../store/searchRegisterDireccionSlice';
 
 import { previousPageCode } from '../store/previousPageCodeSlice';
 import { previousPagePath } from '../store/previousPagePathSlice';
@@ -52,7 +52,7 @@ const PisosAlquilados = () =>
     let location = useLocation();
 
     const zoneStore = useSelector(state => state.zone);
-    const searchRegisterStore = useSelector(state => state.searchRegister);
+    const searchRegisterDireccionStore = useSelector(state => state.searchRegisterDireccion);
 
     //const pathView = '/Registers/view';
     const pathView = '/Admin/Registers/edit';
@@ -65,9 +65,9 @@ const PisosAlquilados = () =>
         // {
         //   dispatch(searchRegister(""));
         // }
-        if (searchRegisterStore !== "")
+        if (searchRegisterDireccionStore !== "")
         {
-            document.querySelector('#search').value = searchRegisterStore;
+            document.querySelector('#search').value = searchRegisterDireccionStore;
         }
     }, []);
 
@@ -96,7 +96,7 @@ const PisosAlquilados = () =>
     const handleSearch = (event) =>
     {
         let inputValue = event.target.value;
-        dispatch(searchRegister(inputValue));
+        dispatch(searchRegisterDireccion(inputValue));
     };
 
     const handleChangeRowsPerPage = (event) =>
@@ -114,7 +114,7 @@ const PisosAlquilados = () =>
     // let content;
 
     // if (error) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>{error}</div></TableCell></TableRow>; }
-    // else if (registers.filter(x => x.address.includes(searchRegisterStore)).length === 0 && !isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>¡No hay registros!</div></TableCell></TableRow>; }
+    // else if (registers.filter(x => x.address.includes(searchRegisterDireccionStore)).length === 0 && !isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>¡No hay registros!</div></TableCell></TableRow>; }
     // else if (isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>Cargando...</div></TableCell></TableRow>; }
 
     return (
@@ -155,8 +155,8 @@ const PisosAlquilados = () =>
                             {/* {content} */}
 
                             {registers && registers
-                                //.filter(x => x.address.includes(searchRegisterStore))
-                                .filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore)))
+                                //.filter(x => x.address.includes(searchRegisterDireccionStore))
+                                .filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterDireccionStore)))
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((person, index) =>
                                 {
@@ -201,7 +201,7 @@ const PisosAlquilados = () =>
                                     </td>
                                 </tr>
                             }
-                            {registers && !registers.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore))).length &&
+                            {registers && !registers.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterDireccionStore))).length &&
                                 <tr>
                                     <td colSpan="4" className="text-center">
                                         <div className="p-2">¡No hay registros!</div>
@@ -214,7 +214,7 @@ const PisosAlquilados = () =>
                 <TablePagination
                     rowsPerPageOptions={[10, 25, 100]}
                     component="div"
-                    count={registers && registers.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore))).length}
+                    count={registers && registers.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterDireccionStore))).length}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}

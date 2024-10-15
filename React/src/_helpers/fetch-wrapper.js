@@ -14,6 +14,7 @@ function useFetchWrapper()
     return {
         get: request('GET'),
         post: request('POST'),
+        postFile: requestFile('POST'),
         put: request('PUT'),
         delete: request('DELETE')
     };
@@ -31,6 +32,23 @@ function useFetchWrapper()
                 requestOptions.headers['Content-Type'] = 'application/json';
                 //requestOptions.headers['Authorization'] = 'application/json';
                 requestOptions.body = JSON.stringify(body);
+            }
+            return fetch(url, requestOptions).then(handleResponse);
+        }
+    }
+
+    function requestFile(method)
+    {
+        return (url, body) =>
+        {
+            const requestOptions = {
+                method,
+                headers: authHeader(url)
+            };
+            if (body)
+            {
+                //requestOptions.headers['Content-Type'] = 'multipart/form-data';
+                requestOptions.body = body;
             }
             return fetch(url, requestOptions).then(handleResponse);
         }

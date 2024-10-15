@@ -56,7 +56,8 @@
                 "item-03": "Adm. de Zonas",
                 "item-04": "Filters Admin",
                 "item-05": "Adm. de Noticias",
-                "item-06": "Adm. de Encargos"
+                "item-06": "Adm. de Encargos",
+                "item-07": "Adm. de Csv"
             }
         },
         "form": {
@@ -88,6 +89,7 @@
                     "PVe"
                 ],
                 "number": [
+                    "NO",
                     "EN",
                     "IN",
                     "PI",
@@ -96,6 +98,7 @@
                     "PVe"
                 ],
                 "phone": [
+                    "NO",
                     "EN",
                     "IN",
                     "PI",
@@ -104,6 +107,7 @@
                     "PVe"
                 ],
                 "dni": [
+                    "NO",
                     "EN",
                     "IN",
                     "PI",
@@ -112,6 +116,7 @@
                     "PVe"
                 ],
                 "lastContact": [
+                    "NO",
                     "EN",
                     "IN",
                     "PI",

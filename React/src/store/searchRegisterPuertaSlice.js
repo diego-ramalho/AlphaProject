@@ -1,12 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 
-
-export const searchRegisterSlice = createSlice({
-    name: 'search-register',
+export const searchRegisterPuertaSlice = createSlice({
+    name: 'search-register-puerta',
     initialState: "",
     reducers: {
-        searchRegister: (state, action) =>
+        searchRegisterPuerta: (state, action) =>
         {
             state = action.payload;
             return state;
@@ -19,6 +18,6 @@ export const searchRegisterSlice = createSlice({
 });
 
 
-export const { searchRegister } = searchRegisterSlice.actions;
+export const { searchRegisterPuerta } = searchRegisterPuertaSlice.actions;
 
-export default searchRegisterSlice.reducer;
+export default searchRegisterPuertaSlice.reducer;
