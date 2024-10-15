@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 // config
 import appForm from '../../lang/resources.json';
 
-import { useRegisterActions, useZoneActions, useFilterActions, useAlertActions } from '../../_actions';
+import { useRegisterActions, useZoneActions, useFilterActions, useAlertActions, useUserActions } from '../../_actions';
 
 import { useSelector } from 'react-redux';
 
@@ -19,6 +19,7 @@ function RegistersAddEdit({ match })
     const registerActions = useRegisterActions();
     const zoneActions = useZoneActions();
     const filterActions = useFilterActions();
+    const userActions = useUserActions();
 
     // form validation rules 
     // const validationSchema = Yup.object().shape({
@@ -62,6 +63,8 @@ function RegistersAddEdit({ match })
     const [initialFilters, setInitialFilters] = useState([]);
     const [selectedFilters, setSelectedFilters] = useState([]);
     const [zoneoptions, setZoneOptions] = useState([]);
+
+    const [user, setUser] = useState(null);
 
     const [isPageInitialLoad, setIsPageInitialLoad] = useState(true);
     const [chkPisosVacios, setChkPisosVacios] = useState(false); //1

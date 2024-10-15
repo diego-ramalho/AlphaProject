@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateZone } from '../store/zoneSlice';
 import { searchRegister } from '../store/searchRegisterSlice';
 
-import { useRegisterActions, useZoneActions } from '../_actions';
+import { useRegisterActions, useZoneActions, useUserActions } from '../_actions';
 
 import { previousPageCode } from '../store/previousPageCodeSlice';
 import { previousPagePath } from '../store/previousPagePathSlice';
@@ -43,9 +43,11 @@ const Taraturas = () =>
 
   const [registers, setRegisters] = useState(null);
   const [zoneList, setZoneList] = useState([]);
+  const [user, setUser] = useState(null);
 
   const registerActions = useRegisterActions();
   const zoneActions = useZoneActions();
+  const userActions = useUserActions();
 
   const dispatch = useDispatch();
 
@@ -80,6 +82,7 @@ const Taraturas = () =>
     //registerActions.getAll().then(x => setRegisters(x));
     zoneActions.getAll().then(x => { setZoneList(x); });
     //setIsLoading(false);
+    userActions.getCurrentUser().then(x => { setUser(x); });
   }, [zoneStore]);
 
   function deleteRegister(id)
@@ -227,7 +230,7 @@ const Taraturas = () =>
                       })}
 
                       <TableCell key={index} align='center'>
-                        <button onClick={() => { if (window.confirm('¿eliminar este registro?')) deleteRegister(person.id); }} className="btn btn-md btn-danger btn-delete-register" disabled={person.isDeleting}>
+                        <button onClick={() => { if (window.confirm('¿eliminar este registro?')) deleteRegister(person.id); }} className="btn btn-md btn-danger btn-delete-register" disabled={person.isDeleting} hidden={user.roleId == 2}>
                           {person.isDeleting
                             ? <span className="spinner-border spinner-border-sm"></span>
                             : <span><Icon.TrashFill className='FontAwesomeIcon' /></span>

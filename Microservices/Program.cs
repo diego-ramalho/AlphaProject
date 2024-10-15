@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using WebApiTemplate.Data;
 using WebApiTemplate.Helpers;
+using WebApiTemplate.Models;
 using WebApiTemplate.Services;
 using WebApiTemplate.Services.Client;
 
@@ -48,8 +49,12 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddSingleton<JwtAuthenticationManager>();
 
+builder.Services.AddScoped<AuthorizationHelper>();
+
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserTransactionalService, UserTransactionalService>();
+
+builder.Services.AddScoped<UserTransactionalService>();
 
 builder.Services.AddScoped<IRegisterService, RegisterService>();
 builder.Services.AddScoped<IRegisterTransactionalService, RegisterTransactionalService>();

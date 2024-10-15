@@ -16,7 +16,7 @@ import * as Icon from 'react-bootstrap-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchRegister } from '../store/searchRegisterSlice';
 
-import { useRegisterActions, useZoneActions, useFilterActions } from '../_actions';
+import { useRegisterActions, useZoneActions, useFilterActions, useUserActions } from '../_actions';
 
 import { previousPageCode } from '../store/previousPageCodeSlice';
 import { previousPagePath } from '../store/previousPagePathSlice';
@@ -42,10 +42,12 @@ const Informadores = () =>
     const [registers, setRegisters] = useState(null);
     const [zoneList, setZoneList] = useState([]);
     const [filterList, setFilterList] = useState([]);
+    const [user, setUser] = useState(null);
 
     const registerActions = useRegisterActions();
     const zoneActions = useZoneActions();
     const filterActions = useFilterActions();
+    const userActions = useUserActions();
 
     const dispatch = useDispatch();
 
@@ -78,6 +80,7 @@ const Informadores = () =>
     {
         registerActions.getAllByFilter(filterId).then(x => setRegisters(x.filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0)));
         zoneActions.getAll().then(x => { setZoneList(x); });
+        userActions.getCurrentUser().then(x => { setUser(x); });
     }, [zoneStore]);
 
     function deleteRegister(id)
@@ -187,7 +190,7 @@ const Informadores = () =>
                                             })}
 
                                             <TableCell key={index} align='center' minWidth='60px'>
-                                                <button onClick={() => { if (window.confirm('¿eliminar este registro?')) deleteRegister(person.id); }} className="btn btn-md btn-danger btn-delete-register" disabled={person.isDeleting}>
+                                                <button onClick={() => { if (window.confirm('¿eliminar este registro?')) deleteRegister(person.id); }} className="btn btn-md btn-danger btn-delete-register" disabled={person.isDeleting} hidden={user.roleId == 2}>
                                                     {person.isDeleting
                                                         ? <span className="spinner-border spinner-border-sm"></span>
                                                         : <span><Icon.TrashFill className='FontAwesomeIcon' /></span>
