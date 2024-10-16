@@ -8,6 +8,7 @@ using System.Security.Claims;
 using WebApiTemplate.Dtos;
 using WebApiTemplate.Models;
 using WebApiTemplate.Services;
+using WebApiTemplate.Services.Client;
 
 namespace WebApiTemplate.Controllers
 {
@@ -194,11 +195,32 @@ namespace WebApiTemplate.Controllers
         {
             User user = _authorizationHelper.GetAuthorization(Request.Headers);
 
-            if (user != null && user.RoleId == 1)
+            //if (user != null && user.RoleId == 1)
+            if (user != null)
             {
-                _registerService.Update(id, entityIn);
+                if (user.RoleId == 1)
+                {
+                    _registerService.Update(id, entityIn);
 
-                return Ok();
+                    return Ok();
+                }
+                else
+                {
+                    var entidade = _registerService.GetById(id);
+                    if (entidade != null)
+                    {
+                        entityIn.Address = entidade.Address;
+                        entityIn.Name = entidade.Name;
+
+                        _registerService.Update(id, entityIn);
+
+                        return Ok();
+                    }
+                    else
+                    {
+                        return BadRequest(new NullReferenceException());
+                    }
+                }
             }
             else
             {
