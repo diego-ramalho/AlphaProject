@@ -95,7 +95,7 @@ const Users = () =>
     <>
       <div className="PageContentTitle">Users <Icon.ArrowDownLeftSquareFill className='FontAwesomeIcon' /></div>
       <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-        <TableContainer sx={{ maxHeight: 440 }}>
+        <TableContainer sx={{}}>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>
