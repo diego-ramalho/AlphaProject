@@ -48,6 +48,7 @@ import { RegistersAddEdit } from './pages/admin/RegistersAddEdit';
 import { TaraturasView } from './pages/TaraturasView';
 import { EncargosView } from './pages/EncargosView_old';
 import { NoticiasView } from './pages/NoticiasView_old';
+import { CsvImport } from './pages/admin/CsvImport';
 
 
 const login_page = [
@@ -121,6 +122,8 @@ function App()
         <Route path='/Admin/Registers/edit/:id' element={<RegistersAddEdit />} />
         {/* <Route path='/Admin/Registers/view/:id' element={<TaraturasView />} />
         <Route path='/TaraturasView/:id' element={<TaraturasView />} /> */}
+
+        <Route exact path='/Admin/CsvImport' element={<CsvImport />} />
 
         <Route path='/Registers/view/:id' element={<TaraturasView />} />
         <Route path='/Encargos/view/:id' element={<EncargosView />} />

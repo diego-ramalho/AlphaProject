@@ -10,6 +10,7 @@ import PisosAlquilados from "./pages/PisosAlquilados";
 import Noticias from "./pages/Noticias";
 import Encargos from "./pages/Encargos";
 import Informadores from "./pages/Informadores";
+import {CsvImport} from "./pages/admin/CsvImport";
 
 // other
 import { FC } from "react";
@@ -88,5 +89,13 @@ export const routes: Array<Route> = [
         enabled: true,
         component: Informadores,
         color: appLang.pt.menu.main['item-08'][1]
-    }
+    },
+    // {
+    //     key: 'csvimport-route',
+    //     title: appLang.pt.menu.admin['item-07'][0],
+    //     path: '/csvimport',
+    //     enabled: true,
+    //     component: CsvImport,
+    //     color: appLang.pt.menu.admin['item-07'][1]
+    // }
 ]

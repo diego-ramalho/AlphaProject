@@ -15,7 +15,12 @@ import * as Icon from 'react-bootstrap-icons';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { updateZone } from '../store/zoneSlice';
-import { searchRegister } from '../store/searchRegisterSlice';
+import { searchRegisterDireccion } from '../store/searchRegisterDireccionSlice';
+import { searchRegisterNombre } from '../store/searchRegisterNombreSlice';
+import { searchRegisterPuerta } from '../store/searchRegisterPuertaSlice';
+import { searchRegisterDni } from '../store/searchRegisterDniSlice';
+import { searchRegisterCorreo } from '../store/searchRegisterCorreoSlice';
+import { searchRegisterTelefono } from '../store/searchRegisterTelefonoSlice';
 
 import { useRegisterActions, useZoneActions, useUserActions } from '../_actions';
 
@@ -28,9 +33,13 @@ const path = '/Admin/Registers';
 
 const columns = [
   // { id: 'id', label: 'Id', minWidth: 50 },
-  { id: 'address', label: 'Direccion', minWidth: 200 },
-  { id: 'number', label: 'Puerta', minWidth: 100, align: 'center' },
-  { id: 'zoneId', label: 'Zona', minWidth: 50, align: 'center' }
+  { id: 'name', label: 'Nombre', minWidth: 60, align: 'center' },
+  { id: 'address', label: 'Direccion', minWidth: 60 },
+  { id: 'number', label: 'Puerta', minWidth: 60, align: 'center' },
+  { id: 'email', label: 'Correo', minWidth: 60, align: 'center' },
+  { id: 'phone', label: 'Telefono', minWidth: 60, align: 'center' },
+  { id: 'dni', label: 'Dni', minWidth: 60, align: 'center' },
+  { id: 'zoneId', label: 'Zona', minWidth: 40, align: 'center' }
 ];
 
 const Taraturas = () =>
@@ -54,7 +63,13 @@ const Taraturas = () =>
   let location = useLocation();
 
   const zoneStore = useSelector(state => state.zone);
-  const searchRegisterStore = useSelector(state => state.searchRegister);
+
+  const searchRegisterDireccionStore = useSelector(state => state.searchRegisterDireccion);
+  const searchRegisterNombreStore = useSelector(state => state.searchRegisterNombre);
+  const searchRegisterPuertaStore = useSelector(state => state.searchRegisterPuerta);
+  const searchRegisterDniStore = useSelector(state => state.searchRegisterDni);
+  const searchRegisterCorreoStore = useSelector(state => state.searchRegisterCorreo);
+  const searchRegisterTelefonoStore = useSelector(state => state.searchRegisterTelefono);
 
   //const pathView = '/Registers/view';
   const pathView = '/Admin/Registers/edit';
@@ -65,9 +80,9 @@ const Taraturas = () =>
     // {
     //   dispatch(searchRegister(""));
     // }
-    if (searchRegisterStore !== "")
+    if (searchRegisterDireccionStore !== "")
     {
-      document.querySelector('#search').value = searchRegisterStore;
+      document.querySelector('#search').value = searchRegisterDireccionStore;
     }
   }, []);
 
@@ -104,12 +119,60 @@ const Taraturas = () =>
 
   const handleSearch = (event) =>
   {
-    let inputValue = event.target.value;
+    let inputDireccionValue;
+    let inputNombreValue;
+    let inputPuertaValue;
+    let inputDniValue;
+    let inputCorreoValue;
+    let inputTelefonoValue;
+
+    switch (event.target.name)
+    {
+      case 'search_direccion':
+        inputDireccionValue = event.target.value; console.log(event.target.name + ": " + event.target.value);
+        dispatch(searchRegisterDireccion(inputDireccionValue)); //alert(searchRegister);
+        break;
+      case 'search_nombre':
+        inputNombreValue = event.target.value; console.log(event.target.name + ": " + event.target.value);
+        dispatch(searchRegisterNombre(inputNombreValue)); //alert(searchRegister);
+        break;
+      case 'search_puerta':
+        inputPuertaValue = event.target.value; console.log(event.target.name + ": " + event.target.value);
+        dispatch(searchRegisterPuerta(inputPuertaValue)); //alert(searchRegister);
+        break;
+      case 'search_dni':
+        inputDniValue = event.target.value; console.log(event.target.name + ": " + event.target.value);
+        dispatch(searchRegisterDni(inputDniValue)); //alert(searchRegister);
+        break;
+      case 'search_correo':
+        inputCorreoValue = event.target.value; console.log(event.target.name + ": " + event.target.value);
+        dispatch(searchRegisterCorreo(inputCorreoValue)); //alert(searchRegister);
+        break;
+      case 'search_telefono':
+        inputTelefonoValue = event.target.value; console.log(event.target.name + ": " + event.target.value);
+        dispatch(searchRegisterTelefono(inputTelefonoValue)); //alert(searchRegister);
+        break;
+
+      default:
+        break;
+    }
+
+
+
+
+
+    // search_direccion
+    // search_nombre
+    // search_dni
+    // search_correo
+    // search_telefono
+
+    //alert(event.target.name);
 
     // if (inputValue.length >= 3)
     // {
     //testeee = {...people.filter(x => x.address.includes(inputValue))};
-    dispatch(searchRegister(inputValue))
+    //dispatch(searchRegister(inputDireccionValue))
     //alert(inputValue);
     // userActions.getAll()
     //   .then(x => setPeople(x
@@ -127,6 +190,12 @@ const Taraturas = () =>
   const toLowCaseAndSpecChars = (input_text) =>
   {
     var output_text = input_text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[.,:;ºª]/g, "");
+    return output_text;
+  };
+
+  const toLowCase = (input_text) =>
+  {
+    var output_text = input_text.toLowerCase().normalize("NFD");
     return output_text;
   };
 
@@ -157,7 +226,7 @@ const Taraturas = () =>
   let content;
 
   // if (error) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>{error}</div></TableCell></TableRow>; }
-  // else if (registers.filter(x => x.address.includes(searchRegisterStore)).length === 0 && !isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>¡No hay registros!</div></TableCell></TableRow>; }
+  // else if (registers.filter(x => x.address.includes(searchRegisterDireccionStore)).length === 0 && !isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>¡No hay registros!</div></TableCell></TableRow>; }
   // else if (isLoading) { content = <TableRow><TableCell colSpan={3}><div className='no-data'>Cargando...</div></TableCell></TableRow>; }
   // else { content = <User people={people} />; }
 
@@ -174,15 +243,43 @@ const Taraturas = () =>
 
 
       <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-        <TableContainer sx={{ maxHeight: 440 }}>
+        <TableContainer sx={{  }}>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>
-                <TableCell colSpan={4}>
-                  <input id="search" type="text" class="form-control" name="search" placeholder="buscar por direccion" onChange={handleSearch} />
+                <TableCell colSpan={8}>
+                  Búsquedas
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell colSpan={3}>
+                  <input id="search_nombre" type="text" class="form-control" name="search_nombre" placeholder="nombre y apellidos" onChange={handleSearch} />
+                </TableCell>
+                <TableCell colSpan={3}>
+                  <input id="search_direccion" type="text" class="form-control" name="search_direccion" placeholder="direccion" onChange={handleSearch} />
+                </TableCell>
+                <TableCell colSpan={2}>
+                  <input id="search_puerta" type="text" class="form-control" name="search_puerta" placeholder="puerta" onChange={handleSearch} />
                 </TableCell>
               </TableRow>
 
+              <TableRow>
+                <TableCell colSpan={3}>
+                  <input id="search_correo" type="text" class="form-control" name="search_correo" placeholder="correo" onChange={handleSearch} />
+                </TableCell>
+                <TableCell colSpan={3}>
+                  <input id="search_telefono" type="text" class="form-control" name="search_telefono" placeholder="teléfono" onChange={handleSearch} />
+                </TableCell>
+                <TableCell colSpan={2}>
+                  <input id="search_dni" type="text" class="form-control" name="search_dni" placeholder="dni" onChange={handleSearch} />
+                </TableCell>
+              </TableRow>
+            </TableHead>
+          </Table>
+
+
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead>
               <TableRow>
                 {columns.map((column) => (
                   <TableCell
@@ -198,11 +295,25 @@ const Taraturas = () =>
             </TableHead>
             <TableBody>
 
-              {/* {content} */}
+              {/* {content} */ console.log('searchRegisterPuertaStore:', searchRegisterPuertaStore)}
+
 
               {registers && registers
                 //.filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0)
-                .filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore)))
+                //.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterDireccionStore)))
+                .filter(x => searchRegisterNombreStore.split(" ").every(t => toLowCaseAndSpecChars(x.name).includes(toLowCaseAndSpecChars(t))))
+                .filter(x => searchRegisterDireccionStore.split(" ").every(t => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(t))))
+                .filter(x => searchRegisterPuertaStore.split(" ").every(t => toLowCaseAndSpecChars(x.number).includes(toLowCaseAndSpecChars(t))))
+                //.filter(x => searchRegisterPuertaStore.split(" ").every(t => x.number?.toLowerCase().includes(t)))                
+                //.filter(x => searchRegisterCorreoStore.split(" ").every(t => toLowCaseAndSpecChars(x.email).includes(toLowCaseAndSpecChars(t))))
+                .filter(x => searchRegisterCorreoStore.split(" ").every(t => x.email?.toLowerCase().includes(t)))
+                .filter(x => searchRegisterTelefonoStore.split(" ").every(t => toLowCaseAndSpecChars(x.phone).includes(toLowCaseAndSpecChars(t))))
+                .filter(x => searchRegisterDniStore.split(" ").every(t => toLowCaseAndSpecChars(x.dni).includes(toLowCaseAndSpecChars(t))))
+                //.filter(x => searchRegisterPuertaStore.split(" ").every(t => x.puerta.includes(t)))
+                //.filter(x => !searchRegisterPuertaStore && searchRegisterPuertaStore === undefined ? x : searchRegisterPuertaStore.split(" ").every(t => toLowCaseAndSpecChars(x.number).includes(toLowCaseAndSpecChars(t))))
+                //.filter(x => !searchRegisterPuertaStore ? x : toLowCaseAndSpecChars(x.number).includes(toLowCaseAndSpecChars(searchRegisterPuertaStore)))
+                //.filter(x => !searchRegisterDniStore || !x.dni ? x : searchRegisterDniStore.split(" ").every(t => x.dni.includes(t)))
+                //.filter(x => searchRegisterNombreStore != 0 ? x.number == searchRegisterNombreStore : x.number > 0)
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((person, index) =>
                 {
@@ -217,15 +328,25 @@ const Taraturas = () =>
                         }
                         if (column.id == 'address')
                         {
-                          // value = person.id + " - " + person.address;
+                          // value = person.id + " - " + person.address; 
                           value = <Link to={`${pathView}/${person.id}`} onClick={() => { dispatch(previousPageCode(pageCode)); dispatch(previousPagePath(location.pathname)); }} className="link-to-view">{person.address}</Link>
                         }
                         return (
-                          <TableCell key={index} align={column.align}>
-                            {column.format && typeof value === 'number'
-                              ? column.format(value)
-                              : value}
-                          </TableCell>
+                          <>
+                            <TableCell key={index} align={column.align}>
+                              {column.format && typeof value === 'number'
+                                ? column.format(value)
+                                : value}
+
+                              {/* {columns.indexOf(column) + 1 == columns.length ? " Fim" : " Resta"} */}
+                            </TableCell>
+
+                            {/* <TableRow>
+                              <TableCell>
+                                AaA
+                              </TableCell>
+                            </TableRow> */}
+                          </>
                         );
                       })}
 
@@ -247,7 +368,7 @@ const Taraturas = () =>
                   </td>
                 </tr>
               }
-              {registers && !registers.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore))).length &&
+              {registers && !registers.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterDireccionStore))).length &&
                 <tr>
                   <td colSpan="4" className="text-center">
                     <div className="p-2">¡No hay registros!</div>
@@ -260,7 +381,7 @@ const Taraturas = () =>
         <TablePagination
           rowsPerPageOptions={[10, 25, 100]}
           component="div"
-          count={registers && registers.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterStore))).length}
+          count={registers && registers.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterDireccionStore))).length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}
