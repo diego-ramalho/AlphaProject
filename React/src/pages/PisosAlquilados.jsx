@@ -14,7 +14,13 @@ import TableRow from '@mui/material/TableRow';
 import * as Icon from 'react-bootstrap-icons';
 
 import { useDispatch, useSelector } from 'react-redux';
+
 import { searchRegisterDireccion } from '../store/searchRegisterDireccionSlice';
+import { searchRegisterNombre } from '../store/searchRegisterNombreSlice';
+import { searchRegisterPuerta } from '../store/searchRegisterPuertaSlice';
+import { searchRegisterDni } from '../store/searchRegisterDniSlice';
+import { searchRegisterCorreo } from '../store/searchRegisterCorreoSlice';
+import { searchRegisterTelefono } from '../store/searchRegisterTelefonoSlice';
 
 import { previousPageCode } from '../store/previousPageCodeSlice';
 import { previousPagePath } from '../store/previousPagePathSlice';
@@ -27,9 +33,13 @@ const path = '/Admin/Registers';
 
 const columns = [
     //{ id: 'id', label: 'Id', minWidth: 50 },
-    { id: 'address', label: 'Direccion', minWidth: 200 },
-    { id: 'number', label: 'Puerta', minWidth: 100, align: 'center' },
-    { id: 'zoneId', label: 'Zona', minWidth: 50, align: 'center' }
+    { id: 'name', label: 'Nombre', minWidth: 60, align: 'center' },
+    { id: 'address', label: 'Direccion', minWidth: 60 },
+    { id: 'number', label: 'Puerta', minWidth: 60, align: 'center' },
+    { id: 'email', label: 'Correo', minWidth: 60, align: 'center' },
+    { id: 'phone', label: 'Telefono', minWidth: 60, align: 'center' },
+    { id: 'dni', label: 'Dni', minWidth: 60, align: 'center' },
+    { id: 'zoneId', label: 'Zona', minWidth: 40, align: 'center' }
 ];
 
 const PisosAlquilados = () =>
@@ -55,6 +65,11 @@ const PisosAlquilados = () =>
 
     const zoneStore = useSelector(state => state.zone);
     const searchRegisterDireccionStore = useSelector(state => state.searchRegisterDireccion);
+    const searchRegisterNombreStore = useSelector(state => state.searchRegisterNombre);
+    const searchRegisterPuertaStore = useSelector(state => state.searchRegisterPuerta);
+    const searchRegisterDniStore = useSelector(state => state.searchRegisterDni);
+    const searchRegisterCorreoStore = useSelector(state => state.searchRegisterCorreo);
+    const searchRegisterTelefonoStore = useSelector(state => state.searchRegisterTelefono);
 
     //const pathView = '/Registers/view';
     const pathView = '/Admin/Registers/edit';
@@ -63,14 +78,18 @@ const PisosAlquilados = () =>
 
     useEffect(() =>
     {
-        // if (document.querySelector('#search').value === "")
-        // {
-        //   dispatch(searchRegister(""));
-        // }
+        if (searchRegisterNombreStore !== "")
+            document.querySelector('#search_nombre').value = searchRegisterNombreStore;
         if (searchRegisterDireccionStore !== "")
-        {
-            document.querySelector('#search').value = searchRegisterDireccionStore;
-        }
+            document.querySelector('#search_direccion').value = searchRegisterDireccionStore;
+        if (searchRegisterPuertaStore !== "")
+            document.querySelector('#search_puerta').value = searchRegisterPuertaStore;
+        if (searchRegisterCorreoStore !== "")
+            document.querySelector('#search_correo').value = searchRegisterCorreoStore;
+        if (searchRegisterTelefonoStore !== "")
+            document.querySelector('#search_telefono').value = searchRegisterTelefonoStore;
+        if (searchRegisterDniStore !== "")
+            document.querySelector('#search_dni').value = searchRegisterDniStore;
     }, []);
 
     useEffect(() =>
@@ -98,8 +117,43 @@ const PisosAlquilados = () =>
 
     const handleSearch = (event) =>
     {
-        let inputValue = event.target.value;
-        dispatch(searchRegisterDireccion(inputValue));
+        let inputDireccionValue;
+        let inputNombreValue;
+        let inputPuertaValue;
+        let inputDniValue;
+        let inputCorreoValue;
+        let inputTelefonoValue;
+
+        switch (event.target.name)
+        {
+            case 'search_direccion':
+                inputDireccionValue = event.target.value; console.log(event.target.name + ": " + event.target.value);
+                dispatch(searchRegisterDireccion(inputDireccionValue)); //alert(searchRegister);
+                break;
+            case 'search_nombre':
+                inputNombreValue = event.target.value; console.log(event.target.name + ": " + event.target.value);
+                dispatch(searchRegisterNombre(inputNombreValue)); //alert(searchRegister);
+                break;
+            case 'search_puerta':
+                inputPuertaValue = event.target.value; console.log(event.target.name + ": " + event.target.value);
+                dispatch(searchRegisterPuerta(inputPuertaValue)); //alert(searchRegister);
+                break;
+            case 'search_dni':
+                inputDniValue = event.target.value; console.log(event.target.name + ": " + event.target.value);
+                dispatch(searchRegisterDni(inputDniValue)); //alert(searchRegister);
+                break;
+            case 'search_correo':
+                inputCorreoValue = event.target.value; console.log(event.target.name + ": " + event.target.value);
+                dispatch(searchRegisterCorreo(inputCorreoValue)); //alert(searchRegister);
+                break;
+            case 'search_telefono':
+                inputTelefonoValue = event.target.value; console.log(event.target.name + ": " + event.target.value);
+                dispatch(searchRegisterTelefono(inputTelefonoValue)); //alert(searchRegister);
+                break;
+
+            default:
+                break;
+        }
     };
 
     const handleChangeRowsPerPage = (event) =>
@@ -111,6 +165,12 @@ const PisosAlquilados = () =>
     const toLowCaseAndSpecChars = (input_text) =>
     {
         var output_text = input_text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[.,:;ºª]/g, "");
+        return output_text;
+    };
+
+    const toLowCase = (input_text) =>
+    {
+        var output_text = input_text.toLowerCase().normalize("NFD");
         return output_text;
     };
 
@@ -135,11 +195,39 @@ const PisosAlquilados = () =>
                     <Table stickyHeader aria-label="sticky table">
                         <TableHead>
                             <TableRow>
-                                <TableCell colSpan={4}>
-                                    <input id="search" type="text" class="form-control" name="search" placeholder="buscar por direccion" onChange={handleSearch} />
+                                <TableCell colSpan={8}>
+                                    Búsquedas
+                                </TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell colSpan={3}>
+                                    <input id="search_nombre" type="text" class="form-control" name="search_nombre" placeholder="nombre y apellidos" onChange={handleSearch} />
+                                </TableCell>
+                                <TableCell colSpan={3}>
+                                    <input id="search_direccion" type="text" class="form-control" name="search_direccion" placeholder="direccion" onChange={handleSearch} />
+                                </TableCell>
+                                <TableCell colSpan={2}>
+                                    <input id="search_puerta" type="text" class="form-control" name="search_puerta" placeholder="puerta" onChange={handleSearch} />
                                 </TableCell>
                             </TableRow>
 
+                            <TableRow>
+                                <TableCell colSpan={3}>
+                                    <input id="search_correo" type="text" class="form-control" name="search_correo" placeholder="correo" onChange={handleSearch} />
+                                </TableCell>
+                                <TableCell colSpan={3}>
+                                    <input id="search_telefono" type="text" class="form-control" name="search_telefono" placeholder="teléfono" onChange={handleSearch} />
+                                </TableCell>
+                                <TableCell colSpan={2}>
+                                    <input id="search_dni" type="text" class="form-control" name="search_dni" placeholder="dni" onChange={handleSearch} />
+                                </TableCell>
+                            </TableRow>
+                        </TableHead>
+                    </Table>
+
+
+                    <Table stickyHeader aria-label="sticky table">
+                        <TableHead>
                             <TableRow>
                                 {columns.map((column) => (
                                     <TableCell
@@ -155,11 +243,16 @@ const PisosAlquilados = () =>
                         </TableHead>
                         <TableBody>
 
-                            {/* {content} */}
+                            {/* {content} */ console.log('searchRegisterPuertaStore:', searchRegisterPuertaStore)}
+
 
                             {registers && registers
-                                //.filter(x => x.address.includes(searchRegisterDireccionStore))
-                                .filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterDireccionStore)))
+                                .filter(x => searchRegisterNombreStore.split(" ").every(t => toLowCaseAndSpecChars(x.name).includes(toLowCaseAndSpecChars(t))))
+                                .filter(x => searchRegisterDireccionStore.split(" ").every(t => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(t))))
+                                .filter(x => searchRegisterPuertaStore.split(" ").every(t => toLowCaseAndSpecChars(x.number).includes(toLowCaseAndSpecChars(t))))
+                                .filter(x => searchRegisterCorreoStore.split(" ").every(t => x.email?.toLowerCase().includes(t)))
+                                .filter(x => searchRegisterTelefonoStore.split(" ").every(t => toLowCaseAndSpecChars(x.phone).includes(toLowCaseAndSpecChars(t))))
+                                .filter(x => searchRegisterDniStore.split(" ").every(t => toLowCaseAndSpecChars(x.dni).includes(toLowCaseAndSpecChars(t))))
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((person, index) =>
                                 {
@@ -204,7 +297,13 @@ const PisosAlquilados = () =>
                                     </td>
                                 </tr>
                             }
-                            {registers && !registers.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterDireccionStore))).length &&
+                            {registers && !registers
+                                .filter(x => searchRegisterNombreStore.split(" ").every(t => toLowCaseAndSpecChars(x.name).includes(toLowCaseAndSpecChars(t))))
+                                .filter(x => searchRegisterDireccionStore.split(" ").every(t => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(t))))
+                                .filter(x => searchRegisterPuertaStore.split(" ").every(t => toLowCaseAndSpecChars(x.number).includes(toLowCaseAndSpecChars(t))))
+                                .filter(x => searchRegisterCorreoStore.split(" ").every(t => x.email?.toLowerCase().includes(t)))
+                                .filter(x => searchRegisterTelefonoStore.split(" ").every(t => toLowCaseAndSpecChars(x.phone).includes(toLowCaseAndSpecChars(t))))
+                                .filter(x => searchRegisterDniStore.split(" ").every(t => toLowCaseAndSpecChars(x.dni).includes(toLowCaseAndSpecChars(t)))).length &&
                                 <tr>
                                     <td colSpan="4" className="text-center">
                                         <div className="p-2">¡No hay registros!</div>
@@ -217,7 +316,13 @@ const PisosAlquilados = () =>
                 <TablePagination
                     rowsPerPageOptions={[10, 25, 100]}
                     component="div"
-                    count={registers && registers.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterDireccionStore))).length}
+                    count={registers && registers
+                        .filter(x => searchRegisterNombreStore.split(" ").every(t => toLowCaseAndSpecChars(x.name).includes(toLowCaseAndSpecChars(t))))
+                        .filter(x => searchRegisterDireccionStore.split(" ").every(t => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(t))))
+                        .filter(x => searchRegisterPuertaStore.split(" ").every(t => toLowCaseAndSpecChars(x.number).includes(toLowCaseAndSpecChars(t))))
+                        .filter(x => searchRegisterCorreoStore.split(" ").every(t => x.email?.toLowerCase().includes(t)))
+                        .filter(x => searchRegisterTelefonoStore.split(" ").every(t => toLowCaseAndSpecChars(x.phone).includes(toLowCaseAndSpecChars(t))))
+                        .filter(x => searchRegisterDniStore.split(" ").every(t => toLowCaseAndSpecChars(x.dni).includes(toLowCaseAndSpecChars(t)))).length}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}

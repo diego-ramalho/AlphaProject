@@ -80,10 +80,18 @@ const Taraturas = () =>
     // {
     //   dispatch(searchRegister(""));
     // }
+    if (searchRegisterNombreStore !== "")
+      document.querySelector('#search_nombre').value = searchRegisterNombreStore;
     if (searchRegisterDireccionStore !== "")
-    {
-      document.querySelector('#search').value = searchRegisterDireccionStore;
-    }
+      document.querySelector('#search_direccion').value = searchRegisterDireccionStore;
+    if (searchRegisterPuertaStore !== "")
+      document.querySelector('#search_puerta').value = searchRegisterPuertaStore;
+    if (searchRegisterCorreoStore !== "")
+      document.querySelector('#search_correo').value = searchRegisterCorreoStore;
+    if (searchRegisterTelefonoStore !== "")
+      document.querySelector('#search_telefono').value = searchRegisterTelefonoStore;
+    if (searchRegisterDniStore !== "")
+      document.querySelector('#search_dni').value = searchRegisterDniStore;
   }, []);
 
   useEffect(() =>
@@ -243,7 +251,7 @@ const Taraturas = () =>
 
 
       <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-        <TableContainer sx={{  }}>
+        <TableContainer sx={{}}>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>
@@ -368,7 +376,23 @@ const Taraturas = () =>
                   </td>
                 </tr>
               }
-              {registers && !registers.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterDireccionStore))).length &&
+              {registers && !registers
+                .filter(x => searchRegisterNombreStore.split(" ").every(t => toLowCaseAndSpecChars(x.name).includes(toLowCaseAndSpecChars(t))))
+                .filter(x => searchRegisterDireccionStore.split(" ").every(t => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(t))))
+                .filter(x => searchRegisterPuertaStore.split(" ").every(t => toLowCaseAndSpecChars(x.number).includes(toLowCaseAndSpecChars(t))))
+                .filter(x => searchRegisterCorreoStore.split(" ").every(t => x.email?.toLowerCase().includes(t)))
+                .filter(x => searchRegisterTelefonoStore.split(" ").every(t => toLowCaseAndSpecChars(x.phone).includes(toLowCaseAndSpecChars(t))))
+                .filter(x => searchRegisterDniStore.split(" ").every(t => toLowCaseAndSpecChars(x.dni).includes(toLowCaseAndSpecChars(t))))
+
+                // .filter(x => toLowCaseAndSpecChars(x.name).includes(toLowCaseAndSpecChars(searchRegisterNombreStore)))
+                // .filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterDireccionStore)))
+                // .filter(x => toLowCaseAndSpecChars(x.number).includes(toLowCaseAndSpecChars(searchRegisterPuertaStore)))
+                // //.filter(x => toLowCase(x.email).includes(searchRegisterCorreoStore))
+                // .filter(x => toLowCaseAndSpecChars(x.phone).includes(toLowCaseAndSpecChars(searchRegisterTelefonoStore)))
+                // //.filter(x => toLowCaseAndSpecChars(x.dni).includes(toLowCaseAndSpecChars(searchRegisterDniStore)))
+                .length &&
+
+                //.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterDireccionStore))).length &&
                 <tr>
                   <td colSpan="4" className="text-center">
                     <div className="p-2">¡No hay registros!</div>
@@ -381,7 +405,22 @@ const Taraturas = () =>
         <TablePagination
           rowsPerPageOptions={[10, 25, 100]}
           component="div"
-          count={registers && registers.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterDireccionStore))).length}
+          //count={registers && registers.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterDireccionStore))).length}
+          count={registers && registers
+            .filter(x => searchRegisterNombreStore.split(" ").every(t => toLowCaseAndSpecChars(x.name).includes(toLowCaseAndSpecChars(t))))
+            .filter(x => searchRegisterDireccionStore.split(" ").every(t => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(t))))
+            .filter(x => searchRegisterPuertaStore.split(" ").every(t => toLowCaseAndSpecChars(x.number).includes(toLowCaseAndSpecChars(t))))
+            .filter(x => searchRegisterCorreoStore.split(" ").every(t => x.email?.toLowerCase().includes(t)))
+            .filter(x => searchRegisterTelefonoStore.split(" ").every(t => toLowCaseAndSpecChars(x.phone).includes(toLowCaseAndSpecChars(t))))
+            .filter(x => searchRegisterDniStore.split(" ").every(t => toLowCaseAndSpecChars(x.dni).includes(toLowCaseAndSpecChars(t))))
+
+            // .filter(x => toLowCaseAndSpecChars(x.name).includes(toLowCaseAndSpecChars(searchRegisterNombreStore)))
+            // .filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterDireccionStore)))
+            // // .filter(x => toLowCaseAndSpecChars(x.number).includes(toLowCaseAndSpecChars(searchRegisterPuertaStore)))
+            // // .filter(x => toLowCase(x.email).includes(searchRegisterCorreoStore))
+            // // .filter(x => toLowCaseAndSpecChars(x.phone).includes(toLowCaseAndSpecChars(searchRegisterTelefonoStore)))
+            // // .filter(x => toLowCaseAndSpecChars(x.dni).includes(toLowCaseAndSpecChars(searchRegisterDniStore)))
+            .length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}

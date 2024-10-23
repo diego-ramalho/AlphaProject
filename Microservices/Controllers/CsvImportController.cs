@@ -39,7 +39,7 @@ namespace WebApiTemplate.Controllers
         }
 
 
-        public ActionResult<bool> ImportJson(List<CsvImportSerialize> json_file)
+        private bool ImportJson(List<CsvImportSerialize> json_file)
         {
             string json_import = JsonConvert.SerializeObject(json_file);
 
