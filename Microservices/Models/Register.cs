@@ -41,12 +41,20 @@ namespace WebApiTemplate.Models
 
         public string? Tracing { get; set; }
 
-        public DateTime? LastUpdate { get; set; }
+        //public DateTime LastUpdate { get { return ParseCET(DateTime.Now.ToString()); } }
+        public DateTime? LastUpdate { get { return ParseCET(DateTime.Now.ToString()); } set { ParseCET(DateTime.Now.ToString()); } }
 
         public int ZoneId { get; set; }
 
         public Zone Zone { get; set; }
 
         public virtual ICollection<RegisterFilters> RegisterFilters { get; set; }
+
+        public static DateTime ParseCET(string dt)
+        {
+            var cet = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
+            var localTime = DateTime.Parse(dt);
+            return TimeZoneInfo.ConvertTimeFromUtc(localTime, cet);
+        }
     }
 }

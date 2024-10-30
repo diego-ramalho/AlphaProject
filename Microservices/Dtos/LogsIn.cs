@@ -5,7 +5,10 @@ namespace WebApiTemplate.Dtos
     public class LogsIn
     {
         [Required]
-        public string UserId { get; set; }
+        public int UserId { get; set; }
+
+        [Required]
+        public int RegisterId { get; set; }
 
         [Required]
         public string Description { get; set; }

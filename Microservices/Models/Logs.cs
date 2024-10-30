@@ -9,7 +9,9 @@ namespace WebApiTemplate.Models
         public int Id { get; set; }
 
         [Required]
-        public string UserId { get; set; }
+        public int UserId { get; set; }
+
+        public int RegisterId { get; set; }
 
         [Required]
         public string Description { get; set; }

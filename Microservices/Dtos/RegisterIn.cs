@@ -39,8 +39,18 @@ namespace WebApiTemplate.Dtos
 
         public string Tracing { get; set; }
 
+        //public DateTime LastUpdate { get { return ParseCET(DateTime.Now.ToString()); } }
+        public DateTime LastUpdate { get { return ParseCET(DateTime.Now.ToString()); } set { ParseCET(DateTime.Now.ToString()); } }
+
         public int ZoneId { get; set; }
 
         public string[] filterList { get; set; }
+
+        public static DateTime ParseCET(string dt)
+        {
+            var cet = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
+            var localTime = DateTime.Parse(dt);
+            return TimeZoneInfo.ConvertTimeFromUtc(localTime, cet);
+        }
     }
 }

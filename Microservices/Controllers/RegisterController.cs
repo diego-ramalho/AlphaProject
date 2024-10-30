@@ -20,6 +20,7 @@ namespace WebApiTemplate.Controllers
         private readonly IRegisterService _registerService;
         private readonly IFilterService _filterService;
         private readonly IUserTransactionalService _userTransactionalService;
+        private readonly ILogsService _logsService;
         private readonly IMapper _mapper;
         private readonly Helpers.JwtAuthenticationManager _jwtAuthenticationManager;
         private readonly Helpers.AuthorizationHelper _authorizationHelper;
@@ -28,12 +29,14 @@ namespace WebApiTemplate.Controllers
             IRegisterService registerService,
             IFilterService filterService,
             IUserTransactionalService userTransactionalService,
+            ILogsService logsService,
             Helpers.JwtAuthenticationManager jwtAuthenticationManager,
             Helpers.AuthorizationHelper authorizationHelper)
         {
             _registerService = registerService;
             _filterService = filterService;
             _userTransactionalService = userTransactionalService;
+            _logsService = logsService;
             _mapper = mapper;
             _jwtAuthenticationManager = jwtAuthenticationManager;
             _authorizationHelper = authorizationHelper;
@@ -166,9 +169,28 @@ namespace WebApiTemplate.Controllers
         [HttpPost("Create")]
         public async Task<ActionResult<RegisterDto>> Create(RegisterIn entityIn)
         {
-            _registerService.Add(entityIn);
+            LogsIn logs = LoggingInit();
 
-            var entityDto = _mapper.Map<RegisterDto>(entityIn);
+            var entityDto = new RegisterDto();
+
+            try
+            {
+                _registerService.Add(entityIn);
+
+                entityDto = _mapper.Map<RegisterDto>(entityIn);
+
+                logs.Description = "Register : Create : Success";
+                //logs.RegisterId = entityDto.Id;
+                _logsService.Add(logs);
+            }
+            catch (Exception e)
+            {
+                logs.Description = "Register : Create : Error : " + e.Message;
+                //logs.RegisterId = 0;
+                _logsService.Add(logs);
+            }
+
+            //entityDto = _mapper.Map<RegisterDto>(entityIn);
 
             return Ok(entityDto);
         }
@@ -176,16 +198,35 @@ namespace WebApiTemplate.Controllers
         [HttpDelete]
         public async Task<ActionResult> Delete(int id)
         {
+            LogsIn logs = LoggingInit();
+
             User user = _authorizationHelper.GetAuthorization(Request.Headers);
 
             if (user != null && user.RoleId == 1)
             {
-                _registerService.Delete(id);
+                try
+                {
+                    _registerService.Delete(id);
+
+                    logs.Description = "Register : Delete : Success";
+                    logs.RegisterId = id;
+                    _logsService.Add(logs);
+                }
+                catch (Exception e)
+                {
+                    logs.Description = "Register : Delete : Error : " + e.Message;
+                    logs.RegisterId = id;
+                    _logsService.Add(logs);
+                }
 
                 return Ok();
             }
             else
             {
+                logs.Description = "Register : Delete : Unauthorized Access";
+                logs.RegisterId = id;
+                _logsService.Add(logs);
+
                 return BadRequest(new UnauthorizedAccessException());
             }
         }
@@ -193,6 +234,8 @@ namespace WebApiTemplate.Controllers
         [HttpPut]
         public async Task<ActionResult> Update(int id, [FromBody] RegisterIn entityIn)
         {
+            LogsIn logs = LoggingInit();
+
             User user = _authorizationHelper.GetAuthorization(Request.Headers);
 
             //if (user != null && user.RoleId == 1)
@@ -200,7 +243,20 @@ namespace WebApiTemplate.Controllers
             {
                 if (user.RoleId == 1)
                 {
-                    _registerService.Update(id, entityIn);
+                    try
+                    {
+                        _registerService.Update(id, entityIn);
+
+                        logs.Description = "Register : Update (Admin) : Success";
+                        logs.RegisterId = id;
+                        _logsService.Add(logs);
+                    }
+                    catch (Exception e)
+                    {
+                        logs.Description = "Register : Update (Admin) : Error : " + e.Message;
+                        logs.RegisterId = id;
+                        _logsService.Add(logs);
+                    }
 
                     return Ok();
                 }
@@ -212,21 +268,61 @@ namespace WebApiTemplate.Controllers
                         entityIn.Address = entidade.Address;
                         entityIn.Name = entidade.Name;
 
-                        _registerService.Update(id, entityIn);
+                        try
+                        {
+                            _registerService.Update(id, entityIn);
+
+                            logs.Description = "Register : Update (Not Admin) : Success";
+                            logs.RegisterId = id;
+                            _logsService.Add(logs);
+                        }
+                        catch (Exception e)
+                        {
+                            logs.Description = "Register : Update (Not Admin) : Error : " + e.Message;
+                            logs.RegisterId = id;
+                            _logsService.Add(logs);
+                        }
 
                         return Ok();
                     }
                     else
                     {
+                        logs.Description = "Register : Update (Not Admin) : Null Reference";
+                        logs.RegisterId = id;
+                        _logsService.Add(logs);
+
                         return BadRequest(new NullReferenceException());
                     }
                 }
             }
             else
             {
+                logs.Description = "Register : Update : Unauthorized Access";
+                logs.RegisterId = id;
+                _logsService.Add(logs);
+
                 //return Unauthorized("Not Authorized");
                 return BadRequest(new UnauthorizedAccessException());
             }
+        }
+
+
+
+
+        private LogsIn LoggingInit()
+        {
+            User user = _authorizationHelper.GetAuthorization(Request.Headers);
+            LogsIn logs = new LogsIn();
+            logs.UserId = user.Id;
+            logs.UpdateTime = ParseCET(DateTime.Now.ToString());
+            return logs;
+        }
+
+        public static DateTime ParseCET(string dt)
+        {
+            var cet = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
+            var localTime = DateTime.Parse(dt);
+            return TimeZoneInfo.ConvertTimeFromUtc(localTime, cet);
         }
     }
 }

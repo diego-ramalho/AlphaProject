@@ -38,6 +38,8 @@ namespace WebApiTemplate.Dtos
 
         public string Tracing { get; set; }
 
+        public DateTime LastUpdate { get; set; }
+
         public int ZoneId { get; set; }
     }
 }
