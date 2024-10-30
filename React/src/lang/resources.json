@@ -88,6 +88,7 @@
                     "PVe"
                 ],
                 "number": [
+                    "NO",
                     "EN",
                     "IN",
                     "PI",
@@ -96,6 +97,7 @@
                     "PVe"
                 ],
                 "phone": [
+                    "NO",
                     "EN",
                     "IN",
                     "PI",
@@ -104,6 +106,7 @@
                     "PVe"
                 ],
                 "dni": [
+                    "NO",
                     "EN",
                     "IN",
                     "PI",
@@ -112,6 +115,7 @@
                     "PVe"
                 ],
                 "lastContact": [
+                    "NO",
                     "EN",
                     "IN",
                     "PI",
