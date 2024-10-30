@@ -28,7 +28,7 @@ const path = '/Admin/Registers';
 
 const columns = [
     //{ id: 'id', label: 'Id', minWidth: 50 },
-    { id: 'address', label: 'Noticias', minWidth: 200, color: '#FF6600' },
+    { id: 'address', label: 'Direccion', minWidth: 200 },
     { id: 'number', label: 'Puerta', minWidth: 100, align: 'center' },
     { id: 'zoneId', label: 'Zona', minWidth: 50, align: 'center' }
 ];
@@ -154,7 +154,7 @@ const Noticias = () =>
                     <Table stickyHeader aria-label="sticky table">
                         <TableHead>
                             <TableRow>
-                                <TableCell colSpan={3}>
+                                <TableCell colSpan={4}>
                                     <input id="search" type="text" class="form-control" name="search" placeholder="buscar por noticias" onChange={handleSearch} />
                                 </TableCell>
                             </TableRow>
