@@ -71,6 +71,9 @@ builder.Services.AddScoped<INewsTransactionalService, NewsTransactionalService>(
 builder.Services.AddScoped<IChargesService, ChargesService>();
 builder.Services.AddScoped<IChargesTransactionalService, ChargesTransactionalService>();
 
+builder.Services.AddScoped<ILogsService, LogsService>();
+builder.Services.AddScoped<ILogsTransactionalService, LogsTransactionalService>();
+
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
 builder.Services.AddTransient<IMailService, MailService>();
 

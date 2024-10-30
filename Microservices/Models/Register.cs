@@ -41,6 +41,8 @@ namespace WebApiTemplate.Models
 
         public string? Tracing { get; set; }
 
+        public DateTime? LastUpdate { get; set; }
+
         public int ZoneId { get; set; }
 
         public Zone Zone { get; set; }

@@ -34,6 +34,8 @@ namespace WebApiTemplate.Data
 
         //public DbSet<RegisterZone> RegistersZones { get; set; }
 
+        public DbSet<Logs> Logs { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Write Fluent API configurations here
