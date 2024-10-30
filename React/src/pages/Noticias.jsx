@@ -155,7 +155,7 @@ const Noticias = () =>
                         <TableHead>
                             <TableRow>
                                 <TableCell colSpan={4}>
-                                    <input id="search" type="text" class="form-control" name="search" placeholder="buscar por noticias" onChange={handleSearch} />
+                                    <input id="search" type="text" class="form-control" name="search" placeholder="buscar por direccion" onChange={handleSearch} />
                                 </TableCell>
                             </TableRow>
 
