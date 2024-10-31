@@ -39,7 +39,8 @@ const columns = [
   { id: 'email', label: 'Correo', minWidth: 60, align: 'center' },
   { id: 'phone', label: 'Telefono', minWidth: 60, align: 'center' },
   { id: 'dni', label: 'Dni', minWidth: 60, align: 'center' },
-  { id: 'zoneId', label: 'Zona', minWidth: 40, align: 'center' }
+  { id: 'zoneId', label: 'Zona', minWidth: 40, align: 'center' },
+  { id: 'lastUpdate', label: '', minWidth: 40, align: 'center' }
 ];
 
 const Taraturas = () =>
@@ -208,7 +209,7 @@ const Taraturas = () =>
   };
 
   // const fetchPeopleHandler = async () =>
-  // {
+  // { 
   //   if (isLoading) return;
   //   try
   //   {
@@ -338,6 +339,47 @@ const Taraturas = () =>
                         {
                           // value = person.id + " - " + person.address; 
                           value = <Link to={`${pathView}/${person.id}`} onClick={() => { dispatch(previousPageCode(pageCode)); dispatch(previousPagePath(location.pathname)); }} className="link-to-view">{person.address}</Link>
+                        }
+                        if (column.id == 'lastUpdate')
+                        {
+                          if (person.lastUpdate == '0001-01-01T00:00:00')
+                          {
+                            value = '-';
+                          }
+                          else
+                          {
+                            let formatTime = new Date(person.lastUpdate);
+                            const day = String(formatTime.getDate()).padStart(2, '0'); // Dia
+                            const month = String(formatTime.getMonth() + 1).padStart(2, '0'); // Mês (começa do 0)
+                            const year = String(formatTime.getFullYear()).slice(-2); // Ano
+                            const hours = String(formatTime.getHours()).padStart(2, '0'); // Obtém as horas e formata para 2 dígitos
+                            const minutes = String(formatTime.getMinutes()).padStart(2, '0'); // Obtém os minutos e formata para 2 dígitos
+                            const seconds = String(formatTime.getSeconds()).padStart(2, '0'); // Obtém os minutos e formata para 2 dígitos
+
+                            const timestamp = new Date(person.lastUpdate).getTime();
+                            const now = Date.now();
+
+                            // Calcula a diferença em horas
+                            const diffHours = (now - timestamp) / (1000 * 60 * 60);
+
+                            console.log("timestamp: " + timestamp);
+                            console.log("now: " + now);
+                            console.log("diffHours: " + diffHours);
+
+                            // Define a classe com base na diferença de tempo
+                            const className = diffHours <= 1 ? 'TableDatetimeRecent' : 'TableDatetimeOld';
+
+                            const formatValue = (
+                              <span className={className}>
+                                {day}/{month}/{year}
+                                <br />
+                                {hours}:{minutes}:{seconds}
+                              </span>
+                            );
+
+                            // value = day + "/" + month + "/" + year + " - " + hours + ":" + minutes + ":" + seconds;
+                            value = formatValue;
+                          }
                         }
                         return (
                           <>

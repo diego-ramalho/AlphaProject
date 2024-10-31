@@ -42,7 +42,7 @@ namespace WebApiTemplate.Models
         public string? Tracing { get; set; }
 
         //public DateTime LastUpdate { get { return ParseCET(DateTime.Now.ToString()); } }
-        public DateTime? LastUpdate { get { return ParseCET(DateTime.Now.ToString()); } set { ParseCET(DateTime.Now.ToString()); } }
+        public DateTime? LastUpdate { get; set; }
 
         public int ZoneId { get; set; }
 

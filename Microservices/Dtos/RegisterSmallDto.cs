@@ -16,6 +16,8 @@
 
         public string Dni { get; set; }
 
+        public DateTime LastUpdate { get; set; }
+
         public int ZoneId { get; set; }
     }
 }

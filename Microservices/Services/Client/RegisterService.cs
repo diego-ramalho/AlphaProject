@@ -81,6 +81,7 @@ namespace WebApiTemplate.Services.Client
             _entity.Observation = entity.Observation;
             _entity.Tracing = entity.Tracing;
             _entity.Number = entity.Number;
+            _entity.LastUpdate = entity.LastUpdate;
             _entity.ZoneId = entity.ZoneId;
 
             _registerTransactionalService.Update(_entity);

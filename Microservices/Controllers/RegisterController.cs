@@ -169,6 +169,7 @@ namespace WebApiTemplate.Controllers
         [HttpPost("Create")]
         public async Task<ActionResult<RegisterDto>> Create(RegisterIn entityIn)
         {
+            entityIn.LastUpdate = ParseCET(DateTime.Now.ToString());
             LogsIn logs = LoggingInit();
 
             var entityDto = new RegisterDto();
@@ -234,6 +235,8 @@ namespace WebApiTemplate.Controllers
         [HttpPut]
         public async Task<ActionResult> Update(int id, [FromBody] RegisterIn entityIn)
         {
+            entityIn.LastUpdate = ParseCET(DateTime.Now.ToString());
+
             LogsIn logs = LoggingInit();
 
             User user = _authorizationHelper.GetAuthorization(Request.Headers);

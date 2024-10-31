@@ -525,6 +525,20 @@ a.nav-link-mobile {
     }
 }
 
+.TableDatetimeOld,
+.TableDatetimeRecent {
+    font-size: 80%;
+    line-height: 50%;
+}
+
+.TableDatetimeOld {
+    color: #053d91;
+}
+
+.TableDatetimeRecent {
+    color: #008c00;
+}
+
 @media (max-width: 420px) {
     .sidebar li .tooltip {
         display: none;
