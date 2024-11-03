@@ -34,7 +34,7 @@ namespace WebApiTemplate.Services.Client
             return _entity;
         }
 
-        public void Add(RegisterIn entity)
+        public int Add(RegisterIn entity)
         {
             if (entity == null) throw new ArgumentNullException(nameof(entity));
 
@@ -43,6 +43,8 @@ namespace WebApiTemplate.Services.Client
             _context.Registers.Add(_entity);
 
             _context.SaveChanges();
+
+            int registerCreatedId = _entity.Id;
 
             if (_entity.Id > 0 && entity.filterList.Count() > 0)
             {
@@ -57,6 +59,8 @@ namespace WebApiTemplate.Services.Client
             }
 
             _context.SaveChanges();
+
+            return registerCreatedId;
         }
 
         public void AddBulk(List<RegisterIn> entities)

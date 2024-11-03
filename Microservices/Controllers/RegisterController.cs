@@ -2,9 +2,14 @@
 using MailKit;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
+using System.Net.Sockets;
 using System.Security.Claims;
+using System.Text;
 using WebApiTemplate.Dtos;
 using WebApiTemplate.Models;
 using WebApiTemplate.Services;
@@ -21,6 +26,7 @@ namespace WebApiTemplate.Controllers
         private readonly IFilterService _filterService;
         private readonly IUserTransactionalService _userTransactionalService;
         private readonly ILogsService _logsService;
+        private readonly string _connectionString;
         private readonly IMapper _mapper;
         private readonly Helpers.JwtAuthenticationManager _jwtAuthenticationManager;
         private readonly Helpers.AuthorizationHelper _authorizationHelper;
@@ -30,6 +36,7 @@ namespace WebApiTemplate.Controllers
             IFilterService filterService,
             IUserTransactionalService userTransactionalService,
             ILogsService logsService,
+            IConfiguration connectionString,
             Helpers.JwtAuthenticationManager jwtAuthenticationManager,
             Helpers.AuthorizationHelper authorizationHelper)
         {
@@ -37,6 +44,7 @@ namespace WebApiTemplate.Controllers
             _filterService = filterService;
             _userTransactionalService = userTransactionalService;
             _logsService = logsService;
+            _connectionString = connectionString.GetConnectionString("DefaultConnStr");
             _mapper = mapper;
             _jwtAuthenticationManager = jwtAuthenticationManager;
             _authorizationHelper = authorizationHelper;
@@ -171,23 +179,31 @@ namespace WebApiTemplate.Controllers
         {
             entityIn.LastUpdate = ParseCET(DateTime.Now.ToString());
             LogsIn logs = LoggingInit();
+            Register previousEntity = new Register();
+            logs.PreviousData = EncodeToBase64(previousEntity, _mapper);
+            //var updatedEntity = new Register();
+            logs.UpdatedData = EncodeToBase64(entityIn, _mapper);
 
             var entityDto = new RegisterDto();
 
             try
             {
-                _registerService.Add(entityIn);
+                var registerCreatedId = _registerService.Add(entityIn);
 
                 entityDto = _mapper.Map<RegisterDto>(entityIn);
 
-                logs.Description = "Register : Create : Success";
-                //logs.RegisterId = entityDto.Id;
+                logs.EventType = "Register";
+                logs.EventMethod = "Create";
+                logs.EventResult = "Success";
+                logs.RelatedId = registerCreatedId;
                 _logsService.Add(logs);
             }
             catch (Exception e)
             {
-                logs.Description = "Register : Create : Error : " + e.Message;
-                //logs.RegisterId = 0;
+                logs.EventType = "Register";
+                logs.EventMethod = "Create";
+                logs.EventResult = "Error : " + e.Message;
+                logs.RelatedId = 0;
                 _logsService.Add(logs);
             }
 
@@ -200,6 +216,10 @@ namespace WebApiTemplate.Controllers
         public async Task<ActionResult> Delete(int id)
         {
             LogsIn logs = LoggingInit();
+            Register previousEntity = _registerService.GetById(id);
+            logs.PreviousData = EncodeToBase64(previousEntity, _mapper);
+            Register updatedEntity = new Register();
+            logs.UpdatedData = EncodeToBase64(updatedEntity, _mapper);
 
             User user = _authorizationHelper.GetAuthorization(Request.Headers);
 
@@ -209,14 +229,20 @@ namespace WebApiTemplate.Controllers
                 {
                     _registerService.Delete(id);
 
-                    logs.Description = "Register : Delete : Success";
-                    logs.RegisterId = id;
+                    //logs.Description = "Register : Delete : Success";
+                    logs.EventType = "Register";
+                    logs.EventMethod = "Delete";
+                    logs.EventResult = "Success";
+                    logs.RelatedId = id;
                     _logsService.Add(logs);
                 }
                 catch (Exception e)
                 {
-                    logs.Description = "Register : Delete : Error : " + e.Message;
-                    logs.RegisterId = id;
+                    //logs.Description = "Register : Delete : Error : " + e.Message;
+                    logs.EventType = "Register";
+                    logs.EventMethod = "Delete";
+                    logs.EventResult = "Error : " + e.Message;
+                    logs.RelatedId = id;
                     _logsService.Add(logs);
                 }
 
@@ -224,8 +250,11 @@ namespace WebApiTemplate.Controllers
             }
             else
             {
-                logs.Description = "Register : Delete : Unauthorized Access";
-                logs.RegisterId = id;
+                //logs.Description = "Register : Delete : Unauthorized Access";
+                logs.EventType = "Register";
+                logs.EventMethod = "Delete";
+                logs.EventResult = "Unauthorized Access";
+                logs.RelatedId = id;
                 _logsService.Add(logs);
 
                 return BadRequest(new UnauthorizedAccessException());
@@ -238,6 +267,10 @@ namespace WebApiTemplate.Controllers
             entityIn.LastUpdate = ParseCET(DateTime.Now.ToString());
 
             LogsIn logs = LoggingInit();
+            Register previousEntity = _registerService.GetById(id);
+            logs.PreviousData = EncodeToBase64(previousEntity, _mapper);
+            //var updatedEntity = new Register();
+            logs.UpdatedData = EncodeToBase64(entityIn, _mapper);
 
             User user = _authorizationHelper.GetAuthorization(Request.Headers);
 
@@ -250,14 +283,20 @@ namespace WebApiTemplate.Controllers
                     {
                         _registerService.Update(id, entityIn);
 
-                        logs.Description = "Register : Update (Admin) : Success";
-                        logs.RegisterId = id;
+                        //logs.Description = "Register : Update (Admin) : Success";
+                        logs.EventType = "Register";
+                        logs.EventMethod = "Update (Admin)";
+                        logs.EventResult = "Success";
+                        logs.RelatedId = id;
                         _logsService.Add(logs);
                     }
                     catch (Exception e)
                     {
-                        logs.Description = "Register : Update (Admin) : Error : " + e.Message;
-                        logs.RegisterId = id;
+                        //logs.Description = "Register : Update (Admin) : Error : " + e.Message;
+                        logs.EventType = "Register";
+                        logs.EventMethod = "Update (Admin)";
+                        logs.EventResult = "Error : " + e.Message;
+                        logs.RelatedId = id;
                         _logsService.Add(logs);
                     }
 
@@ -275,14 +314,20 @@ namespace WebApiTemplate.Controllers
                         {
                             _registerService.Update(id, entityIn);
 
-                            logs.Description = "Register : Update (Not Admin) : Success";
-                            logs.RegisterId = id;
+                            //logs.Description = "Register : Update (Not Admin) : Success";
+                            logs.EventType = "Register";
+                            logs.EventMethod = "Update (Not Admin)";
+                            logs.EventResult = "Success";
+                            logs.RelatedId = id;
                             _logsService.Add(logs);
                         }
                         catch (Exception e)
                         {
-                            logs.Description = "Register : Update (Not Admin) : Error : " + e.Message;
-                            logs.RegisterId = id;
+                            //logs.Description = "Register : Update (Not Admin) : Error : " + e.Message;
+                            logs.EventType = "Register";
+                            logs.EventMethod = "Update (Not Admin)";
+                            logs.EventResult = "Error : " + e.Message;
+                            logs.RelatedId = id;
                             _logsService.Add(logs);
                         }
 
@@ -290,8 +335,11 @@ namespace WebApiTemplate.Controllers
                     }
                     else
                     {
-                        logs.Description = "Register : Update (Not Admin) : Null Reference";
-                        logs.RegisterId = id;
+                        //logs.Description = "Register : Update (Not Admin) : Null Reference";
+                        logs.EventType = "Register";
+                        logs.EventMethod = "Update (Not Admin)";
+                        logs.EventResult = "Null Reference";
+                        logs.RelatedId = id;
                         _logsService.Add(logs);
 
                         return BadRequest(new NullReferenceException());
@@ -300,8 +348,11 @@ namespace WebApiTemplate.Controllers
             }
             else
             {
-                logs.Description = "Register : Update : Unauthorized Access";
-                logs.RegisterId = id;
+                //logs.Description = "Register : Update : Unauthorized Access";
+                logs.EventType = "Register";
+                logs.EventMethod = "Update";
+                logs.EventResult = "Unauthorized Access";
+                logs.RelatedId = id;
                 _logsService.Add(logs);
 
                 //return Unauthorized("Not Authorized");
@@ -317,6 +368,11 @@ namespace WebApiTemplate.Controllers
             User user = _authorizationHelper.GetAuthorization(Request.Headers);
             LogsIn logs = new LogsIn();
             logs.UserId = user.Id;
+            logs.UserName = user.Name;
+            logs.IP = GetPublicIp() + "|" + GetPrivateIp();
+            logs.Origin = Request.Headers["User-Agent"];
+            logs.EventMessage = "CRM Logging";
+            logs.Session = _authorizationHelper.GetAuthorizationTokenString(Request.Headers); ;
             logs.UpdateTime = ParseCET(DateTime.Now.ToString());
             return logs;
         }
@@ -326,6 +382,86 @@ namespace WebApiTemplate.Controllers
             var cet = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
             var localTime = DateTime.Parse(dt);
             return TimeZoneInfo.ConvertTimeFromUtc(localTime, cet);
+        }
+
+        static string GetPrivateIp()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork) // IPv4
+                {
+                    return ip.ToString();
+                }
+            }
+            return "-";  //"IP Privado não encontrado";
+        }
+
+        static string GetPublicIp()
+        {
+            using (var client = new WebClient())
+            {
+                try
+                {
+                    return client.DownloadString("https://api.ipify.org");
+                }
+                catch
+                {
+                    return "-"; //"IP Público não encontrado";
+                }
+            }
+        }
+
+        static string EncodeToBase64(RegisterIn entity, IMapper mapper)
+        {
+            Register fullEntity = mapper.Map<Register>(entity);
+
+            // Serializando o objeto para JSON
+            string jsonString = JsonConvert.SerializeObject(fullEntity);
+
+            // Convertendo a string JSON para um array de bytes
+            byte[] byteArray = Encoding.UTF8.GetBytes(jsonString);
+
+            // Codificando o array de bytes em Base64
+            return Convert.ToBase64String(byteArray);
+        }
+
+        static string EncodeToBase64(Register entity, IMapper mapper)
+        {
+            // Serializando o objeto para JSON
+            string jsonString = JsonConvert.SerializeObject(entity);
+
+            // Convertendo a string JSON para um array de bytes
+            byte[] byteArray = Encoding.UTF8.GetBytes(jsonString);
+
+            // Codificando o array de bytes em Base64
+            return Convert.ToBase64String(byteArray);
+        }
+
+        static string EncodeToBase64(RegisterDto entity, IMapper mapper)
+        {
+            Register fullEntity = mapper.Map<Register>(entity);
+
+            // Serializando o objeto para JSON
+            string jsonString = JsonConvert.SerializeObject(fullEntity);
+
+            // Convertendo a string JSON para um array de bytes
+            byte[] byteArray = Encoding.UTF8.GetBytes(jsonString);
+
+            // Codificando o array de bytes em Base64
+            return Convert.ToBase64String(byteArray);
+        }
+
+        static Register DecodeFromBase64(string base64String)
+        {
+            // Decodificando a string Base64 para um array de bytes
+            byte[] byteArray = Convert.FromBase64String(base64String);
+
+            // Convertendo o array de bytes de volta para uma string JSON
+            string jsonString = Encoding.UTF8.GetString(byteArray);
+
+            // Desserializando a string JSON de volta para um objeto Pessoa
+            return JsonConvert.DeserializeObject<Register>(jsonString);
         }
     }
 }

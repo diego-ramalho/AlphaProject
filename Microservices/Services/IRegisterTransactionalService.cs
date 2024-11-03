@@ -9,7 +9,7 @@ namespace WebApiTemplate.Services
 
         Register GetById(int id);
 
-        void Add(RegisterIn register);
+        int Add(RegisterIn register);
 
         void AddBulk(List<RegisterIn> registers);
 

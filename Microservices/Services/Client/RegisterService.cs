@@ -42,11 +42,13 @@ namespace WebApiTemplate.Services.Client
             return _entity;
         }
 
-        public void Add(RegisterIn entity)
+        public int Add(RegisterIn entity)
         {
             if (entity == null) throw new ArgumentNullException(nameof(entity));
 
-            _registerTransactionalService.Add(entity);
+            var registerCreatedId = _registerTransactionalService.Add(entity);
+
+            return registerCreatedId;
         }
 
         public void AddBulk(List<RegisterIn> entities)

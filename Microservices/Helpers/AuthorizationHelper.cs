@@ -42,5 +42,28 @@ namespace WebApiTemplate.Helpers
             //return jwtTokenId;
             return userItem;
         }
+
+        public string GetAuthorizationTokenString(IHeaderDictionary headers)
+        {
+            headers.TryGetValue("Authorization", out var headerValue);
+
+            var handler = new JwtSecurityTokenHandler();
+
+            var jwtTokenId = "";
+            string token;
+            try
+            {
+                var jwtToken = handler.ReadJwtToken(headerValue.ToString().Split(" ")[1]);
+                jwtTokenId = jwtToken.Claims.First(claim => claim.Type == "certserialnumber").Value;
+                token = jwtToken.EncodedPayload;
+            }
+            catch (Exception e)
+            {
+                throw new ArgumentNullException(nameof(e));
+            }
+
+            //return jwtTokenId;
+            return token;
+        }
     }
 }
