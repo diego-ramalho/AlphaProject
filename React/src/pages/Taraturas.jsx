@@ -73,6 +73,7 @@ const Taraturas = () =>
 
   useEffect(() =>
   {
+    setRegisters(null);
     //userActions.getAll().then(x => setUsers(x));
     //userActions.getAll().then(x => setPeople(x)).filter(r => r.zoneId == zoneStore);
     //alert(zoneStore);
