@@ -57,7 +57,8 @@
                 "item-04": "Filters Admin",
                 "item-05": "Adm. de Noticias",
                 "item-06": "Adm. de Encargos",
-                "item-07": "Adm. de Csv"
+                "item-07": "Adm. de Csv",
+                "item-08": "Logs"
             }
         },
         "form": {

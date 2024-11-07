@@ -43,12 +43,16 @@ import { NewsAddEdit } from './pages/admin/NewsAddEdit';
 import { ChargesList } from './pages/admin/ChargesList';
 import { ChargesAddEdit } from './pages/admin/ChargesAddEdit';
 
+import { LogsList } from './pages/admin/LogsList';
+import { LogsAddEdit } from './pages/admin/LogsAddEdit';
+
+import { CsvImport } from './pages/admin/CsvImport';
+
 import { RegistersList } from './pages/admin/RegistersList';
 import { RegistersAddEdit } from './pages/admin/RegistersAddEdit';
 import { TaraturasView } from './pages/TaraturasView';
 import { EncargosView } from './pages/EncargosView_old';
 import { NoticiasView } from './pages/NoticiasView_old';
-import { CsvImport } from './pages/admin/CsvImport';
 
 
 const login_page = [
@@ -122,6 +126,11 @@ function App()
         <Route path='/Admin/Registers/edit/:id' element={<RegistersAddEdit />} />
         {/* <Route path='/Admin/Registers/view/:id' element={<TaraturasView />} />
         <Route path='/TaraturasView/:id' element={<TaraturasView />} /> */}
+
+
+        <Route exact path='/Admin/Logs' element={<LogsList />} />
+        <Route path='/Admin/Logs/add' element={<LogsAddEdit />} />
+        <Route path='/Admin/Logs/edit/:id' element={<LogsAddEdit />} />
 
         <Route exact path='/Admin/CsvImport' element={<CsvImport />} />
 

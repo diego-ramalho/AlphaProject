@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using IdentityModel;
 using WebApiTemplate.Data;
 using WebApiTemplate.Dtos;
 using WebApiTemplate.Models;
@@ -25,6 +26,20 @@ namespace WebApiTemplate.Services.Client
             _context.Logs.Add(_entity);
 
             _context.SaveChanges();
+        }
+
+        public IEnumerable<Logs> GetAll()
+        {
+            return _context.Logs.ToList();
+        }
+
+        public Logs GetById(int id)
+        {
+            var _entity = _context.Logs.FirstOrDefault(p => p.Id == id);
+
+            if (_entity == null) throw new ArgumentNullException(nameof(_entity));
+
+            return _entity;
         }
     }
 }

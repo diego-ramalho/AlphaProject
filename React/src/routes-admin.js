@@ -8,6 +8,7 @@ import AdminZones from "./pages/admin/Zones";
 import AdminFilters from "./pages/admin/Filters";
 import AdminNews from "./pages/admin/News";
 import AdminCharges from "./pages/admin/Charges";
+import AdminLogs from "./pages/admin/Logs";
 import { CsvImport } from "./pages/admin/CsvImport";
 
 import { PrivateRoute } from './_components';
@@ -46,6 +47,13 @@ export const routes_admin = [
         enabled: true,
         component: AdminZones
     },
+    {
+        key: 'admin-logs-route-8',
+        title: appLang.pt.menu.admin['item-08'],
+        path: '/Admin/Logs',
+        enabled: true,
+        component: AdminLogs
+    },
     // {
     //     key: 'admin-records-route-4',
     //     title: appLang.pt.menu.admin['item-04'],
@@ -67,11 +75,11 @@ export const routes_admin = [
     //     enabled: true,
     //     component: AdminCharges
     // }
-    {
-        key: 'admin-records-route-7',
-        title: appLang.pt.menu.admin['item-07'],
-        path: '/Admin/CsvImport',
-        enabled: true,
-        component: CsvImport
-    },
+    // {
+    //     key: 'admin-records-route-7',
+    //     title: appLang.pt.menu.admin['item-07'],
+    //     path: '/Admin/CsvImport',
+    //     enabled: true,
+    //     component: CsvImport
+    // },
 ]

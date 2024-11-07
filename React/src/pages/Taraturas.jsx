@@ -97,6 +97,7 @@ const Taraturas = () =>
 
   useEffect(() =>
   {
+    setRegisters(null);
     //userActions.getAll().then(x => setUsers(x));
     //userActions.getAll().then(x => setPeople(x)).filter(r => r.zoneId == zoneStore);
     //alert(zoneStore);
@@ -256,7 +257,7 @@ const Taraturas = () =>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>
-                <TableCell colSpan={8}>
+                <TableCell colSpan={9}>
                   Búsquedas
                 </TableCell>
               </TableRow>
@@ -267,7 +268,7 @@ const Taraturas = () =>
                 <TableCell colSpan={3}>
                   <input id="search_direccion" type="text" class="form-control" name="search_direccion" placeholder="direccion" onChange={handleSearch} />
                 </TableCell>
-                <TableCell colSpan={2}>
+                <TableCell colSpan={3}>
                   <input id="search_puerta" type="text" class="form-control" name="search_puerta" placeholder="puerta" onChange={handleSearch} />
                 </TableCell>
               </TableRow>
@@ -279,7 +280,7 @@ const Taraturas = () =>
                 <TableCell colSpan={3}>
                   <input id="search_telefono" type="text" class="form-control" name="search_telefono" placeholder="teléfono" onChange={handleSearch} />
                 </TableCell>
-                <TableCell colSpan={2}>
+                <TableCell colSpan={3}>
                   <input id="search_dni" type="text" class="form-control" name="search_dni" placeholder="dni" onChange={handleSearch} />
                 </TableCell>
               </TableRow>
@@ -413,7 +414,7 @@ const Taraturas = () =>
                 })}
               {!registers &&
                 <tr>
-                  <td colSpan="4" className="text-center">
+                  <td colSpan="9" className="text-center">
                     <div className="spinner-border spinner-border-lg align-center"></div>
                   </td>
                 </tr>
@@ -436,7 +437,7 @@ const Taraturas = () =>
 
                 //.filter(x => toLowCaseAndSpecChars(x.address).includes(toLowCaseAndSpecChars(searchRegisterDireccionStore))).length &&
                 <tr>
-                  <td colSpan="4" className="text-center">
+                  <td colSpan="9" className="text-center">
                     <div className="p-2">¡No hay registros!</div>
                   </td>
                 </tr>

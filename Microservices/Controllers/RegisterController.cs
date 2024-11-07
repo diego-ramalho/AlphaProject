@@ -180,6 +180,7 @@ namespace WebApiTemplate.Controllers
             entityIn.LastUpdate = ParseCET(DateTime.Now.ToString());
             LogsIn logs = LoggingInit();
             Register previousEntity = new Register();
+            previousEntity.LastUpdate = ParseCET(DateTime.Now.ToString());
             logs.PreviousData = EncodeToBase64(previousEntity, _mapper);
             //var updatedEntity = new Register();
             logs.UpdatedData = EncodeToBase64(entityIn, _mapper);
@@ -219,6 +220,7 @@ namespace WebApiTemplate.Controllers
             Register previousEntity = _registerService.GetById(id);
             logs.PreviousData = EncodeToBase64(previousEntity, _mapper);
             Register updatedEntity = new Register();
+            updatedEntity.LastUpdate = ParseCET(DateTime.Now.ToString());
             logs.UpdatedData = EncodeToBase64(updatedEntity, _mapper);
 
             User user = _authorizationHelper.GetAuthorization(Request.Headers);
@@ -372,7 +374,7 @@ namespace WebApiTemplate.Controllers
             logs.IP = GetPublicIp() + "|" + GetPrivateIp();
             logs.Origin = Request.Headers["User-Agent"];
             logs.EventMessage = "CRM Logging";
-            logs.Session = _authorizationHelper.GetAuthorizationTokenString(Request.Headers); ;
+            logs.Session = _authorizationHelper.GetAuthorizationTokenString(Request.Headers);
             logs.UpdateTime = ParseCET(DateTime.Now.ToString());
             return logs;
         }

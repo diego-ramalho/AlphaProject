@@ -25,5 +25,19 @@ namespace WebApiTemplate.Services.Client
 
             _logsTransactionalService.Add(entity);
         }
+
+        public IEnumerable<Logs> GetAll()
+        {
+            return _context.Logs.OrderBy(r => r.Id).OrderByDescending(x => x.UpdateTime).ToList();
+        }
+
+        public Logs GetById(int id)
+        {
+            if (id == null || id <= 0) throw new ArgumentNullException(nameof(id));
+
+            var _entity = _logsTransactionalService.GetById(id);
+
+            return _entity;
+        }
     }
 }

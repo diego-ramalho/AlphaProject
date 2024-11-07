@@ -6,4 +6,5 @@ export * from './zone.actions';
 export * from './role.actions';
 export * from './news.actions';
 export * from './charges.actions';
+export * from './log.actions';
 export * from './csvimport.actions';

@@ -539,6 +539,32 @@ a.nav-link-mobile {
     color: #008c00;
 }
 
+table.LogInfo {
+    width: 100%;
+}
+
+table.LogInfo td {
+    padding: 2px 5px;
+    border: #FFF solid 2px;
+}
+
+table.LogInfo td.LogInfoPropName {
+    border: #AAA solid 2px;
+    background-color: #CCC;
+    text-align: right;
+}
+
+table.LogInfo td.LogInfoPropValue {
+    border: #AAA solid 2px;
+    text-align: left;
+}
+
+table.LogInfo td.LogInfoPropNameLine {
+    border: #AAA solid 2px;
+    background-color: #666;
+    color: #FFF;
+}
+
 @media (max-width: 420px) {
     .sidebar li .tooltip {
         display: none;
