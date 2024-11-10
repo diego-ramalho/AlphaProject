@@ -71,6 +71,11 @@ namespace WebApiTemplate.Services.Client
             return _context.Users.FirstOrDefault(p => p.Email == _user.Email && p.Password == _user.Password);
         }
 
+        public async Task<bool> IsEmailUniqueAsync(string email)
+        {
+            return !await _context.Users.AnyAsync(u => u.Email == email);
+        }
+
         //public string Encrypt(string decrypted_txt)
         //{
         //    var key = Encoding.ASCII.GetBytes(_appSettings.Secret);

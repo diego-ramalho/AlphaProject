@@ -32,6 +32,8 @@ namespace WebApiTemplate.Services
 
         User GetUserByEmail(string email);
 
+        Task<bool> IsEmailUniqueAsync(string email);
+
         //AuthenticateResponse Authenticate(AuthenticateRequest model);
 
         string generateJwtToken(User user);

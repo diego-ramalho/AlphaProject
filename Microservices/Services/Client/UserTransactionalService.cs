@@ -235,6 +235,11 @@ namespace WebApiTemplate.Services.Client
             return tokenHandler.WriteToken(token);
         }
 
+        public async Task<bool> IsEmailUniqueAsync(string email)
+        {
+            return !await _context.Users.AnyAsync(u => u.Email == email);
+        }
+
         public string Encrypt(string DecryptText)
         {
             byte[] SrctArray;

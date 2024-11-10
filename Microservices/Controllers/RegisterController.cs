@@ -218,6 +218,7 @@ namespace WebApiTemplate.Controllers
         {
             LogsIn logs = LoggingInit();
             Register previousEntity = _registerService.GetById(id);
+            if (previousEntity.LastUpdate == null) previousEntity.LastUpdate = ParseCET(DateTime.Now.ToString());
             logs.PreviousData = EncodeToBase64(previousEntity, _mapper);
             Register updatedEntity = new Register();
             updatedEntity.LastUpdate = ParseCET(DateTime.Now.ToString());
@@ -270,6 +271,7 @@ namespace WebApiTemplate.Controllers
 
             LogsIn logs = LoggingInit();
             Register previousEntity = _registerService.GetById(id);
+            if (previousEntity.LastUpdate == null) previousEntity.LastUpdate = ParseCET(DateTime.Now.ToString());
             logs.PreviousData = EncodeToBase64(previousEntity, _mapper);
             //var updatedEntity = new Register();
             logs.UpdatedData = EncodeToBase64(entityIn, _mapper);

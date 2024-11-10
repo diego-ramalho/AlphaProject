@@ -108,6 +108,11 @@ namespace WebApiTemplate.Controllers
         [HttpPost("Create")]
         public async Task<ActionResult<UserCreateDto>> CreateUser(UserCreateIn user)
         {
+            if (!await _userTransactionalService.IsEmailUniqueAsync(user.Email))
+            {
+                return BadRequest("{\r\n  \"message\": \"El correo electrónico ya está en uso.\"\r\n}");
+            }
+
             _userTransactionalService.CreateUser(user);
 
             var UserReadDto = _mapper.Map<UserReadDto>(user);

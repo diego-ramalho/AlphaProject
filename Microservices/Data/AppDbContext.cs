@@ -53,7 +53,10 @@ namespace WebApiTemplate.Data
                 .HasOne<UserRoles>(r => r.UserRoles)
                 .WithMany(u => u.Users)
                 .HasForeignKey(u => u.RoleId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.NoAction);            
+            modelBuilder.Entity<User>() // Define que o campo "Email" é único
+                .HasIndex(u => u.Email)
+                .IsUnique(); // Garantir que o Email seja único
 
             modelBuilder.Entity<Register>()
                 .HasOne<Zone>(r => r.Zone)

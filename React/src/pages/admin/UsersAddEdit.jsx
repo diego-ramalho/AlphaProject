@@ -65,7 +65,28 @@ function UsersAddEdit({ match }) {
                 navigate("/Admin/Users/");
                 //window.location.href = '/Admin/Users/';
             })
-            .catch(useAlertActions.error);
+            .catch((error) => { 
+                // Verifica se o erro tem uma resposta com dados (tipicamente vindo da API)
+                // if (error.response) {
+                //     // Quando a resposta de erro é recebida (ex: erro 400, 404, 500)
+                //     if (error.response.status === 400) {
+                //         // Se o erro for um BadRequest (HTTP 400), pegue a mensagem da resposta
+                //         const errorMessage = error.response.data?.message || 'Erro desconhecido';
+                //         useAlertActions.error(errorMessage, { keepAfterRouteChange: true });
+                //     } else {
+                //         // Outros erros (ex: 404, 500, etc.)
+                //         const genericMessage = 'Ocorreu um erro inesperado. Tente novamente mais tarde.';
+                //         useAlertActions.error(genericMessage, { keepAfterRouteChange: true });
+                //     }
+                // } else if (error.request) {
+                //     // Se o erro ocorreu antes de obter uma resposta da API (erro de rede)
+                //     useAlertActions.error("Erro na comunicação com o servidor", { keepAfterRouteChange: true });
+                // } else {
+                //     // Caso o erro seja inesperado, como erro no cliente
+                //     useAlertActions.error("Erro inesperado", { keepAfterRouteChange: true });
+                // }
+            });
+            //.catch(useAlertActions.error); 
     }
 
     function updateUser(id, data) {
