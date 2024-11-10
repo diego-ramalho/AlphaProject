@@ -97,6 +97,8 @@ const Informadores = () =>
 
     useEffect(() =>
     {
+        setRegisters(null);
+
         registerActions.getAllByFilter(filterId).then(x => setRegisters(x.filter(x => zoneStore != 0 ? x.zoneId == zoneStore : x.zoneId > 0)));
         zoneActions.getAll().then(x => { setZoneList(x); });
         userActions.getCurrentUser().then(x => { setUser(x); });
@@ -268,6 +270,10 @@ const Informadores = () =>
                                                 {
                                                     value = zoneList.filter(x => x.id === person.zoneId).map(x => x.zoneName.split(" ")[1]);
                                                 }
+                                                if (column.id == 'name')
+                                                {
+                                                    value = <Link to={`${pathView}/${person.id}`} onClick={() => { dispatch(previousPageCode(pageCode)); dispatch(previousPagePath(location.pathname)); }} className="link-to-view">{person.name}</Link>
+                                                }
                                                 if (column.id == 'address')
                                                 {
                                                     // value = person.id + " - " + person.address;
@@ -295,7 +301,7 @@ const Informadores = () =>
                                 })}
                             {!registers &&
                                 <tr>
-                                    <td colSpan="4" className="text-center">
+                                    <td colSpan="9" className="text-center">
                                         <div className="spinner-border spinner-border-lg align-center"></div>
                                     </td>
                                 </tr>
@@ -308,7 +314,7 @@ const Informadores = () =>
                                 .filter(x => searchRegisterTelefonoStore.split(" ").every(t => toLowCaseAndSpecChars(x.phone).includes(toLowCaseAndSpecChars(t))))
                                 .filter(x => searchRegisterDniStore.split(" ").every(t => toLowCaseAndSpecChars(x.dni).includes(toLowCaseAndSpecChars(t)))).length &&
                                 <tr>
-                                    <td colSpan="4" className="text-center">
+                                    <td colSpan="9" className="text-center">
                                         <div className="p-2">¡No hay registros!</div>
                                     </td>
                                 </tr>

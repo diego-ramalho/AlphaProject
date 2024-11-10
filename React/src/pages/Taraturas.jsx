@@ -336,9 +336,12 @@ const Taraturas = () =>
                         {
                           value = zoneList.filter(x => x.id === person.zoneId).map(x => x.zoneName.split(" ")[1]);
                         }
+                        if (column.id == 'name')
+                        {
+                          value = <Link to={`${pathView}/${person.id}`} onClick={() => { dispatch(previousPageCode(pageCode)); dispatch(previousPagePath(location.pathname)); }} className="link-to-view">{person.name}</Link>
+                        }
                         if (column.id == 'address')
                         {
-                          // value = person.id + " - " + person.address; 
                           value = <Link to={`${pathView}/${person.id}`} onClick={() => { dispatch(previousPageCode(pageCode)); dispatch(previousPagePath(location.pathname)); }} className="link-to-view">{person.address}</Link>
                         }
                         if (column.id == 'lastUpdate')

@@ -109,57 +109,57 @@ function LogsAddEdit({ match })
             {
                 <div>
                     <table className='LogInfo'>
-                        <tr><td className='LogInfoPropName'>User:</td><td className='LogInfoPropValue'>{logItem.userName} [{logItem.userId}]</td></tr>
+                        <tr><td className='LogInfoPropName'>Usuario:</td><td className='LogInfoPropValue'>{logItem.userName} [{logItem.userId}]</td></tr>
                         <tr><td className='LogInfoPropName'>Event Type:</td><td className='LogInfoPropValue'>{logItem.eventType}</td></tr>
                         <tr><td className='LogInfoPropName'>Event Method:</td><td className='LogInfoPropValue'>{logItem.eventMethod}</td></tr>
                         <tr><td className='LogInfoPropName'>Event Result:</td><td className='LogInfoPropValue'>{logItem.eventResult}</td></tr>
-                        <tr><td className='LogInfoPropName'>Last Change:</td><td className='LogInfoPropValue'>{logItem.updateTime}</td></tr>
+                        <tr><td className='LogInfoPropName'>Última Actualización:</td><td className='LogInfoPropValue'>{logItem.updateTime}</td></tr>
 
                         {logItem.updatedData && <>
-                            <tr><td colSpan={2} className='LogInfoPropNameLine'>Updated Data [{logItem.updatedData.lastUpdate}]</td></tr>
+                            <tr><td colSpan={2} className='LogInfoPropNameLine'>Datos Actualizados [{logItem.updatedData.lastUpdate}]</td></tr>
                             <tr><td className='LogInfoPropName'>Id:</td><td className='LogInfoPropValue'>{logItem.updatedData.id}</td></tr>
-                            <tr><td className='LogInfoPropName'>Address:</td><td className='LogInfoPropValue'>{logItem.updatedData.address}</td></tr>
-                            <tr><td className='LogInfoPropName'>Name:</td><td className='LogInfoPropValue'>{logItem.updatedData.name}</td></tr>
-                            <tr><td className='LogInfoPropName'>Number:</td><td className='LogInfoPropValue'>{logItem.updatedData.number}</td></tr>
-                            <tr><td className='LogInfoPropName'>Phone:</td><td className='LogInfoPropValue'>{logItem.updatedData.phone}</td></tr>
+                            <tr><td className='LogInfoPropName'>Dirección:</td><td className='LogInfoPropValue'>{logItem.updatedData.address}</td></tr>
+                            <tr><td className='LogInfoPropName'>Nombre y Apellidos:</td><td className='LogInfoPropValue'>{logItem.updatedData.name}</td></tr>
+                            <tr><td className='LogInfoPropName'>Puerta:</td><td className='LogInfoPropValue'>{logItem.updatedData.number}</td></tr>
+                            <tr><td className='LogInfoPropName'>Telefono:</td><td className='LogInfoPropValue'>{logItem.updatedData.phone}</td></tr>
                             <tr><td className='LogInfoPropName'>Dni:</td><td className='LogInfoPropValue'>{logItem.updatedData.dni}</td></tr>
-                            <tr><td className='LogInfoPropName'>Last Contact:</td><td className='LogInfoPropValue'>{logItem.updatedData.lastContact}</td></tr>
+                            <tr><td className='LogInfoPropName'>Fecha Último Contacto:</td><td className='LogInfoPropValue'>{logItem.updatedData.lastContact}</td></tr>
                             <tr><td className='LogInfoPropName'>Email:</td><td className='LogInfoPropValue'>{logItem.updatedData.email}</td></tr>
-                            <tr><td className='LogInfoPropName'>Sale Date:</td><td className='LogInfoPropValue'>{logItem.updatedData.saleDate}</td></tr>
-                            <tr><td className='LogInfoPropName'>Adviser:</td><td className='LogInfoPropValue'>{logItem.updatedData.adviser}</td></tr>
-                            <tr><td className='LogInfoPropName'>Final Sale Price:</td><td className='LogInfoPropValue'>{logItem.updatedData.finalSalePrice}</td></tr>
-                            <tr><td className='LogInfoPropName'>Reduction:</td><td className='LogInfoPropValue'>{logItem.updatedData.reduction}</td></tr>
+                            <tr><td className='LogInfoPropName'>Fecha Venta:</td><td className='LogInfoPropValue'>{logItem.updatedData.saleDate}</td></tr>
+                            <tr><td className='LogInfoPropName'>Precio Final Venta:</td><td className='LogInfoPropValue'>{logItem.updatedData.finalSalePrice}</td></tr>
                             <tr><td className='LogInfoPropName'>Particular:</td><td className='LogInfoPropValue'>{logItem.updatedData.particular}</td></tr>
-                            <tr><td className='LogInfoPropName'>Real Estate:</td><td className='LogInfoPropValue'>{logItem.updatedData.realEstate}</td></tr>
-                            <tr><td className='LogInfoPropName'>Fee:</td><td className='LogInfoPropValue'>{logItem.updatedData.fee}</td></tr>
-                            <tr><td className='LogInfoPropName'>Observation:</td><td className='LogInfoPropValue'>{logItem.updatedData.observation}</td></tr>
-                            <tr><td className='LogInfoPropName'>Tracing:</td><td className='LogInfoPropValue'>{logItem.updatedData.tracing}</td></tr>
-                            <tr><td className='LogInfoPropName'>Last Update:</td><td className='LogInfoPropValue'>{logItem.updatedData.lastUpdate}</td></tr>
-                            <tr><td className='LogInfoPropName'>Zone Id:</td><td className='LogInfoPropValue'>{logItem.updatedData.zoneId}</td></tr>
+                            <tr><td className='LogInfoPropName'>Inmobiliaria:</td><td className='LogInfoPropValue'>{logItem.updatedData.realEstate}</td></tr>
+                            <tr><td className='LogInfoPropName'>Rebaja:</td><td className='LogInfoPropValue'>{logItem.updatedData.reduction}</td></tr>
+                            <tr><td className='LogInfoPropName'>Asesor:</td><td className='LogInfoPropValue'>{logItem.updatedData.adviser}</td></tr>
+                            <tr><td className='LogInfoPropName'>Honorarios:</td><td className='LogInfoPropValue'>{logItem.updatedData.fee}</td></tr>
+                            <tr><td className='LogInfoPropName'>Observaciones:</td><td className='LogInfoPropValue'>{logItem.updatedData.observation}</td></tr>
+                            <tr><td className='LogInfoPropName'>Seguimiento:</td><td className='LogInfoPropValue'>{logItem.updatedData.tracing}</td></tr>
+                            <tr><td className='LogInfoPropName'>Actualización:</td><td className='LogInfoPropValue'>{logItem.updatedData.lastUpdate}</td></tr>
+                            <tr><td className='LogInfoPropName'>Zona [Id]:</td><td className='LogInfoPropValue'>{logItem.updatedData.zoneId}</td></tr>
                         </>
                         }
 
                         {logItem.previousData && <>
-                            <tr><td colSpan={2} className='LogInfoPropNameLine'>Previous Data [{logItem.previousData.lastUpdate}]</td></tr>
+                            <tr><td colSpan={2} className='LogInfoPropNameLine'>Datos Anteriores [{logItem.previousData.lastUpdate}]</td></tr>
                             <tr><td className='LogInfoPropName'>Id:</td><td className='LogInfoPropValue'>{logItem.previousData.id}</td></tr>
-                            <tr><td className='LogInfoPropName'>Address:</td><td className='LogInfoPropValue'>{logItem.previousData.address}</td></tr>
-                            <tr><td className='LogInfoPropName'>Name:</td><td className='LogInfoPropValue'>{logItem.previousData.name}</td></tr>
-                            <tr><td className='LogInfoPropName'>Number:</td><td className='LogInfoPropValue'>{logItem.previousData.number}</td></tr>
-                            <tr><td className='LogInfoPropName'>Phone:</td><td className='LogInfoPropValue'>{logItem.previousData.phone}</td></tr>
+                            <tr><td className='LogInfoPropName'>Dirección:</td><td className='LogInfoPropValue'>{logItem.previousData.address}</td></tr>
+                            <tr><td className='LogInfoPropName'>Nombre y Apellidos:</td><td className='LogInfoPropValue'>{logItem.previousData.name}</td></tr>
+                            <tr><td className='LogInfoPropName'>Puerta:</td><td className='LogInfoPropValue'>{logItem.previousData.number}</td></tr>
+                            <tr><td className='LogInfoPropName'>Telefono:</td><td className='LogInfoPropValue'>{logItem.previousData.phone}</td></tr>
                             <tr><td className='LogInfoPropName'>Dni:</td><td className='LogInfoPropValue'>{logItem.previousData.dni}</td></tr>
-                            <tr><td className='LogInfoPropName'>Last Contact:</td><td className='LogInfoPropValue'>{logItem.previousData.lastContact}</td></tr>
+                            <tr><td className='LogInfoPropName'>Fecha Último Contacto:</td><td className='LogInfoPropValue'>{logItem.previousData.lastContact}</td></tr>
                             <tr><td className='LogInfoPropName'>Email:</td><td className='LogInfoPropValue'>{logItem.previousData.email}</td></tr>
-                            <tr><td className='LogInfoPropName'>Sale Date:</td><td className='LogInfoPropValue'>{logItem.previousData.saleDate}</td></tr>
-                            <tr><td className='LogInfoPropName'>Adviser:</td><td className='LogInfoPropValue'>{logItem.previousData.adviser}</td></tr>
-                            <tr><td className='LogInfoPropName'>Final Sale Price:</td><td className='LogInfoPropValue'>{logItem.previousData.finalSalePrice}</td></tr>
-                            <tr><td className='LogInfoPropName'>Reduction:</td><td className='LogInfoPropValue'>{logItem.previousData.reduction}</td></tr>
+                            <tr><td className='LogInfoPropName'>Fecha Venta:</td><td className='LogInfoPropValue'>{logItem.previousData.saleDate}</td></tr>
+                            <tr><td className='LogInfoPropName'>Precio Final Venta:</td><td className='LogInfoPropValue'>{logItem.previousData.finalSalePrice}</td></tr>
                             <tr><td className='LogInfoPropName'>Particular:</td><td className='LogInfoPropValue'>{logItem.previousData.particular}</td></tr>
-                            <tr><td className='LogInfoPropName'>Real Estate:</td><td className='LogInfoPropValue'>{logItem.previousData.realEstate}</td></tr>
-                            <tr><td className='LogInfoPropName'>Fee:</td><td className='LogInfoPropValue'>{logItem.previousData.fee}</td></tr>
-                            <tr><td className='LogInfoPropName'>Observation:</td><td className='LogInfoPropValue'>{logItem.previousData.observation}</td></tr>
-                            <tr><td className='LogInfoPropName'>Tracing:</td><td className='LogInfoPropValue'>{logItem.previousData.tracing}</td></tr>
-                            <tr><td className='LogInfoPropName'>Last Update:</td><td className='LogInfoPropValue'>{logItem.previousData.lastUpdate}</td></tr>
-                            <tr><td className='LogInfoPropName'>Zone Id:</td><td className='LogInfoPropValue'>{logItem.previousData.zoneId}</td></tr>
+                            <tr><td className='LogInfoPropName'>Inmobiliaria:</td><td className='LogInfoPropValue'>{logItem.previousData.realEstate}</td></tr>
+                            <tr><td className='LogInfoPropName'>Rebaja:</td><td className='LogInfoPropValue'>{logItem.previousData.reduction}</td></tr>
+                            <tr><td className='LogInfoPropName'>Asesor:</td><td className='LogInfoPropValue'>{logItem.previousData.adviser}</td></tr>
+                            <tr><td className='LogInfoPropName'>Honorarios:</td><td className='LogInfoPropValue'>{logItem.previousData.fee}</td></tr>
+                            <tr><td className='LogInfoPropName'>Observaciones:</td><td className='LogInfoPropValue'>{logItem.previousData.observation}</td></tr>
+                            <tr><td className='LogInfoPropName'>Seguimiento:</td><td className='LogInfoPropValue'>{logItem.previousData.tracing}</td></tr>
+                            <tr><td className='LogInfoPropName'>Actualización:</td><td className='LogInfoPropValue'>{logItem.previousData.lastUpdate}</td></tr>
+                            <tr><td className='LogInfoPropName'>Zona [Id]:</td><td className='LogInfoPropValue'>{logItem.previousData.zoneId}</td></tr>
                         </>
                         }
                     </table>
