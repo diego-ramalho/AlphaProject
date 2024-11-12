@@ -405,7 +405,7 @@ const Taraturas = () =>
                       })}
 
                       <TableCell key={index} align='center'>
-                        <button onClick={() => { if (window.confirm('¿eliminar este registro?')) deleteRegister(person.id); }} className="btn btn-md btn-danger btn-delete-register" disabled={person.isDeleting} hidden={user.roleId == 2}>
+                        <button onClick={() => { if (window.confirm('¿eliminar este registro?')) deleteRegister(person.id); }} className="btn btn-md btn-danger btn-delete-register" disabled={person.isDeleting} hidden={user?.roleId == 2}>
                           {person.isDeleting
                             ? <span className="spinner-border spinner-border-sm"></span>
                             : <span><Icon.TrashFill className='FontAwesomeIcon' /></span>

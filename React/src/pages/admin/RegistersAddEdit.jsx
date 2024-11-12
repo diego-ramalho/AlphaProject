@@ -52,7 +52,12 @@ function RegistersAddEdit({ match })
     //     resolver: yupResolver(validationSchema)
     // });
 
-    const { register, handleSubmit, reset, setValue, formState: { errors }, formState } = useForm();
+    // const { register, handleSubmit, reset, setValue, formState: { errors }, formState } = useForm();
+    const { register, handleSubmit, setValue, formState: { errors }, formState } = useForm({
+        defaultValues: {
+            zoneId: '', // Inicializar com vazio ou `zone` para modo de edição
+        }
+    });
 
     var pageCode = useSelector(state => state.previousPageCode);
     var pagePath = useSelector(state => state.previousPagePath);
@@ -62,7 +67,10 @@ function RegistersAddEdit({ match })
     //const [filterChecked, setFilterChecked] = useState([]);
     const [initialFilters, setInitialFilters] = useState([]);
     const [selectedFilters, setSelectedFilters] = useState([]);
-    const [zoneoptions, setZoneOptions] = useState([]);
+    const [zoneOptions, setZoneOptions] = useState([]);
+    const [zone, setZone] = useState(null);
+
+    const [isLoading, setIsLoading] = useState(true); // Estado de carregamento
 
     const [user, setUser] = useState(null);
 
@@ -74,6 +82,26 @@ function RegistersAddEdit({ match })
     const [chkInformadores, setChkInformadores] = useState(false); //5
     const [chkNoticias, setChkNoticias] = useState(false); //6
     const [chkEncargos, setChkEncargos] = useState(false); //7
+
+    // Sincronizar `zone` com o valor do `select` quando zoneOptions é carregado
+    // useEffect(() =>
+    // {
+    //     const loadOptions = async () =>
+    //     {
+    //         const zones = await zoneActions.getAll();
+    //         setZoneOptions(zones);
+
+    //         // No modo de edição, definimos `zoneId` assim que `zoneOptions` e `registerItem` estão prontos
+    //         if (!isAddMode)
+    //         {
+    //             const item = await registerActions.getById(id);
+    //             //setRegister(item);
+    //             setZone(item.zoneId);
+    //             setValue('zoneId', item.zoneId); // Definir `zoneId` inicial no formulário
+    //         }
+    //     };
+    //     loadOptions();
+    // }, [id, isAddMode, setValue, zoneActions, registerActions]);
 
     const onSubmit = async (data) =>
     {
@@ -299,52 +327,59 @@ function RegistersAddEdit({ match })
 
     useEffect(() =>
     {
-        filterActions.getAll().then(x => { setFilterOptions(x); });
-        zoneActions.getAll().then(x => setZoneOptions(x));
-
-        if (!isAddMode)
+        const loadOptions = async () =>
         {
-            filterActions.getByRegisterId(id).then(x =>
+            setIsLoading(true); // Inicia o carregamento
+
+            try
             {
-                setInitialFilters(x);
-                setSelectedFilters(x);
-                //console.log(x);
+                //filterActions.getAll().then(x => { setFilterOptions(x); });
+                const _filters = await filterActions.getAll();
+                setFilterOptions(_filters);
 
-                // checkboxes.forEach(function (item, index)
-                // {
-                //     if (x.includes(index + 1))
-                //     {
-                //         checkboxes[index] = true;
-                //     }
-                //     //checkboxes.map((item) => it === item-1 ? item : !item)
-                //     // var teste = checkboxes[item];
-                //     // setCheckboxes(checkboxes => checkboxes.map((it, idx) => idx === item ? item : !item))
-                //     // console.log("filters: " + item, index)
-                // });
+                //zoneActions.getAll().then(x => setZoneOptions(x));
+                const _zones = await zoneActions.getAll();
+                setZoneOptions(_zones);
 
-                // x.forEach(function (item, index) {
-                //     setCheckboxes(checkboxes => checkboxes.map((it, idx) => idx === it ? !item : item))
-                //     console.log("filters: " + item, index)
-                //   });
+                if (!isAddMode)
+                {
+                    filterActions.getByRegisterId(id).then(x =>
+                    {
+                        setInitialFilters(x);
+                        setSelectedFilters(x);
+                    });
 
-                // x.forEach(function (item, index) {
-                //     setCheckboxes(checkboxes => checkboxes.map((item, idx) => idx === index ? !item : item))
-                //     console.log("filters: " + item, index)
-                //   });
-            });
-
-            // get user and set form fields
-            registerActions.getById(id).then(registerItem =>
+                    // get user and set form fields
+                    registerActions.getById(id).then(registerItem =>
+                    {
+                        const fields = ['address', 'name', 'number', 'observation', 'phone', 'dni', 'lastContact', 'email', 'saleDate', 'adviser', 'finalSalePrice', 'reduction', 'particular', 'realEstate', 'fee', 'tracing', 'zoneId'];
+                        fields.forEach(field => setValue(field, registerItem[field], false));
+                        setRegister(registerItem);
+                        //setZone(registerItem['zoneId']);
+                        setZone(registerItem.zoneId);
+                    });
+                    // const item = await registerActions.getById(id);
+                    // const fields = ['address', 'name', 'number', 'observation', 'phone', 'dni', 'lastContact', 'email', 'saleDate', 'adviser', 'finalSalePrice', 'reduction', 'particular', 'realEstate', 'fee', 'tracing', 'zoneId'];
+                    // fields.forEach(field => setValue(field, registerItem[field], false));
+                    // setRegister(item);
+                    // //setZone(registerItem['zoneId']);
+                    // setZone(item.zoneId);
+                }
+            } finally
             {
-                const fields = ['address', 'name', 'number', 'observation', 'phone', 'dni', 'lastContact', 'email', 'saleDate', 'adviser', 'finalSalePrice', 'reduction', 'particular', 'realEstate', 'fee', 'tracing', 'zoneId'];
-                fields.forEach(field => setValue(field, registerItem[field], false));
-                setRegister(registerItem);
-            });
-        }
+                setIsLoading(false); // Finaliza o carregamento
+            }
+        };
+        loadOptions();
+
     }, []);
 
 
-
+    if (isLoading)
+    {
+        //return <div>Carregando...</div>;
+        return <div className="form-row"><div className="form-group col-sm-12 d-flex justify-content-center"><span className="spinner-border spinner-border-sm mr-1"></span></div></div>
+    }
 
     return (
         <form autocomplete="off" onSubmit={handleSubmit(onSubmit)}>
@@ -479,15 +514,35 @@ function RegistersAddEdit({ match })
             </div>
             <div className="form-row">
                 <div className="form-group col-md-4 col-sm-12">
-                    <label>Zona</label>
+                    {/* <label>Zona</label>
                     <select name="zoneId" {...register('zoneId', { required: true })} className={'form-control' + (errors.zoneId ? ' is-invalid' : '')}>
                         {isAddMode ? <option value="">- Seleccione una opción -</option> : ''}
-                        {zoneoptions.map(option => (
-                            <option key={option.zoneName} value={option.id}>
+                        {zoneOptions.map(option => (
+                            <option key={option.zoneName + register('zoneId')} value={option.id}>
+                                {option.zoneName}
+                            </option>
+                        ))}
+                    </select> */}
+
+                    <label>Zona</label>
+                    <select
+                        name="zoneId"
+                        {...register('zoneId', { required: true })}
+                        defaultValue={isAddMode ? '' : zone} // Define o valor padrão conforme o modo
+                        className={'form-control' + (errors.zoneId ? ' is-invalid' : '')}
+                    >
+                        {isAddMode ? <option value="">- Seleccione uma opção -</option> : null}
+                        {zoneOptions.map(option => (
+                            <option key={option.id} value={option.id}>
                                 {option.zoneName}
                             </option>
                         ))}
                     </select>
+
+                    {/* {zoneOptions.map(option => (
+                        <div>{option.zoneName + ' - ' + option.id + ' - ' + zone}</div>
+                    ))} */}
+
                     <div className="invalid-feedback">{errors.zoneId && <p>campo obligatorio</p>}</div>
                 </div>
             </div>
