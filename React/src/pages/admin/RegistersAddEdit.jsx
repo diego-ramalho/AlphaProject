@@ -132,7 +132,25 @@ function RegistersAddEdit({ match })
 
     const updateRegister = async (id, data) =>
     {
-        if (data.filterList === false) data.filterList = [];
+        // if (data.filterList === false)
+        //     data.filterList = [];
+
+        // Garantir que data.filterList seja um array
+        if (!Array.isArray(data.filterList))
+        {
+            data.filterList = [];
+        }
+
+        // data.filterList.push("9998");
+        // data.filterList.push("9999");
+        // const index1 = data.filterList.indexOf("9998");
+        // if (index1 > -1) {
+        //     data.filterList.splice(index1, 1);
+        // }
+        // const index2 = data.filterList.indexOf("9999");
+        // if (index2 > -1) {
+        //     data.filterList.splice(index2, 1);
+        // }
 
         if (data.filterList.length === 0)
         {
@@ -140,7 +158,8 @@ function RegistersAddEdit({ match })
 
             cklist.forEach(element =>
             {
-                data.filterList.push(element.value + "");
+                //data.filterList.push(element.value + "");
+                data.filterList.push(element.value);
 
                 //alert(element.value);
                 const id = element.value;
